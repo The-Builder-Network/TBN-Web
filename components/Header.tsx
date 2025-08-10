@@ -78,12 +78,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, MutableRefObject, MouseEvent } from "react";
 
 export default function Header() {
     const pathname = usePathname();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const dropdownRef = useRef(null);
+    const dropdownRef = useRef<HTMLDivElement | null>(null);
 
     // Placeholder for registration pending check
     const isRegistrationPending = false; // In a real app, this would check user registration status
@@ -93,8 +93,8 @@ export default function Header() {
 
     // Close dropdown when clicking outside
     useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        const handleClickOutside = (event: MouseEvent | globalThis.MouseEvent) => {
+            if (dropdownRef.current && event.target && !dropdownRef.current.contains(event.target as Node)) {
                 setIsDropdownOpen(false);
             }
         };
@@ -143,8 +143,8 @@ export default function Header() {
                                 <Link
                                     href="/dashboard"
                                     className={`text-[#4A4A4A] font-medium font-inter ${pathname === "/dashboard"
-                                            ? "text-[#A1C5FF]"
-                                            : "text-[#000000]"
+                                        ? "text-[#A1C5FF]"
+                                        : "text-[#000000]"
                                         }`}
                                 >
                                     Dashboard
@@ -152,8 +152,8 @@ export default function Header() {
                                 <Link
                                     href="/my-jobs"
                                     className={`text-[#4A4A4A] font-medium font-inter ${pathname === "/my-jobs"
-                                            ? "text-[#A1C5FF]"
-                                            : "text-[#000000]"
+                                        ? "text-[#A1C5FF]"
+                                        : "text-[#000000]"
                                         }`}
                                 >
                                     My Jobs
@@ -161,8 +161,8 @@ export default function Header() {
                                 <Link
                                     href="/profile"
                                     className={`text-[#4A4A4A] font-medium font-inter ${pathname === "/profile"
-                                            ? "text-[#A1C5FF]"
-                                            : "text-[#000000]"
+                                        ? "text-[#A1C5FF]"
+                                        : "text-[#000000]"
                                         }`}
                                 >
                                     Profile
@@ -179,8 +179,8 @@ export default function Header() {
                                 <Link
                                     href="/new-leads"
                                     className={`font-medium font-inter ${pathname === "/new-leads"
-                                            ? "text-[#A1C5FF]"
-                                            : "text-[#000000]"
+                                        ? "text-[#A1C5FF]"
+                                        : "text-[#000000]"
                                         }`}
                                 >
                                     New Leads
@@ -188,8 +188,8 @@ export default function Header() {
                                 <Link
                                     href="/activity"
                                     className={`font-medium font-inter ${pathname === "/activity"
-                                            ? "text-[#A1C5FF]"
-                                            : "text-[#000000]"
+                                        ? "text-[#A1C5FF]"
+                                        : "text-[#000000]"
                                         }`}
                                 >
                                     Activity
@@ -197,8 +197,8 @@ export default function Header() {
                                 <Link
                                     href="/contact"
                                     className={`font-medium font-inter ${pathname === "/contact"
-                                            ? "text-[#A1C5FF]"
-                                            : "text-[#000000]"
+                                        ? "text-[#A1C5FF]"
+                                        : "text-[#000000]"
                                         }`}
                                 >
                                     Contact
@@ -207,8 +207,8 @@ export default function Header() {
                                     <button
                                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                                         className={`font-medium font-inter ${pathname === "/my-account"
-                                                ? "text-[#A1C5FF]"
-                                                : "text-[#000000]"
+                                            ? "text-[#A1C5FF]"
+                                            : "text-[#000000]"
                                             }`}
                                     >
                                         My Account
