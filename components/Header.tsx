@@ -74,11 +74,12 @@
 //   );
 // }
 
+
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { useState, useEffect, useRef, MutableRefObject, MouseEvent } from "react";
+import { useState, useEffect, useRef, MouseEvent } from "react";
 
 export default function Header() {
     const pathname = usePathname();
