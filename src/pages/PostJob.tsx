@@ -339,7 +339,6 @@ const PostJob = () => {
 
             {step < totalSteps ? (
               <Button 
-                variant="cta" 
                 onClick={handleNext}
                 disabled={
                   (step === 1 && !formData.category) ||
@@ -353,7 +352,6 @@ const PostJob = () => {
               </Button>
             ) : (
               <Button 
-                variant="cta" 
                 onClick={handleSubmit}
                 disabled={!formData.email}
               >
