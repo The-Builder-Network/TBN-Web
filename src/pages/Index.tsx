@@ -2,8 +2,8 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/home/HeroSection";
 import CategoriesSection from "@/components/home/CategoriesSection";
-import FeaturedTradesSection from "@/components/home/FeaturedTradesSection";
 import HowItWorksSection from "@/components/home/HowItWorksSection";
+import FeaturedTradesSection from "@/components/home/FeaturedTradesSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import CTASection from "@/components/home/CTASection";
 

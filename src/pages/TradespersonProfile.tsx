@@ -193,9 +193,8 @@ const TradespersonProfile = () => {
                 </div>
               </div>
 
-              {/* Actions */}
               <div className="flex flex-col gap-3 md:items-end shrink-0">
-                <Button variant="cta" size="lg" className="w-full md:w-auto">
+                <Button size="lg" className="w-full md:w-auto">
                   <MessageSquare className="h-5 w-5 mr-2" />
                   Get a Quote
                 </Button>
@@ -393,7 +392,7 @@ const TradespersonProfile = () => {
               {/* Contact Card */}
               <div className="bg-card rounded-xl border p-6 sticky top-24">
                 <h3 className="font-semibold text-lg mb-4">Get in Touch</h3>
-                <Button variant="cta" className="w-full mb-4">
+                <Button className="w-full mb-4">
                   <MessageSquare className="h-5 w-5 mr-2" />
                   Request a Quote
                 </Button>

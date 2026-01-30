@@ -254,7 +254,7 @@ const Tradespeople = () => {
                   className="w-full h-12 pl-12 pr-4 rounded-lg border-0 focus:ring-2 focus:ring-secondary outline-none"
                 />
               </div>
-              <Button variant="cta" size="lg">
+              <Button size="lg">
                 Search
               </Button>
             </div>
@@ -448,7 +448,7 @@ const Tradespeople = () => {
                           ? "p-4 flex items-center border-l" 
                           : "px-4 pb-4 pt-0"
                         }>
-                          <Button variant="cta" className={viewMode === "list" ? "" : "w-full"}>
+                          <Button className={viewMode === "list" ? "" : "w-full"}>
                             Get Quote
                           </Button>
                         </div>

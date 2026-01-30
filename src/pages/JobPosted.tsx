@@ -65,7 +65,7 @@ const JobPosted = () => {
           {/* CTA */}
           <div className="space-y-4">
             <Link to="/my-jobs">
-              <Button variant="cta" size="lg" className="w-full">
+              <Button size="lg" className="w-full">
                 View My Jobs
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Button>
