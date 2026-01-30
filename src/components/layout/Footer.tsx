@@ -8,29 +8,40 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <Link to="/" className="text-xl font-bold text-primary">
-              BuilderHub
+              The Builder Network
             </Link>
             <p className="text-sm text-muted-foreground mt-2">
-              The UK's trusted platform for finding quality tradespeople.
+              The trusted platform for finding quality tradespeople.
             </p>
           </div>
 
           {/* For Homeowners */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">For Homeowners</h4>
+            <h4 className="font-semibold text-foreground mb-4">
+              For Homeowners
+            </h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <Link to="/post-job" className="hover:text-foreground transition-colors">
+                <Link
+                  to="/post-job"
+                  className="hover:text-foreground transition-colors"
+                >
                   Post a Job
                 </Link>
               </li>
               <li>
-                <Link to="/how-it-works" className="hover:text-foreground transition-colors">
+                <Link
+                  to="/how-it-works"
+                  className="hover:text-foreground transition-colors"
+                >
                   How It Works
                 </Link>
               </li>
               <li>
-                <Link to="/tradespeople" className="hover:text-foreground transition-colors">
+                <Link
+                  to="/tradespeople"
+                  className="hover:text-foreground transition-colors"
+                >
                   Find Tradespeople
                 </Link>
               </li>
@@ -39,15 +50,23 @@ const Footer = () => {
 
           {/* For Tradespeople */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">For Tradespeople</h4>
+            <h4 className="font-semibold text-foreground mb-4">
+              For Tradespeople
+            </h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <Link to="/join" className="hover:text-foreground transition-colors">
-                  Join BuilderHub
+                <Link
+                  to="/join"
+                  className="hover:text-foreground transition-colors"
+                >
+                  Join The Builder Network
                 </Link>
               </li>
               <li>
-                <Link to="/pricing" className="hover:text-foreground transition-colors">
+                <Link
+                  to="/pricing"
+                  className="hover:text-foreground transition-colors"
+                >
                   Pricing
                 </Link>
               </li>
@@ -59,12 +78,18 @@ const Footer = () => {
             <h4 className="font-semibold text-foreground mb-4">Company</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <Link to="/about" className="hover:text-foreground transition-colors">
+                <Link
+                  to="/about"
+                  className="hover:text-foreground transition-colors"
+                >
                   About
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-foreground transition-colors">
+                <Link
+                  to="/contact"
+                  className="hover:text-foreground transition-colors"
+                >
                   Contact
                 </Link>
               </li>
@@ -76,13 +101,19 @@ const Footer = () => {
       <div className="border-t">
         <div className="container py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2024 BuilderHub. All rights reserved.
+            © 2026 The Builder Network . All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
-            <Link to="/terms" className="hover:text-foreground transition-colors">
+            <Link
+              to="/terms"
+              className="hover:text-foreground transition-colors"
+            >
               Terms
             </Link>
-            <Link to="/privacy" className="hover:text-foreground transition-colors">
+            <Link
+              to="/privacy"
+              className="hover:text-foreground transition-colors"
+            >
               Privacy
             </Link>
           </div>

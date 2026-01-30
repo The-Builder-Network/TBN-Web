@@ -20,15 +20,23 @@ const Header = () => {
         <div className="container flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold text-primary">BuilderHub</span>
+            <span className="text-xl font-bold text-primary">
+              The Builder Network
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
-            <Link to="/post-job" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <Link
+              to="/post-job"
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
               Post a job
             </Link>
-            <Link to="/login" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <Link
+              to="/login"
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
               Log in
             </Link>
             <Link to="/join">
