@@ -25,20 +25,24 @@ const TradespersonHero = () => {
               <h2 className="text-2xl font-bold mb-6">View local trade work</h2>
 
               <form className="space-y-4">
-                <div className="flex flex-row items-center justify-between gap-2">
-                  <Select>
-                    <SelectTrigger className="w-full h-14 text-muted-foreground">
-                      <SelectValue placeholder="Your main trade" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="plumber">Plumber</SelectItem>
-                      <SelectItem value="electrician">Electrician</SelectItem>
-                      <SelectItem value="carpenter">Carpenter</SelectItem>
-                      <SelectItem value="builder">Builder</SelectItem>
-                      <SelectItem value="painter">Painter</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <Input placeholder="Pincode" className="col-span-2 h-14" />
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                  <div className="flex-1">
+                    <Select>
+                      <SelectTrigger className="w-full h-14 text-muted-foreground">
+                        <SelectValue placeholder="Your main trade" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="plumber">Plumber</SelectItem>
+                        <SelectItem value="electrician">Electrician</SelectItem>
+                        <SelectItem value="carpenter">Carpenter</SelectItem>
+                        <SelectItem value="builder">Builder</SelectItem>
+                        <SelectItem value="painter">Painter</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="w-full sm:w-1/3">
+                    <Input placeholder="Pincode" className="h-14" />
+                  </div>
                 </div>
 
                 <div className="space-y-2">

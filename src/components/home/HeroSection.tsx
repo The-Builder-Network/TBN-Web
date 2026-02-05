@@ -96,8 +96,9 @@ const HeroSection = () => {
             {/* Search Form */}
             <div className="mb-6 relative max-w-lg">
               <p className="text-3xl font-semibold mb-4">What is your job?</p>
-              <div className="flex w-full items-center space-x-2">
-                <Popover open={openCombobox} onOpenChange={setOpenCombobox}>
+              <div className="flex flex-col sm:flex-row w-full items-stretch sm:items-center gap-3">
+                <div className="flex-1">
+                  <Popover open={openCombobox} onOpenChange={setOpenCombobox}>
                   <PopoverTrigger asChild>
                     <Button
                       variant="outline"
@@ -146,6 +147,7 @@ const HeroSection = () => {
                     </Command>
                   </PopoverContent>
                 </Popover>
+                </div>
                 <Button
                   onClick={handleSubmit}
                   disabled={!selectedService}

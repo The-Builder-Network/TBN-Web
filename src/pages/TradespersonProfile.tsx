@@ -221,17 +221,19 @@ const TradespersonProfile = () => {
             {/* Left Column - Main Content */}
             <div className="lg:col-span-2 space-y-8">
               <Tabs defaultValue="about" className="w-full">
-                <TabsList className="w-full justify-start border-b rounded-none bg-transparent h-auto p-0 mb-6">
-                  {["about", "portfolio", "reviews"].map((tab) => (
-                    <TabsTrigger
-                      key={tab}
-                      value={tab}
-                      className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-6 py-3 capitalize"
-                    >
-                      {tab}
-                    </TabsTrigger>
-                  ))}
-                </TabsList>
+                <div className="w-full overflow-x-auto pb-2 mb-4 scrollbar-hide">
+                  <TabsList className="w-full justify-start border-b rounded-none bg-transparent h-auto p-0 inline-flex min-w-full">
+                    {["about", "portfolio", "reviews"].map((tab) => (
+                      <TabsTrigger
+                        key={tab}
+                        value={tab}
+                        className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-6 py-3 capitalize whitespace-nowrap"
+                      >
+                        {tab}
+                      </TabsTrigger>
+                    ))}
+                  </TabsList>
+                </div>
 
                 {/* About Tab */}
                 <TabsContent value="about" className="space-y-8">
