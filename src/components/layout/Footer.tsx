@@ -1,125 +1,338 @@
 import { Link } from "react-router-dom";
+import { Facebook, Youtube, Twitter } from "lucide-react";
+import PostJobStrip from "@/components/PostJobStrip";
+import { trades } from "@/data/trades";
 
 const Footer = () => {
   return (
-    <footer className="border-t bg-background">
-      <div className="container py-12">
-        <div className="grid gap-8 md:grid-cols-4">
-          {/* Brand */}
-          <div>
-            <Link to="/" className="text-xl font-bold text-primary">
-              The Builder Network
-            </Link>
-            <p className="text-sm text-muted-foreground mt-2">
-              The trusted platform for finding quality tradespeople.
-            </p>
-          </div>
+    <>
+      <footer className="border-t bg-background">
+        <div className="container py-12">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
+            {/* Brand */}
 
-          {/* For Homeowners */}
-          <div>
-            <h4 className="font-semibold text-foreground mb-4">
-              For Homeowners
-            </h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>
-                <Link
-                  to="/post-job"
-                  className="hover:text-foreground transition-colors"
-                >
-                  Post a Job
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/how-it-works"
-                  className="hover:text-foreground transition-colors"
-                >
-                  How It Works
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/tradespeople"
-                  className="hover:text-foreground transition-colors"
-                >
-                  Find Tradespeople
-                </Link>
-              </li>
-            </ul>
-          </div>
+            {/* Homeowners */}
+            <div>
+              <h4 className="font-semibold text-foreground mb-4">Homeowners</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <Link
+                    to="/post-job"
+                    className="hover:text-foreground hover:underline transition-colors underline"
+                  >
+                    Post a job
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/how-it-works"
+                    className="hover:text-foreground hover:underline transition-colors underline"
+                  >
+                    How it works
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/tradespeople"
+                    className="hover:text-foreground hover:underline transition-colors underline"
+                  >
+                    Find trades
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/quality-checks"
+                    className="hover:text-foreground hover:underline transition-colors underline"
+                  >
+                    Quality checks
+                  </Link>
+                </li>
+              </ul>
+            </div>
 
-          {/* For Tradespeople */}
-          <div>
-            <h4 className="font-semibold text-foreground mb-4">
-              For Tradespeople
-            </h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>
-                <Link
-                  to="/join"
-                  className="hover:text-foreground transition-colors"
-                >
-                  Join The Builder Network
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/pricing"
-                  className="hover:text-foreground transition-colors"
-                >
-                  Pricing
-                </Link>
-              </li>
-            </ul>
-          </div>
+            {/* Tradespeople */}
+            <div>
+              <h4 className="font-semibold text-foreground mb-4">
+                Tradespeople
+              </h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <Link
+                    to="/tradesperson"
+                    className="hover:text-foreground hover:underline transition-colors underline"
+                  >
+                    Register as tradesperson
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/quality-requirements"
+                    className="hover:text-foreground hover:underline transition-colors underline"
+                  >
+                    Quality requirements
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/reviews-policy"
+                    className="hover:text-foreground hover:underline transition-colors underline"
+                  >
+                    Reviews policy
+                  </Link>
+                </li>
+              </ul>
+            </div>
 
-          {/* Company */}
-          <div>
-            <h4 className="font-semibold text-foreground mb-4">Company</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>
-                <Link
-                  to="/about"
-                  className="hover:text-foreground transition-colors"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  className="hover:text-foreground transition-colors"
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
+            {/* Company info */}
+            <div>
+              <h4 className="font-semibold text-foreground mb-4">
+                Company info
+              </h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <Link
+                    to="/about"
+                    className="hover:text-foreground hover:underline transition-colors underline"
+                  >
+                    About us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/become-a-partner"
+                    className="hover:text-foreground hover:underline transition-colors underline"
+                  >
+                    Become a partner
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/services"
+                    className="hover:text-foreground hover:underline transition-colors underline"
+                  >
+                    Services
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Helpful resources */}
+            <div>
+              <h4 className="font-semibold text-foreground mb-4">
+                Helpful resources
+              </h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <Link
+                    to="/trades"
+                    className="hover:text-foreground hover:underline transition-colors underline"
+                  >
+                    Trades
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/cities"
+                    className="hover:text-foreground hover:underline transition-colors underline"
+                  >
+                    Cities
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <Link to="/" className="flex items-center gap-2 mb-4 hover:opacity-80 transition-opacity">
+                <img
+                  src="/images/logo-black.png"
+                  alt="The Builder Network"
+                  className="w-full"
+                />
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className="border-t">
-        <div className="container py-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
-            © 2026 The Builder Network . All rights reserved.
-          </p>
-          <div className="flex gap-6 text-sm text-muted-foreground">
-            <Link
-              to="/terms"
-              className="hover:text-foreground transition-colors"
-            >
-              Terms
-            </Link>
-            <Link
-              to="/privacy"
-              className="hover:text-foreground transition-colors"
-            >
-              Privacy
-            </Link>
+        {/* Find tradespeople in your area */}
+        <div className="border-t  bg-primary/5">
+          <div className="container py-8">
+            <h4 className="font-semibold text-foreground mb-4">
+              Find tradespeople in your area
+            </h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-sm text-muted-foreground">
+              <Link
+                to="/cities"
+                className="hover:text-foreground hover:underline transition-colors underline"
+              >
+                London
+              </Link>
+              <Link
+                to="/cities"
+                className="hover:text-foreground hover:underline transition-colors underline"
+              >
+                Manchester
+              </Link>
+              <Link
+                to="/cities"
+                className="hover:text-foreground hover:underline transition-colors underline"
+              >
+                Birmingham
+              </Link>
+              <Link
+                to="/cities"
+                className="hover:text-foreground hover:underline transition-colors underline"
+              >
+                Leeds
+              </Link>
+              <Link
+                to="/cities"
+                className="hover:text-foreground hover:underline transition-colors underline"
+              >
+                Glasgow
+              </Link>
+              <Link
+                to="/cities"
+                className="hover:text-foreground hover:underline transition-colors underline"
+              >
+                Bristol
+              </Link>
+              <Link
+                to="/cities"
+                className="hover:text-foreground hover:underline transition-colors underline"
+              >
+                Liverpool
+              </Link>
+              <Link
+                to="/cities"
+                className="hover:text-foreground hover:underline transition-colors underline"
+              >
+                Sheffield
+              </Link>
+              <Link
+                to="/cities"
+                className="hover:text-foreground hover:underline transition-colors underline"
+              >
+                Edinburgh
+              </Link>
+              <Link
+                to="/cities"
+                className="hover:text-foreground hover:underline transition-colors underline"
+              >
+                Cardiff
+              </Link>
+              <Link
+                to="/cities"
+                className="hover:text-foreground hover:underline transition-colors underline"
+              >
+                Newcastle
+              </Link>
+              <Link
+                to="/cities"
+                className="hover:text-foreground hover:underline transition-colors underline"
+              >
+                Leicester
+              </Link>
+              <Link
+                to="/cities"
+                className="hover:text-foreground hover:underline transition-colors underline"
+              >
+                Nottingham
+              </Link>
+              <Link
+                to="/cities"
+                className="hover:text-foreground hover:underline transition-colors underline"
+              >
+                Southampton
+              </Link>
+              <Link
+                to="/cities"
+                className="hover:text-foreground hover:underline transition-colors underline"
+              >
+                Cambridge
+              </Link>
+              <Link
+                to="/cities"
+                className="hover:text-foreground hover:underline transition-colors underline"
+              >
+                More cities »
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-    </footer>
+
+        {/* Tradespeople professions */}
+        <div className="border-t  bg-primary/10">
+          <div className="container py-8">
+            <h4 className="font-semibold text-foreground mb-4">
+              Our tradespeople's professions
+            </h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-sm text-muted-foreground">
+              {trades.slice(0, 17).map((trade) => (
+                <Link
+                  key={trade.slug}
+                  to={`/trades/${trade.slug}`}
+                  className="hover:text-foreground hover:underline transition-colors underline"
+                >
+                  {trade.name}
+                </Link>
+              ))}
+              <Link
+                to="/trades"
+                className="hover:text-foreground hover:underline transition-colors underline"
+              >
+                More trades »
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="border-t bg-primary text-primary-foreground">
+          <div className="container py-6">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm ">
+              <p>© 2026 The Builder Network. All rights reserved.</p>
+              <div className="flex gap-6">
+                <Link
+                  to="/privacy"
+                  className="hover:underline transition-colors underline"
+                >
+                  Privacy
+                </Link>
+                <Link to="/terms" className="hover:underline transition-colors underline">
+                  Terms and conditions
+                </Link>
+              </div>
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <div className="flex gap-4">
+                  <a
+                    href="https://facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors"
+                  >
+                    <Facebook className="h-5 w-5" />
+                  </a>
+                  <a
+                    href="https://youtube.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors"
+                  >
+                    <Youtube className="h-5 w-5" />
+                  </a>
+                  <a
+                    href="https://twitter.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors"
+                  >
+                    <Twitter className="h-5 w-5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 };
 

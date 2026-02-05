@@ -1,49 +1,70 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import LoginModal from "@/components/LoginModal";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
+  const location = useLocation();
+  const isTradespersonPage = location.pathname === "/tradesperson";
 
   return (
     <>
       {/* Top Banner */}
-      <div className="bg-primary text-primary-foreground text-sm py-2 text-center">
-        <span>Are you a tradesperson looking for leads? </span>
-        <Link to="/join" className="underline font-medium hover:no-underline">
-          Join for free
-        </Link>
-      </div>
+      {!isTradespersonPage && (
+        <div className="bg-primary text-primary-foreground text-sm py-1 text-center">
+          <span>Are you a tradesperson looking for leads? </span>
+          <Link
+            to="/tradesperson"
+            className="underline font-medium hover:no-underline"
+          >
+            Join for free
+          </Link>
+        </div>
+      )}
 
-      <header className="sticky top-0 z-50 w-full border-b bg-background">
-        <div className="container flex h-16 items-center justify-between">
+      <header className="sticky top-0 z-50 w-full border-b py-4 bg-background">
+        <div className="container flex h-12 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold text-primary">
-              The Builder Network
-            </span>
+            <img
+              src="/images/logo-black.png"
+              alt="The Builder Network"
+              className="h-12 mb-0.5"
+            />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6">
-            <Link
-              to="/post-job"
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
-            >
-              Post a job
-            </Link>
-            <Link
-              to="/login"
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+          <nav className="hidden md:flex items-center gap-8">
+            {!isTradespersonPage && (
+              <Link
+                to="/post-job"
+                className="text-base font-medium text-foreground hover:text-primary transition-colors"
+              >
+                Post a job
+              </Link>
+            )}
+            <button
+              onClick={() => setLoginModalOpen(true)}
+              className="text-base font-medium text-foreground hover:text-primary transition-colors"
             >
               Log in
-            </Link>
-            <Link to="/join">
-              <Button variant="outline" size="sm">
-                Sign up as a tradesperson
-              </Button>
-            </Link>
+            </button>
+            {isTradespersonPage ? (
+              <Link to="/">
+                <Button variant="outline" size="sm">
+                  I'm a customer
+                </Button>
+              </Link>
+            ) : (
+              <Link to="/tradesperson">
+                <Button variant="outline" size="sm">
+                  Sign up as a tradesperson
+                </Button>
+              </Link>
+            )}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -63,31 +84,47 @@ const Header = () => {
         {mobileMenuOpen && (
           <div className="md:hidden border-t bg-background animate-fade-in">
             <nav className="container py-4 space-y-2">
-              <Link
-                to="/post-job"
-                className="block px-4 py-3 text-sm font-medium hover:bg-muted rounded-md transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Post a job
-              </Link>
-              <Link
-                to="/login"
-                className="block px-4 py-3 text-sm font-medium hover:bg-muted rounded-md transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
+              {!isTradespersonPage && (
+                <Link
+                  to="/post-job"
+                  className="block px-4 py-3 text-sm font-medium hover:bg-muted rounded-md transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Post a job
+                </Link>
+              )}
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setLoginModalOpen(true);
+                }}
+                className="block w-full text-left px-4 py-3 text-sm font-medium hover:bg-muted rounded-md transition-colors"
               >
                 Log in
-              </Link>
+              </button>
               <div className="px-4 pt-2">
-                <Link to="/join" onClick={() => setMobileMenuOpen(false)}>
-                  <Button variant="outline" className="w-full">
-                    Sign up as a tradesperson
-                  </Button>
-                </Link>
+                {isTradespersonPage ? (
+                  <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+                    <Button variant="outline" size={"xl"} className="w-full">
+                      I'm a customer
+                    </Button>
+                  </Link>
+                ) : (
+                  <Link
+                    to="/tradesperson"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <Button variant="outline" size={"xl"} className="w-full">
+                      Sign up as a tradesperson
+                    </Button>
+                  </Link>
+                )}
               </div>
             </nav>
           </div>
         )}
       </header>
+      <LoginModal open={loginModalOpen} onOpenChange={setLoginModalOpen} />
     </>
   );
 };
