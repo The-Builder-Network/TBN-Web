@@ -2,12 +2,17 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "4rem",
       screens: {
         "2xl": "1400px",
       },
@@ -59,6 +64,7 @@ export default {
           DEFAULT: "hsl(var(--info))",
           foreground: "hsl(var(--info-foreground))",
         },
+        highlight: "#ef3e50",
         verified: "hsl(var(--verified))",
         star: "hsl(var(--star))",
         sidebar: {
@@ -81,8 +87,8 @@ export default {
         sans: ["'Space Grotesk'", "system-ui", "sans-serif"],
       },
       boxShadow: {
-        'card': '0 1px 3px 0 hsl(222 47% 11% / 0.06)',
-        'card-hover': '0 4px 6px -1px hsl(222 47% 11% / 0.08)',
+        card: "0 1px 3px 0 hsl(222 47% 11% / 0.06)",
+        "card-hover": "0 4px 6px -1px hsl(222 47% 11% / 0.08)",
       },
       keyframes: {
         "accordion-down": {
