@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -19,7 +19,7 @@
     --popover-foreground: 222 47% 11%;
 
     /* Primary - Deep Navy */
-    --primary: 232 47% 28%;
+    --primary: 217 100% 52%;
     --primary-foreground: 0 0% 100%;
 
     /* Secondary - Neutral gray for subtle elements */
@@ -31,7 +31,7 @@
     --muted-foreground: 220 9% 46%;
 
     /* Accent - Slightly lighter navy */
-    --accent: 232 47% 38%;
+    --accent: 217 100% 52%;
     --accent-foreground: 0 0% 100%;
 
     /* Destructive */
@@ -41,7 +41,7 @@
     /* UI elements */
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 232 47% 28%;
+    --ring: 217 100% 52%;
     --radius: 0.5rem;
 
     /* Extended palette - Gray scale only */
@@ -57,17 +57,17 @@
     --star-empty: 220 13% 91%;
 
     /* Trust/Verification */
-    --verified: 232 47% 28%;
+    --verified: 217 100% 52%;
 
     /* Sidebar */
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 222 47% 11%;
-    --sidebar-primary: 232 47% 28%;
+    --sidebar-primary: 217 100% 52%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 14% 96%;
     --sidebar-accent-foreground: 222 47% 11%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 232 47% 28%;
+    --sidebar-ring: 217 100% 52%;
   }
 
   .dark {
@@ -81,7 +81,7 @@
     --popover-foreground: 0 0% 98%;
 
     --primary: 0 0% 98%;
-    --primary-foreground: 232 47% 28%;
+    --primary-foreground: 217 100% 52%;
 
     --secondary: 222 47% 18%;
     --secondary-foreground: 0 0% 98%;
@@ -102,7 +102,7 @@
     --sidebar-background: 222 47% 11%;
     --sidebar-foreground: 0 0% 98%;
     --sidebar-primary: 0 0% 98%;
-    --sidebar-primary-foreground: 232 47% 28%;
+    --sidebar-primary-foreground: 217 100% 52%;
     --sidebar-accent: 222 47% 18%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 222 47% 20%;
@@ -117,19 +117,24 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: "Space Grotesk", system-ui, sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-semibold tracking-tight;
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: "Space Grotesk", system-ui, sans-serif;
   }
 }
 
 @layer components {
   /* Hero section with navy background */
   .hero-gradient {
-    background: hsl(232 47% 28%);
+    background: hsl(217 100% 52%);
   }
 
   /* Card hover effect */
@@ -168,4 +173,17 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+}
+
+.pattern {
+  background-color: #0a68ff;
+  opacity: 1;
+  background-size: 5px 5px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #ef3e50 0,
+    #ef3e50 0.5px,
+    #0a68ff 0,
+    #0a68ff 80%
+  );
 }

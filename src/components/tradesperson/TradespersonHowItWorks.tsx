@@ -1,43 +1,39 @@
-import { Link } from "react-router-dom";
-import { ClipboardList, Users, MessageSquare, ThumbsUp } from "lucide-react";
+import { Smartphone, User, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const steps = [
   {
-    icon: ClipboardList,
-    title: "Post your job",
-    description: "Tell us what you need done. It takes just a few minutes.",
+    icon: Smartphone,
+    title: "Receive tailored leads",
+    description:
+      "Set up your free professional profile and we'll send you leads that match your skills and work area.",
     step: 1,
   },
   {
-    icon: Users,
-    title: "Get matched",
-    description: "We'll match you with up to 3 interested tradespeople.",
+    icon: User,
+    title: "Express interest",
+    description:
+      "Respond to as many leads as you like. Based on your profile, work history and reviews, customers decide who to share their details with.",
     step: 2,
   },
   {
     icon: MessageSquare,
-    title: "Compare quotes",
-    description: "Chat with tradespeople, compare quotes and profiles.",
+    title: "Connect and arrange",
+    description:
+      "If you're shortlisted, we charge you a fee for the customer's contact details so you can get in touch to exchange more details about the job.",
     step: 3,
-  },
-  {
-    icon: ThumbsUp,
-    title: "Hire with confidence",
-    description: "Choose a tradesperson and get your job done.",
-    step: 4,
   },
 ];
 
-const HowItWorksSection = () => {
+const TradespersonHowItWorks = () => {
   return (
     <section className="py-20 bg-muted/50">
       <div className="container">
         <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-16 text-center">
-          How to find the right tradesperson
+          How to find the work you want
         </h2>
 
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {steps.map((step) => (
             <div key={step.step} className="text-center">
               <div className="inline-flex items-center justify-center w-32 h-32 p-10 rounded-full bg-primary text-primary-foreground mb-4">
@@ -54,8 +50,8 @@ const HowItWorksSection = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button asChild size="lg" variant="outline">
-            <Link to="/how-it-works">See How it works</Link>
+          <Button size="lg" className="px-8 font-bold">
+            Sign up for free
           </Button>
         </div>
       </div>
@@ -63,4 +59,4 @@ const HowItWorksSection = () => {
   );
 };
 
-export default HowItWorksSection;
+export default TradespersonHowItWorks;

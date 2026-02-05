@@ -1,58 +1,48 @@
 import { Link } from "react-router-dom";
-import { 
-  Hammer, 
-  Wrench, 
-  Zap, 
-  Home, 
-  Paintbrush, 
-  Droplets,
-  Wind,
-  Trees,
-} from "lucide-react";
-
-const categories = [
-  { name: "Builders", icon: Hammer },
-  { name: "Plumbers", icon: Droplets },
-  { name: "Electricians", icon: Zap },
-  { name: "Roofers", icon: Home },
-  { name: "Painters", icon: Paintbrush },
-  { name: "Plasterers", icon: Wrench },
-  { name: "Heating Engineers", icon: Wind },
-  { name: "Landscapers", icon: Trees },
-];
+import { trades } from "@/data/trades";
+import { Button } from "@/components/ui/button";
 
 const CategoriesSection = () => {
+  // Use first 8 trades as featured categories
+  const featuredTrades = trades.slice(0, 8);
+
   return (
-    <section className="py-16 bg-background">
+    <section className="pb-12 pt-8 bg-background">
       <div className="container">
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
+        <h2 className="text-3xl md:text-3xl font-bold text-foreground mb-14">
           Browse by trade
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {categories.map((category) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {featuredTrades.map((trade) => (
             <Link
-              key={category.name}
-              to={`/tradespeople?category=${category.name.toLowerCase()}`}
-              className="group flex items-center gap-3 p-4 rounded-lg border bg-card hover:border-primary transition-colors"
+              key={trade.slug}
+              to={`/trades/${trade.slug}`}
+              className="group flex overflow-hidden rounded-lg border bg-card hover:border-highlight transition-all hover:shadow-md h-24"
             >
-              <div className="p-2 rounded-md bg-muted group-hover:bg-primary/10 transition-colors">
-                <category.icon className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+              <div className="w-1/4 h-full relative">
+                <img
+                  src={trade.imageUrl}
+                  alt={trade.name}
+                  className="w-full h-full object-cover transition-transform duration-500"
+                />
               </div>
-              <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                {category.name}
-              </span>
+              <div className="w-3/4 p-3 flex flex-col justify-center">
+                <span className="font-semibold text-foreground group-hover:text-highlight transition-colors mb-1 line-clamp-1">
+                  {trade.name}
+                </span>
+                <p className="text-xs text-muted-foreground line-clamp-2">
+                  {trade.description}
+                </p>
+              </div>
             </Link>
           ))}
         </div>
 
-        <div className="text-center mt-8">
-          <Link
-            to="/tradespeople"
-            className="text-sm font-medium text-primary hover:underline"
-          >
-            View all trades
-          </Link>
+        <div className="text-center mt-12">
+          <Button asChild variant="outline" size="lg">
+            <Link to="/trades">View all trades</Link>
+          </Button>
         </div>
       </div>
     </section>

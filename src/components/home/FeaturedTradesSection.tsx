@@ -37,10 +37,10 @@ const featuredTrades = [
 
 const FeaturedTradesSection = () => {
   return (
-    <section className="py-16 bg-background">
+    <section className="py-16 md:py-24 bg-background">
       <div className="container">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Featured tradespeople
           </h2>
           <Link to="/tradespeople">
@@ -70,8 +70,12 @@ const FeaturedTradesSection = () => {
                       <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
                     )}
                   </div>
-                  <p className="text-sm text-muted-foreground truncate">{trade.company}</p>
-                  <p className="text-sm font-medium text-primary mt-1">{trade.trade}</p>
+                  <p className="text-sm text-muted-foreground truncate">
+                    {trade.company}
+                  </p>
+                  <p className="text-sm font-medium text-primary mt-1">
+                    {trade.trade}
+                  </p>
                 </div>
               </div>
 
@@ -79,7 +83,9 @@ const FeaturedTradesSection = () => {
                 <div className="flex items-center gap-1 text-sm">
                   <Star className="h-4 w-4 fill-star text-star" />
                   <span className="font-medium">{trade.rating}</span>
-                  <span className="text-muted-foreground">({trade.reviews})</span>
+                  <span className="text-muted-foreground">
+                    ({trade.reviews})
+                  </span>
                 </div>
                 <div className="flex items-center gap-1 text-sm text-muted-foreground">
                   <MapPin className="h-3.5 w-3.5" />

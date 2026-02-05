@@ -1,27 +1,28 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/home/HeroSection";
+import StatsSection from "@/components/home/StatsSection";
+import WhySection from "@/components/home/WhySection";
 import CategoriesSection from "@/components/home/CategoriesSection";
 import HowItWorksSection from "@/components/home/HowItWorksSection";
-import FeaturedTradesSection from "@/components/home/FeaturedTradesSection";
-import TestimonialsSection from "@/components/home/TestimonialsSection";
 import CTASection from "@/components/home/CTASection";
+import DownloadAppSection from "@/components/home/DownloadAppSection";
 
-const Index = () => {
+const HomePage = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="flex-1">
+      <main className="flex flex-col gap-8">
         <HeroSection />
-        <CategoriesSection />
+        <StatsSection />
         <HowItWorksSection />
-        <FeaturedTradesSection />
-        <TestimonialsSection />
-        <CTASection />
+        <WhySection />
+        <CategoriesSection />
+        <DownloadAppSection />
       </main>
       <Footer />
     </div>
   );
 };
 
-export default Index;
+export default HomePage;
