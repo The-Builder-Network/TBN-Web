@@ -99,54 +99,56 @@ const HeroSection = () => {
               <div className="flex flex-col sm:flex-row w-full items-stretch sm:items-center gap-3">
                 <div className="flex-1">
                   <Popover open={openCombobox} onOpenChange={setOpenCombobox}>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant="outline"
-                      role="combobox"
-                      aria-expanded={openCombobox}
-                      className="w-full justify-between h-14 text-lg px-4 text-foreground hover:bg-white/90 rounded-r-none border-r-0"
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant="outline"
+                        role="combobox"
+                        aria-expanded={openCombobox}
+                        className="w-full justify-between h-14 text-lg px-4 text-foreground hover:bg-white/90 rounded-r-none border-r-0"
+                      >
+                        {selectedService ? (
+                          services.find(
+                            (service) => service === selectedService,
+                          )
+                        ) : (
+                          <span className="text-muted-foreground/50">
+                            Restoration & Refurbishment
+                          </span>
+                        )}
+                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent
+                      className="w-[var(--radix-popover-trigger-width)] p-0"
+                      align="start"
                     >
-                      {selectedService ? (
-                        services.find((service) => service === selectedService)
-                      ) : (
-                        <span className="text-muted-foreground/50">
-                          Restoration & Refurbishment
-                        </span>
-                      )}
-                      <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent
-                    className="w-[var(--radix-popover-trigger-width)] p-0"
-                    align="start"
-                  >
-                    <Command>
-                      <CommandInput placeholder="Search category..." />
-                      <CommandList>
-                        <CommandEmpty>No category found.</CommandEmpty>
-                        <CommandGroup>
-                          {services.map((service) => (
-                            <CommandItem
-                              key={service}
-                              value={service}
-                              onSelect={handleSelectService}
-                            >
-                              <Check
-                                className={cn(
-                                  "mr-2 h-4 w-4",
-                                  selectedService === service
-                                    ? "opacity-100"
-                                    : "opacity-0",
-                                )}
-                              />
-                              {service}
-                            </CommandItem>
-                          ))}
-                        </CommandGroup>
-                      </CommandList>
-                    </Command>
-                  </PopoverContent>
-                </Popover>
+                      <Command>
+                        <CommandInput placeholder="Search category..." />
+                        <CommandList>
+                          <CommandEmpty>No category found.</CommandEmpty>
+                          <CommandGroup>
+                            {services.map((service) => (
+                              <CommandItem
+                                key={service}
+                                value={service}
+                                onSelect={handleSelectService}
+                              >
+                                <Check
+                                  className={cn(
+                                    "mr-2 h-4 w-4",
+                                    selectedService === service
+                                      ? "opacity-100"
+                                      : "opacity-0",
+                                  )}
+                                />
+                                {service}
+                              </CommandItem>
+                            ))}
+                          </CommandGroup>
+                        </CommandList>
+                      </Command>
+                    </PopoverContent>
+                  </Popover>
                 </div>
                 <Button
                   onClick={handleSubmit}

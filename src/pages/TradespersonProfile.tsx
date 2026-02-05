@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { 
-  Star, 
-  MapPin, 
-  CheckCircle, 
-  Shield, 
-  Clock, 
+import {
+  Star,
+  MapPin,
+  CheckCircle,
+  Shield,
+  Clock,
   Calendar,
   Briefcase,
   Award,
   Share2,
   Heart,
   MessageSquare,
-  ThumbsUp
+  ThumbsUp,
 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -32,8 +32,10 @@ const tradesperson = {
   rating: 4.9,
   reviewCount: 128,
   verified: true,
-  avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-  coverImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=400&fit=crop",
+  avatar:
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+  coverImage:
+    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=400&fit=crop",
   badges: ["Top Rated", "Responds Fast", "5+ Years"],
   completedJobs: 234,
   hourlyRate: "£45-65",
@@ -69,12 +71,48 @@ I hold all relevant certifications and am a member of the Federation of Master B
     expiresAt: "December 2025",
   },
   portfolio: [
-    { id: 1, image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop", title: "Kitchen Extension - Hackney", category: "Extensions" },
-    { id: 2, image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&h=400&fit=crop", title: "Loft Conversion - Islington", category: "Loft Conversions" },
-    { id: 3, image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop", title: "Full House Renovation", category: "Renovations" },
-    { id: 4, image: "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=600&h=400&fit=crop", title: "New Build Project", category: "New Builds" },
-    { id: 5, image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&h=400&fit=crop", title: "Bathroom Remodel", category: "Bathrooms" },
-    { id: 6, image: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&h=400&fit=crop", title: "Garden Room Extension", category: "Extensions" },
+    {
+      id: 1,
+      image:
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop",
+      title: "Kitchen Extension - Hackney",
+      category: "Extensions",
+    },
+    {
+      id: 2,
+      image:
+        "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&h=400&fit=crop",
+      title: "Loft Conversion - Islington",
+      category: "Loft Conversions",
+    },
+    {
+      id: 3,
+      image:
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop",
+      title: "Full House Renovation",
+      category: "Renovations",
+    },
+    {
+      id: 4,
+      image:
+        "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=600&h=400&fit=crop",
+      title: "New Build Project",
+      category: "New Builds",
+    },
+    {
+      id: 5,
+      image:
+        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&h=400&fit=crop",
+      title: "Bathroom Remodel",
+      category: "Bathrooms",
+    },
+    {
+      id: 6,
+      image:
+        "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&h=400&fit=crop",
+      title: "Garden Room Extension",
+      category: "Extensions",
+    },
   ],
   ratingBreakdown: {
     5: 95,
@@ -92,7 +130,8 @@ I hold all relevant certifications and am a member of the Federation of Master B
       project: "Kitchen Extension",
       text: "James and his team did an absolutely fantastic job on our kitchen extension. From the initial consultation to the final clean-up, everything was handled professionally. The work was completed on time and within budget. Couldn't be happier with the results!",
       helpful: 12,
-      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face",
+      avatar:
+        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face",
     },
     {
       id: 2,
@@ -102,7 +141,8 @@ I hold all relevant certifications and am a member of the Federation of Master B
       project: "Loft Conversion",
       text: "Excellent work on our loft conversion. James was very knowledgeable and helped us navigate the planning process smoothly. His team was punctual, tidy, and respectful of our home. The finished loft is beyond our expectations.",
       helpful: 8,
-      avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=face",
+      avatar:
+        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=face",
     },
     {
       id: 3,
@@ -112,7 +152,8 @@ I hold all relevant certifications and am a member of the Federation of Master B
       project: "Bathroom Installation",
       text: "Great job overall on our bathroom. Minor delays due to supply chain issues but James kept us informed throughout. The quality of work is excellent and we're very happy with the final result.",
       helpful: 5,
-      avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&h=100&fit=crop&crop=face",
+      avatar:
+        "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&h=100&fit=crop&crop=face",
     },
   ],
 };
@@ -120,12 +161,15 @@ I hold all relevant certifications and am a member of the Federation of Master B
 const TradespersonProfile = () => {
   const { id } = useParams();
   const [selectedImage, setSelectedImage] = useState(0);
-  const totalRatings = Object.values(tradesperson.ratingBreakdown).reduce((a, b) => a + b, 0);
+  const totalRatings = Object.values(tradesperson.ratingBreakdown).reduce(
+    (a, b) => a + b,
+    0,
+  );
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
-      
+
       <main className="flex-1">
         {/* Cover Image */}
         <div className="relative h-48 md:h-64 bg-gradient-to-br from-primary to-primary/80">
@@ -158,17 +202,25 @@ const TradespersonProfile = () => {
               {/* Info */}
               <div className="flex-1 text-center md:text-left">
                 <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-2">
-                  <h1 className="text-2xl md:text-3xl font-bold">{tradesperson.name}</h1>
+                  <h1 className="text-2xl md:text-3xl font-bold">
+                    {tradesperson.name}
+                  </h1>
                 </div>
-                <p className="text-muted-foreground mb-1">{tradesperson.company}</p>
-                <p className="text-primary font-medium mb-4">{tradesperson.trade}</p>
+                <p className="text-muted-foreground mb-1">
+                  {tradesperson.company}
+                </p>
+                <p className="text-primary font-medium mb-4">
+                  {tradesperson.trade}
+                </p>
 
                 {/* Quick Stats */}
                 <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-sm mb-4">
                   <div className="flex items-center gap-1">
                     <Star className="h-4 w-4 fill-star text-star" />
                     <span className="font-semibold">{tradesperson.rating}</span>
-                    <span className="text-muted-foreground">({tradesperson.reviewCount} reviews)</span>
+                    <span className="text-muted-foreground">
+                      ({tradesperson.reviewCount} reviews)
+                    </span>
                   </div>
                   <div className="flex items-center gap-1 text-muted-foreground">
                     <MapPin className="h-4 w-4" />
@@ -184,9 +236,15 @@ const TradespersonProfile = () => {
                 <div className="flex flex-wrap justify-center md:justify-start gap-2">
                   {tradesperson.badges.map((badge) => (
                     <Badge key={badge} className="trust-badge-verified">
-                      {badge === "Top Rated" && <Star className="h-3 w-3 mr-1 fill-current" />}
-                      {badge === "Responds Fast" && <Clock className="h-3 w-3 mr-1" />}
-                      {badge === "5+ Years" && <Award className="h-3 w-3 mr-1" />}
+                      {badge === "Top Rated" && (
+                        <Star className="h-3 w-3 mr-1 fill-current" />
+                      )}
+                      {badge === "Responds Fast" && (
+                        <Clock className="h-3 w-3 mr-1" />
+                      )}
+                      {badge === "5+ Years" && (
+                        <Award className="h-3 w-3 mr-1" />
+                      )}
                       {badge}
                     </Badge>
                   ))}
@@ -247,10 +305,15 @@ const TradespersonProfile = () => {
 
                   {/* Services */}
                   <div className="bg-card rounded-xl border p-6">
-                    <h2 className="text-xl font-semibold mb-4">Services Offered</h2>
+                    <h2 className="text-xl font-semibold mb-4">
+                      Services Offered
+                    </h2>
                     <div className="grid grid-cols-2 gap-3">
                       {tradesperson.services.map((service) => (
-                        <div key={service} className="flex items-center gap-2 text-sm">
+                        <div
+                          key={service}
+                          className="flex items-center gap-2 text-sm"
+                        >
                           <CheckCircle className="h-4 w-4 text-accent shrink-0" />
                           {service}
                         </div>
@@ -260,13 +323,20 @@ const TradespersonProfile = () => {
 
                   {/* Qualifications */}
                   <div className="bg-card rounded-xl border p-6">
-                    <h2 className="text-xl font-semibold mb-4">Qualifications & Accreditations</h2>
+                    <h2 className="text-xl font-semibold mb-4">
+                      Qualifications & Accreditations
+                    </h2>
                     <div className="space-y-3">
                       {tradesperson.qualifications.map((qual) => (
-                        <div key={qual.name} className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+                        <div
+                          key={qual.name}
+                          className="flex items-center justify-between p-3 bg-muted/50 rounded-lg"
+                        >
                           <div className="flex items-center gap-2">
                             <Award className="h-4 w-4 text-primary" />
-                            <span className="text-sm font-medium">{qual.name}</span>
+                            <span className="text-sm font-medium">
+                              {qual.name}
+                            </span>
                           </div>
                           {qual.verified && (
                             <Badge className="trust-badge-verified">
@@ -296,8 +366,12 @@ const TradespersonProfile = () => {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                           <div className="absolute bottom-3 left-3 right-3 text-white text-left">
-                            <p className="font-medium text-sm truncate">{item.title}</p>
-                            <p className="text-xs text-white/80">{item.category}</p>
+                            <p className="font-medium text-sm truncate">
+                              {item.title}
+                            </p>
+                            <p className="text-xs text-white/80">
+                              {item.category}
+                            </p>
                           </div>
                         </div>
                       </button>
@@ -312,7 +386,9 @@ const TradespersonProfile = () => {
                     <div className="flex flex-col md:flex-row gap-8">
                       {/* Overall Rating */}
                       <div className="text-center">
-                        <div className="text-5xl font-bold text-primary mb-2">{tradesperson.rating}</div>
+                        <div className="text-5xl font-bold text-primary mb-2">
+                          {tradesperson.rating}
+                        </div>
                         <div className="flex justify-center gap-1 mb-2">
                           {[...Array(5)].map((_, i) => (
                             <Star
@@ -321,7 +397,9 @@ const TradespersonProfile = () => {
                             />
                           ))}
                         </div>
-                        <p className="text-sm text-muted-foreground">{tradesperson.reviewCount} reviews</p>
+                        <p className="text-sm text-muted-foreground">
+                          {tradesperson.reviewCount} reviews
+                        </p>
                       </div>
 
                       {/* Rating Breakdown */}
@@ -331,11 +409,21 @@ const TradespersonProfile = () => {
                             <span className="text-sm w-3">{star}</span>
                             <Star className="h-4 w-4 fill-star text-star" />
                             <Progress
-                              value={(tradesperson.ratingBreakdown[star as keyof typeof tradesperson.ratingBreakdown] / totalRatings) * 100}
+                              value={
+                                (tradesperson.ratingBreakdown[
+                                  star as keyof typeof tradesperson.ratingBreakdown
+                                ] /
+                                  totalRatings) *
+                                100
+                              }
                               className="h-2 flex-1"
                             />
                             <span className="text-sm text-muted-foreground w-8">
-                              {tradesperson.ratingBreakdown[star as keyof typeof tradesperson.ratingBreakdown]}
+                              {
+                                tradesperson.ratingBreakdown[
+                                  star as keyof typeof tradesperson.ratingBreakdown
+                                ]
+                              }
                             </span>
                           </div>
                         ))}
@@ -346,7 +434,10 @@ const TradespersonProfile = () => {
                   {/* Reviews List */}
                   <div className="space-y-4">
                     {tradesperson.reviewsList.map((review) => (
-                      <div key={review.id} className="bg-card rounded-xl border p-6">
+                      <div
+                        key={review.id}
+                        className="bg-card rounded-xl border p-6"
+                      >
                         <div className="flex items-start gap-4">
                           <img
                             src={review.avatar}
@@ -356,8 +447,12 @@ const TradespersonProfile = () => {
                           <div className="flex-1">
                             <div className="flex items-center justify-between mb-2">
                               <div>
-                                <span className="font-semibold">{review.author}</span>
-                                <span className="text-muted-foreground text-sm ml-2">{review.date}</span>
+                                <span className="font-semibold">
+                                  {review.author}
+                                </span>
+                                <span className="text-muted-foreground text-sm ml-2">
+                                  {review.date}
+                                </span>
                               </div>
                               <div className="flex gap-1">
                                 {[...Array(5)].map((_, i) => (
@@ -368,8 +463,12 @@ const TradespersonProfile = () => {
                                 ))}
                               </div>
                             </div>
-                            <Badge variant="secondary" className="mb-3">{review.project}</Badge>
-                            <p className="text-muted-foreground leading-relaxed">{review.text}</p>
+                            <Badge variant="secondary" className="mb-3">
+                              {review.project}
+                            </Badge>
+                            <p className="text-muted-foreground leading-relaxed">
+                              {review.text}
+                            </p>
                             <div className="flex items-center gap-4 mt-4 pt-4 border-t">
                               <button className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
                                 <ThumbsUp className="h-4 w-4" />
@@ -409,7 +508,9 @@ const TradespersonProfile = () => {
                     </div>
                     <div>
                       <p className="text-sm font-medium">Location</p>
-                      <p className="text-sm text-muted-foreground">{tradesperson.location}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {tradesperson.location}
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
@@ -418,7 +519,9 @@ const TradespersonProfile = () => {
                     </div>
                     <div>
                       <p className="text-sm font-medium">Member Since</p>
-                      <p className="text-sm text-muted-foreground">{tradesperson.memberSince}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {tradesperson.memberSince}
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
@@ -427,7 +530,9 @@ const TradespersonProfile = () => {
                     </div>
                     <div>
                       <p className="text-sm font-medium">Last Active</p>
-                      <p className="text-sm text-muted-foreground">{tradesperson.lastActive}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {tradesperson.lastActive}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -439,21 +544,35 @@ const TradespersonProfile = () => {
                   <Shield className="h-5 w-5 text-accent" />
                   <h3 className="font-semibold">Insurance</h3>
                   {tradesperson.insurance.verified && (
-                    <Badge className="trust-badge-verified ml-auto">Verified</Badge>
+                    <Badge className="trust-badge-verified ml-auto">
+                      Verified
+                    </Badge>
                   )}
                 </div>
                 <div className="space-y-3 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Public Liability</span>
-                    <span className="font-medium">{tradesperson.insurance.publicLiability}</span>
+                    <span className="text-muted-foreground">
+                      Public Liability
+                    </span>
+                    <span className="font-medium">
+                      {tradesperson.insurance.publicLiability}
+                    </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Employers Liability</span>
-                    <span className="font-medium">{tradesperson.insurance.employersLiability}</span>
+                    <span className="text-muted-foreground">
+                      Employers Liability
+                    </span>
+                    <span className="font-medium">
+                      {tradesperson.insurance.employersLiability}
+                    </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Professional Indemnity</span>
-                    <span className="font-medium">{tradesperson.insurance.professionalIndemnity}</span>
+                    <span className="text-muted-foreground">
+                      Professional Indemnity
+                    </span>
+                    <span className="font-medium">
+                      {tradesperson.insurance.professionalIndemnity}
+                    </span>
                   </div>
                   <div className="pt-3 border-t">
                     <p className="text-muted-foreground">
