@@ -1,26 +1,21 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import PostJobStrip from "../PostJobStrip";
 
-const CTASection = () => {
+const CTASection = ({ title }) => {
   return (
-    <section className="py-16 bg-muted">
-      <div className="container">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-            Ready to get started?
-          </h2>
-          <p className="text-muted-foreground mb-8">
-            Post your job for free and get quotes from local tradespeople.
-          </p>
-          <Link to="/post-job">
-            <Button size="lg" className="gap-2">
-              Post a job
-              <ArrowRight className="h-4 w-4" />
-            </Button>
-          </Link>
-        </div>
+    <section className="pt-16 bg-muted">
+      <div className="container flex flex-col">
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          {title}
+        </h2>
+        <p className="text-muted-foreground mb-14">
+          Post your job for free and get matched with qualified tradespeople in
+          your area.
+        </p>
       </div>
+      <PostJobStrip />
     </section>
   );
 };
