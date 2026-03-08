@@ -1,0 +1,465 @@
+{
+  "questionTree": {
+    "id": "1f2ea727-75a9-434e-b8fb-4a4bf5d19f48",
+    "name": "Restoration & Refurbishment",
+    "schema": {
+      "id": "3065",
+      "type": "CheckboxQuestion",
+      "required": true,
+      "formLabel": "Please make sure you have read and understood the following:",
+      "helpText": "This trade is for large jobs that require management and oversight. If you require multiple jobs that cover various trades, please post these separately in the appropriate trade categories.",
+      "options": [
+        {
+          "id": "9185",
+          "type": "StandardChoiceOption",
+          "formLabel": "I understand",
+          "helpText": null
+        }
+      ],
+      "next": {
+        "id": "3066",
+        "type": "SelectQuestion",
+        "required": true,
+        "formLabel": "Does your job involve changing the purpose or structure of a room?",
+        "helpText": "e.g. converting a garage or removing a wall to combine rooms",
+        "options": [
+          {
+            "id": "9186",
+            "type": "StandardChoiceOption",
+            "formLabel": "Yes",
+
+            "next": {
+              "id": "2750",
+              "type": "SelectQuestion",
+              "required": true,
+              "formLabel": "How extensive is your conversion job?",
+
+              "options": [
+                {
+                  "id": "8550",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "Single room conversion",
+                  "helpText": "e.g. join 2 rooms together, install necessary utilities"
+                },
+                {
+                  "id": "8551",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "Small garage / outbuilding conversion",
+                  "helpText": "e.g. convert small outbuilding to living space"
+                },
+                {
+                  "id": "8552",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "Multiple rooms or large outbuilding",
+                  "helpText": "e.g. convert a large detached garage into a self sufficient flat"
+                },
+                {
+                  "id": "8553",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "Whole property conversion",
+                  "helpText": "e.g. major conversion works to one or more property, including important structural changes"
+                }
+              ],
+              "next": {
+                "id": "2742",
+                "type": "SelectQuestion",
+                "required": true,
+                "formLabel": "Do you own the property?",
+
+                "options": [
+                  {
+                    "id": "8536",
+                    "type": "StandardChoiceOption",
+                    "formLabel": "Yes",
+                    "helpText": null
+                  },
+                  {
+                    "id": "8537",
+                    "type": "StandardChoiceOption",
+                    "formLabel": "I will - purchase in progress",
+                    "helpText": null
+                  },
+                  {
+                    "id": "8538",
+                    "type": "StandardChoiceOption",
+                    "formLabel": "No",
+                    "helpText": null
+                  }
+                ],
+                "next": {
+                  "id": "2751",
+                  "type": "CheckboxQuestion",
+                  "required": true,
+                  "formLabel": "Select all the works that are required for your job:",
+
+                  "options": [
+                    {
+                      "id": "8554",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Electrics",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8555",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Central heating",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8556",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Plumbing",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8557",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Painting & decorating",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8558",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Windows & doors",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8559",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Flooring",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8560",
+                      "type": "TextChoiceOption",
+                      "formLabel": "Other",
+                      "placeholder": "Type of works",
+                      "helpText": null
+                    }
+                  ],
+                  "next": {
+                    "id": "2752",
+                    "type": "TextareaQuestion",
+                    "required": true,
+                    "formLabel": "Add a description to your job",
+
+                    "placeholder": "Include any details you think the tradesperson should know (approx. size of area to be converted, timeframe, etc.)",
+                    "minLength": 20,
+                    "maxLength": 10000,
+                    "next": {
+                      "id": "TITLE_QUESTION",
+                      "type": "TitleQuestion",
+                      "required": true,
+                      "formLabel": "Give your job a headline",
+                      "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                      "placeholder": "E.g. Knock through dining and living rooms",
+                      "maxLength": 70,
+                      "next": {
+                        "id": "3154",
+                        "type": "AttachmentQuestion",
+                        "required": false,
+                        "formLabel": "Would you like to add any photos or plans?",
+                        "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                        "next": {
+                          "id": "3067",
+                          "type": "PostalCodeQuestion",
+                          "required": true,
+                          "formLabel": "Postcode for the job",
+                          "helpText": "To find a restoration/refurbishment specialist near you we need to know where you are based."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": "9187",
+            "type": "StandardChoiceOption",
+            "formLabel": "No",
+
+            "next": {
+              "id": "2756",
+              "type": "SelectQuestion",
+              "required": true,
+              "formLabel": "Do you own the property?",
+
+              "options": [
+                {
+                  "id": "8567",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "Yes",
+
+                  "next": {
+                    "id": "2757",
+                    "type": "SelectQuestion",
+                    "required": true,
+                    "formLabel": "What type of job is it?",
+
+                    "options": [
+                      {
+                        "id": "8571",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "Small refurbishment",
+                        "helpText": "e.g. no more than one room needs refurbing"
+                      },
+                      {
+                        "id": "8572",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "Large refurbishment",
+                        "helpText": "e.g. more than one room or multiple jobs throughout property"
+                      },
+                      {
+                        "id": "8573",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "Full refurbishment",
+                        "helpText": "e.g. whole house needs refurbishing"
+                      }
+                    ],
+                    "next": {
+                      "id": "2759",
+                      "type": "TextareaQuestion",
+                      "required": true,
+                      "formLabel": "Describe your restoration / refurbishment project in detail",
+                      "helpText": "Good descriptions attract good tradespeople. Include the project size, specification, fit and finish. What will the space be used for? Do you also need supply and fit of a kitchen or bathroom?",
+                      "placeholder": "E.g. Rear refurbishment, knocking existing diner and kitchen into one open-plan space and extending 3.5m full width. New kitchen also required...",
+                      "minLength": 20,
+                      "maxLength": 10000,
+                      "next": {
+                        "id": "TITLE_QUESTION",
+                        "type": "TitleQuestion",
+                        "required": true,
+                        "formLabel": "Give your job a headline",
+                        "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                        "placeholder": "E.g. Knock through dining and living rooms",
+                        "maxLength": 70,
+                        "next": {
+                          "id": "3154",
+                          "type": "AttachmentQuestion",
+                          "required": false,
+                          "formLabel": "Would you like to add any photos or plans?",
+                          "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                          "next": {
+                            "id": "3067",
+                            "type": "PostalCodeQuestion",
+                            "required": true,
+                            "formLabel": "Postcode for the job",
+                            "helpText": "To find a restoration/refurbishment specialist near you we need to know where you are based."
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "8568",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "I will - purchase in progress",
+
+                  "next": {
+                    "id": "2757",
+                    "type": "SelectQuestion",
+                    "required": true,
+                    "formLabel": "What type of job is it?",
+
+                    "options": [
+                      {
+                        "id": "8571",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "Small refurbishment",
+                        "helpText": "e.g. no more than one room needs refurbing"
+                      },
+                      {
+                        "id": "8572",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "Large refurbishment",
+                        "helpText": "e.g. more than one room or multiple jobs throughout property"
+                      },
+                      {
+                        "id": "8573",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "Full refurbishment",
+                        "helpText": "e.g. whole house needs refurbishing"
+                      }
+                    ],
+                    "next": {
+                      "id": "2759",
+                      "type": "TextareaQuestion",
+                      "required": true,
+                      "formLabel": "Describe your restoration / refurbishment project in detail",
+                      "helpText": "Good descriptions attract good tradespeople. Include the project size, specification, fit and finish. What will the space be used for? Do you also need supply and fit of a kitchen or bathroom?",
+                      "placeholder": "E.g. Rear refurbishment, knocking existing diner and kitchen into one open-plan space and extending 3.5m full width. New kitchen also required...",
+                      "minLength": 20,
+                      "maxLength": 10000,
+                      "next": {
+                        "id": "TITLE_QUESTION",
+                        "type": "TitleQuestion",
+                        "required": true,
+                        "formLabel": "Give your job a headline",
+                        "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                        "placeholder": "E.g. Knock through dining and living rooms",
+                        "maxLength": 70,
+                        "next": {
+                          "id": "3154",
+                          "type": "AttachmentQuestion",
+                          "required": false,
+                          "formLabel": "Would you like to add any photos or plans?",
+                          "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                          "next": {
+                            "id": "3067",
+                            "type": "PostalCodeQuestion",
+                            "required": true,
+                            "formLabel": "Postcode for the job",
+                            "helpText": "To find a restoration/refurbishment specialist near you we need to know where you are based."
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "8569",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "No - I'm posting on behalf of the property owner",
+
+                  "next": {
+                    "id": "2757",
+                    "type": "SelectQuestion",
+                    "required": true,
+                    "formLabel": "What type of job is it?",
+
+                    "options": [
+                      {
+                        "id": "8571",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "Small refurbishment",
+                        "helpText": "e.g. no more than one room needs refurbing"
+                      },
+                      {
+                        "id": "8572",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "Large refurbishment",
+                        "helpText": "e.g. more than one room or multiple jobs throughout property"
+                      },
+                      {
+                        "id": "8573",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "Full refurbishment",
+                        "helpText": "e.g. whole house needs refurbishing"
+                      }
+                    ],
+                    "next": {
+                      "id": "2759",
+                      "type": "TextareaQuestion",
+                      "required": true,
+                      "formLabel": "Describe your restoration / refurbishment project in detail",
+                      "helpText": "Good descriptions attract good tradespeople. Include the project size, specification, fit and finish. What will the space be used for? Do you also need supply and fit of a kitchen or bathroom?",
+                      "placeholder": "E.g. Rear refurbishment, knocking existing diner and kitchen into one open-plan space and extending 3.5m full width. New kitchen also required...",
+                      "minLength": 20,
+                      "maxLength": 10000,
+                      "next": {
+                        "id": "TITLE_QUESTION",
+                        "type": "TitleQuestion",
+                        "required": true,
+                        "formLabel": "Give your job a headline",
+                        "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                        "placeholder": "E.g. Knock through dining and living rooms",
+                        "maxLength": 70,
+                        "next": {
+                          "id": "3154",
+                          "type": "AttachmentQuestion",
+                          "required": false,
+                          "formLabel": "Would you like to add any photos or plans?",
+                          "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                          "next": {
+                            "id": "3067",
+                            "type": "PostalCodeQuestion",
+                            "required": true,
+                            "formLabel": "Postcode for the job",
+                            "helpText": "To find a restoration/refurbishment specialist near you we need to know where you are based."
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "8570",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "It's a commercial property",
+
+                  "next": {
+                    "id": "2758",
+                    "type": "SelectQuestion",
+                    "required": true,
+                    "formLabel": "What type of job is it?",
+
+                    "options": [
+                      {
+                        "id": "8574",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "Small refurbishment",
+                        "helpText": "e.g. small project requiring a few days work"
+                      },
+                      {
+                        "id": "8575",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "Large refurbishment",
+                        "helpText": "e.g. a large project that may take more than a week"
+                      },
+                      {
+                        "id": "8576",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "Full refurbishment",
+                        "helpText": "e.g. a complex project or large space that requires full refurbishment"
+                      }
+                    ],
+                    "next": {
+                      "id": "2759",
+                      "type": "TextareaQuestion",
+                      "required": true,
+                      "formLabel": "Describe your restoration / refurbishment project in detail",
+                      "helpText": "Good descriptions attract good tradespeople. Include the project size, specification, fit and finish. What will the space be used for? Do you also need supply and fit of a kitchen or bathroom?",
+                      "placeholder": "E.g. Rear refurbishment, knocking existing diner and kitchen into one open-plan space and extending 3.5m full width. New kitchen also required...",
+                      "minLength": 20,
+                      "maxLength": 10000,
+                      "next": {
+                        "id": "TITLE_QUESTION",
+                        "type": "TitleQuestion",
+                        "required": true,
+                        "formLabel": "Give your job a headline",
+                        "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                        "placeholder": "E.g. Knock through dining and living rooms",
+                        "maxLength": 70,
+                        "next": {
+                          "id": "3154",
+                          "type": "AttachmentQuestion",
+                          "required": false,
+                          "formLabel": "Would you like to add any photos or plans?",
+                          "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                          "next": {
+                            "id": "3067",
+                            "type": "PostalCodeQuestion",
+                            "required": true,
+                            "formLabel": "Postcode for the job",
+                            "helpText": "To find a restoration/refurbishment specialist near you we need to know where you are based."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "jobFunnel": {
+      "id": 407,
+      "name": "Restoration & Refurbishment",
+      "type": "CATEGORY"
+    }
+  }
+}
