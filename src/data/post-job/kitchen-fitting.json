@@ -1,0 +1,805 @@
+{
+  "questionTree": {
+    "id": "125a9efe-f3e7-48a2-ab16-8e795bf457b5",
+    "name": "Kitchen Fitting",
+    "schema": {
+      "id": "2842",
+      "type": "SelectQuestion",
+      "required": true,
+      "formLabel": "What type of kitchen fitting service do you require?",
+
+      "options": [
+        {
+          "id": "8746",
+          "type": "StandardChoiceOption",
+          "formLabel": "New kitchen installation",
+
+          "next": {
+            "id": "2843",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "How big is your kitchen project?",
+
+            "options": [
+              {
+                "id": "8751",
+                "type": "StandardChoiceOption",
+                "formLabel": "Extensive kitchen refurb",
+                "helpText": "Including new tiling, lighting, flooring, or plumbing"
+              },
+              {
+                "id": "8752",
+                "type": "StandardChoiceOption",
+                "formLabel": "Standard kitchen refit",
+                "helpText": "Upgrading units, worktops, sink without major layout changes"
+              },
+              {
+                "id": "8753",
+                "type": "StandardChoiceOption",
+                "formLabel": "Other",
+                "helpText": null
+              }
+            ],
+            "next": {
+              "id": "2844",
+              "type": "SelectQuestion",
+              "required": true,
+              "formLabel": "Have you purchased a kitchen already?",
+
+              "options": [
+                {
+                  "id": "8754",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "Yes - purchased everything already",
+                  "helpText": null
+                },
+                {
+                  "id": "8755",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "No - nothing purchased yet",
+                  "helpText": null
+                }
+              ],
+              "next": {
+                "id": "2852",
+                "type": "SelectQuestion",
+                "required": true,
+                "formLabel": "Do you require any structural work (e.g. removing walls)?",
+
+                "options": [
+                  {
+                    "id": "8788",
+                    "type": "StandardChoiceOption",
+                    "formLabel": "Yes",
+
+                    "next": {
+                      "id": "2853",
+                      "type": "SelectQuestion",
+                      "required": true,
+                      "formLabel": "Do you own the property?",
+
+                      "options": [
+                        {
+                          "id": "8790",
+                          "type": "StandardChoiceOption",
+                          "formLabel": "Yes",
+                          "helpText": null
+                        },
+                        {
+                          "id": "8791",
+                          "type": "StandardChoiceOption",
+                          "formLabel": "I will - purchase in progress",
+                          "helpText": null
+                        },
+                        {
+                          "id": "8792",
+                          "type": "StandardChoiceOption",
+                          "formLabel": "No - I'm posting on behalf of the property owner",
+                          "helpText": null
+                        }
+                      ],
+                      "next": {
+                        "id": "2854",
+                        "type": "TextareaQuestion",
+                        "required": true,
+                        "formLabel": "Add a description to your job",
+
+                        "placeholder": "Include any details you think the tradesperson should know (approx. kitchen size, timeframe, etc.)",
+                        "minLength": 20,
+                        "maxLength": 10000,
+                        "next": {
+                          "id": "TITLE_QUESTION",
+                          "type": "TitleQuestion",
+                          "required": true,
+                          "formLabel": "Give your job a headline",
+                          "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                          "placeholder": "E.g. install new kitchen and tile walls",
+                          "maxLength": 70,
+                          "next": {
+                            "id": "3154",
+                            "type": "AttachmentQuestion",
+                            "required": false,
+                            "formLabel": "Would you like to add any photos or plans?",
+                            "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                            "next": {
+                              "id": "2866",
+                              "type": "PostalCodeQuestion",
+                              "required": true,
+                              "formLabel": "Postcode for the job ",
+                              "helpText": "To find kitchen fitters nearby we need to know where the job is."
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "8789",
+                    "type": "StandardChoiceOption",
+                    "formLabel": "No",
+
+                    "next": {
+                      "id": "2854",
+                      "type": "TextareaQuestion",
+                      "required": true,
+                      "formLabel": "Add a description to your job",
+
+                      "placeholder": "Include any details you think the tradesperson should know (approx. kitchen size, timeframe, etc.)",
+                      "minLength": 20,
+                      "maxLength": 10000,
+                      "next": {
+                        "id": "TITLE_QUESTION",
+                        "type": "TitleQuestion",
+                        "required": true,
+                        "formLabel": "Give your job a headline",
+                        "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                        "placeholder": "E.g. install new kitchen and tile walls",
+                        "maxLength": 70,
+                        "next": {
+                          "id": "3154",
+                          "type": "AttachmentQuestion",
+                          "required": false,
+                          "formLabel": "Would you like to add any photos or plans?",
+                          "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                          "next": {
+                            "id": "2866",
+                            "type": "PostalCodeQuestion",
+                            "required": true,
+                            "formLabel": "Postcode for the job ",
+                            "helpText": "To find kitchen fitters nearby we need to know where the job is."
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "id": "8747",
+          "type": "StandardChoiceOption",
+          "formLabel": "Worktop installation",
+
+          "next": {
+            "id": "2856",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "What worktop material would you like?",
+
+            "options": [
+              {
+                "id": "8793",
+                "type": "StandardChoiceOption",
+                "formLabel": "Natural stone",
+                "helpText": "e.g. granite or marble",
+                "next": {
+                  "id": "2857",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (approx, worktop size, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. install new kitchen and tile walls",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2866",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job ",
+                        "helpText": "To find kitchen fitters nearby we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8794",
+                "type": "StandardChoiceOption",
+                "formLabel": "Composite",
+                "helpText": "e.g. quartz or corian",
+                "next": {
+                  "id": "2857",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (approx, worktop size, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. install new kitchen and tile walls",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2866",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job ",
+                        "helpText": "To find kitchen fitters nearby we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8795",
+                "type": "StandardChoiceOption",
+                "formLabel": "Solid wood",
+                "helpText": "e.g. oak, walnut, beech, bamboo",
+                "next": {
+                  "id": "2857",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (approx, worktop size, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. install new kitchen and tile walls",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2866",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job ",
+                        "helpText": "To find kitchen fitters nearby we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8796",
+                "type": "StandardChoiceOption",
+                "formLabel": "Laminate",
+                "helpText": "e.g. wood, stone effect",
+                "next": {
+                  "id": "2857",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (approx, worktop size, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. install new kitchen and tile walls",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2866",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job ",
+                        "helpText": "To find kitchen fitters nearby we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8797",
+                "type": "StandardChoiceOption",
+                "formLabel": "Not sure - need help deciding",
+
+                "next": {
+                  "id": "2857",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (approx, worktop size, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. install new kitchen and tile walls",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2866",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job ",
+                        "helpText": "To find kitchen fitters nearby we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "9337",
+                "type": "TextChoiceOption",
+                "formLabel": "Other",
+                "placeholder": "Worktop material",
+
+                "next": {
+                  "id": "2857",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (approx, worktop size, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. install new kitchen and tile walls",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2866",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job ",
+                        "helpText": "To find kitchen fitters nearby we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "8748",
+          "type": "StandardChoiceOption",
+          "formLabel": "Cabinet door refurbishment / replacement",
+
+          "next": {
+            "id": "2858",
+            "type": "TextareaQuestion",
+            "required": true,
+            "formLabel": "Add a description to your job",
+
+            "placeholder": "Include any details you think the tradesperson should know (number of cabinets, timeframe, etc.)",
+            "minLength": 20,
+            "maxLength": 10000,
+            "next": {
+              "id": "TITLE_QUESTION",
+              "type": "TitleQuestion",
+              "required": true,
+              "formLabel": "Give your job a headline",
+              "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+              "placeholder": "E.g. install new kitchen and tile walls",
+              "maxLength": 70,
+              "next": {
+                "id": "3154",
+                "type": "AttachmentQuestion",
+                "required": false,
+                "formLabel": "Would you like to add any photos or plans?",
+                "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                "next": {
+                  "id": "2866",
+                  "type": "PostalCodeQuestion",
+                  "required": true,
+                  "formLabel": "Postcode for the job ",
+                  "helpText": "To find kitchen fitters nearby we need to know where the job is."
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "8802",
+          "type": "StandardChoiceOption",
+          "formLabel": "Fit appliance (sink, oven, dishwasher, etc.)",
+
+          "next": {
+            "id": "2861",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "What type of appliance do you require fitting?",
+
+            "options": [
+              {
+                "id": "8803",
+                "type": "StandardChoiceOption",
+                "formLabel": "Gas / dual-fuel cooker / oven",
+
+                "next": {
+                  "id": "2862",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (appliance model, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. install new kitchen and tile walls",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2866",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job ",
+                        "helpText": "To find kitchen fitters nearby we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8804",
+                "type": "StandardChoiceOption",
+                "formLabel": "Electric cooker / oven",
+
+                "next": {
+                  "id": "2862",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (appliance model, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. install new kitchen and tile walls",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2866",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job ",
+                        "helpText": "To find kitchen fitters nearby we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8805",
+                "type": "StandardChoiceOption",
+                "formLabel": "Washing machine",
+
+                "next": {
+                  "id": "2862",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (appliance model, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. install new kitchen and tile walls",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2866",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job ",
+                        "helpText": "To find kitchen fitters nearby we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8806",
+                "type": "StandardChoiceOption",
+                "formLabel": "Dishwasher",
+
+                "next": {
+                  "id": "2862",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (appliance model, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. install new kitchen and tile walls",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2866",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job ",
+                        "helpText": "To find kitchen fitters nearby we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8807",
+                "type": "StandardChoiceOption",
+                "formLabel": "Sink",
+
+                "next": {
+                  "id": "2862",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (appliance model, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. install new kitchen and tile walls",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2866",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job ",
+                        "helpText": "To find kitchen fitters nearby we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "9336",
+                "type": "TextChoiceOption",
+                "formLabel": "Other",
+                "placeholder": "Appliance type",
+
+                "next": {
+                  "id": "2862",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (appliance model, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. install new kitchen and tile walls",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2866",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job ",
+                        "helpText": "To find kitchen fitters nearby we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "8749",
+          "type": "StandardChoiceOption",
+          "formLabel": "Minor repair",
+
+          "next": {
+            "id": "2863",
+            "type": "TextareaQuestion",
+            "required": true,
+            "formLabel": "Add a description to your job",
+
+            "placeholder": "Include any details you think the tradesperson should know (nature of damage, timeframe, etc.)",
+            "minLength": 20,
+            "maxLength": 10000,
+            "next": {
+              "id": "TITLE_QUESTION",
+              "type": "TitleQuestion",
+              "required": true,
+              "formLabel": "Give your job a headline",
+              "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+              "placeholder": "E.g. install new kitchen and tile walls",
+              "maxLength": 70,
+              "next": {
+                "id": "3154",
+                "type": "AttachmentQuestion",
+                "required": false,
+                "formLabel": "Would you like to add any photos or plans?",
+                "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                "next": {
+                  "id": "2866",
+                  "type": "PostalCodeQuestion",
+                  "required": true,
+                  "formLabel": "Postcode for the job ",
+                  "helpText": "To find kitchen fitters nearby we need to know where the job is."
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "8750",
+          "type": "StandardChoiceOption",
+          "formLabel": "Several of the above, or other",
+
+          "next": {
+            "id": "2864",
+            "type": "TextareaQuestion",
+            "required": true,
+            "formLabel": "Describe your kitchen fitting job in detail",
+            "helpText": "Good descriptions attract good tradespeople. Include if you need design, supply and fit or fit only. Describe the size and shape of the kitchen, or number of units required, along with any additional work required, i.e. plastering, tiling, electrics, etc.",
+            "placeholder": "E.g. Replace our kitchen and tile walls. L-shaped with composite worktop. 13 units total. Purchased from Ikea already. Arriving 12th September...",
+            "minLength": 20,
+            "maxLength": 10000,
+            "next": {
+              "id": "TITLE_QUESTION",
+              "type": "TitleQuestion",
+              "required": true,
+              "formLabel": "Give your job a headline",
+              "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+              "placeholder": "E.g. install new kitchen and tile walls",
+              "maxLength": 70,
+              "next": {
+                "id": "3154",
+                "type": "AttachmentQuestion",
+                "required": false,
+                "formLabel": "Would you like to add any photos or plans?",
+                "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                "next": {
+                  "id": "2866",
+                  "type": "PostalCodeQuestion",
+                  "required": true,
+                  "formLabel": "Postcode for the job ",
+                  "helpText": "To find kitchen fitters nearby we need to know where the job is."
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "jobFunnel": {
+      "id": 401,
+      "name": "Kitchen Fitting",
+      "type": "CATEGORY"
+    }
+  }
+}

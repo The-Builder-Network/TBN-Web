@@ -1,0 +1,164 @@
+{
+  "questionTree": {
+    "id": "5dc1bc9f-13cd-4a43-b880-2cd33fe1914c",
+    "name": "Locksmith",
+    "schema": {
+      "id": "3059",
+      "type": "SelectQuestion",
+      "required": true,
+      "formLabel": "What do you need a locksmith to do?",
+
+      "options": [
+        {
+          "id": "9178",
+          "type": "StandardChoiceOption",
+          "formLabel": "Install new locks",
+
+          "next": {
+            "id": "3060",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "How many locks do you require fitting?",
+
+            "options": [
+              {
+                "id": "9181",
+                "type": "StandardChoiceOption",
+                "formLabel": "1 lock",
+                "helpText": null
+              },
+              {
+                "id": "9182",
+                "type": "StandardChoiceOption",
+                "formLabel": "2 locks",
+                "helpText": null
+              },
+              {
+                "id": "9183",
+                "type": "StandardChoiceOption",
+                "formLabel": "3 or more locks",
+                "helpText": null
+              }
+            ],
+            "next": {
+              "id": "3061",
+              "type": "TextareaQuestion",
+              "required": true,
+              "formLabel": "Add a description to your job",
+
+              "placeholder": "Include any details you think the tradesperson should know (lock type, timeframe, etc.)",
+              "minLength": 20,
+              "maxLength": 10000,
+              "next": {
+                "id": "TITLE_QUESTION",
+                "type": "TitleQuestion",
+                "required": true,
+                "formLabel": "Give your job a headline",
+                "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                "placeholder": "E.g. Replace handle and lock on PVC door",
+                "maxLength": 70,
+                "next": {
+                  "id": "3154",
+                  "type": "AttachmentQuestion",
+                  "required": false,
+                  "formLabel": "Would you like to add any photos or plans?",
+                  "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                  "next": {
+                    "id": "3062",
+                    "type": "PostalCodeQuestion",
+                    "required": true,
+                    "formLabel": "Postcode for the job",
+                    "helpText": "To find a locksmith near you we need to know where the job is."
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "9179",
+          "type": "StandardChoiceOption",
+          "formLabel": "Repair locks",
+
+          "next": {
+            "id": "3063",
+            "type": "TextareaQuestion",
+            "required": true,
+            "formLabel": "Add a description to your job",
+
+            "placeholder": "Include any details you think the tradesperson should know (nature of fault, timeframe, etc.)",
+            "minLength": 20,
+            "maxLength": 10000,
+            "next": {
+              "id": "TITLE_QUESTION",
+              "type": "TitleQuestion",
+              "required": true,
+              "formLabel": "Give your job a headline",
+              "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+              "placeholder": "E.g. Replace handle and lock on PVC door",
+              "maxLength": 70,
+              "next": {
+                "id": "3154",
+                "type": "AttachmentQuestion",
+                "required": false,
+                "formLabel": "Would you like to add any photos or plans?",
+                "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                "next": {
+                  "id": "3062",
+                  "type": "PostalCodeQuestion",
+                  "required": true,
+                  "formLabel": "Postcode for the job",
+                  "helpText": "To find a locksmith near you we need to know where the job is."
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "9180",
+          "type": "StandardChoiceOption",
+          "formLabel": "Other (e.g. locked out)",
+
+          "next": {
+            "id": "3064",
+            "type": "TextareaQuestion",
+            "required": true,
+            "formLabel": "Describe your locksmith job in detail",
+            "helpText": "Good descriptions attract good tradespeople. Add as much detail as you can. If you know the type of lock include that. Also add the type of door or window it\u2019s fitted to.",
+            "placeholder": "E.g. Managed to lock our rear door and lose the key. Need a locksmith to pick the lock and fit a new mortice lock...",
+            "minLength": 20,
+            "maxLength": 10000,
+            "next": {
+              "id": "TITLE_QUESTION",
+              "type": "TitleQuestion",
+              "required": true,
+              "formLabel": "Give your job a headline",
+              "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+              "placeholder": "E.g. Replace handle and lock on PVC door",
+              "maxLength": 70,
+              "next": {
+                "id": "3154",
+                "type": "AttachmentQuestion",
+                "required": false,
+                "formLabel": "Would you like to add any photos or plans?",
+                "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                "next": {
+                  "id": "3062",
+                  "type": "PostalCodeQuestion",
+                  "required": true,
+                  "formLabel": "Postcode for the job",
+                  "helpText": "To find a locksmith near you we need to know where the job is."
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "jobFunnel": {
+      "id": 402,
+      "name": "Locksmith",
+      "type": "CATEGORY"
+    }
+  }
+}
