@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ScrollToTop from "@/components/ScrollToTop";
+import ScrollToTop from "@/components/shared/ScrollToTop";
 import { AuthProvider } from "@/contexts/AuthContext";
 import PageLayout from "@/components/layout/PageLayout";
 import ProtectedRoute from "@/components/auth/ProtectedRoute";
@@ -12,7 +12,7 @@ import ProtectedRoute from "@/components/auth/ProtectedRoute";
 import HomePage from "./pages/Home";
 import PostJob from "./pages/PostJob";
 import HowItWorks from "./pages/info/HowItWorks";
-import About from "./pages/About";
+import About from "./pages/info/About";
 import Terms from "./pages/legal/Terms";
 import Privacy from "./pages/legal/Privacy";
 import Trades from "./pages/trades/Trades";
@@ -38,7 +38,7 @@ import ServiceProLeadDetail from "./pages/protected/tradesperson/LeadDetail";
 import ServiceProProfile from "./pages/protected/tradesperson/Profile";
 import MyLeads from "./pages/protected/tradesperson/MyLeads";
 import TradesNetwork from "./pages/Tradesnetwork";
-import TradespersonPublicProfile from "./pages/TradespersonPublicProfile";
+import TradespersonPublicProfile from "./pages/trades/TradespersonPublicProfile";
 
 const queryClient = new QueryClient();
 
