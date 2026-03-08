@@ -1,0 +1,1055 @@
+{
+  "questionTree": {
+    "id": "4cbf504d-5aab-4349-9577-3ae73d7d6f42",
+    "name": "Chimney & Fireplace",
+    "schema": {
+      "id": "2683",
+      "type": "SelectQuestion",
+      "required": true,
+      "formLabel": "What does your job involve?",
+
+      "options": [
+        {
+          "id": "8427",
+          "type": "StandardChoiceOption",
+          "formLabel": "Chimney",
+          "helpText": "Removal, repairs, capping, and sweeping of a chimney or chimney breast",
+          "next": {
+            "id": "2685",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "What do you need doing to your chimney?",
+
+            "options": [
+              {
+                "id": "8431",
+                "type": "StandardChoiceOption",
+                "formLabel": "Capping",
+
+                "next": {
+                  "id": "2686",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (approx. chimney size, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. Install new log burning fire",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2688",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find chimney & fireplace specialists near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8432",
+                "type": "StandardChoiceOption",
+                "formLabel": "Sweeping",
+
+                "next": {
+                  "id": "2686",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (approx. chimney size, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. Install new log burning fire",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2688",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find chimney & fireplace specialists near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8433",
+                "type": "StandardChoiceOption",
+                "formLabel": "Removal",
+
+                "next": {
+                  "id": "2691",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (approx. chimney size, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. Install new log burning fire",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2688",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find chimney & fireplace specialists near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8434",
+                "type": "StandardChoiceOption",
+                "formLabel": "Rebuilding / major alterations",
+
+                "next": {
+                  "id": "2692",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (work needed, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. Install new log burning fire",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2688",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find chimney & fireplace specialists near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8435",
+                "type": "StandardChoiceOption",
+                "formLabel": "Repointing / repair",
+
+                "next": {
+                  "id": "2693",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (nature of damage, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. Install new log burning fire",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2688",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find chimney & fireplace specialists near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8436",
+                "type": "StandardChoiceOption",
+                "formLabel": "Other",
+
+                "next": {
+                  "id": "2694",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Describe your chimney job in detail",
+                  "helpText": "Good descriptions attract good tradespeople. How large is your chimney? Give a full description of the work you need doing including the type of fire / fuel.",
+                  "placeholder": "E.g. Remove chimney breasts in living room and bedroom above. Also remove chimney stack on roof...",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. Install new log burning fire",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2688",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find chimney & fireplace specialists near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "8428",
+          "type": "StandardChoiceOption",
+          "formLabel": "Fireplace",
+          "helpText": "Installation or repair of any fireplace (gas, electric, solid fuel, etc.)",
+          "next": {
+            "id": "2695",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "What type of fireplace does this involve?",
+
+            "options": [
+              {
+                "id": "8440",
+                "type": "StandardChoiceOption",
+                "formLabel": "Gas",
+
+                "next": {
+                  "id": "2696",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "What needs doing to your gas fireplace?",
+
+                  "options": [
+                    {
+                      "id": "8443",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Install",
+
+                      "next": {
+                        "id": "2699",
+                        "type": "SelectQuestion",
+                        "required": true,
+                        "formLabel": "Does this include removal of an old fireplace?",
+
+                        "options": [
+                          {
+                            "id": "8455",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "Yes",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8456",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "No",
+                            "helpText": null
+                          }
+                        ],
+                        "next": {
+                          "id": "2703",
+                          "type": "TextareaQuestion",
+                          "required": true,
+                          "formLabel": "Add a description to your job",
+
+                          "placeholder": "Include any details you think the tradesperson should know (approx. fireplace size, timeframe, etc.)",
+                          "minLength": 20,
+                          "maxLength": 10000,
+                          "next": {
+                            "id": "TITLE_QUESTION",
+                            "type": "TitleQuestion",
+                            "required": true,
+                            "formLabel": "Give your job a headline",
+                            "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                            "placeholder": "E.g. Install new log burning fire",
+                            "maxLength": 70,
+                            "next": {
+                              "id": "3154",
+                              "type": "AttachmentQuestion",
+                              "required": false,
+                              "formLabel": "Would you like to add any photos or plans?",
+                              "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                              "next": {
+                                "id": "2688",
+                                "type": "PostalCodeQuestion",
+                                "required": true,
+                                "formLabel": "Postcode for the job",
+                                "helpText": "To find chimney & fireplace specialists near you we need to know where the job is."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "8444",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Repair",
+
+                      "next": {
+                        "id": "2700",
+                        "type": "TextareaQuestion",
+                        "required": true,
+                        "formLabel": "Add a description to your job",
+
+                        "placeholder": "Include any details you think the tradesperson should know (nature of the fault, timeframe, etc.)",
+                        "minLength": 20,
+                        "maxLength": 10000,
+                        "next": {
+                          "id": "TITLE_QUESTION",
+                          "type": "TitleQuestion",
+                          "required": true,
+                          "formLabel": "Give your job a headline",
+                          "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                          "placeholder": "E.g. Install new log burning fire",
+                          "maxLength": 70,
+                          "next": {
+                            "id": "3154",
+                            "type": "AttachmentQuestion",
+                            "required": false,
+                            "formLabel": "Would you like to add any photos or plans?",
+                            "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                            "next": {
+                              "id": "2688",
+                              "type": "PostalCodeQuestion",
+                              "required": true,
+                              "formLabel": "Postcode for the job",
+                              "helpText": "To find chimney & fireplace specialists near you we need to know where the job is."
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "8445",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Remove",
+
+                      "next": {
+                        "id": "2701",
+                        "type": "SelectQuestion",
+                        "required": true,
+                        "formLabel": "Does this include installation of a new fireplace?",
+
+                        "options": [
+                          {
+                            "id": "8457",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "Yes",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8458",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "No",
+                            "helpText": null
+                          }
+                        ],
+                        "next": {
+                          "id": "2703",
+                          "type": "TextareaQuestion",
+                          "required": true,
+                          "formLabel": "Add a description to your job",
+
+                          "placeholder": "Include any details you think the tradesperson should know (approx. fireplace size, timeframe, etc.)",
+                          "minLength": 20,
+                          "maxLength": 10000,
+                          "next": {
+                            "id": "TITLE_QUESTION",
+                            "type": "TitleQuestion",
+                            "required": true,
+                            "formLabel": "Give your job a headline",
+                            "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                            "placeholder": "E.g. Install new log burning fire",
+                            "maxLength": 70,
+                            "next": {
+                              "id": "3154",
+                              "type": "AttachmentQuestion",
+                              "required": false,
+                              "formLabel": "Would you like to add any photos or plans?",
+                              "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                              "next": {
+                                "id": "2688",
+                                "type": "PostalCodeQuestion",
+                                "required": true,
+                                "formLabel": "Postcode for the job",
+                                "helpText": "To find chimney & fireplace specialists near you we need to know where the job is."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "8446",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Other",
+
+                      "next": {
+                        "id": "2702",
+                        "type": "TextareaQuestion",
+                        "required": true,
+                        "formLabel": "Add a description to your job",
+
+                        "placeholder": "Include any details you think the tradesperson should know (work needed, timeframe, etc.)",
+                        "minLength": 20,
+                        "maxLength": 10000,
+                        "next": {
+                          "id": "TITLE_QUESTION",
+                          "type": "TitleQuestion",
+                          "required": true,
+                          "formLabel": "Give your job a headline",
+                          "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                          "placeholder": "E.g. Install new log burning fire",
+                          "maxLength": 70,
+                          "next": {
+                            "id": "3154",
+                            "type": "AttachmentQuestion",
+                            "required": false,
+                            "formLabel": "Would you like to add any photos or plans?",
+                            "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                            "next": {
+                              "id": "2688",
+                              "type": "PostalCodeQuestion",
+                              "required": true,
+                              "formLabel": "Postcode for the job",
+                              "helpText": "To find chimney & fireplace specialists near you we need to know where the job is."
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "8441",
+                "type": "StandardChoiceOption",
+                "formLabel": "Electric",
+
+                "next": {
+                  "id": "2697",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "What needs doing to your electric fireplace?",
+
+                  "options": [
+                    {
+                      "id": "8447",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Install",
+
+                      "next": {
+                        "id": "2699",
+                        "type": "SelectQuestion",
+                        "required": true,
+                        "formLabel": "Does this include removal of an old fireplace?",
+
+                        "options": [
+                          {
+                            "id": "8455",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "Yes",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8456",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "No",
+                            "helpText": null
+                          }
+                        ],
+                        "next": {
+                          "id": "2703",
+                          "type": "TextareaQuestion",
+                          "required": true,
+                          "formLabel": "Add a description to your job",
+
+                          "placeholder": "Include any details you think the tradesperson should know (approx. fireplace size, timeframe, etc.)",
+                          "minLength": 20,
+                          "maxLength": 10000,
+                          "next": {
+                            "id": "TITLE_QUESTION",
+                            "type": "TitleQuestion",
+                            "required": true,
+                            "formLabel": "Give your job a headline",
+                            "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                            "placeholder": "E.g. Install new log burning fire",
+                            "maxLength": 70,
+                            "next": {
+                              "id": "3154",
+                              "type": "AttachmentQuestion",
+                              "required": false,
+                              "formLabel": "Would you like to add any photos or plans?",
+                              "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                              "next": {
+                                "id": "2688",
+                                "type": "PostalCodeQuestion",
+                                "required": true,
+                                "formLabel": "Postcode for the job",
+                                "helpText": "To find chimney & fireplace specialists near you we need to know where the job is."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "8448",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Repair",
+
+                      "next": {
+                        "id": "2700",
+                        "type": "TextareaQuestion",
+                        "required": true,
+                        "formLabel": "Add a description to your job",
+
+                        "placeholder": "Include any details you think the tradesperson should know (nature of the fault, timeframe, etc.)",
+                        "minLength": 20,
+                        "maxLength": 10000,
+                        "next": {
+                          "id": "TITLE_QUESTION",
+                          "type": "TitleQuestion",
+                          "required": true,
+                          "formLabel": "Give your job a headline",
+                          "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                          "placeholder": "E.g. Install new log burning fire",
+                          "maxLength": 70,
+                          "next": {
+                            "id": "3154",
+                            "type": "AttachmentQuestion",
+                            "required": false,
+                            "formLabel": "Would you like to add any photos or plans?",
+                            "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                            "next": {
+                              "id": "2688",
+                              "type": "PostalCodeQuestion",
+                              "required": true,
+                              "formLabel": "Postcode for the job",
+                              "helpText": "To find chimney & fireplace specialists near you we need to know where the job is."
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "8449",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Remove",
+
+                      "next": {
+                        "id": "2701",
+                        "type": "SelectQuestion",
+                        "required": true,
+                        "formLabel": "Does this include installation of a new fireplace?",
+
+                        "options": [
+                          {
+                            "id": "8457",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "Yes",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8458",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "No",
+                            "helpText": null
+                          }
+                        ],
+                        "next": {
+                          "id": "2703",
+                          "type": "TextareaQuestion",
+                          "required": true,
+                          "formLabel": "Add a description to your job",
+
+                          "placeholder": "Include any details you think the tradesperson should know (approx. fireplace size, timeframe, etc.)",
+                          "minLength": 20,
+                          "maxLength": 10000,
+                          "next": {
+                            "id": "TITLE_QUESTION",
+                            "type": "TitleQuestion",
+                            "required": true,
+                            "formLabel": "Give your job a headline",
+                            "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                            "placeholder": "E.g. Install new log burning fire",
+                            "maxLength": 70,
+                            "next": {
+                              "id": "3154",
+                              "type": "AttachmentQuestion",
+                              "required": false,
+                              "formLabel": "Would you like to add any photos or plans?",
+                              "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                              "next": {
+                                "id": "2688",
+                                "type": "PostalCodeQuestion",
+                                "required": true,
+                                "formLabel": "Postcode for the job",
+                                "helpText": "To find chimney & fireplace specialists near you we need to know where the job is."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "8450",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Other",
+
+                      "next": {
+                        "id": "2702",
+                        "type": "TextareaQuestion",
+                        "required": true,
+                        "formLabel": "Add a description to your job",
+
+                        "placeholder": "Include any details you think the tradesperson should know (work needed, timeframe, etc.)",
+                        "minLength": 20,
+                        "maxLength": 10000,
+                        "next": {
+                          "id": "TITLE_QUESTION",
+                          "type": "TitleQuestion",
+                          "required": true,
+                          "formLabel": "Give your job a headline",
+                          "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                          "placeholder": "E.g. Install new log burning fire",
+                          "maxLength": 70,
+                          "next": {
+                            "id": "3154",
+                            "type": "AttachmentQuestion",
+                            "required": false,
+                            "formLabel": "Would you like to add any photos or plans?",
+                            "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                            "next": {
+                              "id": "2688",
+                              "type": "PostalCodeQuestion",
+                              "required": true,
+                              "formLabel": "Postcode for the job",
+                              "helpText": "To find chimney & fireplace specialists near you we need to know where the job is."
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "8442",
+                "type": "StandardChoiceOption",
+                "formLabel": "Solid fuel (wood, coal burning stove etc.)",
+
+                "next": {
+                  "id": "2698",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "What needs doing to your solid fuel fireplace?",
+
+                  "options": [
+                    {
+                      "id": "8451",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Install",
+
+                      "next": {
+                        "id": "2699",
+                        "type": "SelectQuestion",
+                        "required": true,
+                        "formLabel": "Does this include removal of an old fireplace?",
+
+                        "options": [
+                          {
+                            "id": "8455",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "Yes",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8456",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "No",
+                            "helpText": null
+                          }
+                        ],
+                        "next": {
+                          "id": "2703",
+                          "type": "TextareaQuestion",
+                          "required": true,
+                          "formLabel": "Add a description to your job",
+
+                          "placeholder": "Include any details you think the tradesperson should know (approx. fireplace size, timeframe, etc.)",
+                          "minLength": 20,
+                          "maxLength": 10000,
+                          "next": {
+                            "id": "TITLE_QUESTION",
+                            "type": "TitleQuestion",
+                            "required": true,
+                            "formLabel": "Give your job a headline",
+                            "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                            "placeholder": "E.g. Install new log burning fire",
+                            "maxLength": 70,
+                            "next": {
+                              "id": "3154",
+                              "type": "AttachmentQuestion",
+                              "required": false,
+                              "formLabel": "Would you like to add any photos or plans?",
+                              "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                              "next": {
+                                "id": "2688",
+                                "type": "PostalCodeQuestion",
+                                "required": true,
+                                "formLabel": "Postcode for the job",
+                                "helpText": "To find chimney & fireplace specialists near you we need to know where the job is."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "8452",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Repair",
+
+                      "next": {
+                        "id": "2700",
+                        "type": "TextareaQuestion",
+                        "required": true,
+                        "formLabel": "Add a description to your job",
+
+                        "placeholder": "Include any details you think the tradesperson should know (nature of the fault, timeframe, etc.)",
+                        "minLength": 20,
+                        "maxLength": 10000,
+                        "next": {
+                          "id": "TITLE_QUESTION",
+                          "type": "TitleQuestion",
+                          "required": true,
+                          "formLabel": "Give your job a headline",
+                          "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                          "placeholder": "E.g. Install new log burning fire",
+                          "maxLength": 70,
+                          "next": {
+                            "id": "3154",
+                            "type": "AttachmentQuestion",
+                            "required": false,
+                            "formLabel": "Would you like to add any photos or plans?",
+                            "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                            "next": {
+                              "id": "2688",
+                              "type": "PostalCodeQuestion",
+                              "required": true,
+                              "formLabel": "Postcode for the job",
+                              "helpText": "To find chimney & fireplace specialists near you we need to know where the job is."
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "8453",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Remove",
+
+                      "next": {
+                        "id": "2701",
+                        "type": "SelectQuestion",
+                        "required": true,
+                        "formLabel": "Does this include installation of a new fireplace?",
+
+                        "options": [
+                          {
+                            "id": "8457",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "Yes",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8458",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "No",
+                            "helpText": null
+                          }
+                        ],
+                        "next": {
+                          "id": "2703",
+                          "type": "TextareaQuestion",
+                          "required": true,
+                          "formLabel": "Add a description to your job",
+
+                          "placeholder": "Include any details you think the tradesperson should know (approx. fireplace size, timeframe, etc.)",
+                          "minLength": 20,
+                          "maxLength": 10000,
+                          "next": {
+                            "id": "TITLE_QUESTION",
+                            "type": "TitleQuestion",
+                            "required": true,
+                            "formLabel": "Give your job a headline",
+                            "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                            "placeholder": "E.g. Install new log burning fire",
+                            "maxLength": 70,
+                            "next": {
+                              "id": "3154",
+                              "type": "AttachmentQuestion",
+                              "required": false,
+                              "formLabel": "Would you like to add any photos or plans?",
+                              "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                              "next": {
+                                "id": "2688",
+                                "type": "PostalCodeQuestion",
+                                "required": true,
+                                "formLabel": "Postcode for the job",
+                                "helpText": "To find chimney & fireplace specialists near you we need to know where the job is."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "8454",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Other",
+
+                      "next": {
+                        "id": "2702",
+                        "type": "TextareaQuestion",
+                        "required": true,
+                        "formLabel": "Add a description to your job",
+
+                        "placeholder": "Include any details you think the tradesperson should know (work needed, timeframe, etc.)",
+                        "minLength": 20,
+                        "maxLength": 10000,
+                        "next": {
+                          "id": "TITLE_QUESTION",
+                          "type": "TitleQuestion",
+                          "required": true,
+                          "formLabel": "Give your job a headline",
+                          "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                          "placeholder": "E.g. Install new log burning fire",
+                          "maxLength": 70,
+                          "next": {
+                            "id": "3154",
+                            "type": "AttachmentQuestion",
+                            "required": false,
+                            "formLabel": "Would you like to add any photos or plans?",
+                            "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                            "next": {
+                              "id": "2688",
+                              "type": "PostalCodeQuestion",
+                              "required": true,
+                              "formLabel": "Postcode for the job",
+                              "helpText": "To find chimney & fireplace specialists near you we need to know where the job is."
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "8429",
+          "type": "StandardChoiceOption",
+          "formLabel": "Flue",
+          "helpText": "Installation, alteration or repair",
+          "next": {
+            "id": "2704",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "What needs doing to your flue?",
+
+            "options": [
+              {
+                "id": "8459",
+                "type": "StandardChoiceOption",
+                "formLabel": "Installation or alteration",
+
+                "next": {
+                  "id": "2705",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (approx. flue size, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. Install new log burning fire",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2688",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find chimney & fireplace specialists near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8460",
+                "type": "StandardChoiceOption",
+                "formLabel": "Repair",
+
+                "next": {
+                  "id": "2706",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (nature of damage, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. Install new log burning fire",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2688",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find chimney & fireplace specialists near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "8430",
+          "type": "StandardChoiceOption",
+          "formLabel": "Other or several of the above",
+
+          "next": {
+            "id": "2707",
+            "type": "TextareaQuestion",
+            "required": true,
+            "formLabel": "Describe your job in detail",
+            "helpText": "Good descriptions attract good tradespeople. Give a full description of the work you need doing including the type of fire involved. Supply and fit, or fit only? For repairs you can add a picture to you job after it has been posted.",
+            "placeholder": "E.g. New gas fireplace needs installing. Gas point already in place. Chimney sweep needed...",
+            "minLength": 20,
+            "maxLength": 10000,
+            "next": {
+              "id": "TITLE_QUESTION",
+              "type": "TitleQuestion",
+              "required": true,
+              "formLabel": "Give your job a headline",
+              "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+              "placeholder": "E.g. Install new log burning fire",
+              "maxLength": 70,
+              "next": {
+                "id": "3154",
+                "type": "AttachmentQuestion",
+                "required": false,
+                "formLabel": "Would you like to add any photos or plans?",
+                "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                "next": {
+                  "id": "2688",
+                  "type": "PostalCodeQuestion",
+                  "required": true,
+                  "formLabel": "Postcode for the job",
+                  "helpText": "To find chimney & fireplace specialists near you we need to know where the job is."
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "jobFunnel": {
+      "id": 394,
+      "name": "Chimney & Fireplace",
+      "type": "CATEGORY"
+    }
+  }
+}
