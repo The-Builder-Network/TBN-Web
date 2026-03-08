@@ -2,9 +2,9 @@ import { useState, useEffect, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 import JobServiceSelector from "@/components/post-job/JobServiceSelector";
 import JobFunnel from "@/components/post-job/JobFunnel";
-import { loadQuestionTree } from "@/components/post-job/loadQuestionTree";
-import { services } from "@/data/services";
-import type { QuestionNode } from "@/components/post-job/types";
+import { loadQuestionTree } from "@/helpers/QuestionTreeHelper";
+import { services } from "@/constants/services";
+import type { QuestionNode } from "@/types/post-job";
 
 const PostJob = () => {
   const [searchParams, setSearchParams] = useSearchParams();

@@ -1,8 +1,8 @@
 import DownloadAppSection from "@/components/home/sections/DownloadAppSection";
-import TradespersonHero from "@/components/tradesperson/TradespersonHero";
-import TradespersonHowItWorks from "@/components/tradesperson/TradespersonHowItWorks";
-import TradespersonFeatures from "@/components/tradesperson/TradespersonFeatures";
-import TradespersonCTA from "@/components/tradesperson/TradespersonCTA";
+import TradespersonHero from "@/components/tradesnetwork/HeroSection";
+import TradespersonHowItWorks from "@/components/tradesnetwork/HowItWorksSection";
+import TradespersonFeatures from "@/components/tradesnetwork/FeaturesSection";
+import TradespersonCTA from "@/components/tradesnetwork/CTASection";
 
 const TradesNetwork = () => {
   return (
