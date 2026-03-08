@@ -1,0 +1,689 @@
+{
+  "questionTree": {
+    "id": "14c28be4-9cae-4197-af67-d57123aa5a57",
+    "name": "Architectural Services",
+    "schema": {
+      "id": "2594",
+      "type": "SelectQuestion",
+      "required": true,
+      "formLabel": "What type of service do you need?",
+
+      "options": [
+        {
+          "id": "8206",
+          "type": "StandardChoiceOption",
+          "formLabel": "Basic outline plans (for quotes and planning application)",
+
+          "next": {
+            "id": "2595",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "What type of project are you planning?",
+
+            "options": [
+              {
+                "id": "8210",
+                "type": "StandardChoiceOption",
+                "formLabel": "Extension",
+
+                "next": {
+                  "id": "2597",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (approx. extension dimensions, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. full structural plans for kitchen extension",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2601",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find architectural designers near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8211",
+                "type": "StandardChoiceOption",
+                "formLabel": "Loft conversion",
+
+                "next": {
+                  "id": "2602",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (approx. conversion dimensions, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. full structural plans for kitchen extension",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2601",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find architectural designers near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8212",
+                "type": "StandardChoiceOption",
+                "formLabel": "Renovation",
+
+                "next": {
+                  "id": "2603",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (extent of the renovation, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. full structural plans for kitchen extension",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2601",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find architectural designers near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8213",
+                "type": "StandardChoiceOption",
+                "formLabel": "New build",
+
+                "next": {
+                  "id": "2604",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (approx. building dimensions, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. full structural plans for kitchen extension",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2601",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find architectural designers near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8214",
+                "type": "StandardChoiceOption",
+                "formLabel": "Other",
+
+                "next": {
+                  "id": "2599",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Describe what you need the plans for",
+                  "helpText": "Good descriptions attract good tradespeople. Consider including any details you think might be important.",
+                  "placeholder": "E.g. I need plans for something a little bit different...",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. full structural plans for kitchen extension",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2601",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find architectural designers near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "8207",
+          "type": "StandardChoiceOption",
+          "formLabel": "Full regulation plans (for builders & building regs)",
+
+          "next": {
+            "id": "2596",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "What type of project are you planning?",
+
+            "options": [
+              {
+                "id": "8215",
+                "type": "StandardChoiceOption",
+                "formLabel": "Extension",
+
+                "next": {
+                  "id": "2597",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (approx. extension dimensions, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. full structural plans for kitchen extension",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2601",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find architectural designers near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8216",
+                "type": "StandardChoiceOption",
+                "formLabel": "Loft conversion",
+
+                "next": {
+                  "id": "2602",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (approx. conversion dimensions, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. full structural plans for kitchen extension",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2601",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find architectural designers near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8217",
+                "type": "StandardChoiceOption",
+                "formLabel": "Renovation",
+
+                "next": {
+                  "id": "2603",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (extent of the renovation, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. full structural plans for kitchen extension",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2601",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find architectural designers near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8218",
+                "type": "StandardChoiceOption",
+                "formLabel": "New build",
+
+                "next": {
+                  "id": "2604",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (approx. building dimensions, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. full structural plans for kitchen extension",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2601",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find architectural designers near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8219",
+                "type": "StandardChoiceOption",
+                "formLabel": "Other",
+
+                "next": {
+                  "id": "2599",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Describe what you need the plans for",
+                  "helpText": "Good descriptions attract good tradespeople. Consider including any details you think might be important.",
+                  "placeholder": "E.g. I need plans for something a little bit different...",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. full structural plans for kitchen extension",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2601",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find architectural designers near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "8208",
+          "type": "StandardChoiceOption",
+          "formLabel": "Structural calculations",
+
+          "next": {
+            "id": "2605",
+            "type": "TextareaQuestion",
+            "required": true,
+            "formLabel": "Add a description to your job",
+
+            "placeholder": "Include any details you think the tradesperson should know (approx. structure dimensions, timeframe, etc)",
+            "minLength": 20,
+            "maxLength": 10000,
+            "next": {
+              "id": "TITLE_QUESTION",
+              "type": "TitleQuestion",
+              "required": true,
+              "formLabel": "Give your job a headline",
+              "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+              "placeholder": "E.g. full structural plans for kitchen extension",
+              "maxLength": 70,
+              "next": {
+                "id": "3154",
+                "type": "AttachmentQuestion",
+                "required": false,
+                "formLabel": "Would you like to add any photos or plans?",
+                "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                "next": {
+                  "id": "2601",
+                  "type": "PostalCodeQuestion",
+                  "required": true,
+                  "formLabel": "Postcode for the job",
+                  "helpText": "To find architectural designers near you we need to know where the job is."
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "8209",
+          "type": "StandardChoiceOption",
+          "formLabel": "I'm not sure",
+
+          "next": {
+            "id": "2598",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "What type of project are you planning?",
+
+            "options": [
+              {
+                "id": "8220",
+                "type": "StandardChoiceOption",
+                "formLabel": "Extension",
+
+                "next": {
+                  "id": "2597",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (approx. extension dimensions, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. full structural plans for kitchen extension",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2601",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find architectural designers near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8221",
+                "type": "StandardChoiceOption",
+                "formLabel": "Loft conversion",
+
+                "next": {
+                  "id": "2602",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (approx. conversion dimensions, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. full structural plans for kitchen extension",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2601",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find architectural designers near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8222",
+                "type": "StandardChoiceOption",
+                "formLabel": "Renovation",
+
+                "next": {
+                  "id": "2603",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (extent of the renovation, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. full structural plans for kitchen extension",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2601",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find architectural designers near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8223",
+                "type": "StandardChoiceOption",
+                "formLabel": "New build",
+
+                "next": {
+                  "id": "2604",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (approx. building dimensions, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. full structural plans for kitchen extension",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2601",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find architectural designers near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8224",
+                "type": "StandardChoiceOption",
+                "formLabel": "Other",
+
+                "next": {
+                  "id": "2599",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Describe what you need the plans for",
+                  "helpText": "Good descriptions attract good tradespeople. Consider including any details you think might be important.",
+                  "placeholder": "E.g. I need plans for something a little bit different...",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. full structural plans for kitchen extension",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2601",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find architectural designers near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "jobFunnel": {
+      "id": 380,
+      "name": "Architectural Services",
+      "type": "CATEGORY"
+    }
+  }
+}
