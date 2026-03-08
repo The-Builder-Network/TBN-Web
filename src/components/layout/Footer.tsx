@@ -58,7 +58,7 @@ const Footer = () => {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>
                   <Link
-                    to="/tradesperson"
+                    to="/tradesnetwork"
                     className="hover:text-foreground hover:underline transition-colors underline"
                   >
                     Register as tradesperson
@@ -141,7 +141,10 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <Link to="/" className="flex items-center gap-2 mb-4 hover:opacity-80 transition-opacity">
+              <Link
+                to="/"
+                className="flex items-center gap-2 mb-4 hover:opacity-80 transition-opacity"
+              >
                 <img
                   src="/images/logo-black.png"
                   alt="The Builder Network"
@@ -268,7 +271,7 @@ const Footer = () => {
               {trades.slice(0, 17).map((trade) => (
                 <Link
                   key={trade.slug}
-                  to={`/trades/${trade.slug}`}
+                  to={`/${trade.serviceSlug}/${trade.slug}`}
                   className="hover:text-foreground hover:underline transition-colors underline"
                 >
                   {trade.name}
@@ -296,7 +299,10 @@ const Footer = () => {
                 >
                   Privacy
                 </Link>
-                <Link to="/terms" className="hover:underline transition-colors underline">
+                <Link
+                  to="/terms"
+                  className="hover:underline transition-colors underline"
+                >
                   Terms and conditions
                 </Link>
               </div>

@@ -8,16 +8,16 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [loginModalOpen, setLoginModalOpen] = useState(false);
   const location = useLocation();
-  const isTradespersonPage = location.pathname === "/tradesperson";
+  const isTradespersonPage = location.pathname === "/tradesnetwork";
 
   return (
     <>
       {/* Top Banner */}
       {!isTradespersonPage && (
-        <div className="bg-primary text-primary-foreground text-sm py-1 text-center">
+        <div className="bg-highlight/90 text-primary-foreground text-sm py-1 text-center">
           <span>Are you a tradesperson looking for leads? </span>
           <Link
-            to="/tradesperson"
+            to="/tradesnetwork"
             className="underline font-medium hover:no-underline"
           >
             Join for free
@@ -55,13 +55,13 @@ const Header = () => {
             {isTradespersonPage ? (
               <Link to="/">
                 <Button variant="outline" size="sm">
-                  I'm a customer
+                  <span className="text-base">I'm a customer</span>
                 </Button>
               </Link>
             ) : (
-              <Link to="/tradesperson">
+              <Link to="/tradesnetwork">
                 <Button variant="outline" size="sm">
-                  Sign up as a tradesperson
+                  <span className="text-base">Sign up as a tradesperson</span>
                 </Button>
               </Link>
             )}
@@ -111,7 +111,7 @@ const Header = () => {
                   </Link>
                 ) : (
                   <Link
-                    to="/tradesperson"
+                    to="/tradesnetwork"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <Button variant="outline" size={"xl"} className="w-full">
