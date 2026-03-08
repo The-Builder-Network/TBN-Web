@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { validateUKPostcode } from "@/helpers/postcodeHelper";
-import type { QuestionNode, AnswerValue } from "./types";
+import type { QuestionNode, AnswerValue } from "@/types/post-job";
 
 interface QuestionRendererProps {
   node: QuestionNode;

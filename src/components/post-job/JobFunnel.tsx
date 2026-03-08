@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { Progress } from "@/components/ui/progress";
-import type { QuestionNode, AnswerValue, Answers, HistoryEntry } from "./types";
+import type { QuestionNode, AnswerValue, Answers, HistoryEntry } from "@/types/post-job";
 import QuestionRenderer from "./QuestionRenderer";
 
 interface JobFunnelProps {
