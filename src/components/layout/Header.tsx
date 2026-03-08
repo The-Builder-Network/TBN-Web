@@ -14,8 +14,10 @@ const Header = () => {
     <>
       {/* Top Banner */}
       {!isTradespersonPage && (
-        <div className="bg-highlight/90 text-primary-foreground text-sm py-1 text-center">
-          <span>Are you a tradesperson looking for leads? </span>
+        <div className="bg-primary/10  text-primary text-sm py-0.5 text-center">
+          <span className="font-medium ">
+            Are you a tradesperson looking for leads?{" "}
+          </span>
           <Link
             to="/tradesnetwork"
             className="underline font-medium hover:no-underline"
@@ -25,7 +27,7 @@ const Header = () => {
         </div>
       )}
 
-      <header className="sticky top-0 z-50 w-full border-b py-4 bg-background">
+      <header className="sticky top-0 z-50 w-full border-b py-3 bg-background">
         <div className="container flex h-12 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">

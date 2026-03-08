@@ -6,50 +6,85 @@ import JobServiceCombobox from "@/components/shared/JobServiceCombobox";
 
 interface JobServiceSelectorProps {
   onSelect: (slug: string) => void;
+  title?: string;
+  showProgress?: boolean;
+  showDescription?: boolean;
+  showButton?: boolean;
+  buttonText?: string;
+  selectedService?: string;
+  onServiceChange?: (slug: string) => void;
+  label?: string;
+  placeholder?: string;
 }
 
-const JobServiceSelector = ({ onSelect }: JobServiceSelectorProps) => {
-  const [selected, setSelected] = useState("");
+const JobServiceSelector = ({
+  onSelect,
+  title = "Post a job",
+  showProgress = true,
+  showDescription = true,
+  showButton = true,
+  buttonText = "Next",
+  selectedService,
+  onServiceChange,
+  label = "What would you like to have done?",
+  placeholder = "Select a service...",
+}: JobServiceSelectorProps) => {
+  const [internalSelected, setInternalSelected] = useState("");
+
+  const selected =
+    selectedService !== undefined ? selectedService : internalSelected;
+
+  const handleServiceChange = (slug: string) => {
+    setInternalSelected(slug);
+    onServiceChange?.(slug);
+  };
 
   return (
     <div>
-      <div className="mb-8 space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight">Post a job</h1>
-        <div className="space-y-2">
-          <div className="flex items-center justify-end text-xs">
-            <span className="font-medium">0% complete</span>
-          </div>
-          <Progress value={0} className="h-2" />
+      {title && (
+        <div className="mb-8 space-y-2">
+          <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
+          {showProgress && (
+            <div className="space-y-2">
+              <div className="flex items-center justify-end text-xs">
+                <span className="font-medium">0% complete</span>
+              </div>
+              <Progress value={0} className="h-2" />
+            </div>
+          )}
         </div>
-      </div>
+      )}
 
       <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-        <div className="space-y-2">
-          <p className="text-muted-foreground">
-            Get responses from screened and reviewed tradespeople near you
-          </p>
-        </div>
+        {showDescription && (
+          <div className="space-y-2">
+            <p className="text-muted-foreground">
+              Get responses from screened and reviewed tradespeople near you
+            </p>
+          </div>
+        )}
 
         <div className="space-y-4">
           <Label className="text-md font-medium">
-            What would you like to have done?{" "}
-            <span className="text-red-500">*</span>
+            {label} <span className="text-red-500">*</span>
           </Label>
           <JobServiceCombobox
             value={selected}
-            onChange={setSelected}
-            placeholder="Select a service..."
+            onChange={handleServiceChange}
+            placeholder={placeholder}
           />
         </div>
 
-        <Button
-          size="lg"
-          className="w-full"
-          onClick={() => onSelect(selected)}
-          disabled={!selected}
-        >
-          Next
-        </Button>
+        {showButton && (
+          <Button
+            size="lg"
+            className="w-full"
+            onClick={() => onSelect(selected)}
+            disabled={!selected}
+          >
+            {buttonText}
+          </Button>
+        )}
       </div>
     </div>
   );
