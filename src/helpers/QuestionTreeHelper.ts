@@ -4,7 +4,7 @@ import type { QuestionTree } from "@/types/post-job";
  * Eagerly import every JSON file from `src/data/post-job/`
  * using Vite's `import.meta.glob` in eager mode so they're bundled.
  */
-const modules = import.meta.glob<QuestionTree>("../../data/post-job/*.json", {
+const modules = import.meta.glob<QuestionTree>("../data/post-job/*.json", {
   eager: true,
 });
 
