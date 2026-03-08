@@ -17,6 +17,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import AskQuestionModal from "@/components/modals/AskQuestionModal";
+import JobsStatusBadge from "@/components/shared/JobsStatusBadge";
 
 const jobs = [
   {
@@ -99,9 +100,12 @@ const MyJobs = () => {
           >
             <div className="flex items-start justify-between ">
               <div className="flex-1">
-                <h4 className="font-semibold text-muted-foreground text-md mb-1">
-                  #{job.id}
-                </h4>
+                <div className="flex items-center gap-2 mb-1">
+                  <h4 className="font-semibold text-muted-foreground text-md">
+                    #{job.id}
+                  </h4>
+                  <JobsStatusBadge status={job.status} />
+                </div>
                 <h3 className="font-semibold text-xl">{job.title}</h3>
                 <p className="text-muted-foreground text-sm my-2">
                   Posted {job.postedDate}

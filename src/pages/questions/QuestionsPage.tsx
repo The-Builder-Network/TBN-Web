@@ -259,7 +259,11 @@ const QuestionsPage = () => {
         onApply={handleSortApply}
       />
 
-      <AskQuestionModal open={askModalOpen} onOpenChange={setAskModalOpen} />
+      <AskQuestionModal 
+        open={askModalOpen} 
+        onOpenChange={setAskModalOpen} 
+        initialService={selectedService}
+      />
     </div>
   );
 };
