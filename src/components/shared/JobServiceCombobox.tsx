@@ -15,7 +15,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-import { services } from "@/data/services";
+import { services } from "@/constants/services";
 
 interface JobServiceComboboxProps {
   value: string;
@@ -46,7 +46,10 @@ const JobServiceCombobox = ({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className={cn("w-full hover:bg-muted hover:text-neutral-800 justify-between", triggerClassName)}
+          className={cn(
+            "w-full hover:bg-muted hover:text-neutral-800 justify-between",
+            triggerClassName,
+          )}
         >
           {selectedService ? (
             selectedService.name
