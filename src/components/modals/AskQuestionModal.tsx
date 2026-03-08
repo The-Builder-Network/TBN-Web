@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -15,12 +15,17 @@ import JobServiceCombobox from "../shared/JobServiceCombobox";
 interface AskQuestionModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  initialService?: string;
 }
 
-const AskQuestionModal = ({ open, onOpenChange }: AskQuestionModalProps) => {
+const AskQuestionModal = ({ open, onOpenChange, initialService = "" }: AskQuestionModalProps) => {
   const [title, setTitle] = useState("");
-  const [service, setService] = useState("");
+  const [service, setService] = useState(initialService);
   const MAX_TITLE = 100;
+
+  useEffect(() => {
+    setService(initialService);
+  }, [initialService, open]);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
