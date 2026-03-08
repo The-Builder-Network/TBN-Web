@@ -1,15 +1,31 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
+import JobServiceCombobox from "@/components/shared/JobServiceCombobox";
+import PostcodeInput from "@/components/shared/PostcodeInput";
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const TradespersonHero = () => {
+  const [selectedTrade, setSelectedTrade] = useState("");
+  const [postcode, setPostcode] = useState("");
+  const [postcodeValid, setPostcodeValid] = useState(false);
+  const [email, setEmail] = useState("");
+  const [emailTouched, setEmailTouched] = useState(false);
+
+  const emailValid = EMAIL_REGEX.test(email);
+  const emailError = emailTouched && !emailValid && email.length > 0;
+  const canSubmit = !!selectedTrade && postcodeValid && emailValid;
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!canSubmit) return;
+    // TODO: wire up actual registration flow
+    console.log("Tradesperson sign-up:", { selectedTrade, postcode, email });
+  };
+
   return (
     <section className="py-16 md:py-20 bg-background overflow-hidden pattern">
       <div className="container">
@@ -24,37 +40,56 @@ const TradespersonHero = () => {
             <div className="bg-card w-fit border rounded-xl shadow-sm p-6 md:p-8">
               <h2 className="text-2xl font-bold mb-6">View local trade work</h2>
 
-              <form className="space-y-4">
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+              <form className="space-y-4" onSubmit={handleSubmit}>
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-start justify-between gap-3">
                   <div className="flex-1">
-                    <Select>
-                      <SelectTrigger className="w-full h-14 text-muted-foreground">
-                        <SelectValue placeholder="Your main trade" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="plumber">Plumber</SelectItem>
-                        <SelectItem value="electrician">Electrician</SelectItem>
-                        <SelectItem value="carpenter">Carpenter</SelectItem>
-                        <SelectItem value="builder">Builder</SelectItem>
-                        <SelectItem value="painter">Painter</SelectItem>
-                      </SelectContent>
-                    </Select>
+                    <Label className="text-sm font-medium mb-1.5 block">
+                      Your main trade{" "}
+                      <span className="text-destructive">*</span>
+                    </Label>
+                    <JobServiceCombobox
+                      value={selectedTrade}
+                      onChange={setSelectedTrade}
+                      placeholder="Select your trade"
+                      triggerClassName="h-14 text-base"
+                    />
                   </div>
-                  <div className="w-full sm:w-1/3">
-                    <Input placeholder="Pincode" className="h-14" />
+                  <div className="w-full sm:w-2/5">
+                    <Label className="text-sm font-medium mb-1.5 block">
+                      Postcode <span className="text-destructive">*</span>
+                    </Label>
+                    <PostcodeInput
+                      value={postcode}
+                      onChange={setPostcode}
+                      onValidationChange={setPostcodeValid}
+                      placeholder="e.g. SW1A 1AA"
+                      className="h-14"
+                    />
                   </div>
                 </div>
 
                 <div className="space-y-2">
+                  <Label className="text-sm font-medium">
+                    Email to receive leads{" "}
+                    <span className="text-destructive">*</span>
+                  </Label>
                   <Input
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    onBlur={() => setEmailTouched(true)}
                     placeholder="Your email to receive leads"
                     type="email"
-                    className="h-14 text-lg"
+                    className={`h-14 text-lg ${emailError ? "border-destructive" : ""}`}
                   />
+                  {emailError && (
+                    <p className="text-xs text-destructive">
+                      Please enter a valid email address
+                    </p>
+                  )}
                 </div>
 
                 <div className="text-xs text-muted-foreground">
-                  By clicking Sign up for free, you agree to Home Pro Connect{" "}
+                  By clicking Sign up for free, you agree to The Builder Network{" "}
                   <Link to="/terms" className="underline">
                     Terms and Conditions
                   </Link>
@@ -67,7 +102,12 @@ const TradespersonHero = () => {
                   .
                 </div>
 
-                <Button className="w-full h-14 font-bold" size="lg">
+                <Button
+                  type="submit"
+                  className="w-full h-14 font-bold"
+                  size="lg"
+                  disabled={!canSubmit}
+                >
                   Sign up for free
                 </Button>
               </form>
@@ -83,7 +123,7 @@ const TradespersonHero = () => {
                 className="aspect-square object-cover"
               />
 
-              {/* Overlay Label - Mimicking the "Krystian 5/5" */}
+              {/* Overlay Label */}
               <div className="absolute bottom-36 left-56 bg-highlight text-black px-4 py-2 rounded-md font-bold shadow-lg flex items-center gap-2">
                 <span>Krystian ★ 4.9/5</span>
               </div>

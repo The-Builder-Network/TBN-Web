@@ -11,6 +11,7 @@ export interface TradeFAQ {
 export interface Trade {
   slug: string;
   name: string;
+  serviceSlug: string;
   title: string;
   description: string;
   details: TradeDetail[];
@@ -22,6 +23,7 @@ export const trades: Trade[] = [
   {
     slug: "boiler-installation-specialist",
     name: "Boiler Installation Specialist",
+    serviceSlug: "central-heating",
     title: "Find professional boiler installation services near you",
     description:
       "Looking for expert boiler installation? Get matched with certified boiler installation specialists who can install your new boiler safely and efficiently. Read reviews, compare quotes, and hire with confidence.",
@@ -55,6 +57,7 @@ export const trades: Trade[] = [
   {
     slug: "boiler-repair-specialist",
     name: "Boiler Repair Specialist",
+    serviceSlug: "central-heating",
     title: "Find reliable boiler repair services near you",
     description:
       "Need your boiler repaired? Connect with Gas Safe registered boiler repair specialists who can diagnose and fix issues quickly. Post your job for free and get matched with local professionals.",
@@ -88,6 +91,7 @@ export const trades: Trade[] = [
   {
     slug: "builder",
     name: "Builder",
+    serviceSlug: "extensions",
     title: "Find experienced builders for your construction project",
     description:
       "Looking for a reliable builder? Connect with experienced builders who can handle everything from small repairs to major construction projects. Read reviews, compare quotes, and hire the right builder for your needs.",
@@ -121,6 +125,7 @@ export const trades: Trade[] = [
   {
     slug: "cctv-installer",
     name: "CCTV Installer",
+    serviceSlug: "security-systems",
     title: "Professional CCTV installation services near you",
     description:
       "Need CCTV installed? Find experienced CCTV installers who can design and install security camera systems for your home or business. Get matched with local professionals today.",
@@ -154,6 +159,7 @@ export const trades: Trade[] = [
   {
     slug: "chimney-sweep",
     name: "Chimney Sweep",
+    serviceSlug: "chimney-fireplace",
     title: "Find professional chimney sweep services near you",
     description:
       "Keep your chimney safe and efficient with professional chimney sweep services. Get matched with experienced chimney sweeps who can clean, inspect, and maintain your chimney.",
@@ -187,6 +193,7 @@ export const trades: Trade[] = [
   {
     slug: "cleaner",
     name: "Cleaner",
+    serviceSlug: "cleaning-services",
     title: "Find reliable cleaning services near you",
     description:
       "Need cleaning help? Connect with professional cleaners who can handle domestic cleaning, deep cleaning, end of tenancy cleaning, and more. Read reviews and hire with confidence.",
@@ -220,6 +227,7 @@ export const trades: Trade[] = [
   {
     slug: "conservatory-repair-specialist",
     name: "Conservatory Repair Specialist",
+    serviceSlug: "conservatories",
     title: "Expert conservatory repair services near you",
     description:
       "Need conservatory repairs? Find specialists who can fix leaking roofs, broken glass, damaged frames, and more. Get your conservatory back to perfect condition.",
@@ -253,6 +261,7 @@ export const trades: Trade[] = [
   {
     slug: "double-glazing-repair-specialist",
     name: "Double Glazing Repair Specialist",
+    serviceSlug: "windows-door-fitting",
     title: "Professional double glazing repair services near you",
     description:
       "Problems with your double glazing? Find specialists who can repair misted windows, broken seals, faulty handles, and more. Get expert repairs without replacing entire windows.",
@@ -286,6 +295,7 @@ export const trades: Trade[] = [
   {
     slug: "electrician",
     name: "Electrician",
+    serviceSlug: "electrical",
     title: "Find qualified electricians near you",
     description:
       "Need electrical work done? Connect with Part P certified electricians who can handle all your electrical needs safely and professionally. From rewiring to installing new circuits, find the right electrician today.",
@@ -319,6 +329,7 @@ export const trades: Trade[] = [
   {
     slug: "garden-clearance-specialist",
     name: "Garden Clearance Specialist",
+    serviceSlug: "gardening-landscaping",
     title: "Professional garden clearance services near you",
     description:
       "Need your garden cleared? Find specialists who can remove garden waste, overgrown vegetation, old sheds, and more. Get your garden back in shape quickly and efficiently.",
@@ -352,6 +363,7 @@ export const trades: Trade[] = [
   {
     slug: "gutter-cleaning-specialist",
     name: "Gutter Cleaning Specialist",
+    serviceSlug: "fascias-soffits-guttering",
     title: "Professional gutter cleaning services near you",
     description:
       "Keep your gutters clear and prevent water damage with professional gutter cleaning services. Find experienced specialists who can clean and maintain your guttering system.",
@@ -385,6 +397,7 @@ export const trades: Trade[] = [
   {
     slug: "gutter-repair-specialist",
     name: "Gutter Repair Specialist",
+    serviceSlug: "fascias-soffits-guttering",
     title: "Expert gutter repair services near you",
     description:
       "Problems with your gutters? Find specialists who can repair leaking gutters, replace damaged sections, and fix sagging guttering. Protect your property from water damage.",
@@ -418,6 +431,7 @@ export const trades: Trade[] = [
   {
     slug: "handyman",
     name: "Handyman",
+    serviceSlug: "handyman",
     title: "Find reliable handyman services near you",
     description:
       "Need odd jobs done around the house? Connect with skilled handymen who can tackle a wide range of tasks from minor repairs to home improvements. Get matched with local professionals today.",
@@ -451,6 +465,7 @@ export const trades: Trade[] = [
   {
     slug: "moving-company",
     name: "Moving Company",
+    serviceSlug: "moving-services",
     title: "Professional moving and removal services near you",
     description:
       "Planning a move? Find reliable moving companies that can handle everything from packing to transport. Get quotes from local removal specialists and make your move stress-free.",
@@ -484,6 +499,7 @@ export const trades: Trade[] = [
   {
     slug: "painter-decorator",
     name: "Painter & Decorator",
+    serviceSlug: "painting-decorating",
     title: "Find professional painters and decorators near you",
     description:
       "Transform your home with professional painting and decorating services. Connect with skilled painters and decorators who deliver quality finishes for interior and exterior projects.",
@@ -517,6 +533,7 @@ export const trades: Trade[] = [
   {
     slug: "plasterer",
     name: "Plasterer",
+    serviceSlug: "plastering-rendering",
     title: "Professional plastering services near you",
     description:
       "Need plastering work? Find skilled plasterers who can handle skimming, rendering, repairs, and new plaster installation. Get smooth, professional finishes for your walls and ceilings.",
@@ -550,6 +567,7 @@ export const trades: Trade[] = [
   {
     slug: "plumber",
     name: "Plumber",
+    serviceSlug: "plumbing",
     title: "Find qualified plumbers near you",
     description:
       "Need plumbing services? Connect with qualified plumbers who can handle everything from leaky taps to bathroom installations. Get reliable plumbing solutions from experienced professionals.",
@@ -583,6 +601,7 @@ export const trades: Trade[] = [
   {
     slug: "roof-cleaner",
     name: "Roof Cleaner",
+    serviceSlug: "roofing",
     title: "Professional roof cleaning services near you",
     description:
       "Keep your roof in top condition with professional cleaning services. Find specialists who can safely clean moss, algae, and debris from your roof, extending its lifespan.",
@@ -616,6 +635,7 @@ export const trades: Trade[] = [
   {
     slug: "roof-repair-specialist",
     name: "Roof Repair Specialist",
+    serviceSlug: "roofing",
     title: "Expert roof repair services near you",
     description:
       "Problems with your roof? Find specialists who can repair leaks, replace tiles, fix flashing, and handle all types of roof repairs. Protect your home from water damage.",
@@ -649,6 +669,7 @@ export const trades: Trade[] = [
   {
     slug: "wardrobe-fitter",
     name: "Wardrobe Fitter",
+    serviceSlug: "carpentry-joinery",
     title: "Professional wardrobe fitting services near you",
     description:
       "Need wardrobes fitted? Find experienced fitters who can install built-in wardrobes, sliding door wardrobes, and flat-pack wardrobes. Get perfect storage solutions professionally installed.",
@@ -682,6 +703,7 @@ export const trades: Trade[] = [
   {
     slug: "window-cleaner",
     name: "Window Cleaner",
+    serviceSlug: "cleaning-services",
     title: "Professional window cleaning services near you",
     description:
       "Keep your windows sparkling clean with professional window cleaning services. Find reliable window cleaners offering regular or one-off cleans for homes and businesses.",
@@ -715,6 +737,7 @@ export const trades: Trade[] = [
   {
     slug: "roofer",
     name: "Roofer",
+    serviceSlug: "roofing",
     title: "Find professional roofers near you",
     description:
       "Need roofing work done? Connect with experienced roofers who can handle repairs, replacements, and new roof installations. Get quality roofing services from trusted professionals.",
@@ -748,6 +771,7 @@ export const trades: Trade[] = [
   {
     slug: "carpenter-joiner",
     name: "Carpenter & Joiner",
+    serviceSlug: "carpentry-joinery",
     title: "Find skilled carpenters and joiners near you",
     description:
       "Need carpentry work? Connect with experienced carpenters and joiners who can handle everything from bespoke furniture to structural work. Get quality craftsmanship for your project.",
@@ -781,6 +805,7 @@ export const trades: Trade[] = [
   {
     slug: "landscaper",
     name: "Landscaper",
+    serviceSlug: "gardening-landscaping",
     title: "Professional landscaping services near you",
     description:
       "Transform your outdoor space with professional landscaping services. Find experienced landscapers who can design and create beautiful, functional gardens.",
@@ -814,6 +839,7 @@ export const trades: Trade[] = [
   {
     slug: "bathroom-fitter",
     name: "Bathroom Fitter",
+    serviceSlug: "bathroom-fitting",
     title: "Professional bathroom fitting services near you",
     description:
       "Planning a new bathroom? Find experienced bathroom fitters who can handle complete installations from design to completion. Get your dream bathroom professionally fitted.",
@@ -847,6 +873,7 @@ export const trades: Trade[] = [
   {
     slug: "bricklayer",
     name: "Bricklayer",
+    serviceSlug: "bricklaying-repointing",
     title: "Find skilled bricklayers near you",
     description:
       "Need bricklaying services? Connect with experienced bricklayers who can handle everything from garden walls to house extensions. Get quality brickwork from skilled professionals.",
@@ -880,6 +907,7 @@ export const trades: Trade[] = [
   {
     slug: "gas-engineer",
     name: "Gas Engineer",
+    serviceSlug: "gas-works",
     title: "Find Gas Safe registered engineers near you",
     description:
       "Need gas work done? Connect with Gas Safe registered engineers who can handle boiler installations, repairs, servicing, and all gas appliance work safely and professionally.",
@@ -913,6 +941,7 @@ export const trades: Trade[] = [
   {
     slug: "carpet-fitter",
     name: "Carpet Fitter",
+    serviceSlug: "carpets-lino-flooring",
     title: "Professional carpet fitting services near you",
     description:
       "Need new carpets fitted? Find experienced carpet fitters who can measure, supply, and install carpets to perfection. Get quality carpet fitting at competitive prices.",
@@ -946,6 +975,7 @@ export const trades: Trade[] = [
   {
     slug: "kitchen-fitter",
     name: "Kitchen Fitter",
+    serviceSlug: "kitchen-fitting",
     title: "Professional kitchen fitting services near you",
     description:
       "Planning a new kitchen? Find experienced kitchen fitters who can handle complete installations from design to completion. Get your dream kitchen professionally fitted.",
@@ -979,6 +1009,7 @@ export const trades: Trade[] = [
   {
     slug: "cabinet-maker",
     name: "Cabinet Maker",
+    serviceSlug: "carpentry-joinery",
     title: "Find skilled cabinet makers near you",
     description:
       "Need bespoke cabinets or furniture? Connect with experienced cabinet makers who can create custom storage solutions and furniture tailored to your space and style.",
@@ -1012,6 +1043,7 @@ export const trades: Trade[] = [
   {
     slug: "tiler",
     name: "Tiler",
+    serviceSlug: "tiling",
     title: "Professional tiling services near you",
     description:
       "Need tiling work done? Find experienced tilers who can tile bathrooms, kitchens, floors, and more. Get quality tiling with professional finishes.",
@@ -1045,6 +1077,7 @@ export const trades: Trade[] = [
   {
     slug: "door-fitter",
     name: "Door Fitter",
+    serviceSlug: "windows-door-fitting",
     title: "Professional door fitting services near you",
     description:
       "Need new doors fitted? Find experienced door fitters who can install internal doors, external doors, and fire doors professionally. Get smooth operation and perfect fit.",
@@ -1078,6 +1111,7 @@ export const trades: Trade[] = [
   {
     slug: "glazier",
     name: "Glazier",
+    serviceSlug: "windows-door-fitting",
     title: "Professional glazing services near you",
     description:
       "Need glass work done? Find experienced glaziers who can repair or replace windows, fit double glazing, and handle all types of glass work professionally and safely.",
@@ -1111,6 +1145,7 @@ export const trades: Trade[] = [
   {
     slug: "stove-fitter",
     name: "Stove Fitter",
+    serviceSlug: "chimney-fireplace",
     title: "Professional stove and fireplace installation near you",
     description:
       "Want a wood burner or stove installed? Find qualified stove fitters who can install, service, and maintain stoves and fireplaces safely and professionally.",
@@ -1144,6 +1179,7 @@ export const trades: Trade[] = [
   {
     slug: "window-fitter",
     name: "Window Fitter",
+    serviceSlug: "windows-door-fitting",
     title: "Professional window fitting services near you",
     description:
       "Need new windows installed? Find experienced window fitters who can install uPVC, aluminum, or timber windows professionally. Get energy-efficient windows expertly fitted.",
@@ -1177,6 +1213,7 @@ export const trades: Trade[] = [
   {
     slug: "tree-surgeon",
     name: "Tree Surgeon",
+    serviceSlug: "tree-surgery",
     title: "Professional tree surgery services near you",
     description:
       "Need tree work done? Find qualified tree surgeons who can safely prune, remove, and maintain trees. Get expert arboricultural services from experienced professionals.",
@@ -1210,6 +1247,7 @@ export const trades: Trade[] = [
   {
     slug: "gardener",
     name: "Gardener",
+    serviceSlug: "gardening-landscaping",
     title: "Find professional gardening services near you",
     description:
       "Need help maintaining your garden? Connect with experienced gardeners who offer regular maintenance, landscaping, and garden care services. Keep your garden looking beautiful year-round.",
@@ -1243,6 +1281,7 @@ export const trades: Trade[] = [
   {
     slug: "locksmith",
     name: "Locksmith",
+    serviceSlug: "locksmith",
     title: "Professional locksmith services near you",
     description:
       "Locked out or need locks changed? Find experienced locksmiths offering emergency lockout services, lock fitting, and security upgrades. Fast, reliable locksmith services available.",
@@ -1276,6 +1315,7 @@ export const trades: Trade[] = [
   {
     slug: "architectural-designer",
     name: "Architectural Designer",
+    serviceSlug: "architectural-services",
     title: "Professional architectural design services near you",
     description:
       "Planning a building project? Find experienced architectural designers who can create plans, handle planning applications, and design your perfect space.",
@@ -1310,6 +1350,7 @@ export const trades: Trade[] = [
   {
     slug: "groundworker",
     name: "Groundworker",
+    serviceSlug: "groundwork-foundations",
     title: "Professional groundwork services near you",
     description:
       "Need groundwork done? Find experienced groundworkers who can handle foundations, drainage, and site preparation for building projects. Get quality groundwork professionally completed.",
@@ -1343,6 +1384,7 @@ export const trades: Trade[] = [
   {
     slug: "stonemason",
     name: "Stonemason",
+    serviceSlug: "stonemasonry",
     title: "Find skilled stonemasons near you",
     description:
       "Need stonework done? Connect with experienced stonemasons who can handle stone walls, restoration, paving, and specialist stone work. Get traditional craftsmanship for lasting results.",
@@ -1376,6 +1418,7 @@ export const trades: Trade[] = [
   {
     slug: "heating-engineer",
     name: "Heating Engineer",
+    serviceSlug: "central-heating",
     title: "Professional heating engineer services near you",
     description:
       "Need heating system work? Find qualified heating engineers who can install, repair, and maintain all types of heating systems. Keep your home warm and efficient.",
@@ -1410,6 +1453,7 @@ export const trades: Trade[] = [
   {
     slug: "insulation-company",
     name: "Insulation Company",
+    serviceSlug: "insulation",
     title: "Professional insulation services near you",
     description:
       "Want to improve your home's energy efficiency? Find insulation specialists who can install loft, cavity wall, and other insulation types. Reduce energy bills and stay comfortable.",
@@ -1443,6 +1487,7 @@ export const trades: Trade[] = [
   {
     slug: "fencer",
     name: "Fencer",
+    serviceSlug: "fencing",
     title: "Professional fencing services near you",
     description:
       "Need a new fence or repairs? Find experienced fencers who can install panel fencing, close board, picket fencing, and gates. Get secure, attractive fencing professionally installed.",
@@ -1476,6 +1521,7 @@ export const trades: Trade[] = [
   {
     slug: "waste-rubbish-clearance",
     name: "Waste & Rubbish Clearance Company",
+    serviceSlug: "demolition-clearance",
     title: "Find waste and rubbish removal near you for hassle-free clearance",
     description:
       "From clearing out your home to managing a construction project, hiring the right waste and rubbish removals company ensures a hassle-free clean up. Find local rubbish removal services on The Builder Network who are interested and available to help. Read reviews, post your job for free and get matched with waste clearance specialists near you!",
@@ -1516,6 +1562,7 @@ export const trades: Trade[] = [
   {
     slug: "demolition-company",
     name: "Demolition Company",
+    serviceSlug: "demolition-clearance",
     title: "Professional demolition services near you",
     description:
       "Need demolition work? Find experienced demolition companies who can safely demolish buildings, structures, or remove internal walls. Licensed, insured professionals for all demolition needs.",
@@ -1549,6 +1596,7 @@ export const trades: Trade[] = [
   {
     slug: "decking-installer",
     name: "Decking Installer",
+    serviceSlug: "carpentry-joinery",
     title: "Professional decking installation services near you",
     description:
       "Want a new deck? Find experienced decking installers who can design and build beautiful, durable decking for your garden. Transform your outdoor space with quality decking.",
@@ -1582,6 +1630,7 @@ export const trades: Trade[] = [
   {
     slug: "extension-builder",
     name: "Extension Builder",
+    serviceSlug: "extensions",
     title: "Professional house extension services near you",
     description:
       "Planning a house extension? Find experienced extension builders who can manage your entire project from design to completion. Add valuable space to your home.",
@@ -1615,6 +1664,7 @@ export const trades: Trade[] = [
   {
     slug: "security-system-installer",
     name: "Security System Installer",
+    serviceSlug: "security-systems",
     title: "Professional security system installation near you",
     description:
       "Protect your property with professional security system installation. Find experienced installers who can fit alarms, CCTV, and access control systems.",
@@ -1648,6 +1698,7 @@ export const trades: Trade[] = [
   {
     slug: "conservatory-installer",
     name: "Conservatory Installer",
+    serviceSlug: "conservatories",
     title: "Professional conservatory installation services near you",
     description:
       "Want to add a conservatory? Find experienced installers who can design and build beautiful conservatories to extend your living space. Quality construction, professional installation.",
@@ -1681,6 +1732,7 @@ export const trades: Trade[] = [
   {
     slug: "driveways-installer",
     name: "Driveways Installer",
+    serviceSlug: "driveways-paving",
     title: "Professional driveway installation near you",
     description:
       "Need a new driveway? Find experienced installers who can create block paving, tarmac, resin, or gravel driveways. Quality driveways built to last.",
@@ -1714,6 +1766,7 @@ export const trades: Trade[] = [
   {
     slug: "flooring-fitter",
     name: "Flooring Fitter",
+    serviceSlug: "carpets-lino-flooring",
     title: "Professional flooring installation services near you",
     description:
       "Need new flooring? Find experienced fitters who can install laminate, engineered wood, solid wood, and luxury vinyl flooring professionally. Beautiful floors, expertly fitted.",
@@ -1747,6 +1800,7 @@ export const trades: Trade[] = [
   {
     slug: "guttering-installer",
     name: "Guttering Installer",
+    serviceSlug: "fascias-soffits-guttering",
     title: "Professional guttering installation services near you",
     description:
       "Need new guttering? Find experienced installers who can fit uPVC, cast iron, or aluminum guttering systems. Protect your property with quality guttering installation.",
@@ -1780,6 +1834,7 @@ export const trades: Trade[] = [
   {
     slug: "vinyl-flooring-fitter",
     name: "Vinyl Flooring Fitter",
+    serviceSlug: "carpets-lino-flooring",
     title: "Professional vinyl flooring installation near you",
     description:
       "Want vinyl flooring installed? Find experienced fitters who can install sheet vinyl and luxury vinyl tiles professionally. Durable, waterproof flooring expertly fitted.",
@@ -1813,6 +1868,7 @@ export const trades: Trade[] = [
   {
     slug: "fireplace-installer",
     name: "Fireplace installer",
+    serviceSlug: "chimney-fireplace",
     title: "Professional fireplace installation services near you",
     description:
       "Want a new fireplace installed? Find experienced installers who can fit gas, electric, or solid fuel fireplaces. Transform your room with a beautiful, safely installed fireplace.",
@@ -1846,6 +1902,7 @@ export const trades: Trade[] = [
   {
     slug: "architectural-technician",
     name: "Architectural Technician",
+    serviceSlug: "architectural-services",
     title: "Professional architectural technician services near you",
     description:
       "Need technical drawings or building plans? Find experienced architectural technicians who can create detailed plans, handle building regulations, and support your construction project.",
@@ -1880,6 +1937,7 @@ export const trades: Trade[] = [
   {
     slug: "chimney-repair-specialist",
     name: "Chimney Repair Specialist",
+    serviceSlug: "chimney-fireplace",
     title: "Expert chimney repair services near you",
     description:
       "Problems with your chimney? Find specialists who can repair leaning chimneys, damaged stacks, flashing issues, and more. Professional chimney repairs to prevent costly damage.",
@@ -1913,6 +1971,7 @@ export const trades: Trade[] = [
   {
     slug: "garden-maintenance-company",
     name: "Garden Maintenance Company",
+    serviceSlug: "gardening-landscaping",
     title: "Professional garden maintenance services near you",
     description:
       "Keep your garden in top condition year-round with professional maintenance services. Find companies offering regular garden care, seasonal maintenance, and landscaping upkeep.",
@@ -1946,6 +2005,7 @@ export const trades: Trade[] = [
   {
     slug: "loft-conversion-company",
     name: "Loft Conversion Company",
+    serviceSlug: "loft-conversion",
     title: "Professional loft conversion services near you",
     description:
       "Want to convert your loft? Find experienced companies who can transform your loft space into usable rooms. Add valuable space and increase your property value.",
@@ -1979,6 +2039,7 @@ export const trades: Trade[] = [
   {
     slug: "damp-proofer",
     name: "Damp Proofer",
+    serviceSlug: "damp-proofing",
     title: "Professional damp proofing services near you",
     description:
       "Damp problems in your property? Find specialists who can diagnose and treat rising damp, penetrating damp, and condensation issues. Protect your property from moisture damage.",
@@ -2012,6 +2073,7 @@ export const trades: Trade[] = [
   {
     slug: "conversion-specialist",
     name: "Conversion Specialist",
+    serviceSlug: "conversions",
     title: "Professional property conversion services near you",
     description:
       "Want to convert part of your property? Find specialists who handle all types of conversions including garage, basement, and outbuilding conversions. Add valuable living space.",
@@ -2045,6 +2107,7 @@ export const trades: Trade[] = [
   {
     slug: "garage-conversion-specialist",
     name: "Garage Conversion Specialist",
+    serviceSlug: "conversions",
     title: "Professional garage conversion services near you",
     description:
       "Convert your garage into usable living space? Find experienced specialists who can transform your garage into an extra bedroom, office, or living area. Quality conversions, professionally completed.",
@@ -2078,6 +2141,7 @@ export const trades: Trade[] = [
   {
     slug: "new-home-builder",
     name: "New Home Builder",
+    serviceSlug: "new-build",
     title: "Professional new build home construction services",
     description:
       "Building a new home? Find experienced builders who can manage your entire self-build project from groundworks to completion. Make your dream home a reality.",
@@ -2111,6 +2175,7 @@ export const trades: Trade[] = [
   {
     slug: "repointing-specialist",
     name: "Repointing Specialist",
+    serviceSlug: "bricklaying-repointing",
     title: "Professional brick repointing services near you",
     description:
       "Deteriorating mortar joints? Find repointing specialists who can restore your brickwork with expert repointing. Protect your property and restore its appearance.",
@@ -2144,6 +2209,7 @@ export const trades: Trade[] = [
   {
     slug: "fascias-soffits-installer",
     name: "Fascias & Soffits Installer",
+    serviceSlug: "fascias-soffits-guttering",
     title: "Professional fascias and soffits installation near you",
     description:
       "Need fascias and soffits replaced? Find experienced installers who can fit uPVC, aluminum, or timber fascias and soffits. Protect your roofline and enhance your property's appearance.",
@@ -2177,6 +2243,7 @@ export const trades: Trade[] = [
   {
     slug: "tarmac-driveway-company",
     name: "Tarmac Driveway Company",
+    serviceSlug: "driveways-paving",
     title: "Professional tarmac driveway installation near you",
     description:
       "Want a tarmac driveway? Find experienced companies who can install durable, attractive tarmac driveways. Quality installation for long-lasting results.",
@@ -2210,6 +2277,7 @@ export const trades: Trade[] = [
   {
     slug: "building-restoration-refurbishment-company",
     name: "Building Restoration & Refurbishment Company",
+    serviceSlug: "restoration-refurbishment",
     title: "Professional building restoration and refurbishment services",
     description:
       "Restoring a period property or refurbishing a building? Find specialists who understand traditional building methods and materials. Expert restoration for lasting results.",
