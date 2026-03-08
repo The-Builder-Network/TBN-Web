@@ -1,0 +1,933 @@
+{
+  "questionTree": {
+    "id": "f7f67687-e557-47a2-859e-274de850cfe1",
+    "name": "Demolition & Clearance",
+    "schema": {
+      "id": "2678",
+      "type": "SelectQuestion",
+      "required": true,
+      "formLabel": "What type of service do you require?",
+
+      "options": [
+        {
+          "id": "8405",
+          "type": "StandardChoiceOption",
+          "formLabel": "Waste removal only",
+          "helpText": "Remove waste from property, including hazardous materials",
+          "next": {
+            "id": "2679",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "How much waste do you need clearing?",
+
+            "options": [
+              {
+                "id": "8408",
+                "type": "StandardChoiceOption",
+                "formLabel": "Small van or car load",
+                "helpText": null
+              },
+              {
+                "id": "8409",
+                "type": "StandardChoiceOption",
+                "formLabel": "Medium van load",
+                "helpText": null
+              },
+              {
+                "id": "8410",
+                "type": "StandardChoiceOption",
+                "formLabel": "Large van load",
+                "helpText": null
+              },
+              {
+                "id": "8411",
+                "type": "StandardChoiceOption",
+                "formLabel": "Full site clearance or more",
+                "helpText": null
+              }
+            ],
+            "next": {
+              "id": "2680",
+              "type": "SelectQuestion",
+              "required": true,
+              "formLabel": "Are there any hazardous materials that you know of?",
+              "helpText": "e.g. Asbestos, white goods, mattress, CRT TV or monitor, fluorescent tubes, tyres, oil, petrol, diesel, or paint",
+              "options": [
+                {
+                  "id": "8412",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "Yes",
+
+                  "next": {
+                    "id": "2681",
+                    "type": "CheckboxQuestion",
+                    "required": true,
+                    "formLabel": "Select the hazardous materials that you're aware of:",
+
+                    "options": [
+                      {
+                        "id": "8415",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "Asbestos",
+                        "helpText": null
+                      },
+                      {
+                        "id": "8416",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "White goods",
+                        "helpText": null
+                      },
+                      {
+                        "id": "8417",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "Mattress",
+                        "helpText": null
+                      },
+                      {
+                        "id": "8418",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "CRT TV / Monitor",
+                        "helpText": null
+                      },
+                      {
+                        "id": "8419",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "Fluorescent tubes",
+                        "helpText": null
+                      },
+                      {
+                        "id": "8420",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "Tyres",
+                        "helpText": null
+                      },
+                      {
+                        "id": "8421",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "Oil, petrol, diesel or paint",
+                        "helpText": null
+                      },
+                      {
+                        "id": "9333",
+                        "type": "TextChoiceOption",
+                        "formLabel": "Other",
+                        "placeholder": "Other hazardous materials",
+                        "helpText": null
+                      }
+                    ],
+                    "next": {
+                      "id": "2684",
+                      "type": "TextareaQuestion",
+                      "required": true,
+                      "formLabel": "Add a description to your job",
+
+                      "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
+                      "minLength": 20,
+                      "maxLength": 10000,
+                      "next": {
+                        "id": "TITLE_QUESTION",
+                        "type": "TitleQuestion",
+                        "required": true,
+                        "formLabel": "Give your job a headline",
+                        "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                        "placeholder": "E.g. Demolish and clear small shed",
+                        "maxLength": 70,
+                        "next": {
+                          "id": "3154",
+                          "type": "AttachmentQuestion",
+                          "required": false,
+                          "formLabel": "Would you like to add any photos or plans?",
+                          "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                          "next": {
+                            "id": "2690",
+                            "type": "PostalCodeQuestion",
+                            "required": true,
+                            "formLabel": "Postcode for the job",
+                            "helpText": "To find clearance specialists near you we need to know where the job is."
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "8413",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "No",
+
+                  "next": {
+                    "id": "2684",
+                    "type": "TextareaQuestion",
+                    "required": true,
+                    "formLabel": "Add a description to your job",
+
+                    "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
+                    "minLength": 20,
+                    "maxLength": 10000,
+                    "next": {
+                      "id": "TITLE_QUESTION",
+                      "type": "TitleQuestion",
+                      "required": true,
+                      "formLabel": "Give your job a headline",
+                      "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                      "placeholder": "E.g. Demolish and clear small shed",
+                      "maxLength": 70,
+                      "next": {
+                        "id": "3154",
+                        "type": "AttachmentQuestion",
+                        "required": false,
+                        "formLabel": "Would you like to add any photos or plans?",
+                        "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                        "next": {
+                          "id": "2690",
+                          "type": "PostalCodeQuestion",
+                          "required": true,
+                          "formLabel": "Postcode for the job",
+                          "helpText": "To find clearance specialists near you we need to know where the job is."
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "8414",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "I am not sure",
+
+                  "next": {
+                    "id": "2684",
+                    "type": "TextareaQuestion",
+                    "required": true,
+                    "formLabel": "Add a description to your job",
+
+                    "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
+                    "minLength": 20,
+                    "maxLength": 10000,
+                    "next": {
+                      "id": "TITLE_QUESTION",
+                      "type": "TitleQuestion",
+                      "required": true,
+                      "formLabel": "Give your job a headline",
+                      "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                      "placeholder": "E.g. Demolish and clear small shed",
+                      "maxLength": 70,
+                      "next": {
+                        "id": "3154",
+                        "type": "AttachmentQuestion",
+                        "required": false,
+                        "formLabel": "Would you like to add any photos or plans?",
+                        "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                        "next": {
+                          "id": "2690",
+                          "type": "PostalCodeQuestion",
+                          "required": true,
+                          "formLabel": "Postcode for the job",
+                          "helpText": "To find clearance specialists near you we need to know where the job is."
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "8406",
+          "type": "StandardChoiceOption",
+          "formLabel": "Building / structure demolition",
+          "helpText": "Knock down and remove a whole structure",
+          "next": {
+            "id": "2682",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "Roughly, how large is the structure that needs demolishing?",
+
+            "options": [
+              {
+                "id": "8423",
+                "type": "StandardChoiceOption",
+                "formLabel": "Small",
+                "helpText": "E.g. shed or porch",
+                "next": {
+                  "id": "2680",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "Are there any hazardous materials that you know of?",
+                  "helpText": "e.g. Asbestos, white goods, mattress, CRT TV or monitor, fluorescent tubes, tyres, oil, petrol, diesel, or paint",
+                  "options": [
+                    {
+                      "id": "8412",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Yes",
+
+                      "next": {
+                        "id": "2681",
+                        "type": "CheckboxQuestion",
+                        "required": true,
+                        "formLabel": "Select the hazardous materials that you're aware of:",
+
+                        "options": [
+                          {
+                            "id": "8415",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "Asbestos",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8416",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "White goods",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8417",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "Mattress",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8418",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "CRT TV / Monitor",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8419",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "Fluorescent tubes",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8420",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "Tyres",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8421",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "Oil, petrol, diesel or paint",
+                            "helpText": null
+                          },
+                          {
+                            "id": "9333",
+                            "type": "TextChoiceOption",
+                            "formLabel": "Other",
+                            "placeholder": "Other hazardous materials",
+                            "helpText": null
+                          }
+                        ],
+                        "next": {
+                          "id": "2684",
+                          "type": "TextareaQuestion",
+                          "required": true,
+                          "formLabel": "Add a description to your job",
+
+                          "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
+                          "minLength": 20,
+                          "maxLength": 10000,
+                          "next": {
+                            "id": "TITLE_QUESTION",
+                            "type": "TitleQuestion",
+                            "required": true,
+                            "formLabel": "Give your job a headline",
+                            "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                            "placeholder": "E.g. Demolish and clear small shed",
+                            "maxLength": 70,
+                            "next": {
+                              "id": "3154",
+                              "type": "AttachmentQuestion",
+                              "required": false,
+                              "formLabel": "Would you like to add any photos or plans?",
+                              "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                              "next": {
+                                "id": "2690",
+                                "type": "PostalCodeQuestion",
+                                "required": true,
+                                "formLabel": "Postcode for the job",
+                                "helpText": "To find clearance specialists near you we need to know where the job is."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "8413",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "No",
+
+                      "next": {
+                        "id": "2684",
+                        "type": "TextareaQuestion",
+                        "required": true,
+                        "formLabel": "Add a description to your job",
+
+                        "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
+                        "minLength": 20,
+                        "maxLength": 10000,
+                        "next": {
+                          "id": "TITLE_QUESTION",
+                          "type": "TitleQuestion",
+                          "required": true,
+                          "formLabel": "Give your job a headline",
+                          "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                          "placeholder": "E.g. Demolish and clear small shed",
+                          "maxLength": 70,
+                          "next": {
+                            "id": "3154",
+                            "type": "AttachmentQuestion",
+                            "required": false,
+                            "formLabel": "Would you like to add any photos or plans?",
+                            "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                            "next": {
+                              "id": "2690",
+                              "type": "PostalCodeQuestion",
+                              "required": true,
+                              "formLabel": "Postcode for the job",
+                              "helpText": "To find clearance specialists near you we need to know where the job is."
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "8414",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "I am not sure",
+
+                      "next": {
+                        "id": "2684",
+                        "type": "TextareaQuestion",
+                        "required": true,
+                        "formLabel": "Add a description to your job",
+
+                        "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
+                        "minLength": 20,
+                        "maxLength": 10000,
+                        "next": {
+                          "id": "TITLE_QUESTION",
+                          "type": "TitleQuestion",
+                          "required": true,
+                          "formLabel": "Give your job a headline",
+                          "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                          "placeholder": "E.g. Demolish and clear small shed",
+                          "maxLength": 70,
+                          "next": {
+                            "id": "3154",
+                            "type": "AttachmentQuestion",
+                            "required": false,
+                            "formLabel": "Would you like to add any photos or plans?",
+                            "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                            "next": {
+                              "id": "2690",
+                              "type": "PostalCodeQuestion",
+                              "required": true,
+                              "formLabel": "Postcode for the job",
+                              "helpText": "To find clearance specialists near you we need to know where the job is."
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "8424",
+                "type": "StandardChoiceOption",
+                "formLabel": "Medium",
+                "helpText": "E.g. rip out a kitchen, bathroom or similar",
+                "next": {
+                  "id": "2680",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "Are there any hazardous materials that you know of?",
+                  "helpText": "e.g. Asbestos, white goods, mattress, CRT TV or monitor, fluorescent tubes, tyres, oil, petrol, diesel, or paint",
+                  "options": [
+                    {
+                      "id": "8412",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Yes",
+
+                      "next": {
+                        "id": "2681",
+                        "type": "CheckboxQuestion",
+                        "required": true,
+                        "formLabel": "Select the hazardous materials that you're aware of:",
+
+                        "options": [
+                          {
+                            "id": "8415",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "Asbestos",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8416",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "White goods",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8417",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "Mattress",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8418",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "CRT TV / Monitor",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8419",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "Fluorescent tubes",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8420",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "Tyres",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8421",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "Oil, petrol, diesel or paint",
+                            "helpText": null
+                          },
+                          {
+                            "id": "9333",
+                            "type": "TextChoiceOption",
+                            "formLabel": "Other",
+                            "placeholder": "Other hazardous materials",
+                            "helpText": null
+                          }
+                        ],
+                        "next": {
+                          "id": "2684",
+                          "type": "TextareaQuestion",
+                          "required": true,
+                          "formLabel": "Add a description to your job",
+
+                          "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
+                          "minLength": 20,
+                          "maxLength": 10000,
+                          "next": {
+                            "id": "TITLE_QUESTION",
+                            "type": "TitleQuestion",
+                            "required": true,
+                            "formLabel": "Give your job a headline",
+                            "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                            "placeholder": "E.g. Demolish and clear small shed",
+                            "maxLength": 70,
+                            "next": {
+                              "id": "3154",
+                              "type": "AttachmentQuestion",
+                              "required": false,
+                              "formLabel": "Would you like to add any photos or plans?",
+                              "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                              "next": {
+                                "id": "2690",
+                                "type": "PostalCodeQuestion",
+                                "required": true,
+                                "formLabel": "Postcode for the job",
+                                "helpText": "To find clearance specialists near you we need to know where the job is."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "8413",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "No",
+
+                      "next": {
+                        "id": "2684",
+                        "type": "TextareaQuestion",
+                        "required": true,
+                        "formLabel": "Add a description to your job",
+
+                        "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
+                        "minLength": 20,
+                        "maxLength": 10000,
+                        "next": {
+                          "id": "TITLE_QUESTION",
+                          "type": "TitleQuestion",
+                          "required": true,
+                          "formLabel": "Give your job a headline",
+                          "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                          "placeholder": "E.g. Demolish and clear small shed",
+                          "maxLength": 70,
+                          "next": {
+                            "id": "3154",
+                            "type": "AttachmentQuestion",
+                            "required": false,
+                            "formLabel": "Would you like to add any photos or plans?",
+                            "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                            "next": {
+                              "id": "2690",
+                              "type": "PostalCodeQuestion",
+                              "required": true,
+                              "formLabel": "Postcode for the job",
+                              "helpText": "To find clearance specialists near you we need to know where the job is."
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "8414",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "I am not sure",
+
+                      "next": {
+                        "id": "2684",
+                        "type": "TextareaQuestion",
+                        "required": true,
+                        "formLabel": "Add a description to your job",
+
+                        "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
+                        "minLength": 20,
+                        "maxLength": 10000,
+                        "next": {
+                          "id": "TITLE_QUESTION",
+                          "type": "TitleQuestion",
+                          "required": true,
+                          "formLabel": "Give your job a headline",
+                          "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                          "placeholder": "E.g. Demolish and clear small shed",
+                          "maxLength": 70,
+                          "next": {
+                            "id": "3154",
+                            "type": "AttachmentQuestion",
+                            "required": false,
+                            "formLabel": "Would you like to add any photos or plans?",
+                            "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                            "next": {
+                              "id": "2690",
+                              "type": "PostalCodeQuestion",
+                              "required": true,
+                              "formLabel": "Postcode for the job",
+                              "helpText": "To find clearance specialists near you we need to know where the job is."
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "8425",
+                "type": "StandardChoiceOption",
+                "formLabel": "Large",
+                "helpText": "E.g. outbuilding or garage",
+                "next": {
+                  "id": "2680",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "Are there any hazardous materials that you know of?",
+                  "helpText": "e.g. Asbestos, white goods, mattress, CRT TV or monitor, fluorescent tubes, tyres, oil, petrol, diesel, or paint",
+                  "options": [
+                    {
+                      "id": "8412",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Yes",
+
+                      "next": {
+                        "id": "2681",
+                        "type": "CheckboxQuestion",
+                        "required": true,
+                        "formLabel": "Select the hazardous materials that you're aware of:",
+
+                        "options": [
+                          {
+                            "id": "8415",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "Asbestos",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8416",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "White goods",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8417",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "Mattress",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8418",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "CRT TV / Monitor",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8419",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "Fluorescent tubes",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8420",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "Tyres",
+                            "helpText": null
+                          },
+                          {
+                            "id": "8421",
+                            "type": "StandardChoiceOption",
+                            "formLabel": "Oil, petrol, diesel or paint",
+                            "helpText": null
+                          },
+                          {
+                            "id": "9333",
+                            "type": "TextChoiceOption",
+                            "formLabel": "Other",
+                            "placeholder": "Other hazardous materials",
+                            "helpText": null
+                          }
+                        ],
+                        "next": {
+                          "id": "2684",
+                          "type": "TextareaQuestion",
+                          "required": true,
+                          "formLabel": "Add a description to your job",
+
+                          "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
+                          "minLength": 20,
+                          "maxLength": 10000,
+                          "next": {
+                            "id": "TITLE_QUESTION",
+                            "type": "TitleQuestion",
+                            "required": true,
+                            "formLabel": "Give your job a headline",
+                            "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                            "placeholder": "E.g. Demolish and clear small shed",
+                            "maxLength": 70,
+                            "next": {
+                              "id": "3154",
+                              "type": "AttachmentQuestion",
+                              "required": false,
+                              "formLabel": "Would you like to add any photos or plans?",
+                              "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                              "next": {
+                                "id": "2690",
+                                "type": "PostalCodeQuestion",
+                                "required": true,
+                                "formLabel": "Postcode for the job",
+                                "helpText": "To find clearance specialists near you we need to know where the job is."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "8413",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "No",
+
+                      "next": {
+                        "id": "2684",
+                        "type": "TextareaQuestion",
+                        "required": true,
+                        "formLabel": "Add a description to your job",
+
+                        "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
+                        "minLength": 20,
+                        "maxLength": 10000,
+                        "next": {
+                          "id": "TITLE_QUESTION",
+                          "type": "TitleQuestion",
+                          "required": true,
+                          "formLabel": "Give your job a headline",
+                          "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                          "placeholder": "E.g. Demolish and clear small shed",
+                          "maxLength": 70,
+                          "next": {
+                            "id": "3154",
+                            "type": "AttachmentQuestion",
+                            "required": false,
+                            "formLabel": "Would you like to add any photos or plans?",
+                            "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                            "next": {
+                              "id": "2690",
+                              "type": "PostalCodeQuestion",
+                              "required": true,
+                              "formLabel": "Postcode for the job",
+                              "helpText": "To find clearance specialists near you we need to know where the job is."
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "8414",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "I am not sure",
+
+                      "next": {
+                        "id": "2684",
+                        "type": "TextareaQuestion",
+                        "required": true,
+                        "formLabel": "Add a description to your job",
+
+                        "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
+                        "minLength": 20,
+                        "maxLength": 10000,
+                        "next": {
+                          "id": "TITLE_QUESTION",
+                          "type": "TitleQuestion",
+                          "required": true,
+                          "formLabel": "Give your job a headline",
+                          "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                          "placeholder": "E.g. Demolish and clear small shed",
+                          "maxLength": 70,
+                          "next": {
+                            "id": "3154",
+                            "type": "AttachmentQuestion",
+                            "required": false,
+                            "formLabel": "Would you like to add any photos or plans?",
+                            "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                            "next": {
+                              "id": "2690",
+                              "type": "PostalCodeQuestion",
+                              "required": true,
+                              "formLabel": "Postcode for the job",
+                              "helpText": "To find clearance specialists near you we need to know where the job is."
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "8426",
+                "type": "StandardChoiceOption",
+                "formLabel": "X-Large",
+                "helpText": "E.g. a house or multiple properties",
+                "next": {
+                  "id": "2684",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. Demolish and clear small shed",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2690",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find clearance specialists near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "8407",
+          "type": "StandardChoiceOption",
+          "formLabel": "Knock down a wall",
+          "helpText": "Knock down and remove walls",
+          "next": {
+            "id": "2687",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "What type of wall do you want to remove?",
+
+            "options": [
+              {
+                "id": "8437",
+                "type": "StandardChoiceOption",
+                "formLabel": "Stud wall",
+                "helpText": null
+              },
+              {
+                "id": "8438",
+                "type": "StandardChoiceOption",
+                "formLabel": "Non-load bearing wall",
+                "helpText": null
+              },
+              {
+                "id": "8439",
+                "type": "StandardChoiceOption",
+                "formLabel": "Load bearing wall",
+                "helpText": null
+              }
+            ],
+            "next": {
+              "id": "2689",
+              "type": "TextareaQuestion",
+              "required": true,
+              "formLabel": "Add a description to your job",
+
+              "placeholder": "Include any details you think the tradesperson should know (wall size, timeframe, etc.)",
+              "minLength": 20,
+              "maxLength": 10000,
+              "next": {
+                "id": "TITLE_QUESTION",
+                "type": "TitleQuestion",
+                "required": true,
+                "formLabel": "Give your job a headline",
+                "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                "placeholder": "E.g. Demolish and clear small shed",
+                "maxLength": 70,
+                "next": {
+                  "id": "3154",
+                  "type": "AttachmentQuestion",
+                  "required": false,
+                  "formLabel": "Would you like to add any photos or plans?",
+                  "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                  "next": {
+                    "id": "2690",
+                    "type": "PostalCodeQuestion",
+                    "required": true,
+                    "formLabel": "Postcode for the job",
+                    "helpText": "To find clearance specialists near you we need to know where the job is."
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "jobFunnel": {
+      "id": 413,
+      "name": "Demolition & Clearance",
+      "type": "CATEGORY"
+    }
+  }
+}

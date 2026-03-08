@@ -1,0 +1,125 @@
+{
+  "questionTree": {
+    "id": "ecaf07fd-8703-48d4-aa34-06ebd4ec4735",
+    "name": "Damp Proofing",
+    "schema": {
+      "id": "2643",
+      "type": "SelectQuestion",
+      "required": true,
+      "formLabel": "Do you know what is causing your damp problem?",
+
+      "options": [
+        {
+          "id": "8319",
+          "type": "StandardChoiceOption",
+          "formLabel": "No - I need help investigating",
+
+          "next": {
+            "id": "2644",
+            "type": "TextareaQuestion",
+            "required": true,
+            "formLabel": "Add a description to your job",
+
+            "placeholder": "Include any details you think the tradesperson should know (size of damaged area, timeframe, etc.)",
+            "minLength": 20,
+            "maxLength": 10000,
+            "next": {
+              "id": "TITLE_QUESTION",
+              "type": "TitleQuestion",
+              "required": true,
+              "formLabel": "Give your job a headline",
+              "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+              "placeholder": "E.g. small damp patch in living room",
+              "maxLength": 70,
+              "next": {
+                "id": "3154",
+                "type": "AttachmentQuestion",
+                "required": false,
+                "formLabel": "Would you like to add any photos or plans?",
+                "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                "next": {
+                  "id": "2647",
+                  "type": "PostalCodeQuestion",
+                  "required": true,
+                  "formLabel": "Postcode for the job",
+                  "helpText": "To find damp proof specialists near you we need to know where the job is."
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "8320",
+          "type": "StandardChoiceOption",
+          "formLabel": "Yes - I just need help fixing the problem",
+
+          "next": {
+            "id": "2645",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "How big is the affected area?",
+
+            "options": [
+              {
+                "id": "8321",
+                "type": "StandardChoiceOption",
+                "formLabel": "Small isolated area",
+                "helpText": null
+              },
+              {
+                "id": "8322",
+                "type": "StandardChoiceOption",
+                "formLabel": "Widespread",
+                "helpText": null
+              },
+              {
+                "id": "8323",
+                "type": "StandardChoiceOption",
+                "formLabel": "I\u2019m not sure",
+                "helpText": null
+              }
+            ],
+            "next": {
+              "id": "2646",
+              "type": "TextareaQuestion",
+              "required": true,
+              "formLabel": "Add a description to your job",
+
+              "placeholder": "Include any details you think the tradesperson should know (damage material, timeframe, etc.)",
+              "minLength": 20,
+              "maxLength": 10000,
+              "next": {
+                "id": "TITLE_QUESTION",
+                "type": "TitleQuestion",
+                "required": true,
+                "formLabel": "Give your job a headline",
+                "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                "placeholder": "E.g. small damp patch in living room",
+                "maxLength": 70,
+                "next": {
+                  "id": "3154",
+                  "type": "AttachmentQuestion",
+                  "required": false,
+                  "formLabel": "Would you like to add any photos or plans?",
+                  "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                  "next": {
+                    "id": "2647",
+                    "type": "PostalCodeQuestion",
+                    "required": true,
+                    "formLabel": "Postcode for the job",
+                    "helpText": "To find damp proof specialists near you we need to know where the job is."
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "jobFunnel": {
+      "id": 387,
+      "name": "Damp Proofing",
+      "type": "CATEGORY"
+    }
+  }
+}
