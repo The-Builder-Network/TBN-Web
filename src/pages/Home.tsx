@@ -5,7 +5,7 @@ import TradesSection from "@/components/home/sections/TradesSection";
 import HowItWorksSection from "@/components/home/sections/HowItWorksSection";
 import CTASection from "@/components/home/sections/CTASection";
 import DownloadAppSection from "@/components/home/sections/DownloadAppSection";
-import PostJobStrip from "@/components/PostJobStrip";
+import PostJobStrip from "@/components/shared/PostJobStrip";
 
 const HomePage = () => {
   return (
