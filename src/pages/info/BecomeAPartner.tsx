@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import TradespersonCTASection from "@/components/tradesperson/TradespersonCTA";
+import TradespersonCTASection from "@/components/tradesnetwork/CTASection";
 
 const BecomeAPartner = () => {
   return (
