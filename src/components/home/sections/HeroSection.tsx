@@ -60,7 +60,7 @@ const HeroSection = () => {
 
   return (
     <section className="pattern">
-      <div className="container py-12 md:py-24">
+      <div className="container py-12 md:py-24 mt-2">
         <div className="grid lg:grid-cols-5 gap-12 items-center">
           {/* Left Content */}
           <div className="text-primary-foreground col-span-3">

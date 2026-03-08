@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "@/components/shared/ScrollToTop";
 import { AuthProvider } from "@/contexts/AuthContext";
 import PageLayout from "@/components/layout/PageLayout";
@@ -10,35 +10,35 @@ import ProtectedRoute from "@/components/auth/ProtectedRoute";
 
 // ─── Public pages ───────────────────────────────────────────────
 import HomePage from "./pages/Home";
-import PostJob from "./pages/PostJob";
-import HowItWorks from "./pages/info/HowItWorks";
-import About from "./pages/info/About";
-import Terms from "./pages/legal/Terms";
-import Privacy from "./pages/legal/Privacy";
-import Trades from "./pages/trades/Trades";
+import PostJob from "./pages/PostJobPage";
+import HowItWorks from "./pages/info/HowItWorksPage";
+import About from "./pages/info/AboutPage";
+import Terms from "./pages/legal/TermsPage";
+import Privacy from "./pages/legal/PrivacyPage";
+import Trades from "./pages/trades/TradesPage";
 import TradePage from "./pages/trades/TradePage";
-import Cities from "./pages/info/Cities";
-import BecomeAPartner from "./pages/info/BecomeAPartner";
-import ReviewsPolicy from "./pages/legal/ReviewsPolicy";
-import QualityRequirements from "./pages/legal/QualityRequirements";
-import QualityChecks from "./pages/info/QualityChecks";
-import Services from "./pages/services/Services";
+import Cities from "./pages/info/CitiesPage";
+import BecomeAPartner from "./pages/info/BecomeAPartnerPage";
+import ReviewsPolicy from "./pages/legal/ReviewsPolicyPage";
+import QualityRequirements from "./pages/legal/QualityRequirementsPage";
+import QualityChecks from "./pages/info/QualityChecksPage";
+import Services from "./pages/services/ServicesPage";
 import ServicePage from "./pages/services/ServicePage";
 import NotFound from "./pages/NotFound";
 
 // ─── Homeowner dashboard ────────────────────────────────────────
-import HomeownerRedirect from "./pages/protected/homeowner/HomeownerRedirect";
-import HomeownerMyJobs from "./pages/protected/homeowner/MyJobs";
-import HomeownerJobDetail from "./pages/protected/homeowner/JobDetail";
-import HomeownerProfile from "./pages/protected/homeowner/Profile";
+import HomeownerMyJobs from "./pages/protected/homeowner/HomeownerMyJobsPage";
+import HomeownerJobDetail from "./pages/protected/homeowner/HomeownerJobDetailPage";
+import HomeownerProfile from "./pages/protected/homeowner/HomeownerProfilePage";
 
 // ─── Service-pro (tradesperson) dashboard ───────────────────────
-import ServiceProRedirect from "./pages/protected/tradesperson/ServiceProRedirect";
-import ServiceProLeadDetail from "./pages/protected/tradesperson/LeadDetail";
-import ServiceProProfile from "./pages/protected/tradesperson/Profile";
-import MyLeads from "./pages/protected/tradesperson/MyLeads";
-import TradesNetwork from "./pages/Tradesnetwork";
-import TradespersonPublicProfile from "./pages/trades/TradespersonPublicProfile";
+import ServiceProLeadDetail from "./pages/protected/tradesperson/TradespersonLeadDetailPage";
+import ServiceProProfile from "./pages/protected/tradesperson/TradespersonProfilePage";
+import MyLeads from "./pages/protected/tradesperson/TradespersonMyLeadsPage";
+import TradesNetwork from "./pages/TradesnetworkPage";
+import TradespersonPublicProfile from "./pages/trades/TradespersonPublicProfilePage";
+import QuestionsPage from "./pages/questions/QuestionsPage";
+import HomeownerMyQuestionsPage from "./pages/protected/homeowner/HomeownerMyQuestionsPage";
 
 const queryClient = new QueryClient();
 
@@ -78,36 +78,35 @@ const App = () => (
               <Route path="/services" element={<Services />} />
               <Route path="/services/:serviceSlug" element={<ServicePage />} />
 
+              <Route path="/questions" element={<QuestionsPage />} />
+
               {/* ── Homeowner protected routes ── */}
-              <Route element={<ProtectedRoute allowedRole="homeowner" />}>
-                <Route path="/homeowner" element={<HomeownerRedirect />} />
-                <Route
-                  path="/homeowner/my-jobs"
-                  element={<HomeownerMyJobs />}
-                />
-                <Route
-                  path="/homeowner/my-jobs/:jobId"
-                  element={<HomeownerJobDetail />}
-                />
-                <Route
-                  path="/homeowner/profile"
-                  element={<HomeownerProfile />}
-                />
-              </Route>
+
+              <Route path="/homeowner/my-jobs" element={<HomeownerMyJobs />} />
+              <Route
+                path="/homeowner/my-jobs/:jobId"
+                element={<HomeownerJobDetail />}
+              />
+              <Route path="/homeowner/profile" element={<HomeownerProfile />} />
+              <Route
+                path="/homeowner/my-questions"
+                element={<HomeownerMyQuestionsPage />}
+              />
+              <Route
+                path="/homeowner"
+                element={<Navigate to="/homeowner/profile" replace />}
+              />
 
               {/* ── Service-pro (tradesperson) protected routes ── */}
-              <Route element={<ProtectedRoute allowedRole="tradesperson" />}>
-                <Route path="/tradesperson" element={<ServiceProRedirect />} />
-                <Route path="/tradesperson/my-leads" element={<MyLeads />} />
-                <Route
-                  path="/tradesperson/my-leads/:leadId"
-                  element={<ServiceProLeadDetail />}
-                />
-                <Route
-                  path="/tradesperson/profile"
-                  element={<ServiceProProfile />}
-                />
-              </Route>
+              <Route path="/tradesperson/my-leads" element={<MyLeads />} />
+              <Route
+                path="/tradesperson/my-leads/:leadId"
+                element={<ServiceProLeadDetail />}
+              />
+              <Route
+                path="/tradesperson/profile"
+                element={<ServiceProProfile />}
+              />
 
               {/* Public tradesperson profile (not protected) */}
               <Route
