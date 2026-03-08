@@ -1,0 +1,275 @@
+{
+  "questionTree": {
+    "id": "0a8588db-998c-4882-a56a-04c6f2ebf2d4",
+    "name": "Tiling",
+    "schema": {
+      "id": "2635",
+      "type": "SelectQuestion",
+      "required": true,
+      "formLabel": "What does your tiling job involve?",
+
+      "options": [
+        {
+          "id": "8299",
+          "type": "StandardChoiceOption",
+          "formLabel": "New or replacement tiles",
+
+          "next": {
+            "id": "2636",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "How many square metres need tiling?",
+            "helpText": "We don't need an exact size, but please provide your best estimate...",
+            "options": [
+              {
+                "id": "8302",
+                "type": "StandardChoiceOption",
+                "formLabel": "Less than 2\u33a1",
+                "helpText": null
+              },
+              {
+                "id": "8303",
+                "type": "StandardChoiceOption",
+                "formLabel": "2 - 14\u33a1",
+                "helpText": null
+              },
+              {
+                "id": "8304",
+                "type": "StandardChoiceOption",
+                "formLabel": "15 - 30\u33a1",
+                "helpText": null
+              },
+              {
+                "id": "8305",
+                "type": "StandardChoiceOption",
+                "formLabel": "30 - 50\u33a1",
+                "helpText": null
+              },
+              {
+                "id": "8306",
+                "type": "StandardChoiceOption",
+                "formLabel": "Over 50\u33a1",
+                "helpText": null
+              },
+              {
+                "id": "8307",
+                "type": "StandardChoiceOption",
+                "formLabel": "Commercial or project",
+                "helpText": "e.g. involves multiple large rooms or properties"
+              },
+              {
+                "id": "8308",
+                "type": "StandardChoiceOption",
+                "formLabel": "I don't know",
+                "helpText": null
+              }
+            ],
+            "next": {
+              "id": "2637",
+              "type": "SelectQuestion",
+              "required": true,
+              "formLabel": "Will you supply the tiles?",
+
+              "options": [
+                {
+                  "id": "8309",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "Yes",
+                  "helpText": null
+                },
+                {
+                  "id": "8310",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "No",
+                  "helpText": null
+                }
+              ],
+              "next": {
+                "id": "2640",
+                "type": "TextareaQuestion",
+                "required": true,
+                "formLabel": "Add a description to your job",
+
+                "placeholder": "Include any details you think the tradesperson should know (tile types (if known), timeframe, etc.)",
+                "minLength": 20,
+                "maxLength": 10000,
+                "next": {
+                  "id": "TITLE_QUESTION",
+                  "type": "TitleQuestion",
+                  "required": true,
+                  "formLabel": "Give your job a headline",
+                  "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                  "placeholder": "E.g. retile bathroom walls and floor",
+                  "maxLength": 70,
+                  "next": {
+                    "id": "3154",
+                    "type": "AttachmentQuestion",
+                    "required": false,
+                    "formLabel": "Would you like to add any photos or plans?",
+                    "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                    "next": {
+                      "id": "2784",
+                      "type": "PostalCodeQuestion",
+                      "required": true,
+                      "formLabel": "Postcode for the job",
+                      "helpText": "To find professional tilers nearby we need to know where the job is"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "8300",
+          "type": "StandardChoiceOption",
+          "formLabel": "Repair / regrout tiles",
+
+          "next": {
+            "id": "2638",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "Roughly, how big is the affected area?",
+
+            "options": [
+              {
+                "id": "8311",
+                "type": "StandardChoiceOption",
+                "formLabel": "Small (less than 2\u33a1)",
+                "helpText": "A small area needs repairing and / or regrouting"
+              },
+              {
+                "id": "8312",
+                "type": "StandardChoiceOption",
+                "formLabel": "Large (2\u33a1 or more)",
+                "helpText": "Significant damage to more than a few tiles"
+              }
+            ],
+            "next": {
+              "id": "2640",
+              "type": "TextareaQuestion",
+              "required": true,
+              "formLabel": "Add a description to your job",
+
+              "placeholder": "Include any details you think the tradesperson should know (tile types (if known), timeframe, etc.)",
+              "minLength": 20,
+              "maxLength": 10000,
+              "next": {
+                "id": "TITLE_QUESTION",
+                "type": "TitleQuestion",
+                "required": true,
+                "formLabel": "Give your job a headline",
+                "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                "placeholder": "E.g. retile bathroom walls and floor",
+                "maxLength": 70,
+                "next": {
+                  "id": "3154",
+                  "type": "AttachmentQuestion",
+                  "required": false,
+                  "formLabel": "Would you like to add any photos or plans?",
+                  "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                  "next": {
+                    "id": "2784",
+                    "type": "PostalCodeQuestion",
+                    "required": true,
+                    "formLabel": "Postcode for the job",
+                    "helpText": "To find professional tilers nearby we need to know where the job is"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "8301",
+          "type": "StandardChoiceOption",
+          "formLabel": "Other",
+
+          "next": {
+            "id": "2639",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "How would you describe the job?",
+            "helpText": "We don't need an exact size, but please provide your best estimate....",
+            "options": [
+              {
+                "id": "8313",
+                "type": "StandardChoiceOption",
+                "formLabel": "Extra small",
+                "helpText": "e.g. a few tiles for a splashback, doorstep or fireplace"
+              },
+              {
+                "id": "8314",
+                "type": "StandardChoiceOption",
+                "formLabel": "Small",
+                "helpText": "e.g. a kitchen, bathroom, or hallway floor; a kitchen splashback or a small bathroom wall"
+              },
+              {
+                "id": "8315",
+                "type": "StandardChoiceOption",
+                "formLabel": "Medium",
+                "helpText": "e.g. bathroom walls, bathroom/kitchen floor plus a splashback, or floors of two rooms"
+              },
+              {
+                "id": "8316",
+                "type": "StandardChoiceOption",
+                "formLabel": "Large",
+                "helpText": "e.g. a full bathroom; walls and floors, or floors across several rooms"
+              },
+              {
+                "id": "8317",
+                "type": "StandardChoiceOption",
+                "formLabel": "Extra large",
+                "helpText": "e.g. multiple bathrooms need tiling or tiling throughout for a new build or refurbishment"
+              },
+              {
+                "id": "8318",
+                "type": "StandardChoiceOption",
+                "formLabel": "Project or commercial",
+                "helpText": "e.g. a large tiling job involving multiple rooms or properties"
+              }
+            ],
+            "next": {
+              "id": "2640",
+              "type": "TextareaQuestion",
+              "required": true,
+              "formLabel": "Add a description to your job",
+
+              "placeholder": "Include any details you think the tradesperson should know (tile types (if known), timeframe, etc.)",
+              "minLength": 20,
+              "maxLength": 10000,
+              "next": {
+                "id": "TITLE_QUESTION",
+                "type": "TitleQuestion",
+                "required": true,
+                "formLabel": "Give your job a headline",
+                "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                "placeholder": "E.g. retile bathroom walls and floor",
+                "maxLength": 70,
+                "next": {
+                  "id": "3154",
+                  "type": "AttachmentQuestion",
+                  "required": false,
+                  "formLabel": "Would you like to add any photos or plans?",
+                  "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                  "next": {
+                    "id": "2784",
+                    "type": "PostalCodeQuestion",
+                    "required": true,
+                    "formLabel": "Postcode for the job",
+                    "helpText": "To find professional tilers nearby we need to know where the job is"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "jobFunnel": {
+      "id": 411,
+      "name": "Tiling",
+      "type": "CATEGORY"
+    }
+  }
+}

@@ -1,0 +1,689 @@
+{
+  "questionTree": {
+    "id": "18b75982-e248-4c59-9b33-656bc4c060bd",
+    "name": "Tree Surgery",
+    "schema": {
+      "id": "3093",
+      "type": "SelectQuestion",
+      "required": true,
+      "formLabel": "What type of tree surgery service do you require?",
+
+      "options": [
+        {
+          "id": "9247",
+          "type": "StandardChoiceOption",
+          "formLabel": "Trimming or topping",
+
+          "next": {
+            "id": "3095",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "How many trees are involved?",
+
+            "options": [
+              {
+                "id": "9257",
+                "type": "StandardChoiceOption",
+                "formLabel": "1",
+
+                "next": {
+                  "id": "3097",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "How large is the tree?",
+
+                  "options": [
+                    {
+                      "id": "9265",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Small - up to 3m (9 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9266",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Medium - up to 8m (26 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9267",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Large - over 8m (over 26 ft)",
+                      "helpText": null
+                    }
+                  ],
+                  "next": {
+                    "id": "3098",
+                    "type": "TextareaQuestion",
+                    "required": true,
+                    "formLabel": "Add a description to your job",
+
+                    "placeholder": "Include any details you think the tradesperson should know (tree type, timeframe, etc.)",
+                    "minLength": 20,
+                    "maxLength": 10000,
+                    "next": {
+                      "id": "TITLE_QUESTION",
+                      "type": "TitleQuestion",
+                      "required": true,
+                      "formLabel": "Give your job a headline",
+                      "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                      "placeholder": "E.g. Remove 1 tree and save another",
+                      "maxLength": 70,
+                      "next": {
+                        "id": "3154",
+                        "type": "AttachmentQuestion",
+                        "required": false,
+                        "formLabel": "Would you like to add any photos or plans?",
+                        "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                        "next": {
+                          "id": "3112",
+                          "type": "PostalCodeQuestion",
+                          "required": true,
+                          "formLabel": "Postcode for the job",
+                          "helpText": "To find tree surgeons nearby we need to know where you are based."
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "9258",
+                "type": "StandardChoiceOption",
+                "formLabel": "2",
+
+                "next": {
+                  "id": "3101",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "What's the height of the tallest tree?",
+                  "helpText": "Don't worry if you don't know the exact height, we only need a rough estimate",
+                  "options": [
+                    {
+                      "id": "9274",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Small - up to 3m (9 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9275",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Medium - up to 8m (26 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9276",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Large - over 8m (over 26 ft)",
+                      "helpText": null
+                    }
+                  ],
+                  "next": {
+                    "id": "3098",
+                    "type": "TextareaQuestion",
+                    "required": true,
+                    "formLabel": "Add a description to your job",
+
+                    "placeholder": "Include any details you think the tradesperson should know (tree type, timeframe, etc.)",
+                    "minLength": 20,
+                    "maxLength": 10000,
+                    "next": {
+                      "id": "TITLE_QUESTION",
+                      "type": "TitleQuestion",
+                      "required": true,
+                      "formLabel": "Give your job a headline",
+                      "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                      "placeholder": "E.g. Remove 1 tree and save another",
+                      "maxLength": 70,
+                      "next": {
+                        "id": "3154",
+                        "type": "AttachmentQuestion",
+                        "required": false,
+                        "formLabel": "Would you like to add any photos or plans?",
+                        "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                        "next": {
+                          "id": "3112",
+                          "type": "PostalCodeQuestion",
+                          "required": true,
+                          "formLabel": "Postcode for the job",
+                          "helpText": "To find tree surgeons nearby we need to know where you are based."
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "9259",
+                "type": "StandardChoiceOption",
+                "formLabel": "3",
+
+                "next": {
+                  "id": "3101",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "What's the height of the tallest tree?",
+                  "helpText": "Don't worry if you don't know the exact height, we only need a rough estimate",
+                  "options": [
+                    {
+                      "id": "9274",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Small - up to 3m (9 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9275",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Medium - up to 8m (26 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9276",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Large - over 8m (over 26 ft)",
+                      "helpText": null
+                    }
+                  ],
+                  "next": {
+                    "id": "3098",
+                    "type": "TextareaQuestion",
+                    "required": true,
+                    "formLabel": "Add a description to your job",
+
+                    "placeholder": "Include any details you think the tradesperson should know (tree type, timeframe, etc.)",
+                    "minLength": 20,
+                    "maxLength": 10000,
+                    "next": {
+                      "id": "TITLE_QUESTION",
+                      "type": "TitleQuestion",
+                      "required": true,
+                      "formLabel": "Give your job a headline",
+                      "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                      "placeholder": "E.g. Remove 1 tree and save another",
+                      "maxLength": 70,
+                      "next": {
+                        "id": "3154",
+                        "type": "AttachmentQuestion",
+                        "required": false,
+                        "formLabel": "Would you like to add any photos or plans?",
+                        "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                        "next": {
+                          "id": "3112",
+                          "type": "PostalCodeQuestion",
+                          "required": true,
+                          "formLabel": "Postcode for the job",
+                          "helpText": "To find tree surgeons nearby we need to know where you are based."
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "9260",
+                "type": "StandardChoiceOption",
+                "formLabel": "4 or more",
+
+                "next": {
+                  "id": "3101",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "What's the height of the tallest tree?",
+                  "helpText": "Don't worry if you don't know the exact height, we only need a rough estimate",
+                  "options": [
+                    {
+                      "id": "9274",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Small - up to 3m (9 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9275",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Medium - up to 8m (26 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9276",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Large - over 8m (over 26 ft)",
+                      "helpText": null
+                    }
+                  ],
+                  "next": {
+                    "id": "3098",
+                    "type": "TextareaQuestion",
+                    "required": true,
+                    "formLabel": "Add a description to your job",
+
+                    "placeholder": "Include any details you think the tradesperson should know (tree type, timeframe, etc.)",
+                    "minLength": 20,
+                    "maxLength": 10000,
+                    "next": {
+                      "id": "TITLE_QUESTION",
+                      "type": "TitleQuestion",
+                      "required": true,
+                      "formLabel": "Give your job a headline",
+                      "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                      "placeholder": "E.g. Remove 1 tree and save another",
+                      "maxLength": 70,
+                      "next": {
+                        "id": "3154",
+                        "type": "AttachmentQuestion",
+                        "required": false,
+                        "formLabel": "Would you like to add any photos or plans?",
+                        "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                        "next": {
+                          "id": "3112",
+                          "type": "PostalCodeQuestion",
+                          "required": true,
+                          "formLabel": "Postcode for the job",
+                          "helpText": "To find tree surgeons nearby we need to know where you are based."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "9248",
+          "type": "StandardChoiceOption",
+          "formLabel": "Cutting down (felling)",
+
+          "next": {
+            "id": "3102",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "How many trees need to be cut down?",
+
+            "options": [
+              {
+                "id": "9277",
+                "type": "StandardChoiceOption",
+                "formLabel": "1",
+
+                "next": {
+                  "id": "3097",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "How large is the tree?",
+
+                  "options": [
+                    {
+                      "id": "9265",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Small - up to 3m (9 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9266",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Medium - up to 8m (26 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9267",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Large - over 8m (over 26 ft)",
+                      "helpText": null
+                    }
+                  ],
+                  "next": {
+                    "id": "3098",
+                    "type": "TextareaQuestion",
+                    "required": true,
+                    "formLabel": "Add a description to your job",
+
+                    "placeholder": "Include any details you think the tradesperson should know (tree type, timeframe, etc.)",
+                    "minLength": 20,
+                    "maxLength": 10000,
+                    "next": {
+                      "id": "TITLE_QUESTION",
+                      "type": "TitleQuestion",
+                      "required": true,
+                      "formLabel": "Give your job a headline",
+                      "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                      "placeholder": "E.g. Remove 1 tree and save another",
+                      "maxLength": 70,
+                      "next": {
+                        "id": "3154",
+                        "type": "AttachmentQuestion",
+                        "required": false,
+                        "formLabel": "Would you like to add any photos or plans?",
+                        "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                        "next": {
+                          "id": "3112",
+                          "type": "PostalCodeQuestion",
+                          "required": true,
+                          "formLabel": "Postcode for the job",
+                          "helpText": "To find tree surgeons nearby we need to know where you are based."
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "9278",
+                "type": "StandardChoiceOption",
+                "formLabel": "2",
+
+                "next": {
+                  "id": "3101",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "What's the height of the tallest tree?",
+                  "helpText": "Don't worry if you don't know the exact height, we only need a rough estimate",
+                  "options": [
+                    {
+                      "id": "9274",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Small - up to 3m (9 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9275",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Medium - up to 8m (26 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9276",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Large - over 8m (over 26 ft)",
+                      "helpText": null
+                    }
+                  ],
+                  "next": {
+                    "id": "3098",
+                    "type": "TextareaQuestion",
+                    "required": true,
+                    "formLabel": "Add a description to your job",
+
+                    "placeholder": "Include any details you think the tradesperson should know (tree type, timeframe, etc.)",
+                    "minLength": 20,
+                    "maxLength": 10000,
+                    "next": {
+                      "id": "TITLE_QUESTION",
+                      "type": "TitleQuestion",
+                      "required": true,
+                      "formLabel": "Give your job a headline",
+                      "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                      "placeholder": "E.g. Remove 1 tree and save another",
+                      "maxLength": 70,
+                      "next": {
+                        "id": "3154",
+                        "type": "AttachmentQuestion",
+                        "required": false,
+                        "formLabel": "Would you like to add any photos or plans?",
+                        "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                        "next": {
+                          "id": "3112",
+                          "type": "PostalCodeQuestion",
+                          "required": true,
+                          "formLabel": "Postcode for the job",
+                          "helpText": "To find tree surgeons nearby we need to know where you are based."
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "9279",
+                "type": "StandardChoiceOption",
+                "formLabel": "3 or more",
+
+                "next": {
+                  "id": "3101",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "What's the height of the tallest tree?",
+                  "helpText": "Don't worry if you don't know the exact height, we only need a rough estimate",
+                  "options": [
+                    {
+                      "id": "9274",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Small - up to 3m (9 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9275",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Medium - up to 8m (26 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9276",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Large - over 8m (over 26 ft)",
+                      "helpText": null
+                    }
+                  ],
+                  "next": {
+                    "id": "3098",
+                    "type": "TextareaQuestion",
+                    "required": true,
+                    "formLabel": "Add a description to your job",
+
+                    "placeholder": "Include any details you think the tradesperson should know (tree type, timeframe, etc.)",
+                    "minLength": 20,
+                    "maxLength": 10000,
+                    "next": {
+                      "id": "TITLE_QUESTION",
+                      "type": "TitleQuestion",
+                      "required": true,
+                      "formLabel": "Give your job a headline",
+                      "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                      "placeholder": "E.g. Remove 1 tree and save another",
+                      "maxLength": 70,
+                      "next": {
+                        "id": "3154",
+                        "type": "AttachmentQuestion",
+                        "required": false,
+                        "formLabel": "Would you like to add any photos or plans?",
+                        "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                        "next": {
+                          "id": "3112",
+                          "type": "PostalCodeQuestion",
+                          "required": true,
+                          "formLabel": "Postcode for the job",
+                          "helpText": "To find tree surgeons nearby we need to know where you are based."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "9249",
+          "type": "StandardChoiceOption",
+          "formLabel": "Stump removal only",
+
+          "next": {
+            "id": "3105",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "How many stumps do you need removed?",
+
+            "options": [
+              {
+                "id": "9283",
+                "type": "StandardChoiceOption",
+                "formLabel": "1-2 stumps",
+                "helpText": null
+              },
+              {
+                "id": "9284",
+                "type": "StandardChoiceOption",
+                "formLabel": "3+ stumps",
+                "helpText": null
+              }
+            ],
+            "next": {
+              "id": "3108",
+              "type": "TextareaQuestion",
+              "required": true,
+              "formLabel": "Add a description to your job",
+
+              "placeholder": "Include any details you think the tradesperson should know (approx. stump size, timeframe, etc.)",
+              "minLength": 20,
+              "maxLength": 10000,
+              "next": {
+                "id": "TITLE_QUESTION",
+                "type": "TitleQuestion",
+                "required": true,
+                "formLabel": "Give your job a headline",
+                "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                "placeholder": "E.g. Remove 1 tree and save another",
+                "maxLength": 70,
+                "next": {
+                  "id": "3154",
+                  "type": "AttachmentQuestion",
+                  "required": false,
+                  "formLabel": "Would you like to add any photos or plans?",
+                  "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                  "next": {
+                    "id": "3112",
+                    "type": "PostalCodeQuestion",
+                    "required": true,
+                    "formLabel": "Postcode for the job",
+                    "helpText": "To find tree surgeons nearby we need to know where you are based."
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "9250",
+          "type": "StandardChoiceOption",
+          "formLabel": "Diagnosis / Assessment",
+
+          "next": {
+            "id": "3110",
+            "type": "TextareaQuestion",
+            "required": true,
+            "formLabel": "Add a description to your job",
+
+            "placeholder": "Include any details you think the tradesperson should know (problem description, timeframe, etc.)",
+            "minLength": 20,
+            "maxLength": 10000,
+            "next": {
+              "id": "TITLE_QUESTION",
+              "type": "TitleQuestion",
+              "required": true,
+              "formLabel": "Give your job a headline",
+              "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+              "placeholder": "E.g. Remove 1 tree and save another",
+              "maxLength": 70,
+              "next": {
+                "id": "3154",
+                "type": "AttachmentQuestion",
+                "required": false,
+                "formLabel": "Would you like to add any photos or plans?",
+                "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                "next": {
+                  "id": "3112",
+                  "type": "PostalCodeQuestion",
+                  "required": true,
+                  "formLabel": "Postcode for the job",
+                  "helpText": "To find tree surgeons nearby we need to know where you are based."
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "9251",
+          "type": "StandardChoiceOption",
+          "formLabel": "Bushes, or other gardening tasks",
+
+          "next": {
+            "id": "3109",
+            "type": "TextareaQuestion",
+            "required": true,
+            "formLabel": "Describe your gardening job in detail",
+            "helpText": "Good descriptions attract good tradespeople. Provide a detailed description of the project including how many different materials you intend to use in what areas of the garden.",
+            "placeholder": "E.g. Re-landscape whole garden, 130ft. Steps halfway I want to move position. Installation of veggie plot planters. Front half paving, back half grass...",
+            "minLength": 20,
+            "maxLength": 10000,
+            "next": {
+              "id": "TITLE_QUESTION",
+              "type": "TitleQuestion",
+              "required": true,
+              "formLabel": "Give your job a headline",
+              "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+              "placeholder": "E.g. Remove 1 tree and save another",
+              "maxLength": 70,
+              "next": {
+                "id": "3154",
+                "type": "AttachmentQuestion",
+                "required": false,
+                "formLabel": "Would you like to add any photos or plans?",
+                "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                "next": {
+                  "id": "3112",
+                  "type": "PostalCodeQuestion",
+                  "required": true,
+                  "formLabel": "Postcode for the job",
+                  "helpText": "To find tree surgeons nearby we need to know where you are based."
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "9252",
+          "type": "StandardChoiceOption",
+          "formLabel": "Other",
+
+          "next": {
+            "id": "3111",
+            "type": "TextareaQuestion",
+            "required": true,
+            "formLabel": "Describe your tree surgery job in detail",
+            "helpText": "Good descriptions attract good tradespeople. What do you need a tree surgeons help with? Mention the type of tree if known. Do you also require clearance? Are there tree preservation orders in your area?",
+            "placeholder": "E.g. Remove a 6m conifer and remove waste. 8m diseased Oak tree we'd like to try and save. Remove 4m of Privet hedge...",
+            "minLength": 20,
+            "maxLength": 10000,
+            "next": {
+              "id": "TITLE_QUESTION",
+              "type": "TitleQuestion",
+              "required": true,
+              "formLabel": "Give your job a headline",
+              "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+              "placeholder": "E.g. Remove 1 tree and save another",
+              "maxLength": 70,
+              "next": {
+                "id": "3154",
+                "type": "AttachmentQuestion",
+                "required": false,
+                "formLabel": "Would you like to add any photos or plans?",
+                "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                "next": {
+                  "id": "3112",
+                  "type": "PostalCodeQuestion",
+                  "required": true,
+                  "formLabel": "Postcode for the job",
+                  "helpText": "To find tree surgeons nearby we need to know where you are based."
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "jobFunnel": {
+      "id": 412,
+      "name": "Tree Surgery",
+      "type": "CATEGORY"
+    }
+  }
+}
