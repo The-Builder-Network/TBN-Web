@@ -1,0 +1,509 @@
+{
+  "questionTree": {
+    "id": "c3bb1f64-b8ac-4a82-b59b-a838e1c1e5cc",
+    "name": "Fascias, Soffits & Guttering",
+    "schema": {
+      "id": "2729",
+      "type": "SelectQuestion",
+      "required": true,
+      "formLabel": "What does your job involve?",
+
+      "options": [
+        {
+          "id": "8504",
+          "type": "StandardChoiceOption",
+          "formLabel": "Guttering only",
+
+          "next": {
+            "id": "2730",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "What guttering work do you require?",
+
+            "options": [
+              {
+                "id": "8507",
+                "type": "StandardChoiceOption",
+                "formLabel": "Install / replace",
+
+                "next": {
+                  "id": "2731",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "How many sides of the property are involved?",
+
+                  "options": [
+                    {
+                      "id": "8510",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "1",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8511",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "2",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8512",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "3",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8513",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "4+",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8514",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Or a garage / outbuilding",
+                      "helpText": null
+                    }
+                  ],
+                  "next": {
+                    "id": "2732",
+                    "type": "TextareaQuestion",
+                    "required": true,
+                    "formLabel": "Add a description to your job",
+
+                    "placeholder": "Include any details you think the tradesperson should know (guttering type, timeframe, etc.)",
+                    "minLength": 20,
+                    "maxLength": 10000,
+                    "next": {
+                      "id": "TITLE_QUESTION",
+                      "type": "TitleQuestion",
+                      "required": true,
+                      "formLabel": "Give your job a headline",
+                      "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                      "placeholder": "E.g. Replace facias, soffits and gutterning on one side of house",
+                      "maxLength": 70,
+                      "next": {
+                        "id": "3154",
+                        "type": "AttachmentQuestion",
+                        "required": false,
+                        "formLabel": "Would you like to add any photos or plans?",
+                        "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                        "next": {
+                          "id": "2733",
+                          "type": "PostalCodeQuestion",
+                          "required": true,
+                          "formLabel": "Postcode for the job",
+                          "helpText": "To find fascias, soffits and guttering experts near you we need to know where the job is."
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8508",
+                "type": "StandardChoiceOption",
+                "formLabel": "Repair (e.g. leak)",
+
+                "next": {
+                  "id": "2732",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (guttering type, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. Replace facias, soffits and gutterning on one side of house",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2733",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find fascias, soffits and guttering experts near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8509",
+                "type": "StandardChoiceOption",
+                "formLabel": "Cleaning / blockages",
+
+                "next": {
+                  "id": "2732",
+                  "type": "TextareaQuestion",
+                  "required": true,
+                  "formLabel": "Add a description to your job",
+
+                  "placeholder": "Include any details you think the tradesperson should know (guttering type, timeframe, etc.)",
+                  "minLength": 20,
+                  "maxLength": 10000,
+                  "next": {
+                    "id": "TITLE_QUESTION",
+                    "type": "TitleQuestion",
+                    "required": true,
+                    "formLabel": "Give your job a headline",
+                    "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                    "placeholder": "E.g. Replace facias, soffits and gutterning on one side of house",
+                    "maxLength": 70,
+                    "next": {
+                      "id": "3154",
+                      "type": "AttachmentQuestion",
+                      "required": false,
+                      "formLabel": "Would you like to add any photos or plans?",
+                      "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                      "next": {
+                        "id": "2733",
+                        "type": "PostalCodeQuestion",
+                        "required": true,
+                        "formLabel": "Postcode for the job",
+                        "helpText": "To find fascias, soffits and guttering experts near you we need to know where the job is."
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "8505",
+          "type": "StandardChoiceOption",
+          "formLabel": "Fascias and/or soffits only",
+
+          "next": {
+            "id": "2734",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "What are you looking to have done to your fascias & soffits?",
+
+            "options": [
+              {
+                "id": "8515",
+                "type": "StandardChoiceOption",
+                "formLabel": "Install / replace",
+
+                "next": {
+                  "id": "2731",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "How many sides of the property are involved?",
+
+                  "options": [
+                    {
+                      "id": "8510",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "1",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8511",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "2",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8512",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "3",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8513",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "4+",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8514",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Or a garage / outbuilding",
+                      "helpText": null
+                    }
+                  ],
+                  "next": {
+                    "id": "2735",
+                    "type": "TextareaQuestion",
+                    "required": true,
+                    "formLabel": "Add a description to your job",
+
+                    "placeholder": "Include any details you think the tradesperson should know (approx. length needed, timeframe, etc.)",
+                    "minLength": 20,
+                    "maxLength": 10000,
+                    "next": {
+                      "id": "TITLE_QUESTION",
+                      "type": "TitleQuestion",
+                      "required": true,
+                      "formLabel": "Give your job a headline",
+                      "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                      "placeholder": "E.g. Replace facias, soffits and gutterning on one side of house",
+                      "maxLength": 70,
+                      "next": {
+                        "id": "3154",
+                        "type": "AttachmentQuestion",
+                        "required": false,
+                        "formLabel": "Would you like to add any photos or plans?",
+                        "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                        "next": {
+                          "id": "2733",
+                          "type": "PostalCodeQuestion",
+                          "required": true,
+                          "formLabel": "Postcode for the job",
+                          "helpText": "To find fascias, soffits and guttering experts near you we need to know where the job is."
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8516",
+                "type": "StandardChoiceOption",
+                "formLabel": "Repair",
+
+                "next": {
+                  "id": "2736",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "Roughly how large is the repair?",
+
+                  "options": [
+                    {
+                      "id": "8517",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Single isolated area",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8518",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Multiple areas of the property",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8519",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "I'm not sure",
+                      "helpText": null
+                    }
+                  ],
+                  "next": {
+                    "id": "2737",
+                    "type": "TextareaQuestion",
+                    "required": true,
+                    "formLabel": "Add a description to your job",
+
+                    "placeholder": "Include any details you think the tradesperson should know (nature of damage, timeframe, etc.)",
+                    "minLength": 20,
+                    "maxLength": 10000,
+                    "next": {
+                      "id": "TITLE_QUESTION",
+                      "type": "TitleQuestion",
+                      "required": true,
+                      "formLabel": "Give your job a headline",
+                      "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                      "placeholder": "E.g. Replace facias, soffits and gutterning on one side of house",
+                      "maxLength": 70,
+                      "next": {
+                        "id": "3154",
+                        "type": "AttachmentQuestion",
+                        "required": false,
+                        "formLabel": "Would you like to add any photos or plans?",
+                        "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                        "next": {
+                          "id": "2733",
+                          "type": "PostalCodeQuestion",
+                          "required": true,
+                          "formLabel": "Postcode for the job",
+                          "helpText": "To find fascias, soffits and guttering experts near you we need to know where the job is."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "8506",
+          "type": "StandardChoiceOption",
+          "formLabel": "Both",
+
+          "next": {
+            "id": "2738",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "What are you looking to have done to your fascias, soffits & gutter?",
+
+            "options": [
+              {
+                "id": "8520",
+                "type": "StandardChoiceOption",
+                "formLabel": "Install / replace",
+
+                "next": {
+                  "id": "2731",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "How many sides of the property are involved?",
+
+                  "options": [
+                    {
+                      "id": "8510",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "1",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8511",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "2",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8512",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "3",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8513",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "4+",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8514",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Or a garage / outbuilding",
+                      "helpText": null
+                    }
+                  ],
+                  "next": {
+                    "id": "2732",
+                    "type": "TextareaQuestion",
+                    "required": true,
+                    "formLabel": "Add a description to your job",
+
+                    "placeholder": "Include any details you think the tradesperson should know (guttering type, timeframe, etc.)",
+                    "minLength": 20,
+                    "maxLength": 10000,
+                    "next": {
+                      "id": "TITLE_QUESTION",
+                      "type": "TitleQuestion",
+                      "required": true,
+                      "formLabel": "Give your job a headline",
+                      "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                      "placeholder": "E.g. Replace facias, soffits and gutterning on one side of house",
+                      "maxLength": 70,
+                      "next": {
+                        "id": "3154",
+                        "type": "AttachmentQuestion",
+                        "required": false,
+                        "formLabel": "Would you like to add any photos or plans?",
+                        "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                        "next": {
+                          "id": "2733",
+                          "type": "PostalCodeQuestion",
+                          "required": true,
+                          "formLabel": "Postcode for the job",
+                          "helpText": "To find fascias, soffits and guttering experts near you we need to know where the job is."
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "8521",
+                "type": "StandardChoiceOption",
+                "formLabel": "Repair",
+
+                "next": {
+                  "id": "2736",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "Roughly how large is the repair?",
+
+                  "options": [
+                    {
+                      "id": "8517",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Single isolated area",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8518",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Multiple areas of the property",
+                      "helpText": null
+                    },
+                    {
+                      "id": "8519",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "I'm not sure",
+                      "helpText": null
+                    }
+                  ],
+                  "next": {
+                    "id": "2737",
+                    "type": "TextareaQuestion",
+                    "required": true,
+                    "formLabel": "Add a description to your job",
+
+                    "placeholder": "Include any details you think the tradesperson should know (nature of damage, timeframe, etc.)",
+                    "minLength": 20,
+                    "maxLength": 10000,
+                    "next": {
+                      "id": "TITLE_QUESTION",
+                      "type": "TitleQuestion",
+                      "required": true,
+                      "formLabel": "Give your job a headline",
+                      "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                      "placeholder": "E.g. Replace facias, soffits and gutterning on one side of house",
+                      "maxLength": 70,
+                      "next": {
+                        "id": "3154",
+                        "type": "AttachmentQuestion",
+                        "required": false,
+                        "formLabel": "Would you like to add any photos or plans?",
+                        "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                        "next": {
+                          "id": "2733",
+                          "type": "PostalCodeQuestion",
+                          "required": true,
+                          "formLabel": "Postcode for the job",
+                          "helpText": "To find fascias, soffits and guttering experts near you we need to know where the job is."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "jobFunnel": {
+      "id": 392,
+      "name": "Fascias, Soffits & Guttering",
+      "type": "CATEGORY"
+    }
+  }
+}
