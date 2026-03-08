@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { cities } from "@/data/cities";
+import { cities } from "@/constants/cities";
 import CTASection from "@/components/home/sections/CTASection";
 
 const Cities = () => {
