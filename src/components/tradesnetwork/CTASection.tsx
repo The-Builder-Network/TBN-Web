@@ -1,4 +1,5 @@
-import JoinStrip from "../shared/JoinStrip";
+import CTAStrip from "../shared/CTAStrip";
+import ScrollToTop from "../shared/ScrollToTop";
 
 const TradespersonCTASection = ({ title }) => {
   return (
@@ -11,7 +12,7 @@ const TradespersonCTASection = ({ title }) => {
           Join for free and get leads that are just perfect for you.
         </p>
       </div>
-      <JoinStrip />
+      <CTAStrip text="Sign up for free" to="/tradesnetwork" />
     </section>
   );
 };
