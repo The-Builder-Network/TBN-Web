@@ -105,7 +105,7 @@ const LoginModal = ({ open, onOpenChange }: LoginModalProps) => {
               </div>
               <div>
                 <Link
-                  to="/tradesperson"
+                  to="/tradesnetwork"
                   className="text-primary hover:underline"
                   onClick={() => onOpenChange(false)}
                 >
