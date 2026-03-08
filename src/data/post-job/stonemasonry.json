@@ -1,0 +1,368 @@
+{
+  "questionTree": {
+    "id": "15f68bae-03c8-4ed3-b257-72a9da7a5803",
+    "name": "Stonemasonry",
+    "schema": {
+      "id": "2762",
+      "type": "SelectQuestion",
+      "required": true,
+      "formLabel": "What type of masonry service do you require?",
+
+      "options": [
+        {
+          "id": "8583",
+          "type": "StandardChoiceOption",
+          "formLabel": "Building",
+
+          "next": {
+            "id": "2763",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "What type of stonework do you want?",
+
+            "options": [
+              {
+                "id": "8587",
+                "type": "StandardChoiceOption",
+                "formLabel": "Ashlar",
+                "helpText": "Any type of finely dressed, shaped stone"
+              },
+              {
+                "id": "8588",
+                "type": "StandardChoiceOption",
+                "formLabel": "Random rubble",
+                "helpText": "Irregular shaped, non-dressed stone, built with mortar"
+              },
+              {
+                "id": "8589",
+                "type": "StandardChoiceOption",
+                "formLabel": "Dry stone",
+                "helpText": "Irregular shaped stone boundary walls, built without mortar"
+              },
+              {
+                "id": "8590",
+                "type": "StandardChoiceOption",
+                "formLabel": "Other / I'm not sure",
+                "helpText": null
+              }
+            ],
+            "next": {
+              "id": "2764",
+              "type": "SelectQuestion",
+              "required": true,
+              "formLabel": "How large is the job?",
+
+              "options": [
+                {
+                  "id": "8591",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "Small",
+                  "helpText": "E.g. garden walls, chimney, section of wall, etc."
+                },
+                {
+                  "id": "8592",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "Medium",
+                  "helpText": "E.g. single wall, multiple areas, garage or outbuilding, etc."
+                },
+                {
+                  "id": "8593",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "Large",
+                  "helpText": "Multiple walls"
+                },
+                {
+                  "id": "8594",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "X-large",
+                  "helpText": "Whole property"
+                }
+              ],
+              "next": {
+                "id": "2765",
+                "type": "TextareaQuestion",
+                "required": true,
+                "formLabel": "Add a description to your job",
+
+                "placeholder": "Include any details you think the tradesperson should know (structure location, timeframe, etc.)",
+                "minLength": 20,
+                "maxLength": 10000,
+                "next": {
+                  "id": "TITLE_QUESTION",
+                  "type": "TitleQuestion",
+                  "required": true,
+                  "formLabel": "Give your job a headline",
+                  "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                  "placeholder": "E.g. Rebuild stone-dry wall",
+                  "maxLength": 70,
+                  "next": {
+                    "id": "3154",
+                    "type": "AttachmentQuestion",
+                    "required": false,
+                    "formLabel": "Would you like to add any photos or plans?",
+                    "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                    "next": {
+                      "id": "2768",
+                      "type": "PostalCodeQuestion",
+                      "required": true,
+                      "formLabel": "Postcode for the job",
+                      "helpText": "To find stone masons nearby we need to know where you are based."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "8584",
+          "type": "StandardChoiceOption",
+          "formLabel": "Repairing",
+
+          "next": {
+            "id": "2766",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "What type of stonework do you need repaired?",
+
+            "options": [
+              {
+                "id": "8595",
+                "type": "StandardChoiceOption",
+                "formLabel": "Ashlar",
+                "helpText": "Any type of finely dressed, shaped stone"
+              },
+              {
+                "id": "8596",
+                "type": "StandardChoiceOption",
+                "formLabel": "Random rubble",
+                "helpText": "Irregular shaped, non-dressed stone, built with mortar"
+              },
+              {
+                "id": "8597",
+                "type": "StandardChoiceOption",
+                "formLabel": "Dry stone",
+                "helpText": "Irregular shaped stone boundary walls, built without mortar"
+              },
+              {
+                "id": "8598",
+                "type": "StandardChoiceOption",
+                "formLabel": "Other / I'm not sure",
+                "helpText": null
+              }
+            ],
+            "next": {
+              "id": "2764",
+              "type": "SelectQuestion",
+              "required": true,
+              "formLabel": "How large is the job?",
+
+              "options": [
+                {
+                  "id": "8591",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "Small",
+                  "helpText": "E.g. garden walls, chimney, section of wall, etc."
+                },
+                {
+                  "id": "8592",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "Medium",
+                  "helpText": "E.g. single wall, multiple areas, garage or outbuilding, etc."
+                },
+                {
+                  "id": "8593",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "Large",
+                  "helpText": "Multiple walls"
+                },
+                {
+                  "id": "8594",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "X-large",
+                  "helpText": "Whole property"
+                }
+              ],
+              "next": {
+                "id": "2767",
+                "type": "TextareaQuestion",
+                "required": true,
+                "formLabel": "Add a description to your job",
+
+                "placeholder": "Include any details you think the tradesperson should know (extent of damage, timeframe, etc.)",
+                "minLength": 20,
+                "maxLength": 10000,
+                "next": {
+                  "id": "TITLE_QUESTION",
+                  "type": "TitleQuestion",
+                  "required": true,
+                  "formLabel": "Give your job a headline",
+                  "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                  "placeholder": "E.g. Rebuild stone-dry wall",
+                  "maxLength": 70,
+                  "next": {
+                    "id": "3154",
+                    "type": "AttachmentQuestion",
+                    "required": false,
+                    "formLabel": "Would you like to add any photos or plans?",
+                    "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                    "next": {
+                      "id": "2768",
+                      "type": "PostalCodeQuestion",
+                      "required": true,
+                      "formLabel": "Postcode for the job",
+                      "helpText": "To find stone masons nearby we need to know where you are based."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "8585",
+          "type": "StandardChoiceOption",
+          "formLabel": "Repointing",
+
+          "next": {
+            "id": "2769",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "What type of stonework do you need repointed?",
+
+            "options": [
+              {
+                "id": "8599",
+                "type": "StandardChoiceOption",
+                "formLabel": "Ashlar",
+                "helpText": "Any type of finely dressed, shaped stone"
+              },
+              {
+                "id": "8600",
+                "type": "StandardChoiceOption",
+                "formLabel": "Random rubble",
+                "helpText": "Irregular shaped, non-dressed stone, built with mortar"
+              },
+              {
+                "id": "8601",
+                "type": "StandardChoiceOption",
+                "formLabel": "Other / I'm not sure",
+                "helpText": null
+              }
+            ],
+            "next": {
+              "id": "2764",
+              "type": "SelectQuestion",
+              "required": true,
+              "formLabel": "How large is the job?",
+
+              "options": [
+                {
+                  "id": "8591",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "Small",
+                  "helpText": "E.g. garden walls, chimney, section of wall, etc."
+                },
+                {
+                  "id": "8592",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "Medium",
+                  "helpText": "E.g. single wall, multiple areas, garage or outbuilding, etc."
+                },
+                {
+                  "id": "8593",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "Large",
+                  "helpText": "Multiple walls"
+                },
+                {
+                  "id": "8594",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "X-large",
+                  "helpText": "Whole property"
+                }
+              ],
+              "next": {
+                "id": "2765",
+                "type": "TextareaQuestion",
+                "required": true,
+                "formLabel": "Add a description to your job",
+
+                "placeholder": "Include any details you think the tradesperson should know (structure location, timeframe, etc.)",
+                "minLength": 20,
+                "maxLength": 10000,
+                "next": {
+                  "id": "TITLE_QUESTION",
+                  "type": "TitleQuestion",
+                  "required": true,
+                  "formLabel": "Give your job a headline",
+                  "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                  "placeholder": "E.g. Rebuild stone-dry wall",
+                  "maxLength": 70,
+                  "next": {
+                    "id": "3154",
+                    "type": "AttachmentQuestion",
+                    "required": false,
+                    "formLabel": "Would you like to add any photos or plans?",
+                    "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                    "next": {
+                      "id": "2768",
+                      "type": "PostalCodeQuestion",
+                      "required": true,
+                      "formLabel": "Postcode for the job",
+                      "helpText": "To find stone masons nearby we need to know where you are based."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "8586",
+          "type": "StandardChoiceOption",
+          "formLabel": "Other",
+
+          "next": {
+            "id": "2770",
+            "type": "TextareaQuestion",
+            "required": true,
+            "formLabel": "Describe your stonemasonry job in detail",
+            "helpText": "E.g. Rebuild stone wall at front of property. Approx 8m long and 1m high. The stone is still on site...",
+            "placeholder": "Good descriptions attract good tradespeople. Are the walls in the house or outside? Estimate the size of the walls involved. For other repairs, simply describe the problem in as much detail as possible. Please indicate if it\u2019s historic or conservation work.",
+            "minLength": 20,
+            "maxLength": 10000,
+            "next": {
+              "id": "TITLE_QUESTION",
+              "type": "TitleQuestion",
+              "required": true,
+              "formLabel": "Give your job a headline",
+              "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+              "placeholder": "E.g. Rebuild stone-dry wall",
+              "maxLength": 70,
+              "next": {
+                "id": "3154",
+                "type": "AttachmentQuestion",
+                "required": false,
+                "formLabel": "Would you like to add any photos or plans?",
+                "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                "next": {
+                  "id": "2768",
+                  "type": "PostalCodeQuestion",
+                  "required": true,
+                  "formLabel": "Postcode for the job",
+                  "helpText": "To find stone masons nearby we need to know where you are based."
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "jobFunnel": {
+      "id": 410,
+      "name": "Stonemasonry",
+      "type": "CATEGORY"
+    }
+  }
+}
