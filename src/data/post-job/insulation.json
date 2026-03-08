@@ -1,0 +1,230 @@
+{
+  "questionTree": {
+    "id": "f94d3010-6e16-4515-a08d-8b5295bb15d5",
+    "name": "Insulation",
+    "schema": {
+      "id": "2876",
+      "type": "SelectQuestion",
+      "required": true,
+      "formLabel": "  What type of insulation do you want?",
+
+      "options": [
+        {
+          "id": "8820",
+          "type": "StandardChoiceOption",
+          "formLabel": "Loft / roof insulation",
+
+          "next": {
+            "id": "2877",
+            "type": "TextareaQuestion",
+            "required": true,
+            "formLabel": "Add a description to your job",
+
+            "placeholder": "Include any details you think the tradesperson should know (approx. area size, timeframe, etc.)",
+            "minLength": 20,
+            "maxLength": 10000,
+            "next": {
+              "id": "TITLE_QUESTION",
+              "type": "TitleQuestion",
+              "required": true,
+              "formLabel": "Give your job a headline",
+              "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+              "placeholder": "E.g. Install insulation in living room floor/ceiling",
+              "maxLength": 70,
+              "next": {
+                "id": "3154",
+                "type": "AttachmentQuestion",
+                "required": false,
+                "formLabel": "Would you like to add any photos or plans?",
+                "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                "next": {
+                  "id": "2882",
+                  "type": "PostalCodeQuestion",
+                  "required": true,
+                  "formLabel": "Postcode for the job",
+                  "helpText": "To find insulation installers near you we need to know where the job is."
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "8821",
+          "type": "StandardChoiceOption",
+          "formLabel": "Wall insulation",
+
+          "next": {
+            "id": "2878",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "How many walls need insulating?",
+
+            "options": [
+              {
+                "id": "8824",
+                "type": "StandardChoiceOption",
+                "formLabel": "1 wall",
+                "helpText": null
+              },
+              {
+                "id": "8825",
+                "type": "StandardChoiceOption",
+                "formLabel": "Several walls",
+                "helpText": null
+              },
+              {
+                "id": "8826",
+                "type": "StandardChoiceOption",
+                "formLabel": "Whole house",
+                "helpText": null
+              }
+            ],
+            "next": {
+              "id": "2880",
+              "type": "TextareaQuestion",
+              "required": true,
+              "formLabel": "Add a description to your job",
+
+              "placeholder": "Include any details you think the tradesperson should know (insulation type, timeframe, etc.)",
+              "minLength": 20,
+              "maxLength": 10000,
+              "next": {
+                "id": "TITLE_QUESTION",
+                "type": "TitleQuestion",
+                "required": true,
+                "formLabel": "Give your job a headline",
+                "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                "placeholder": "E.g. Install insulation in living room floor/ceiling",
+                "maxLength": 70,
+                "next": {
+                  "id": "3154",
+                  "type": "AttachmentQuestion",
+                  "required": false,
+                  "formLabel": "Would you like to add any photos or plans?",
+                  "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                  "next": {
+                    "id": "2882",
+                    "type": "PostalCodeQuestion",
+                    "required": true,
+                    "formLabel": "Postcode for the job",
+                    "helpText": "To find insulation installers near you we need to know where the job is."
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "8822",
+          "type": "StandardChoiceOption",
+          "formLabel": "Floor insulation",
+
+          "next": {
+            "id": "2879",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "How many rooms need insulating?",
+
+            "options": [
+              {
+                "id": "8827",
+                "type": "StandardChoiceOption",
+                "formLabel": "1 - 2 rooms",
+                "helpText": null
+              },
+              {
+                "id": "8828",
+                "type": "StandardChoiceOption",
+                "formLabel": "3 - 4 rooms",
+                "helpText": null
+              },
+              {
+                "id": "8829",
+                "type": "StandardChoiceOption",
+                "formLabel": "5+ rooms",
+                "helpText": null
+              }
+            ],
+            "next": {
+              "id": "2880",
+              "type": "TextareaQuestion",
+              "required": true,
+              "formLabel": "Add a description to your job",
+
+              "placeholder": "Include any details you think the tradesperson should know (insulation type, timeframe, etc.)",
+              "minLength": 20,
+              "maxLength": 10000,
+              "next": {
+                "id": "TITLE_QUESTION",
+                "type": "TitleQuestion",
+                "required": true,
+                "formLabel": "Give your job a headline",
+                "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                "placeholder": "E.g. Install insulation in living room floor/ceiling",
+                "maxLength": 70,
+                "next": {
+                  "id": "3154",
+                  "type": "AttachmentQuestion",
+                  "required": false,
+                  "formLabel": "Would you like to add any photos or plans?",
+                  "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                  "next": {
+                    "id": "2882",
+                    "type": "PostalCodeQuestion",
+                    "required": true,
+                    "formLabel": "Postcode for the job",
+                    "helpText": "To find insulation installers near you we need to know where the job is."
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "8823",
+          "type": "StandardChoiceOption",
+          "formLabel": "Other",
+
+          "next": {
+            "id": "2881",
+            "type": "TextareaQuestion",
+            "required": true,
+            "formLabel": "Describe your insulation job in detail",
+            "helpText": "Good descriptions attract good tradespeople. What type of insulation do you require and where? Include the dimensions of the areas that need insulating.",
+            "placeholder": "E.g. We want to install insulation above the cellar/under the living room floor. The cellar is partly crawl space 9mx3.5m...",
+            "minLength": 20,
+            "maxLength": 10000,
+            "next": {
+              "id": "TITLE_QUESTION",
+              "type": "TitleQuestion",
+              "required": true,
+              "formLabel": "Give your job a headline",
+              "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+              "placeholder": "E.g. Install insulation in living room floor/ceiling",
+              "maxLength": 70,
+              "next": {
+                "id": "3154",
+                "type": "AttachmentQuestion",
+                "required": false,
+                "formLabel": "Would you like to add any photos or plans?",
+                "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                "next": {
+                  "id": "2882",
+                  "type": "PostalCodeQuestion",
+                  "required": true,
+                  "formLabel": "Postcode for the job",
+                  "helpText": "To find insulation installers near you we need to know where the job is."
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "jobFunnel": {
+      "id": 400,
+      "name": "Insulation",
+      "type": "CATEGORY"
+    }
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "questionTree": {
+    "id": "be1977f6-b7c9-4f87-a473-b7991fb7ebc4",
+    "name": "Groundwork & Foundations",
+    "schema": {
+      "id": "3116",
+      "type": "SelectQuestion",
+      "required": true,
+      "formLabel": "What type of job is it?",
+
+      "options": [
+        {
+          "id": "9291",
+          "type": "StandardChoiceOption",
+          "formLabel": "Foundations for a structure to be built",
+          "helpText": "E.g. Foundations for extension, new build, outbuilding or shed",
+          "next": {
+            "id": "3117",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "What do you want foundations for?",
+
+            "options": [
+              {
+                "id": "9295",
+                "type": "StandardChoiceOption",
+                "formLabel": "New house",
+                "helpText": null
+              },
+              {
+                "id": "9296",
+                "type": "StandardChoiceOption",
+                "formLabel": "House extension",
+                "helpText": null
+              },
+              {
+                "id": "9297",
+                "type": "StandardChoiceOption",
+                "formLabel": "Outbuilding or garage",
+                "helpText": null
+              },
+              {
+                "id": "9298",
+                "type": "StandardChoiceOption",
+                "formLabel": "Shed",
+                "helpText": null
+              },
+              {
+                "id": "9299",
+                "type": "StandardChoiceOption",
+                "formLabel": "Other",
+                "helpText": null
+              }
+            ],
+            "next": {
+              "id": "3118",
+              "type": "TextareaQuestion",
+              "required": true,
+              "formLabel": "Add a description to your job",
+
+              "placeholder": "Include any details you think the tradesperson should know (approx. foundation size, timeframe, etc.)",
+              "minLength": 20,
+              "maxLength": 10000,
+              "next": {
+                "id": "TITLE_QUESTION",
+                "type": "TitleQuestion",
+                "required": true,
+                "formLabel": "Give your job a headline",
+                "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                "placeholder": "E.g. Dig foundations for extension",
+                "maxLength": 70,
+                "next": {
+                  "id": "3154",
+                  "type": "AttachmentQuestion",
+                  "required": false,
+                  "formLabel": "Would you like to add any photos or plans?",
+                  "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                  "next": {
+                    "id": "3138",
+                    "type": "PostalCodeQuestion",
+                    "required": true,
+                    "formLabel": "Postcode for the job",
+                    "helpText": "To find groundworkers near you we need to know where the job is."
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "9292",
+          "type": "StandardChoiceOption",
+          "formLabel": "Drainage & pipework",
+          "helpText": "E.g. digging trenches and laying new pipes or drains",
+          "next": {
+            "id": "3119",
+            "type": "TextareaQuestion",
+            "required": true,
+            "formLabel": "Add a description to your job",
+
+            "placeholder": "Include any details you think the tradesperson should know (work needed, timeframe, etc.)",
+            "minLength": 20,
+            "maxLength": 10000,
+            "next": {
+              "id": "TITLE_QUESTION",
+              "type": "TitleQuestion",
+              "required": true,
+              "formLabel": "Give your job a headline",
+              "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+              "placeholder": "E.g. Dig foundations for extension",
+              "maxLength": 70,
+              "next": {
+                "id": "3154",
+                "type": "AttachmentQuestion",
+                "required": false,
+                "formLabel": "Would you like to add any photos or plans?",
+                "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                "next": {
+                  "id": "3138",
+                  "type": "PostalCodeQuestion",
+                  "required": true,
+                  "formLabel": "Postcode for the job",
+                  "helpText": "To find groundworkers near you we need to know where the job is."
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "9293",
+          "type": "StandardChoiceOption",
+          "formLabel": "General garden earthworks",
+          "helpText": "E.g. level lawns, excavate for a pond or pool, dig grave, etc.",
+          "next": {
+            "id": "3120",
+            "type": "TextareaQuestion",
+            "required": true,
+            "formLabel": "Describe your earthworks job in detail",
+            "helpText": "Good descriptions attract good tradespeople. Describe what what you need doing in detail, including roughly how large an area is involved. How accessible is the site?",
+            "placeholder": "E.g. Level garden. Currently slopped. Having a new wall built with steps. Garden to levelled off and trench left for the wall foundations. Garden approx 65ft",
+            "minLength": 20,
+            "maxLength": 10000,
+            "next": {
+              "id": "TITLE_QUESTION",
+              "type": "TitleQuestion",
+              "required": true,
+              "formLabel": "Give your job a headline",
+              "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+              "placeholder": "E.g. Dig foundations for extension",
+              "maxLength": 70,
+              "next": {
+                "id": "3154",
+                "type": "AttachmentQuestion",
+                "required": false,
+                "formLabel": "Would you like to add any photos or plans?",
+                "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                "next": {
+                  "id": "3138",
+                  "type": "PostalCodeQuestion",
+                  "required": true,
+                  "formLabel": "Postcode for the job",
+                  "helpText": "To find groundworkers near you we need to know where the job is."
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "9294",
+          "type": "StandardChoiceOption",
+          "formLabel": "Other",
+
+          "next": {
+            "id": "3121",
+            "type": "TextareaQuestion",
+            "required": true,
+            "formLabel": "Describe your groundworks job in detail",
+            "helpText": "Good descriptions attract good tradespeople. What needs to be done? Provide details of the tasks and size of the area involved. What kind of access is there for machinery.",
+            "placeholder": "E.g. Foundations dug for house rear extension (6x3m). Currently a patio. Access via driveway and rear gate...",
+            "minLength": 20,
+            "maxLength": 10000,
+            "next": {
+              "id": "TITLE_QUESTION",
+              "type": "TitleQuestion",
+              "required": true,
+              "formLabel": "Give your job a headline",
+              "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+              "placeholder": "E.g. Dig foundations for extension",
+              "maxLength": 70,
+              "next": {
+                "id": "3154",
+                "type": "AttachmentQuestion",
+                "required": false,
+                "formLabel": "Would you like to add any photos or plans?",
+                "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                "next": {
+                  "id": "3138",
+                  "type": "PostalCodeQuestion",
+                  "required": true,
+                  "formLabel": "Postcode for the job",
+                  "helpText": "To find groundworkers near you we need to know where the job is."
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "jobFunnel": {
+      "id": 397,
+      "name": "Groundwork & Foundations",
+      "type": "CATEGORY"
+    }
+  }
+}
