@@ -1,0 +1,718 @@
+{
+  "questionTree": {
+    "id": "97abdb9b-6312-47f6-a665-bdab335fa539",
+    "name": "Fencing",
+    "schema": {
+      "id": "3114",
+      "type": "SelectQuestion",
+      "required": true,
+      "formLabel": "What does your fencing job involve?",
+
+      "options": [
+        {
+          "id": "9286",
+          "type": "StandardChoiceOption",
+          "formLabel": "Fencing",
+
+          "next": {
+            "id": "3092",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "What type of fence would you like?",
+
+            "options": [
+              {
+                "id": "9244",
+                "type": "StandardChoiceOption",
+                "formLabel": "Panel fence",
+                "helpText": "Standard pre-fabricated fence panels slotted between concrete or wooden posts",
+                "next": {
+                  "id": "3094",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "Roughly, how much fencing do you need?",
+                  "helpText": "One panel is 1.8m (6 ft) wide. Please provide your best estimate.",
+                  "options": [
+                    {
+                      "id": "9253",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Up to 10m (32 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9254",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "10-25m (32-82 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9255",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "25-35m (82-115 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9256",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Over 35m (115 ft)",
+                      "helpText": null
+                    }
+                  ],
+                  "next": {
+                    "id": "3104",
+                    "type": "TextareaQuestion",
+                    "required": true,
+                    "formLabel": "Add a description to your job",
+
+                    "placeholder": "Include any details you think the tradesperson should know (area layout, timeframe, etc.)",
+                    "minLength": 20,
+                    "maxLength": 10000,
+                    "next": {
+                      "id": "TITLE_QUESTION",
+                      "type": "TitleQuestion",
+                      "required": true,
+                      "formLabel": "Give your job a headline",
+                      "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                      "placeholder": "E.g. New feather edge fence for 1 side of garden",
+                      "maxLength": 70,
+                      "next": {
+                        "id": "3154",
+                        "type": "AttachmentQuestion",
+                        "required": false,
+                        "formLabel": "Would you like to add any photos or plans?",
+                        "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                        "next": {
+                          "id": "3115",
+                          "type": "PostalCodeQuestion",
+                          "required": true,
+                          "formLabel": "Postcode for the job",
+                          "helpText": "To find fencers near you we need to know where the job is."
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "9245",
+                "type": "StandardChoiceOption",
+                "formLabel": "Feather edge fence",
+                "helpText": "Custom built fence using vertical overlapping wooden pales secured to posts",
+                "next": {
+                  "id": "3096",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "Roughly, how much fencing do you need?",
+                  "helpText": "A typical feather edge section is 3m (10 ft) from post to post. Please provide your best estimate.",
+                  "options": [
+                    {
+                      "id": "9261",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Up to 10m (32 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9262",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "10-25m (32-82 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9263",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "25-35m (82-115 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9264",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Over 35m (115 ft)",
+                      "helpText": null
+                    }
+                  ],
+                  "next": {
+                    "id": "3104",
+                    "type": "TextareaQuestion",
+                    "required": true,
+                    "formLabel": "Add a description to your job",
+
+                    "placeholder": "Include any details you think the tradesperson should know (area layout, timeframe, etc.)",
+                    "minLength": 20,
+                    "maxLength": 10000,
+                    "next": {
+                      "id": "TITLE_QUESTION",
+                      "type": "TitleQuestion",
+                      "required": true,
+                      "formLabel": "Give your job a headline",
+                      "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                      "placeholder": "E.g. New feather edge fence for 1 side of garden",
+                      "maxLength": 70,
+                      "next": {
+                        "id": "3154",
+                        "type": "AttachmentQuestion",
+                        "required": false,
+                        "formLabel": "Would you like to add any photos or plans?",
+                        "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                        "next": {
+                          "id": "3115",
+                          "type": "PostalCodeQuestion",
+                          "required": true,
+                          "formLabel": "Postcode for the job",
+                          "helpText": "To find fencers near you we need to know where the job is."
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "9343",
+                "type": "TextChoiceOption",
+                "formLabel": "Other",
+                "placeholder": "type of fence (e.g. trellis, woven, hit and miss)",
+
+                "next": {
+                  "id": "3094",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "Roughly, how much fencing do you need?",
+                  "helpText": "One panel is 1.8m (6 ft) wide. Please provide your best estimate.",
+                  "options": [
+                    {
+                      "id": "9253",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Up to 10m (32 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9254",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "10-25m (32-82 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9255",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "25-35m (82-115 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9256",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Over 35m (115 ft)",
+                      "helpText": null
+                    }
+                  ],
+                  "next": {
+                    "id": "3104",
+                    "type": "TextareaQuestion",
+                    "required": true,
+                    "formLabel": "Add a description to your job",
+
+                    "placeholder": "Include any details you think the tradesperson should know (area layout, timeframe, etc.)",
+                    "minLength": 20,
+                    "maxLength": 10000,
+                    "next": {
+                      "id": "TITLE_QUESTION",
+                      "type": "TitleQuestion",
+                      "required": true,
+                      "formLabel": "Give your job a headline",
+                      "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                      "placeholder": "E.g. New feather edge fence for 1 side of garden",
+                      "maxLength": 70,
+                      "next": {
+                        "id": "3154",
+                        "type": "AttachmentQuestion",
+                        "required": false,
+                        "formLabel": "Would you like to add any photos or plans?",
+                        "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                        "next": {
+                          "id": "3115",
+                          "type": "PostalCodeQuestion",
+                          "required": true,
+                          "formLabel": "Postcode for the job",
+                          "helpText": "To find fencers near you we need to know where the job is."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "9287",
+          "type": "StandardChoiceOption",
+          "formLabel": "Gates",
+
+          "next": {
+            "id": "3099",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "How many gates do you need?",
+
+            "options": [
+              {
+                "id": "9268",
+                "type": "StandardChoiceOption",
+                "formLabel": "1",
+                "helpText": null
+              },
+              {
+                "id": "9269",
+                "type": "StandardChoiceOption",
+                "formLabel": "2",
+                "helpText": null
+              },
+              {
+                "id": "9270",
+                "type": "StandardChoiceOption",
+                "formLabel": "3 or more",
+                "helpText": null
+              },
+              {
+                "id": "9271",
+                "type": "StandardChoiceOption",
+                "formLabel": "Install made to measure gate",
+                "helpText": "e.g. Double gates for a driveway, a bespoke gate, etc."
+              }
+            ],
+            "next": {
+              "id": "3100",
+              "type": "SelectQuestion",
+              "required": true,
+              "formLabel": "Do you already have the gate(s)?",
+
+              "options": [
+                {
+                  "id": "9272",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "I have the gate(s), I just need them fitted",
+                  "helpText": null
+                },
+                {
+                  "id": "9273",
+                  "type": "StandardChoiceOption",
+                  "formLabel": "I need the gate(s) sourced and fitted",
+                  "helpText": null
+                }
+              ],
+              "next": {
+                "id": "3107",
+                "type": "TextareaQuestion",
+                "required": true,
+                "formLabel": "Add a description to your job",
+
+                "placeholder": "Include any details you think the tradesperson should know (gate(s) type, timeframe, etc.)",
+                "minLength": 20,
+                "maxLength": 10000,
+                "next": {
+                  "id": "TITLE_QUESTION",
+                  "type": "TitleQuestion",
+                  "required": true,
+                  "formLabel": "Give your job a headline",
+                  "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                  "placeholder": "E.g. New feather edge fence for 1 side of garden",
+                  "maxLength": 70,
+                  "next": {
+                    "id": "3154",
+                    "type": "AttachmentQuestion",
+                    "required": false,
+                    "formLabel": "Would you like to add any photos or plans?",
+                    "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                    "next": {
+                      "id": "3115",
+                      "type": "PostalCodeQuestion",
+                      "required": true,
+                      "formLabel": "Postcode for the job",
+                      "helpText": "To find fencers near you we need to know where the job is."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "9288",
+          "type": "StandardChoiceOption",
+          "formLabel": "Fencing and gates",
+
+          "next": {
+            "id": "3092",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "What type of fence would you like?",
+
+            "options": [
+              {
+                "id": "9244",
+                "type": "StandardChoiceOption",
+                "formLabel": "Panel fence",
+                "helpText": "Standard pre-fabricated fence panels slotted between concrete or wooden posts",
+                "next": {
+                  "id": "3094",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "Roughly, how much fencing do you need?",
+                  "helpText": "One panel is 1.8m (6 ft) wide. Please provide your best estimate.",
+                  "options": [
+                    {
+                      "id": "9253",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Up to 10m (32 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9254",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "10-25m (32-82 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9255",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "25-35m (82-115 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9256",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Over 35m (115 ft)",
+                      "helpText": null
+                    }
+                  ],
+                  "next": {
+                    "id": "3103",
+                    "type": "SelectQuestion",
+                    "required": true,
+                    "formLabel": "How many gates do you need?",
+
+                    "options": [
+                      {
+                        "id": "9280",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "1",
+                        "helpText": null
+                      },
+                      {
+                        "id": "9281",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "2 gates",
+                        "helpText": null
+                      },
+                      {
+                        "id": "9282",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "Made to measure gate",
+                        "helpText": "e.g. Double gates for a driveway, a bespoke gate, etc."
+                      }
+                    ],
+                    "next": {
+                      "id": "3104",
+                      "type": "TextareaQuestion",
+                      "required": true,
+                      "formLabel": "Add a description to your job",
+
+                      "placeholder": "Include any details you think the tradesperson should know (area layout, timeframe, etc.)",
+                      "minLength": 20,
+                      "maxLength": 10000,
+                      "next": {
+                        "id": "TITLE_QUESTION",
+                        "type": "TitleQuestion",
+                        "required": true,
+                        "formLabel": "Give your job a headline",
+                        "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                        "placeholder": "E.g. New feather edge fence for 1 side of garden",
+                        "maxLength": 70,
+                        "next": {
+                          "id": "3154",
+                          "type": "AttachmentQuestion",
+                          "required": false,
+                          "formLabel": "Would you like to add any photos or plans?",
+                          "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                          "next": {
+                            "id": "3115",
+                            "type": "PostalCodeQuestion",
+                            "required": true,
+                            "formLabel": "Postcode for the job",
+                            "helpText": "To find fencers near you we need to know where the job is."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "9245",
+                "type": "StandardChoiceOption",
+                "formLabel": "Feather edge fence",
+                "helpText": "Custom built fence using vertical overlapping wooden pales secured to posts",
+                "next": {
+                  "id": "3096",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "Roughly, how much fencing do you need?",
+                  "helpText": "A typical feather edge section is 3m (10 ft) from post to post. Please provide your best estimate.",
+                  "options": [
+                    {
+                      "id": "9261",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Up to 10m (32 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9262",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "10-25m (32-82 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9263",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "25-35m (82-115 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9264",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Over 35m (115 ft)",
+                      "helpText": null
+                    }
+                  ],
+                  "next": {
+                    "id": "3103",
+                    "type": "SelectQuestion",
+                    "required": true,
+                    "formLabel": "How many gates do you need?",
+
+                    "options": [
+                      {
+                        "id": "9280",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "1",
+                        "helpText": null
+                      },
+                      {
+                        "id": "9281",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "2 gates",
+                        "helpText": null
+                      },
+                      {
+                        "id": "9282",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "Made to measure gate",
+                        "helpText": "e.g. Double gates for a driveway, a bespoke gate, etc."
+                      }
+                    ],
+                    "next": {
+                      "id": "3104",
+                      "type": "TextareaQuestion",
+                      "required": true,
+                      "formLabel": "Add a description to your job",
+
+                      "placeholder": "Include any details you think the tradesperson should know (area layout, timeframe, etc.)",
+                      "minLength": 20,
+                      "maxLength": 10000,
+                      "next": {
+                        "id": "TITLE_QUESTION",
+                        "type": "TitleQuestion",
+                        "required": true,
+                        "formLabel": "Give your job a headline",
+                        "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                        "placeholder": "E.g. New feather edge fence for 1 side of garden",
+                        "maxLength": 70,
+                        "next": {
+                          "id": "3154",
+                          "type": "AttachmentQuestion",
+                          "required": false,
+                          "formLabel": "Would you like to add any photos or plans?",
+                          "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                          "next": {
+                            "id": "3115",
+                            "type": "PostalCodeQuestion",
+                            "required": true,
+                            "formLabel": "Postcode for the job",
+                            "helpText": "To find fencers near you we need to know where the job is."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "9343",
+                "type": "TextChoiceOption",
+                "formLabel": "Other",
+                "placeholder": "type of fence (e.g. trellis, woven, hit and miss)",
+
+                "next": {
+                  "id": "3094",
+                  "type": "SelectQuestion",
+                  "required": true,
+                  "formLabel": "Roughly, how much fencing do you need?",
+                  "helpText": "One panel is 1.8m (6 ft) wide. Please provide your best estimate.",
+                  "options": [
+                    {
+                      "id": "9253",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Up to 10m (32 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9254",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "10-25m (32-82 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9255",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "25-35m (82-115 ft)",
+                      "helpText": null
+                    },
+                    {
+                      "id": "9256",
+                      "type": "StandardChoiceOption",
+                      "formLabel": "Over 35m (115 ft)",
+                      "helpText": null
+                    }
+                  ],
+                  "next": {
+                    "id": "3103",
+                    "type": "SelectQuestion",
+                    "required": true,
+                    "formLabel": "How many gates do you need?",
+
+                    "options": [
+                      {
+                        "id": "9280",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "1",
+                        "helpText": null
+                      },
+                      {
+                        "id": "9281",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "2 gates",
+                        "helpText": null
+                      },
+                      {
+                        "id": "9282",
+                        "type": "StandardChoiceOption",
+                        "formLabel": "Made to measure gate",
+                        "helpText": "e.g. Double gates for a driveway, a bespoke gate, etc."
+                      }
+                    ],
+                    "next": {
+                      "id": "3104",
+                      "type": "TextareaQuestion",
+                      "required": true,
+                      "formLabel": "Add a description to your job",
+
+                      "placeholder": "Include any details you think the tradesperson should know (area layout, timeframe, etc.)",
+                      "minLength": 20,
+                      "maxLength": 10000,
+                      "next": {
+                        "id": "TITLE_QUESTION",
+                        "type": "TitleQuestion",
+                        "required": true,
+                        "formLabel": "Give your job a headline",
+                        "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                        "placeholder": "E.g. New feather edge fence for 1 side of garden",
+                        "maxLength": 70,
+                        "next": {
+                          "id": "3154",
+                          "type": "AttachmentQuestion",
+                          "required": false,
+                          "formLabel": "Would you like to add any photos or plans?",
+                          "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                          "next": {
+                            "id": "3115",
+                            "type": "PostalCodeQuestion",
+                            "required": true,
+                            "formLabel": "Postcode for the job",
+                            "helpText": "To find fencers near you we need to know where the job is."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "9289",
+          "type": "StandardChoiceOption",
+          "formLabel": "Repair a fence or gate",
+
+          "next": {
+            "id": "3079",
+            "type": "SelectQuestion",
+            "required": true,
+            "formLabel": "Which of the following best describes your gardening job?",
+
+            "options": [
+              {
+                "id": "9223",
+                "type": "StandardChoiceOption",
+                "formLabel": "Minor repair",
+                "helpText": "Only one or two fence panels or posts need repairing, a gate needs re-hanging..."
+              },
+              {
+                "id": "9224",
+                "type": "StandardChoiceOption",
+                "formLabel": "Larger repair",
+                "helpText": "Multiple fence posts and / or fence panelling needs repairing, gate(s) need restoring..."
+              }
+            ],
+            "next": {
+              "id": "3107",
+              "type": "TextareaQuestion",
+              "required": true,
+              "formLabel": "Add a description to your job",
+
+              "placeholder": "Include any details you think the tradesperson should know (gate(s) type, timeframe, etc.)",
+              "minLength": 20,
+              "maxLength": 10000,
+              "next": {
+                "id": "TITLE_QUESTION",
+                "type": "TitleQuestion",
+                "required": true,
+                "formLabel": "Give your job a headline",
+                "helpText": "More tradespeople express interest in jobs that have a descriptive name.   ",
+                "placeholder": "E.g. New feather edge fence for 1 side of garden",
+                "maxLength": 70,
+                "next": {
+                  "id": "3154",
+                  "type": "AttachmentQuestion",
+                  "required": false,
+                  "formLabel": "Would you like to add any photos or plans?",
+                  "helpText": "Photos give tradespeople more context and details to understand the job and provide a more accurate quote.",
+                  "next": {
+                    "id": "3115",
+                    "type": "PostalCodeQuestion",
+                    "required": true,
+                    "formLabel": "Postcode for the job",
+                    "helpText": "To find fencers near you we need to know where the job is."
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "jobFunnel": {
+      "id": 393,
+      "name": "Fencing",
+      "type": "CATEGORY"
+    }
+  }
+}
