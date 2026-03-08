@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { trades } from "@/data/trades";
+import { trades } from "@/constants/trades";
 import { Button } from "@/components/ui/button";
 
 const TradesSection = () => {

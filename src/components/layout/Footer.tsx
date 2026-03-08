@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Facebook, Youtube, Twitter } from "lucide-react";
-import PostJobStrip from "@/components/PostJobStrip";
-import { trades } from "@/data/trades";
+import PostJobStrip from "@/components/shared/PostJobStrip";
+import { trades } from "@/constants/trades";
 
 const Footer = () => {
   return (
