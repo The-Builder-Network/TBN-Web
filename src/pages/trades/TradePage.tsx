@@ -76,14 +76,18 @@ const TradePage = () => {
               </p>
               <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Find qualified tradespeople for your{" "}
-                <span className="lowercase">{serviceName}</span> jobs
+                <span className="lowercase">{trade.name}</span> jobs
               </h1>
               <p className="text-lg text-muted-foreground mb-8">
                 {trade.description}
               </p>
+              <span>
+                Enter your postcode to find local {trade.name.toLowerCase()}{" "}
+                specialists
+              </span>
 
               {/* Postcode Input */}
-              <div className="max-w-sm space-y-3">
+              <div className="max-w-sm space-y-3 mt-4">
                 <PostcodeInput
                   value={postcode}
                   onChange={setPostcode}

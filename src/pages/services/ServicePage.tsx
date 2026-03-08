@@ -67,9 +67,10 @@ const ServicePage = () => {
                   {service.name.toLowerCase()} specialists near you. Compare
                   quotes, read reviews, and hire with confidence.
                 </p>
+                  <span>Enter your postcode to find local {service.name.toLowerCase()} specialists</span>
 
                 {/* Postcode Input */}
-                <div className="max-w-sm space-y-3">
+                <div className="max-w-sm space-y-3 mt-4">
                   <PostcodeInput
                     value={postcode}
                     onChange={setPostcode}
