@@ -1,7 +1,7 @@
 import { useParams, Link, Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { trades } from "@/data/trades";
-import { services } from "@/data/services";
+import { trades } from "@/constants/trades";
+import { services } from "@/constants/services";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,

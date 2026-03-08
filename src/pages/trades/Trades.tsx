@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { trades } from "@/data/trades";
+import { trades } from "@/constants/trades";
 import CTASection from "@/components/home/sections/CTASection";
 
 const Trades = () => {
@@ -21,16 +21,28 @@ const Trades = () => {
 
         {/* Trades Grid */}
         <div className="container py-12">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {trades.map((trade) => (
               <Link
                 key={trade.slug}
                 to={`/${trade.serviceSlug}/${trade.slug}`}
-                className="group p-4 border rounded-lg hover:border-primary hover:shadow-md transition-all bg-background"
+                className="group flex overflow-hidden rounded-lg border bg-card hover:border-highlight transition-all hover:shadow-md h-24"
               >
-                <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                  {trade.name}
-                </h3>
+                <div className="w-1/4 h-full relative">
+                  <img
+                    src={trade.imageUrl}
+                    alt={trade.name}
+                    className="w-full h-full object-cover transition-transform duration-500"
+                  />
+                </div>
+                <div className="w-3/4 p-3 flex flex-col justify-center">
+                  <span className="font-semibold text-foreground group-hover:text-highlight transition-colors mb-1 line-clamp-1">
+                    {trade.name}
+                  </span>
+                  <p className="text-xs text-muted-foreground line-clamp-2">
+                    {trade.description}
+                  </p>
+                </div>
               </Link>
             ))}
           </div>
