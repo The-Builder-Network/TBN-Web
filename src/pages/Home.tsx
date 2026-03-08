@@ -1,27 +1,23 @@
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import HeroSection from "@/components/home/HeroSection";
-import StatsSection from "@/components/home/StatsSection";
-import WhySection from "@/components/home/WhySection";
-import CategoriesSection from "@/components/home/CategoriesSection";
-import HowItWorksSection from "@/components/home/HowItWorksSection";
-import CTASection from "@/components/home/CTASection";
-import DownloadAppSection from "@/components/home/DownloadAppSection";
+import HeroSection from "@/components/home/sections/HeroSection";
+import StatsSection from "@/components/home/sections/StatsSection";
+import WhySection from "@/components/home/sections/WhySection";
+import TradesSection from "@/components/home/sections/TradesSection";
+import HowItWorksSection from "@/components/home/sections/HowItWorksSection";
+import CTASection from "@/components/home/sections/CTASection";
+import DownloadAppSection from "@/components/home/sections/DownloadAppSection";
+import PostJobStrip from "@/components/PostJobStrip";
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex flex-col gap-8">
-        <HeroSection />
-        <StatsSection />
-        <HowItWorksSection />
-        <WhySection />
-        <CategoriesSection />
-        <DownloadAppSection />
-      </main>
-      <Footer />
-    </div>
+    <main className="flex flex-col gap-8">
+      <HeroSection />
+      <StatsSection />
+      <HowItWorksSection />
+      <WhySection />
+      <TradesSection />
+      <DownloadAppSection />
+      <PostJobStrip />
+    </main>
   );
 };
 
