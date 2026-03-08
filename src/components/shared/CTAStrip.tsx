@@ -6,9 +6,6 @@ interface CTAStripProps {
   to: string;
 }
 
-/**
- * Shared call-to-action strip banner — replaces JoinStrip and PostJobStrip.
- */
 const CTAStrip = ({ text, to }: CTAStripProps) => {
   return (
     <div className="bg-primary text-primary-foreground py-4 shadow-lg">

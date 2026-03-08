@@ -15,7 +15,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-import { services } from "@/constants/services";
+import { services } from "@/data/services";
 
 interface JobServiceComboboxProps {
   value: string;
