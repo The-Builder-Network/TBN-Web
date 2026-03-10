@@ -8,7 +8,7 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-NUM_COMMITS=$1
+NUM_COMMITS=$1 
 
 FILES=($(git ls-files --modified --others --exclude-standard))
 TOTAL_FILES=${#FILES[@]}
@@ -19,7 +19,7 @@ if [ $TOTAL_FILES -eq 0 ]; then
 fi
 
 if [ $TOTAL_FILES -lt $NUM_COMMITS ]; then
-  NUM_COMMITS=$TOTAL_FILES
+  NUM_COMMITS=$TOTAL_FILES 
 fi
 
 echo "📦 Found $TOTAL_FILES unstaged files. Creating $NUM_COMMITS commits..."
@@ -75,7 +75,7 @@ while [ $index -lt $TOTAL_FILES ] && [ $commit_count -lt $NUM_COMMITS ]; do
 
   declare -A type_count
   declare -A scope_count
-
+\''
   for f in "${subset[@]}"; do
     t=$(get_commit_type "$f")
     s=$(get_scope "$f")

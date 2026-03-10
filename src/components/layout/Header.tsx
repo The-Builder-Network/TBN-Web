@@ -14,7 +14,7 @@ const Header = () => {
     <>
       {/* Top Banner */}
       {!isTradespersonPage && (
-        <div className="bg-primary/10  text-primary text-sm py-0.5 text-center">
+        <div className="bg-primary/10  text-primary text-sm py-1 text-center">
           <span className="font-medium ">
             Are you a tradesperson looking for leads?{" "}
           </span>
