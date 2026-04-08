@@ -857,20 +857,17 @@
                       {
                         "id": "8679",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Porch or summerhouse",
-                        "helpText": null
+                        "formLabel": "Porch or summerhouse"
                       },
                       {
                         "id": "8680",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Garage, extension, or part of the house",
-                        "helpText": null
+                        "formLabel": "Garage, extension, or part of the house"
                       },
                       {
                         "id": "8681",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Whole house",
-                        "helpText": null
+                        "formLabel": "Whole house"
                       }
                     ],
                     "next": {

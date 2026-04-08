@@ -242,14 +242,12 @@
                       {
                         "id": "9014",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Main house",
-                        "helpText": null
+                        "formLabel": "Main house"
                       },
                       {
                         "id": "9015",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Outbuilding or garage",
-                        "helpText": null
+                        "formLabel": "Outbuilding or garage"
                       }
                     ],
                     "next": {
