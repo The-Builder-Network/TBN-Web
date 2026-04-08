@@ -5,6 +5,7 @@ export type QuestionType =
   | "CheckboxQuestion"
   | "TextareaQuestion"
   | "TitleQuestion"
+  | "IntegerQuestion"
   | "PostalCodeQuestion"
   | "AttachmentQuestion";
 
@@ -25,6 +26,8 @@ export interface QuestionNode {
   type: QuestionType;
   required?: boolean;
   formLabel: string;
+  min?: number;
+  max?: number;
   helpText?: string;
   placeholder?: string;
   minLength?: number;
