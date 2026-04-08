@@ -68,51 +68,43 @@
                       {
                         "id": "8415",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Asbestos",
-                        "helpText": null
+                        "formLabel": "Asbestos"
                       },
                       {
                         "id": "8416",
                         "type": "StandardChoiceOption",
-                        "formLabel": "White goods",
-                        "helpText": null
+                        "formLabel": "White goods"
                       },
                       {
                         "id": "8417",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Mattress",
-                        "helpText": null
+                        "formLabel": "Mattress"
                       },
                       {
                         "id": "8418",
                         "type": "StandardChoiceOption",
-                        "formLabel": "CRT TV / Monitor",
-                        "helpText": null
+                        "formLabel": "CRT TV / Monitor"
                       },
                       {
                         "id": "8419",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Fluorescent tubes",
-                        "helpText": null
+                        "formLabel": "Fluorescent tubes"
                       },
                       {
                         "id": "8420",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Tyres",
-                        "helpText": null
+                        "formLabel": "Tyres"
                       },
                       {
                         "id": "8421",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Oil, petrol, diesel or paint",
-                        "helpText": null
+                        "formLabel": "Oil, petrol, diesel or paint"
                       },
                       {
                         "id": "9333",
                         "type": "TextChoiceOption",
                         "formLabel": "Other",
-                        "placeholder": "Other hazardous materials",
-                        "helpText": null
+                        "placeholder": "Other hazardous materials"
                       }
                     ],
                     "next": {
