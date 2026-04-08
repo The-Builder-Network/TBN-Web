@@ -1,11 +1,11 @@
-import { useParams, Link, Navigate, useNavigate } from "react-router-dom";
+import { useParams, Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { services } from "@/constants/services";
 import { trades } from "@/constants/trades";
 import { Button } from "@/components/ui/button";
-import { ChevronRight } from "lucide-react";
 import CTASection from "@/components/home/sections/CTASection";
 import PostcodeInput from "@/components/shared/PostcodeInput";
+import PageBreadcrumb from "@/components/shared/Breadcrumb";
 
 const ServicePage = () => {
   const { serviceSlug } = useParams<{ serviceSlug: string }>();
@@ -34,20 +34,12 @@ const ServicePage = () => {
     <>
       <main className="flex-1">
         {/* Breadcrumb */}
-        <div className="border-b bg-muted/20">
-          <div className="container py-4">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Link
-                to="/services"
-                className="hover:text-foreground transition-colors"
-              >
-                Services
-              </Link>
-              <ChevronRight className="h-4 w-4" />
-              <span className="text-foreground">{service.name}</span>
-            </div>
-          </div>
-        </div>
+        <PageBreadcrumb
+          items={[
+            { label: "Services", href: "/services" },
+            { label: service.name },
+          ]}
+        />
 
         {/* Hero Section */}
         <div className="bg-primary/5">
@@ -67,7 +59,10 @@ const ServicePage = () => {
                   {service.name.toLowerCase()} specialists near you. Compare
                   quotes, read reviews, and hire with confidence.
                 </p>
-                  <span>Enter your postcode to find local {service.name.toLowerCase()} specialists</span>
+                <span>
+                  Enter your postcode to find local {service.name.toLowerCase()}{" "}
+                  specialists
+                </span>
 
                 {/* Postcode Input */}
                 <div className="max-w-sm space-y-3 mt-4">

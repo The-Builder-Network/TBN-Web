@@ -1,4 +1,4 @@
-import { useParams, Link, Navigate, useNavigate } from "react-router-dom";
+import { useParams, Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { trades } from "@/constants/trades";
 import { services } from "@/constants/services";
@@ -9,9 +9,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ChevronRight } from "lucide-react";
 import CTASection from "@/components/home/sections/CTASection";
 import PostcodeInput from "@/components/shared/PostcodeInput";
+import PageBreadcrumb from "@/components/shared/Breadcrumb";
 
 const TradePage = () => {
   const { serviceSlug, tradeSlug } = useParams<{
@@ -43,27 +43,13 @@ const TradePage = () => {
   return (
     <main className="flex-1">
       {/* Breadcrumb */}
-      <div className="border-b bg-muted/20">
-        <div className="container py-4">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Link
-              to="/trades"
-              className="hover:text-foreground transition-colors"
-            >
-              Trades
-            </Link>
-            <ChevronRight className="h-4 w-4" />
-            <Link
-              to={`/services/${trade.serviceSlug}`}
-              className="hover:text-foreground transition-colors"
-            >
-              {serviceName}
-            </Link>
-            <ChevronRight className="h-4 w-4" />
-            <span className="text-foreground">{trade.name}</span>
-          </div>
-        </div>
-      </div>
+      <PageBreadcrumb
+        items={[
+          { label: "Trades", href: "/trades" },
+          { label: serviceName, href: `/services/${trade.serviceSlug}` },
+          { label: trade.name },
+        ]}
+      />
 
       {/* Hero Section */}
       <div className="bg-primary/5">
