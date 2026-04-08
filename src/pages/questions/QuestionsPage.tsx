@@ -241,7 +241,13 @@ const QuestionsPage = () => {
               Post your job in minutes, browse real reviews and choose who to
               speak to.
             </p>
-            <Link to={selectedService ? `/post-job?service=${selectedService}` : "/post-job"}>
+            <Link
+              to={
+                selectedService
+                  ? `/post-job?service=${selectedService}`
+                  : "/post-job"
+              }
+            >
               <Button
                 variant="outline"
                 className="w-full hover:bg-secondary transition-colors font-medium border-primary text-primary hover:text-primary"
@@ -259,9 +265,9 @@ const QuestionsPage = () => {
         onApply={handleSortApply}
       />
 
-      <AskQuestionModal 
-        open={askModalOpen} 
-        onOpenChange={setAskModalOpen} 
+      <AskQuestionModal
+        open={askModalOpen}
+        onOpenChange={setAskModalOpen}
         initialService={selectedService}
       />
     </div>
