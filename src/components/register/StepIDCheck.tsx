@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Shield, FileText, CreditCard, Car, Upload, X } from "lucide-react";
-
+import { useToast } from "@/hooks/use-toast";
 
 type SubStep = "intro" | "select-id" | "review";
 
@@ -12,8 +12,11 @@ const ID_TYPES = [
 ];
 
 const StepIDCheck = ({ data, onUpdate, onNext, onBack }) => {
+  const { toast } = useToast();
   const [subStep, setSubStep] = useState<SubStep>("intro");
-  const [selectedIdType, setSelectedIdType] = useState<string>(data.idType || "");
+  const [selectedIdType, setSelectedIdType] = useState<string>(
+    data.idType || "",
+  );
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -22,7 +25,11 @@ const StepIDCheck = ({ data, onUpdate, onNext, onBack }) => {
     const file = e.target.files?.[0];
     if (!file) return;
     if (file.size > 5 * 1024 * 1024) {
-      alert("File size must be less than 5MB");
+      toast({
+        title: "File too large",
+        description: "File size must be less than 5MB",
+        variant: "destructive",
+      });
       return;
     }
     setUploadedFile(file);
@@ -43,17 +50,28 @@ const StepIDCheck = ({ data, onUpdate, onNext, onBack }) => {
           <h2 className="text-3xl font-bold">Verify your identity</h2>
         </div>
         <p className="text-base mb-4">
-          This helps us check that you're really you and helps keep MyBuilder secure.
+          This helps us check that you're really you and helps keep MyBuilder
+          secure.
         </p>
         <p className="text-base mb-8">
           We will handle your personal data securely and in accordance with our{" "}
-          <a href="#" className="text-primary underline">privacy policy</a>.
+          <a href="#" className="text-primary underline">
+            privacy policy
+          </a>
+          .
         </p>
         <div className="flex gap-3">
-          <Button variant="outline" onClick={onBack} className="h-12 px-6 text-base">
+          <Button
+            variant="outline"
+            onClick={onBack}
+            className="h-12 px-6 text-base"
+          >
             Back
           </Button>
-          <Button onClick={() => setSubStep("select-id")} className="h-12 px-6 text-base">
+          <Button
+            onClick={() => setSubStep("select-id")}
+            className="h-12 px-6 text-base"
+          >
             Verify identity
           </Button>
         </div>
@@ -79,17 +97,23 @@ const StepIDCheck = ({ data, onUpdate, onNext, onBack }) => {
                 <button
                   onClick={() => setSelectedIdType(selected ? "" : id.value)}
                   className={`w-full flex items-center justify-between p-4 rounded-lg border transition-all ${
-                    selected ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"
+                    selected
+                      ? "border-primary bg-primary/5"
+                      : "border-border hover:border-primary/50"
                   }`}
                 >
                   <div className="flex items-center gap-3">
                     <Icon className="h-5 w-5 text-primary" />
                     <span className="text-base">{id.label}</span>
                   </div>
-                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-                    selected ? "border-primary" : "border-muted-foreground/40"
-                  }`}>
-                    {selected && <div className="w-2.5 h-2.5 rounded-full bg-primary" />}
+                  <div
+                    className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                      selected ? "border-primary" : "border-muted-foreground/40"
+                    }`}
+                  >
+                    {selected && (
+                      <div className="w-2.5 h-2.5 rounded-full bg-primary" />
+                    )}
                   </div>
                 </button>
 
@@ -112,12 +136,16 @@ const StepIDCheck = ({ data, onUpdate, onNext, onBack }) => {
                         <span className="text-base text-muted-foreground">
                           Click to upload your {id.label.toLowerCase()}
                         </span>
-                        <span className="text-sm text-muted-foreground">Max 5MB</span>
+                        <span className="text-sm text-muted-foreground">
+                          Max 5MB
+                        </span>
                       </button>
                     ) : (
                       <div className="flex items-center gap-3">
                         <FileText className="h-5 w-5 text-primary" />
-                        <span className="text-base flex-1 truncate">{uploadedFile.name}</span>
+                        <span className="text-base flex-1 truncate">
+                          {uploadedFile.name}
+                        </span>
                         <button
                           onClick={() => {
                             setUploadedFile(null);
@@ -137,7 +165,10 @@ const StepIDCheck = ({ data, onUpdate, onNext, onBack }) => {
         </div>
 
         <p className="text-sm text-muted-foreground mb-6 flex items-center gap-1">
-          ⓘ <a href="#" className="text-primary underline">Why do we need your identity?</a>
+          ⓘ{" "}
+          <a href="#" className="text-primary underline">
+            Why do we need your identity?
+          </a>
         </p>
 
         <div className="flex gap-3">
@@ -176,7 +207,10 @@ const StepIDCheck = ({ data, onUpdate, onNext, onBack }) => {
         Make sure your entire ID is clear, well-lit and fits inside the frame.
       </p>
 
-      <div className="bg-muted/30 rounded-lg p-6 mb-6 flex items-center justify-center" style={{ minHeight: 200 }}>
+      <div
+        className="bg-muted/30 rounded-lg p-6 mb-6 flex items-center justify-center"
+        style={{ minHeight: 200 }}
+      >
         {previewUrl && (
           <img
             src={previewUrl}
@@ -187,7 +221,11 @@ const StepIDCheck = ({ data, onUpdate, onNext, onBack }) => {
       </div>
 
       <div className="flex gap-3">
-        <Button variant="outline" onClick={() => setSubStep("select-id")} className="h-12 px-6 text-base">
+        <Button
+          variant="outline"
+          onClick={() => setSubStep("select-id")}
+          className="h-12 px-6 text-base"
+        >
           Back
         </Button>
         <Button onClick={handleSubmit} className="h-12 px-6 text-base">

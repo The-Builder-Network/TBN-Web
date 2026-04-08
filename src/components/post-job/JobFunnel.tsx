@@ -1,6 +1,11 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { Progress } from "@/components/ui/progress";
-import type { QuestionNode, AnswerValue, Answers, HistoryEntry } from "@/types/post-job";
+import type {
+  QuestionNode,
+  AnswerValue,
+  Answers,
+  HistoryEntry,
+} from "@/types/post-job";
 import QuestionRenderer from "./QuestionRenderer";
 
 interface JobFunnelProps {
@@ -89,9 +94,9 @@ const JobFunnel = ({
         setHistory((prev) => [...prev, { node: currentNode, answer }]);
         setCurrentNode(nextNode);
       } else {
-        // End of funnel — log all answers
+        // End of funnel — all answers collected
         const finalAnswers = { ...answers, [currentNode.id]: answer };
-        console.log("Job funnel complete!", finalAnswers);
+        void finalAnswers; // will be wired to API in Phase 3
       }
     },
     [currentNode, answers, resolveNext],
@@ -119,9 +124,7 @@ const JobFunnel = ({
         <h1 className="text-3xl font-bold tracking-tight">{heading}</h1>
         <div className="space-y-3">
           <div className="flex items-center justify-end text-sm">
-            <span className="font-medium">
-              {Math.round(progress)}%
-            </span>
+            <span className="font-medium">{Math.round(progress)}%</span>
           </div>
           <Progress value={progress} className="h-2" />
         </div>
