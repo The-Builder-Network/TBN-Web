@@ -32,13 +32,18 @@ import HomeownerJobDetail from "./pages/protected/homeowner/HomeownerJobDetailPa
 import HomeownerProfile from "./pages/protected/homeowner/HomeownerProfilePage";
 
 // ─── Service-pro (tradesperson) dashboard ───────────────────────
-import ServiceProLeadDetail from "./pages/protected/tradesperson/TradespersonLeadDetailPage";
-import ServiceProProfile from "./pages/protected/tradesperson/TradespersonProfilePage";
+import TradesPersonLeadDetail from "./pages/protected/tradesperson/TradespersonLeadDetailPage";
+import TradesPersonProfile from "./pages/protected/tradesperson/TradespersonProfilePage";
 import MyLeads from "./pages/protected/tradesperson/TradespersonMyLeadsPage";
 import TradesNetwork from "./pages/TradesnetworkPage";
 import TradespersonPublicProfile from "./pages/trades/TradespersonPublicProfilePage";
 import QuestionsPage from "./pages/questions/QuestionsPage";
 import HomeownerMyQuestionsPage from "./pages/protected/homeowner/HomeownerMyQuestionsPage";
+import QuestionPage from "./pages/questions/QuestionPage";
+import TradesPersonContactsPage from "./pages/protected/tradesperson/TradespersonContactsPage";
+import JobResponsesDetailed from "./pages/unused/jobwithresponse";
+import JobResponses from "./pages/unused/JobwithnoResponses";
+import RecommendedTradespeople from "./pages/unused/recommendedtradespersons";
 
 const queryClient = new QueryClient();
 
@@ -79,13 +84,21 @@ const App = () => (
               <Route path="/services/:serviceSlug" element={<ServicePage />} />
 
               <Route path="/questions" element={<QuestionsPage />} />
-
+              <Route path="/questions/:questionId" element={<QuestionPage />} />
               {/* ── Homeowner protected routes ── */}
 
               <Route path="/homeowner/my-jobs" element={<HomeownerMyJobs />} />
-              <Route
+              {/* <Route
                 path="/homeowner/my-jobs/:jobId"
                 element={<HomeownerJobDetail />}
+              /> */}
+              <Route //TEMP: show new job response page instead of old job detail page
+                path="/homeowner/my-jobs/:jobId"
+                element={<JobResponses />}
+              />
+              <Route //TEMP: show new job response page instead of old job detail page
+                path="/homeowner/my-jobs/:jobId/recommended"
+                element={<RecommendedTradespeople />}
               />
               <Route path="/homeowner/profile" element={<HomeownerProfile />} />
               <Route
@@ -97,15 +110,27 @@ const App = () => (
                 element={<Navigate to="/homeowner/profile" replace />}
               />
 
-              {/* ── Service-pro (tradesperson) protected routes ── */}
+              {/* ── Tradesperson protected routes ── */}
               <Route path="/tradesperson/my-leads" element={<MyLeads />} />
               <Route
                 path="/tradesperson/my-leads/:leadId"
-                element={<ServiceProLeadDetail />}
+                element={<TradesPersonLeadDetail />}
               />
               <Route
+                path="/tradesperson/contacts"
+                element={<TradesPersonContactsPage />}
+              />
+              {/* <Route
+                path="/tradesperson/activity"
+                element={<TradesPersonActivityPage />}
+              /> */}
+              <Route
                 path="/tradesperson/profile"
-                element={<ServiceProProfile />}
+                element={<TradesPersonProfile />}
+              />
+              <Route
+                path="/tradesperson"
+                element={<Navigate to="/tradesperson/profile" replace />}
               />
 
               {/* Public tradesperson profile (not protected) */}
