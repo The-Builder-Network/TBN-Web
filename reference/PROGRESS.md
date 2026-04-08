@@ -7,18 +7,18 @@
 
 ## Phase 0: Cleanup & Foundation
 
-- [ ] 0.1 — Delete duplicate `TradesPage.tsx`, update imports
-- [ ] 0.2 — Delete duplicate `src/data/services.ts`, update imports
-- [ ] 0.3 — Remove all `console.log` debug statements
-- [ ] 0.4 — Replace all `alert()` with toast notifications
-- [ ] 0.5 — Add `React.lazy()` + `Suspense` code splitting in `App.tsx`
-- [ ] 0.6 — Enable `strictNullChecks: true`, fix type errors
-- [ ] 0.7 — Install `axios`, `zustand`, `react-helmet-async`
-- [ ] 0.8 — Create `src/api/client.ts` (Axios wrapper + JWT interceptors)
-- [ ] 0.9 — Create `src/api/types.ts` (shared API types)
-- [ ] 0.10 — Create stub files for all API modules
-- [ ] 0.11 — Extract shared `<Breadcrumb>` component
-- [ ] 0.12 — Add `react-helmet-async` provider + meta tags
+- [x] 0.1 — Delete duplicate `TradesPage.tsx`, update imports
+- [x] 0.2 — Delete duplicate `src/data/services.ts`, update imports
+- [x] 0.3 — Remove all `console.log` debug statements
+- [x] 0.4 — Replace all `alert()` with toast notifications
+- [x] 0.5 — Add `React.lazy()` + `Suspense` code splitting in `App.tsx`
+- [x] 0.6 — Enable `strictNullChecks: true`, fix type errors
+- [x] 0.7 — Install `axios`, `zustand`, `react-helmet-async`
+- [x] 0.8 — Create `src/api/client.ts` (Axios wrapper + JWT interceptors)
+- [x] 0.9 — Create `src/api/types.ts` (shared API types)
+- [x] 0.10 — Create stub files for all API modules
+- [x] 0.11 — Extract shared `<Breadcrumb>` component
+- [x] 0.12 — Add `react-helmet-async` provider + meta tags
 
 ---
 
@@ -173,7 +173,7 @@
 
 | Phase | Tasks | Done | Status |
 |-------|-------|------|--------|
-| 0 — Cleanup & Foundation | 12 | 0 | Not started |
+| 0 — Cleanup & Foundation | 12 | 12 | ✅ Complete |
 | 1 — Backend Scaffold | 11 | 0 | Not started |
 | 2 — Authentication | 14 | 0 | Not started |
 | 3 — Job Posting | 12 | 0 | Not started |
