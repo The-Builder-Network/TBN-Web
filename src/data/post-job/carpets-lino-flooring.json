@@ -293,14 +293,12 @@
                       {
                         "id": "8373",
                         "type": "StandardChoiceOption",
-                        "formLabel": "I have",
-                        "helpText": null
+                        "formLabel": "I have"
                       },
                       {
                         "id": "8374",
                         "type": "StandardChoiceOption",
-                        "formLabel": "I have not - I need help sourcing",
-                        "helpText": null
+                        "formLabel": "I have not - I need help sourcing"
                       }
                     ],
                     "next": {
@@ -386,14 +384,12 @@
                       {
                         "id": "8379",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Yes, I have the flooring",
-                        "helpText": null
+                        "formLabel": "Yes, I have the flooring"
                       },
                       {
                         "id": "8380",
                         "type": "StandardChoiceOption",
-                        "formLabel": "No, I don't have the flooring",
-                        "helpText": null
+                        "formLabel": "No, I don't have the flooring"
                       }
                     ],
                     "next": {
@@ -479,14 +475,12 @@
                       {
                         "id": "8379",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Yes, I have the flooring",
-                        "helpText": null
+                        "formLabel": "Yes, I have the flooring"
                       },
                       {
                         "id": "8380",
                         "type": "StandardChoiceOption",
-                        "formLabel": "No, I don't have the flooring",
-                        "helpText": null
+                        "formLabel": "No, I don't have the flooring"
                       }
                     ],
                     "next": {
@@ -590,14 +584,12 @@
                       {
                         "id": "8387",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Yes",
-                        "helpText": null
+                        "formLabel": "Yes"
                       },
                       {
                         "id": "8388",
                         "type": "StandardChoiceOption",
-                        "formLabel": "No",
-                        "helpText": null
+                        "formLabel": "No"
                       }
                     ],
                     "next": {
@@ -683,14 +675,12 @@
                       {
                         "id": "8379",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Yes, I have the flooring",
-                        "helpText": null
+                        "formLabel": "Yes, I have the flooring"
                       },
                       {
                         "id": "8380",
                         "type": "StandardChoiceOption",
-                        "formLabel": "No, I don't have the flooring",
-                        "helpText": null
+                        "formLabel": "No, I don't have the flooring"
                       }
                     ],
                     "next": {
@@ -776,14 +766,12 @@
                       {
                         "id": "8379",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Yes, I have the flooring",
-                        "helpText": null
+                        "formLabel": "Yes, I have the flooring"
                       },
                       {
                         "id": "8380",
                         "type": "StandardChoiceOption",
-                        "formLabel": "No, I don't have the flooring",
-                        "helpText": null
+                        "formLabel": "No, I don't have the flooring"
                       }
                     ],
                     "next": {
@@ -869,14 +857,12 @@
                       {
                         "id": "8379",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Yes, I have the flooring",
-                        "helpText": null
+                        "formLabel": "Yes, I have the flooring"
                       },
                       {
                         "id": "8380",
                         "type": "StandardChoiceOption",
-                        "formLabel": "No, I don't have the flooring",
-                        "helpText": null
+                        "formLabel": "No, I don't have the flooring"
                       }
                     ],
                     "next": {

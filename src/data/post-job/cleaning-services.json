@@ -1171,27 +1171,23 @@
                       {
                         "id": "13535",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Just once",
-                        "helpText": null
+                        "formLabel": "Just once"
                       },
                       {
                         "id": "13538",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every month",
-                        "helpText": null
+                        "formLabel": "Every month"
                       },
                       {
                         "id": "13539",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every 3 months",
-                        "helpText": null
+                        "formLabel": "Every 3 months"
                       },
                       {
                         "id": "13540",
                         "type": "TextChoiceOption",
                         "formLabel": "Other",
-                        "placeholder": "Please specify",
-                        "helpText": null
+                        "placeholder": "Please specify"
                       }
                     ],
                     "next": {
@@ -1335,32 +1331,27 @@
                       {
                         "id": "13547",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In the next couple of days",
-                        "helpText": null
+                        "formLabel": "In the next couple of days"
                       },
                       {
                         "id": "13548",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within a week",
-                        "helpText": null
+                        "formLabel": "Within a week"
                       },
                       {
                         "id": "13549",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 2 weeks",
-                        "helpText": null
+                        "formLabel": "Within 2 weeks"
                       },
                       {
                         "id": "13550",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 1 month",
-                        "helpText": null
+                        "formLabel": "Within 1 month"
                       },
                       {
                         "id": "13551",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In consultation",
-                        "helpText": null
+                        "formLabel": "In consultation"
                       }
                     ],
                     "next": {
@@ -1465,32 +1456,27 @@
                       {
                         "id": "13547",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In the next couple of days",
-                        "helpText": null
+                        "formLabel": "In the next couple of days"
                       },
                       {
                         "id": "13548",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within a week",
-                        "helpText": null
+                        "formLabel": "Within a week"
                       },
                       {
                         "id": "13549",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 2 weeks",
-                        "helpText": null
+                        "formLabel": "Within 2 weeks"
                       },
                       {
                         "id": "13550",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 1 month",
-                        "helpText": null
+                        "formLabel": "Within 1 month"
                       },
                       {
                         "id": "13551",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In consultation",
-                        "helpText": null
+                        "formLabel": "In consultation"
                       }
                     ],
                     "next": {
@@ -1590,27 +1576,23 @@
                       {
                         "id": "13535",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Just once",
-                        "helpText": null
+                        "formLabel": "Just once"
                       },
                       {
                         "id": "13538",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every month",
-                        "helpText": null
+                        "formLabel": "Every month"
                       },
                       {
                         "id": "13539",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every 3 months",
-                        "helpText": null
+                        "formLabel": "Every 3 months"
                       },
                       {
                         "id": "13540",
                         "type": "TextChoiceOption",
                         "formLabel": "Other",
-                        "placeholder": "Please specify",
-                        "helpText": null
+                        "placeholder": "Please specify"
                       }
                     ],
                     "next": {
@@ -1754,32 +1736,27 @@
                       {
                         "id": "13547",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In the next couple of days",
-                        "helpText": null
+                        "formLabel": "In the next couple of days"
                       },
                       {
                         "id": "13548",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within a week",
-                        "helpText": null
+                        "formLabel": "Within a week"
                       },
                       {
                         "id": "13549",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 2 weeks",
-                        "helpText": null
+                        "formLabel": "Within 2 weeks"
                       },
                       {
                         "id": "13550",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 1 month",
-                        "helpText": null
+                        "formLabel": "Within 1 month"
                       },
                       {
                         "id": "13551",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In consultation",
-                        "helpText": null
+                        "formLabel": "In consultation"
                       }
                     ],
                     "next": {
@@ -4109,27 +4086,23 @@
                       {
                         "id": "13535",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Just once",
-                        "helpText": null
+                        "formLabel": "Just once"
                       },
                       {
                         "id": "13538",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every month",
-                        "helpText": null
+                        "formLabel": "Every month"
                       },
                       {
                         "id": "13539",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every 3 months",
-                        "helpText": null
+                        "formLabel": "Every 3 months"
                       },
                       {
                         "id": "13540",
                         "type": "TextChoiceOption",
                         "formLabel": "Other",
-                        "placeholder": "Please specify",
-                        "helpText": null
+                        "placeholder": "Please specify"
                       }
                     ],
                     "next": {
@@ -4273,32 +4246,27 @@
                       {
                         "id": "13547",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In the next couple of days",
-                        "helpText": null
+                        "formLabel": "In the next couple of days"
                       },
                       {
                         "id": "13548",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within a week",
-                        "helpText": null
+                        "formLabel": "Within a week"
                       },
                       {
                         "id": "13549",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 2 weeks",
-                        "helpText": null
+                        "formLabel": "Within 2 weeks"
                       },
                       {
                         "id": "13550",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 1 month",
-                        "helpText": null
+                        "formLabel": "Within 1 month"
                       },
                       {
                         "id": "13551",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In consultation",
-                        "helpText": null
+                        "formLabel": "In consultation"
                       }
                     ],
                     "next": {
@@ -4403,32 +4371,27 @@
                       {
                         "id": "13547",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In the next couple of days",
-                        "helpText": null
+                        "formLabel": "In the next couple of days"
                       },
                       {
                         "id": "13548",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within a week",
-                        "helpText": null
+                        "formLabel": "Within a week"
                       },
                       {
                         "id": "13549",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 2 weeks",
-                        "helpText": null
+                        "formLabel": "Within 2 weeks"
                       },
                       {
                         "id": "13550",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 1 month",
-                        "helpText": null
+                        "formLabel": "Within 1 month"
                       },
                       {
                         "id": "13551",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In consultation",
-                        "helpText": null
+                        "formLabel": "In consultation"
                       }
                     ],
                     "next": {
@@ -4528,27 +4491,23 @@
                       {
                         "id": "13535",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Just once",
-                        "helpText": null
+                        "formLabel": "Just once"
                       },
                       {
                         "id": "13538",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every month",
-                        "helpText": null
+                        "formLabel": "Every month"
                       },
                       {
                         "id": "13539",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every 3 months",
-                        "helpText": null
+                        "formLabel": "Every 3 months"
                       },
                       {
                         "id": "13540",
                         "type": "TextChoiceOption",
                         "formLabel": "Other",
-                        "placeholder": "Please specify",
-                        "helpText": null
+                        "placeholder": "Please specify"
                       }
                     ],
                     "next": {
@@ -4692,32 +4651,27 @@
                       {
                         "id": "13547",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In the next couple of days",
-                        "helpText": null
+                        "formLabel": "In the next couple of days"
                       },
                       {
                         "id": "13548",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within a week",
-                        "helpText": null
+                        "formLabel": "Within a week"
                       },
                       {
                         "id": "13549",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 2 weeks",
-                        "helpText": null
+                        "formLabel": "Within 2 weeks"
                       },
                       {
                         "id": "13550",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 1 month",
-                        "helpText": null
+                        "formLabel": "Within 1 month"
                       },
                       {
                         "id": "13551",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In consultation",
-                        "helpText": null
+                        "formLabel": "In consultation"
                       }
                     ],
                     "next": {
@@ -5923,39 +5877,33 @@
                       {
                         "id": "13541",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Just once",
-                        "helpText": null
+                        "formLabel": "Just once"
                       },
                       {
                         "id": "13542",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every day",
-                        "helpText": null
+                        "formLabel": "Every day"
                       },
                       {
                         "id": "13543",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every week",
-                        "helpText": null
+                        "formLabel": "Every week"
                       },
                       {
                         "id": "13544",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every 2 weeks",
-                        "helpText": null
+                        "formLabel": "Every 2 weeks"
                       },
                       {
                         "id": "13545",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every month",
-                        "helpText": null
+                        "formLabel": "Every month"
                       },
                       {
                         "id": "13546",
                         "type": "TextChoiceOption",
                         "formLabel": "Other",
-                        "placeholder": "Please specify",
-                        "helpText": null
+                        "placeholder": "Please specify"
                       }
                     ],
                     "next": {
@@ -6060,27 +6008,23 @@
                       {
                         "id": "13535",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Just once",
-                        "helpText": null
+                        "formLabel": "Just once"
                       },
                       {
                         "id": "13538",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every month",
-                        "helpText": null
+                        "formLabel": "Every month"
                       },
                       {
                         "id": "13539",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every 3 months",
-                        "helpText": null
+                        "formLabel": "Every 3 months"
                       },
                       {
                         "id": "13540",
                         "type": "TextChoiceOption",
                         "formLabel": "Other",
-                        "placeholder": "Please specify",
-                        "helpText": null
+                        "placeholder": "Please specify"
                       }
                     ],
                     "next": {
@@ -6185,32 +6129,27 @@
                       {
                         "id": "13547",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In the next couple of days",
-                        "helpText": null
+                        "formLabel": "In the next couple of days"
                       },
                       {
                         "id": "13548",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within a week",
-                        "helpText": null
+                        "formLabel": "Within a week"
                       },
                       {
                         "id": "13549",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 2 weeks",
-                        "helpText": null
+                        "formLabel": "Within 2 weeks"
                       },
                       {
                         "id": "13550",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 1 month",
-                        "helpText": null
+                        "formLabel": "Within 1 month"
                       },
                       {
                         "id": "13551",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In consultation",
-                        "helpText": null
+                        "formLabel": "In consultation"
                       }
                     ],
                     "next": {
@@ -6276,32 +6215,27 @@
                       {
                         "id": "13547",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In the next couple of days",
-                        "helpText": null
+                        "formLabel": "In the next couple of days"
                       },
                       {
                         "id": "13548",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within a week",
-                        "helpText": null
+                        "formLabel": "Within a week"
                       },
                       {
                         "id": "13549",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 2 weeks",
-                        "helpText": null
+                        "formLabel": "Within 2 weeks"
                       },
                       {
                         "id": "13550",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 1 month",
-                        "helpText": null
+                        "formLabel": "Within 1 month"
                       },
                       {
                         "id": "13551",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In consultation",
-                        "helpText": null
+                        "formLabel": "In consultation"
                       }
                     ],
                     "next": {
@@ -6368,39 +6302,33 @@
                       {
                         "id": "13541",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Just once",
-                        "helpText": null
+                        "formLabel": "Just once"
                       },
                       {
                         "id": "13542",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every day",
-                        "helpText": null
+                        "formLabel": "Every day"
                       },
                       {
                         "id": "13543",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every week",
-                        "helpText": null
+                        "formLabel": "Every week"
                       },
                       {
                         "id": "13544",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every 2 weeks",
-                        "helpText": null
+                        "formLabel": "Every 2 weeks"
                       },
                       {
                         "id": "13545",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every month",
-                        "helpText": null
+                        "formLabel": "Every month"
                       },
                       {
                         "id": "13546",
                         "type": "TextChoiceOption",
                         "formLabel": "Other",
-                        "placeholder": "Please specify",
-                        "helpText": null
+                        "placeholder": "Please specify"
                       }
                     ],
                     "next": {
@@ -7645,27 +7573,23 @@
                       {
                         "id": "13535",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Just once",
-                        "helpText": null
+                        "formLabel": "Just once"
                       },
                       {
                         "id": "13538",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every month",
-                        "helpText": null
+                        "formLabel": "Every month"
                       },
                       {
                         "id": "13539",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every 3 months",
-                        "helpText": null
+                        "formLabel": "Every 3 months"
                       },
                       {
                         "id": "13540",
                         "type": "TextChoiceOption",
                         "formLabel": "Other",
-                        "placeholder": "Please specify",
-                        "helpText": null
+                        "placeholder": "Please specify"
                       }
                     ],
                     "next": {
@@ -7809,32 +7733,27 @@
                       {
                         "id": "13547",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In the next couple of days",
-                        "helpText": null
+                        "formLabel": "In the next couple of days"
                       },
                       {
                         "id": "13548",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within a week",
-                        "helpText": null
+                        "formLabel": "Within a week"
                       },
                       {
                         "id": "13549",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 2 weeks",
-                        "helpText": null
+                        "formLabel": "Within 2 weeks"
                       },
                       {
                         "id": "13550",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 1 month",
-                        "helpText": null
+                        "formLabel": "Within 1 month"
                       },
                       {
                         "id": "13551",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In consultation",
-                        "helpText": null
+                        "formLabel": "In consultation"
                       }
                     ],
                     "next": {
@@ -7939,32 +7858,27 @@
                       {
                         "id": "13547",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In the next couple of days",
-                        "helpText": null
+                        "formLabel": "In the next couple of days"
                       },
                       {
                         "id": "13548",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within a week",
-                        "helpText": null
+                        "formLabel": "Within a week"
                       },
                       {
                         "id": "13549",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 2 weeks",
-                        "helpText": null
+                        "formLabel": "Within 2 weeks"
                       },
                       {
                         "id": "13550",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 1 month",
-                        "helpText": null
+                        "formLabel": "Within 1 month"
                       },
                       {
                         "id": "13551",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In consultation",
-                        "helpText": null
+                        "formLabel": "In consultation"
                       }
                     ],
                     "next": {
@@ -8064,27 +7978,23 @@
                       {
                         "id": "13535",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Just once",
-                        "helpText": null
+                        "formLabel": "Just once"
                       },
                       {
                         "id": "13538",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every month",
-                        "helpText": null
+                        "formLabel": "Every month"
                       },
                       {
                         "id": "13539",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Every 3 months",
-                        "helpText": null
+                        "formLabel": "Every 3 months"
                       },
                       {
                         "id": "13540",
                         "type": "TextChoiceOption",
                         "formLabel": "Other",
-                        "placeholder": "Please specify",
-                        "helpText": null
+                        "placeholder": "Please specify"
                       }
                     ],
                     "next": {
@@ -8228,32 +8138,27 @@
                       {
                         "id": "13547",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In the next couple of days",
-                        "helpText": null
+                        "formLabel": "In the next couple of days"
                       },
                       {
                         "id": "13548",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within a week",
-                        "helpText": null
+                        "formLabel": "Within a week"
                       },
                       {
                         "id": "13549",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 2 weeks",
-                        "helpText": null
+                        "formLabel": "Within 2 weeks"
                       },
                       {
                         "id": "13550",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Within 1 month",
-                        "helpText": null
+                        "formLabel": "Within 1 month"
                       },
                       {
                         "id": "13551",
                         "type": "StandardChoiceOption",
-                        "formLabel": "In consultation",
-                        "helpText": null
+                        "formLabel": "In consultation"
                       }
                     ],
                     "next": {
