@@ -393,14 +393,12 @@
                       {
                         "id": "9280",
                         "type": "StandardChoiceOption",
-                        "formLabel": "1",
-                        "helpText": null
+                        "formLabel": "1"
                       },
                       {
                         "id": "9281",
                         "type": "StandardChoiceOption",
-                        "formLabel": "2 gates",
-                        "helpText": null
+                        "formLabel": "2 gates"
                       },
                       {
                         "id": "9282",
@@ -492,14 +490,12 @@
                       {
                         "id": "9280",
                         "type": "StandardChoiceOption",
-                        "formLabel": "1",
-                        "helpText": null
+                        "formLabel": "1"
                       },
                       {
                         "id": "9281",
                         "type": "StandardChoiceOption",
-                        "formLabel": "2 gates",
-                        "helpText": null
+                        "formLabel": "2 gates"
                       },
                       {
                         "id": "9282",
@@ -592,14 +588,12 @@
                       {
                         "id": "9280",
                         "type": "StandardChoiceOption",
-                        "formLabel": "1",
-                        "helpText": null
+                        "formLabel": "1"
                       },
                       {
                         "id": "9281",
                         "type": "StandardChoiceOption",
-                        "formLabel": "2 gates",
-                        "helpText": null
+                        "formLabel": "2 gates"
                       },
                       {
                         "id": "9282",

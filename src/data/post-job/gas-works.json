@@ -56,14 +56,12 @@
                       {
                         "id": "8713",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Domestic property",
-                        "helpText": null
+                        "formLabel": "Domestic property"
                       },
                       {
                         "id": "8712",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Commercial property",
-                        "helpText": null
+                        "formLabel": "Commercial property"
                       }
                     ],
                     "next": {
@@ -137,14 +135,12 @@
                       {
                         "id": "8713",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Domestic property",
-                        "helpText": null
+                        "formLabel": "Domestic property"
                       },
                       {
                         "id": "8712",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Commercial property",
-                        "helpText": null
+                        "formLabel": "Commercial property"
                       }
                     ],
                     "next": {
@@ -218,14 +214,12 @@
                       {
                         "id": "8713",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Domestic property",
-                        "helpText": null
+                        "formLabel": "Domestic property"
                       },
                       {
                         "id": "8712",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Commercial property",
-                        "helpText": null
+                        "formLabel": "Commercial property"
                       }
                     ],
                     "next": {
@@ -314,14 +308,12 @@
                       {
                         "id": "8713",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Domestic property",
-                        "helpText": null
+                        "formLabel": "Domestic property"
                       },
                       {
                         "id": "8712",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Commercial property",
-                        "helpText": null
+                        "formLabel": "Commercial property"
                       }
                     ],
                     "next": {
@@ -395,14 +387,12 @@
                       {
                         "id": "8713",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Domestic property",
-                        "helpText": null
+                        "formLabel": "Domestic property"
                       },
                       {
                         "id": "8712",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Commercial property",
-                        "helpText": null
+                        "formLabel": "Commercial property"
                       }
                     ],
                     "next": {
@@ -476,14 +466,12 @@
                       {
                         "id": "8713",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Domestic property",
-                        "helpText": null
+                        "formLabel": "Domestic property"
                       },
                       {
                         "id": "8712",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Commercial property",
-                        "helpText": null
+                        "formLabel": "Commercial property"
                       }
                     ],
                     "next": {
