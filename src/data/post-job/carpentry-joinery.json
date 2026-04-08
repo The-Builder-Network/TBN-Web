@@ -2186,7 +2186,6 @@
           "id": "8742",
           "type": "StandardChoiceOption",
           "formLabel": "Furniture making, assembly & repair",
-          "helpText": " ",
           "next": {
             "id": "2905",
             "type": "SelectQuestion",

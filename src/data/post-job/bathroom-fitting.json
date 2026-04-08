@@ -581,38 +581,32 @@
                       {
                         "id": "8287",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Bath",
-                        "helpText": null
+                        "formLabel": "Bath"
                       },
                       {
                         "id": "8288",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Shower",
-                        "helpText": null
+                        "formLabel": "Shower"
                       },
                       {
                         "id": "8289",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Shower cubicle",
-                        "helpText": null
+                        "formLabel": "Shower cubicle"
                       },
                       {
                         "id": "8290",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Toilet",
-                        "helpText": null
+                        "formLabel": "Toilet"
                       },
                       {
                         "id": "8291",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Sink",
-                        "helpText": null
+                        "formLabel": "Sink"
                       },
                       {
                         "id": "8292",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Other",
-                        "helpText": null
+                        "formLabel": "Other"
                       }
                     ],
                     "next": {
@@ -692,38 +686,32 @@
                       {
                         "id": "8287",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Bath",
-                        "helpText": null
+                        "formLabel": "Bath"
                       },
                       {
                         "id": "8288",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Shower",
-                        "helpText": null
+                        "formLabel": "Shower"
                       },
                       {
                         "id": "8289",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Shower cubicle",
-                        "helpText": null
+                        "formLabel": "Shower cubicle"
                       },
                       {
                         "id": "8290",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Toilet",
-                        "helpText": null
+                        "formLabel": "Toilet"
                       },
                       {
                         "id": "8291",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Sink",
-                        "helpText": null
+                        "formLabel": "Sink"
                       },
                       {
                         "id": "8292",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Other",
-                        "helpText": null
+                        "formLabel": "Other"
                       }
                     ],
                     "next": {
@@ -977,14 +965,12 @@
                       {
                         "id": "8309",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Yes",
-                        "helpText": null
+                        "formLabel": "Yes"
                       },
                       {
                         "id": "8310",
                         "type": "StandardChoiceOption",
-                        "formLabel": "No",
-                        "helpText": null
+                        "formLabel": "No"
                       }
                     ],
                     "next": {
