@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import HeroSection from "@/components/home/sections/HeroSection";
 import StatsSection from "@/components/home/sections/StatsSection";
 import WhySection from "@/components/home/sections/WhySection";
@@ -10,6 +11,13 @@ import PostJobStrip from "@/components/shared/PostJobStrip";
 const HomePage = () => {
   return (
     <main className="flex flex-col gap-8">
+      <Helmet>
+        <title>Builder Network — Find trusted tradespeople near you</title>
+        <meta
+          name="description"
+          content="Post a job for free and get matched with verified, reviewed tradespeople near you. Compare quotes for plumbing, roofing, extensions and more."
+        />
+      </Helmet>
       <HeroSection />
       <StatsSection />
       <HowItWorksSection />

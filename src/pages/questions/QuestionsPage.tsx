@@ -13,7 +13,7 @@ import {
   PaginationNext,
   PaginationEllipsis,
 } from "@/components/ui/pagination";
-import { services } from "@/data/services";
+import { services } from "@/constants/services";
 
 const questions = [
   {
@@ -114,8 +114,8 @@ const QuestionsPage = () => {
   };
 
   const handleSortApply = (sort: string) => {
-    console.log("Sorting by:", sort);
-    // Logic to sort questions would go here
+    // Sort logic will be wired to API in Phase 6
+    void sort;
   };
 
   return (

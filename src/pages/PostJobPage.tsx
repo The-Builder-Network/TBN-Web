@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import JobServiceSelector from "@/components/post-job/JobServiceSelector";
 import JobFunnel from "@/components/post-job/JobFunnel";
 import { loadQuestionTree } from "@/helpers/QuestionTreeHelper";
@@ -72,6 +73,13 @@ const PostJob = () => {
 
   return (
     <main className="flex-1 container py-10 px-16">
+      <Helmet>
+        <title>Post a Job — Builder Network</title>
+        <meta
+          name="description"
+          content="Describe your job and get matched with verified tradespeople near you. Free to post."
+        />
+      </Helmet>
       <div className="w-1/2">
         {rootNode && selectedSlug ? (
           <JobFunnel
