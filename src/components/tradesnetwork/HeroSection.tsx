@@ -22,8 +22,7 @@ const TradespersonHero = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!canSubmit) return;
-    // TODO: wire up actual registration flow
-    console.log("Tradesperson sign-up:", { selectedTrade, postcode, email });
+    // TODO: wire up actual registration flow (Phase 2)
   };
 
   return (
