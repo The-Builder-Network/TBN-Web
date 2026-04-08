@@ -62,20 +62,17 @@
                       {
                         "id": "9062",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Already purchased, installation only",
-                        "helpText": null
+                        "formLabel": "Already purchased, installation only"
                       },
                       {
                         "id": "9063",
                         "type": "StandardChoiceOption",
-                        "formLabel": "I know what I want, need the installer to buy",
-                        "helpText": null
+                        "formLabel": "I know what I want, need the installer to buy"
                       },
                       {
                         "id": "9064",
                         "type": "StandardChoiceOption",
-                        "formLabel": "No, I need help deciding",
-                        "helpText": null
+                        "formLabel": "No, I need help deciding"
                       }
                     ],
                     "next": {
@@ -371,20 +368,17 @@
                       {
                         "id": "9352",
                         "type": "StandardChoiceOption",
-                        "formLabel": "Already purchased, installation only",
-                        "helpText": null
+                        "formLabel": "Already purchased, installation only"
                       },
                       {
                         "id": "9353",
                         "type": "StandardChoiceOption",
-                        "formLabel": "I know what I want, need the installer to buy",
-                        "helpText": null
+                        "formLabel": "I know what I want, need the installer to buy"
                       },
                       {
                         "id": "9354",
                         "type": "StandardChoiceOption",
-                        "formLabel": " No, I need help deciding",
-                        "helpText": null
+                        "formLabel": " No, I need help deciding"
                       }
                     ],
                     "next": {
