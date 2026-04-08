@@ -81,7 +81,7 @@ const HeroSection = () => {
                   <JobServiceCombobox
                     value={selectedService}
                     onChange={setSelectedService}
-                    placeholder="Restoration & Refurbishment"
+                    placeholder="Cleaning Services"
                     triggerClassName="h-14 text-lg px-4 text-foreground hover:bg-white/90 rounded-r-none border-r-0"
                   />
                 </div>

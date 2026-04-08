@@ -59,6 +59,16 @@ const QuestionRenderer = ({
       </div>
 
       {/* Question body */}
+      {node.type === "IntegerQuestion" && (
+        <IntegerBody node={node} value={draft as string} onChange={setDraft} />
+      )}
+      {node.type === "CheckboxQuestion" && (
+        <CheckboxBody
+          node={node}
+          value={draft as string[]}
+          onChange={setDraft}
+        />
+      )}
       {node.type === "SelectQuestion" && (
         <SelectBody node={node} value={draft as string} onChange={setDraft} />
       )}
@@ -162,6 +172,35 @@ function SelectBody({
   );
 }
 
+function IntegerBody({
+  node,
+  value,
+  onChange,
+}: {
+  node: QuestionNode;
+  value: string;
+  onChange: (v: string) => void;
+}) {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    // Allow only digits
+    if (/^\d*$/.test(val)) {
+      onChange(val);
+    }
+  };
+
+  return (
+    <Input
+      value={value}
+      onChange={handleChange}
+      className="h-12 text-base max-w-32"
+      min={node.min}
+      max={node.max}
+      placeholder={node.placeholder ?? "97"}
+    />
+  );
+}
+
 function CheckboxBody({
   node,
   value,
@@ -241,8 +280,7 @@ function TextareaBody({
       />
       {node.minLength && (
         <p className="text-xs text-muted-foreground">
-          Minimum {node.minLength} characters
-          {value.length > 0}
+          Min {node.minLength} chars
         </p>
       )}
     </div>
