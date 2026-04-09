@@ -70,8 +70,6 @@ export interface JobSummary {
   postcode: string;
   placeName?: string;
   interestedCount: number;
-  quoteCount: number;
-  newResponsesCount: number;
   createdAt: string;
 }
 
@@ -85,17 +83,17 @@ export interface JobDetail {
   postcode: string;
   placeName?: string;
   answersJson: Record<string, unknown>;
-  attachments: Array<{ id: string; fileUrl: string; fileName: string }>;
-  interestedCount: number;
-  quoteCount: number;
+  attachments: Array<{ id: string; fileUrl: string; fileName: string; mimeType: string }>;
   createdAt: string;
   responses?: JobResponse[];
 }
 
 export interface JobResponse {
+  leadId: string;
+  leadStatus: LeadStatus;
   tradesperson: {
     id: string;
-    username: string;
+    username?: string;
     name: string;
     companyName?: string;
     avatarUrl?: string;
@@ -103,11 +101,11 @@ export interface JobResponse {
     reviewCount: number;
     verified: boolean;
   };
-  lead: { id: string; status: LeadStatus; interestedAt?: string };
   quote?: {
     id: string;
     message: string;
     amountPence?: number;
+    estimateRange?: string;
     status: QuoteStatus;
   };
 }
