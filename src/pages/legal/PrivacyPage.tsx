@@ -1,6 +1,11 @@
+import { Helmet } from "react-helmet-async";
 const Privacy = () => {
   return (
     <main className="flex-1">
+      <Helmet>
+        <title>Privacy Policy — Builder Network</title>
+        <meta name="description" content="Read our privacy policy to understand how Builder Network collects, uses, and protects your personal data." />
+      </Helmet>
         <div className="container pt-8 pb-16">
           <h1 className="text-4xl font-bold text-foreground mb-8">
             Privacy Policy

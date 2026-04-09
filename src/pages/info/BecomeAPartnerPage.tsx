@@ -1,10 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import TradespersonCTASection from "@/components/tradesnetwork/CTASection";
+import { Helmet } from "react-helmet-async";
 
 const BecomeAPartner = () => {
   return (
     <>
+      <Helmet>
+        <title>Become a Partner — Builder Network</title>
+        <meta name="description" content="Join Builder Network as a partner and grow your business connecting with homeowners." />
+      </Helmet>
       <div className="flex-1 container py-16 md:py-16">
         <h1 className="text-5xl font-bold mb-2">Become a partner</h1>
         <p className="text-muted-foreground mb-12">Updated on 09/01/2026</p>

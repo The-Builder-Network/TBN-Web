@@ -3,10 +3,15 @@ import { Link } from "react-router-dom";
 import { Separator } from "@/components/ui/separator";
 import { VerifiedIcon } from "lucide-react";
 import CTASection from "@/components/home/sections/CTASection";
+import { Helmet } from "react-helmet-async";
 
 const QualityChecks = () => {
   return (
     <main className="flex-1">
+      <Helmet>
+        <title>Quality Checks — Builder Network</title>
+        <meta name="description" content="See how Builder Network verifies tradespeople through rigorous quality checks and background screening." />
+      </Helmet>
       {/* Hero Section */}
       <div className="py-6">
         <div className="container text-center">

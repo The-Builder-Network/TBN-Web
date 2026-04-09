@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 import { cities } from "@/constants/cities";
 import CTASection from "@/components/home/sections/CTASection";
+import { Helmet } from "react-helmet-async";
 
 const Cities = () => {
   return (
     <>
+      <Helmet>
+        <title>Cities We Cover — Builder Network</title>
+        <meta name="description" content="Builder Network operates across hundreds of UK cities. Find trusted tradespeople near you." />
+      </Helmet>
       <div className="flex-1 container py-16 md:py-16">
         <div className="mb-8">
           <h1 className="text-4xl font-bold mb-4">

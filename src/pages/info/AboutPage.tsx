@@ -2,10 +2,15 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import StatsSection from "@/components/home/sections/StatsSection";
 import CTASection from "@/components/home/sections/CTASection";
+import { Helmet } from "react-helmet-async";
 
 const About = () => {
   return (
     <main className="flex-1">
+      <Helmet>
+        <title>About Us — Builder Network</title>
+        <meta name="description" content="Learn about Builder Network, our mission, and the team connecting UK homeowners with trusted tradespeople." />
+      </Helmet>
       {/* Hero Section */}
       <section className="container py-8">
         <h1 className="text-4xl md:text-5xl font-bold text-foreground">

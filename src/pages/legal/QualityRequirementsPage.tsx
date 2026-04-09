@@ -1,10 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import TradespersonCTASection from "@/components/tradesnetwork/CTASection";
+import { Helmet } from "react-helmet-async";
 
 const QualityRequirements = () => {
   return (
     <>
+      <Helmet>
+        <title>Quality Requirements — Builder Network</title>
+        <meta name="description" content="Builder Network quality standards and requirements for all registered tradespeople." />
+      </Helmet>
       <main className="flex-1">
         {/* Hero Section */}
         <div className="bg-primary/5 py-16">
