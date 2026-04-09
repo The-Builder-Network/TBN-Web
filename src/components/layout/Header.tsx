@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import LoginModal from "@/components/modals/LoginModal";
 import { CreditBalance } from "@/components/shared/CreditBalance";
+import { NotificationBell } from "@/components/notifications/NotificationBell";
 import { useAuth } from "@/hooks/useAuth";
 
 const Header = () => {
@@ -121,6 +122,7 @@ const Header = () => {
                 >
                   My jobs
                 </Link>
+                <NotificationBell />
                 <AccountDropdown
                   name={user?.name ?? ""}
                   onLogout={handleLogout}
@@ -140,6 +142,7 @@ const Header = () => {
             {isAuthenticated && isTradesperson && (
               <>
                 <CreditBalance />
+                <NotificationBell />
                 <AccountDropdown
                   name={user?.name ?? ""}
                   onLogout={handleLogout}
