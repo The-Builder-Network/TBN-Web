@@ -2,10 +2,16 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { api } from "./client";
 import type { PaginatedResponse, NotificationItem } from "./types";
 
-export async function getNotifications(page = 1, unreadOnly = false): Promise<PaginatedResponse<NotificationItem>> {
-  const res = await api.get<PaginatedResponse<NotificationItem>>("/notifications", {
-    params: { page, perPage: 20, unreadOnly },
-  });
+export async function getNotifications(
+  page = 1,
+  unreadOnly = false,
+): Promise<PaginatedResponse<NotificationItem>> {
+  const res = await api.get<PaginatedResponse<NotificationItem>>(
+    "/notifications",
+    {
+      params: { page, perPage: 20, unreadOnly },
+    },
+  );
   return res.data;
 }
 
@@ -39,7 +45,7 @@ export function useUnreadCount() {
   return useQuery({
     queryKey: notificationKeys.unreadCount,
     queryFn: getUnreadCount,
-    refetchInterval: 30_000, // poll every 30s until WS
+    refetchInterval: 120_000, // fallback poll — real-time handled by Socket.IO
   });
 }
 
