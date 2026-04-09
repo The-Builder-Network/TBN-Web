@@ -10,7 +10,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Loader2 } from "lucide-react";
+import { useForgotPassword } from "@/api/auth";
 
 interface ForgotPasswordModalProps {
   open: boolean;
@@ -24,14 +25,14 @@ const ForgotPasswordModal = ({
   onLoginClick,
 }: ForgotPasswordModalProps) => {
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const { mutate: forgotPassword, isPending, isSuccess } = useForgotPassword();
 
-  const isValidEmail = email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (isValidEmail) {
-      setSubmitted(true);
+      forgotPassword(email);
     }
   };
 
@@ -45,7 +46,7 @@ const ForgotPasswordModal = ({
         </DialogHeader>
 
         <div className="pb-4">
-          {!submitted ? (
+          {!isSuccess ? (
             <form onSubmit={handleSubmit} className="space-y-6">
               <p className="text-center text-muted-foreground text-sm">
                 Enter your email address and we'll send you a link to reset your
@@ -59,7 +60,7 @@ const ForgotPasswordModal = ({
                   type="email"
                   placeholder="Email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value.toLowerCase())}
                   className="w-full"
                 />
               </div>
@@ -68,9 +69,13 @@ const ForgotPasswordModal = ({
                 type="submit"
                 className="w-full bg-primary hover:bg-primary/90"
                 size="lg"
-                disabled={!isValidEmail}
+                disabled={!isValidEmail || isPending}
               >
-                Send Reset Link
+                {isPending ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  "Send Reset Link"
+                )}
               </Button>
 
               <div className="text-center">
@@ -91,11 +96,12 @@ const ForgotPasswordModal = ({
               <div className="mx-auto w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
                 <CheckCircle2 className="h-6 w-6 text-green-600" />
               </div>
-              
+
               <div className="space-y-2">
                 <h3 className="font-semibold text-lg">Check your inbox</h3>
                 <p className="text-muted-foreground text-sm">
-                  We've sent a password reset link to <span className="font-medium text-foreground">{email}</span>
+                  We've sent a password reset link to{" "}
+                  <span className="font-medium text-foreground">{email}</span>
                 </p>
               </div>
 

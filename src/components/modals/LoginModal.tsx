@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import {
   Dialog,
   DialogContent,
@@ -10,7 +13,15 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
+import { useLogin } from "@/api/auth";
 import ForgotPasswordModal from "./ForgotPasswordModal";
+
+const loginSchema = z.object({
+  email: z.string().email("Enter a valid email").transform((v) => v.toLowerCase()),
+  password: z.string().min(1, "Password is required"),
+});
+type LoginFormData = z.infer<typeof loginSchema>;
 
 interface LoginModalProps {
   open: boolean;
@@ -20,6 +31,34 @@ interface LoginModalProps {
 const LoginModal = ({ open, onOpenChange }: LoginModalProps) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const { toast } = useToast();
+  const { mutate: login, isPending } = useLogin();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<LoginFormData>({ resolver: zodResolver(loginSchema) });
+
+  const onSubmit = (data: LoginFormData) => {
+    login(data, {
+      onSuccess: () => {
+        reset();
+        onOpenChange(false);
+      },
+      onError: (err: unknown) => {
+        const message =
+          (err as { response?: { data?: { message?: string } } })?.response
+            ?.data?.message ?? "Invalid email or password";
+        toast({
+          title: "Login failed",
+          description: message,
+          variant: "destructive",
+        });
+      },
+    });
+  };
 
   return (
     <>
@@ -36,7 +75,7 @@ const LoginModal = ({ open, onOpenChange }: LoginModalProps) => {
               Enter your credentials to continue
             </p>
 
-            <div className="space-y-4">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="email">
                   Email <span className="text-destructive">*</span>
@@ -46,7 +85,13 @@ const LoginModal = ({ open, onOpenChange }: LoginModalProps) => {
                   type="email"
                   placeholder="Email"
                   className="w-full"
+                  {...register("email", { setValueAs: (v: string) => v.toLowerCase() })}
                 />
+                {errors.email && (
+                  <p className="text-xs text-destructive">
+                    {errors.email.message}
+                  </p>
+                )}
               </div>
 
               <div className="space-y-2">
@@ -72,6 +117,7 @@ const LoginModal = ({ open, onOpenChange }: LoginModalProps) => {
                     type={showPassword ? "text" : "password"}
                     placeholder="Password"
                     className="w-full pr-10"
+                    {...register("password")}
                   />
                   <button
                     type="button"
@@ -85,12 +131,26 @@ const LoginModal = ({ open, onOpenChange }: LoginModalProps) => {
                     )}
                   </button>
                 </div>
+                {errors.password && (
+                  <p className="text-xs text-destructive">
+                    {errors.password.message}
+                  </p>
+                )}
               </div>
-            </div>
 
-            <Button className="w-full bg-primary hover:bg-primary/90" size="lg">
-              Log in
-            </Button>
+              <Button
+                type="submit"
+                className="w-full bg-primary hover:bg-primary/90"
+                size="lg"
+                disabled={isPending}
+              >
+                {isPending ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  "Log in"
+                )}
+              </Button>
+            </form>
 
             <div className="border-t pt-6">
               <h3 className="font-semibold text-lg mb-3">
@@ -129,8 +189,8 @@ const LoginModal = ({ open, onOpenChange }: LoginModalProps) => {
         </DialogContent>
       </Dialog>
 
-      <ForgotPasswordModal 
-        open={showForgotPassword} 
+      <ForgotPasswordModal
+        open={showForgotPassword}
         onOpenChange={setShowForgotPassword}
         onLoginClick={() => {
           setShowForgotPassword(false);

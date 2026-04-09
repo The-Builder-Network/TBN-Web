@@ -55,7 +55,7 @@ const WhySection = () => {
               </p>
               <Link
                 to="/quality-checks"
-                className="text-highlight hover:underline inline-flex items-center gap-1"
+                className="text-green-600 hover:underline inline-flex items-center gap-1"
               >
                 <ArrowRightCircle className="h-5 w-5 mr-1" /> More info about
                 our checks here

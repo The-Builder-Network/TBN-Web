@@ -18,7 +18,11 @@ interface AskQuestionModalProps {
   initialService?: string;
 }
 
-const AskQuestionModal = ({ open, onOpenChange, initialService = "" }: AskQuestionModalProps) => {
+const AskQuestionModal = ({
+  open,
+  onOpenChange,
+  initialService = "",
+}: AskQuestionModalProps) => {
   const [title, setTitle] = useState("");
   const [service, setService] = useState(initialService);
   const MAX_TITLE = 100;
