@@ -89,8 +89,13 @@ api.interceptors.response.use(
       return api(originalRequest);
     } catch (refreshError) {
       processQueue(refreshError, null);
+      // Only redirect if the user had a refresh token (real session expiry).
+      // If there was never a token, this is just an unauthenticated request.
+      const hadToken = !!localStorage.getItem(REFRESH_KEY);
       clearTokens();
-      window.location.href = "/?session_expired=true";
+      if (hadToken) {
+        window.location.href = "/?session_expired=true";
+      }
       return Promise.reject(refreshError);
     } finally {
       isRefreshing = false;
