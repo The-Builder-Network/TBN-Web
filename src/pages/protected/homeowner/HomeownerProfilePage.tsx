@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { User, Bell, HelpCircle, MessageCircle, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Helmet } from "react-helmet-async";
 
 const menuItems = [
   {
@@ -26,6 +27,10 @@ const menuItems = [
 const HomeownerProfilePage = () => {
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
+      <Helmet>
+        <title>My Profile — Builder Network</title>
+        <meta name="description" content="Manage your Builder Network homeowner profile and account settings." />
+      </Helmet>
       <h1 className="text-4xl font-bold mb-8">Profile</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

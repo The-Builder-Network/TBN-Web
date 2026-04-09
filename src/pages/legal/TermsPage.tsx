@@ -1,8 +1,13 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Helmet } from "react-helmet-async";
 
 const Terms = () => {
   return (
     <main className="flex-1">
+      <Helmet>
+        <title>Terms of Service — Builder Network</title>
+        <meta name="description" content="Read the terms governing your use of the Builder Network platform." />
+      </Helmet>
         <div className="container py-16">
           <h1 className="text-4xl font-bold text-foreground mb-8">
             Terms and Conditions

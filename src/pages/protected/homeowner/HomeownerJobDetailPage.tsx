@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
@@ -54,7 +55,8 @@ function leadStatusLabel(status: LeadStatus) {
 }
 
 function quoteStatusColor(status: QuoteStatus) {
-  if (status === "ACCEPTED") return "bg-green-100 text-green-700 border-green-200";
+  if (status === "ACCEPTED")
+    return "bg-green-100 text-green-700 border-green-200";
   if (status === "DECLINED" || status === "WITHDRAWN")
     return "bg-red-100 text-red-700 border-red-200";
   return "bg-blue-100 text-blue-700 border-blue-200";
@@ -146,6 +148,13 @@ const HomeownerJobDetail = () => {
 
   return (
     <div className="container py-10 max-w-4xl">
+      <Helmet>
+        <title>{job.title} — My Jobs — Builder Network</title>
+        <meta
+          name="description"
+          content={`View details, quotes and status for your job: ${job.title}`}
+        />
+      </Helmet>
       <Button variant="ghost" asChild className="mb-6">
         <Link to="/homeowner/my-jobs">
           <ArrowLeft className="mr-2 h-4 w-4" />
@@ -204,9 +213,7 @@ const HomeownerJobDetail = () => {
       {/* ── Responses Tabs ── */}
       <Tabs defaultValue="all">
         <TabsList className="mb-4">
-          <TabsTrigger value="all">
-            All ({responses.length})
-          </TabsTrigger>
+          <TabsTrigger value="all">All ({responses.length})</TabsTrigger>
           <TabsTrigger value="interested">
             Interested ({interestedResponses.length})
           </TabsTrigger>
@@ -278,10 +285,7 @@ const HomeownerJobDetail = () => {
                               {response.tradesperson.verified && (
                                 <BadgeCheck className="h-4 w-4 text-primary" />
                               )}
-                              <Badge
-                                variant="outline"
-                                className="text-xs"
-                              >
+                              <Badge variant="outline" className="text-xs">
                                 {leadStatusLabel(response.leadStatus)}
                               </Badge>
                             </div>
@@ -382,26 +386,27 @@ const HomeownerJobDetail = () => {
       </Tabs>
 
       {/* Review form — shown once when job is COMPLETED */}
-      {job.status === "COMPLETED" && !reviewDone && (() => {
-        const hiredResponse = responses.find((r) => r.leadStatus === "HIRED");
-        if (!hiredResponse) return null;
-        return (
-          <div className="mt-6">
-            <ReviewForm
-              jobId={job.id}
-              tradespersonId={hiredResponse.tradesperson.id}
-              tradespersonName={
-                hiredResponse.tradesperson.companyName ??
-                hiredResponse.tradesperson.name
-              }
-              onSuccess={() => setReviewDone(true)}
-            />
-          </div>
-        );
-      })()}
+      {job.status === "COMPLETED" &&
+        !reviewDone &&
+        (() => {
+          const hiredResponse = responses.find((r) => r.leadStatus === "HIRED");
+          if (!hiredResponse) return null;
+          return (
+            <div className="mt-6">
+              <ReviewForm
+                jobId={job.id}
+                tradespersonId={hiredResponse.tradesperson.id}
+                tradespersonName={
+                  hiredResponse.tradesperson.companyName ??
+                  hiredResponse.tradesperson.name
+                }
+                onSuccess={() => setReviewDone(true)}
+              />
+            </div>
+          );
+        })()}
     </div>
   );
 };
 
 export default HomeownerJobDetail;
-

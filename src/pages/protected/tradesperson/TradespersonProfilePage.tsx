@@ -1,48 +1,144 @@
 import { useState, useEffect, useRef } from "react";
+import { Helmet } from "react-helmet-async";
 import { useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import {
-  User, Star, Image, FileText, Settings, BookmarkIcon, MapPin, Wrench,
-  MessageSquare, Bell, CreditCard, Receipt, Crown, HelpCircle, Gift,
-  LogOut, ChevronRight, Info, Upload, Edit, Search, FolderOpen, Zap,
-  Trash2, Plus, CheckCircle, XCircle, AlertTriangle,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  User,
+  Star,
+  Image,
+  FileText,
+  Settings,
+  BookmarkIcon,
+  MapPin,
+  Wrench,
+  MessageSquare,
+  Bell,
+  CreditCard,
+  Receipt,
+  Crown,
+  HelpCircle,
+  Gift,
+  LogOut,
+  ChevronRight,
+  Info,
+  Upload,
+  Edit,
+  Search,
+  FolderOpen,
+  Zap,
+  Trash2,
+  Plus,
+  CheckCircle,
+  XCircle,
+  AlertTriangle,
+  Coins,
+  Wallet,
+  History,
+  TrendingDown,
+  TrendingUp,
+  RefreshCw,
 } from "lucide-react";
 import {
-  useMyProfile, useUpdateMyProfile, useAddService, useRemoveService,
-  useUploadPortfolio, useDeletePortfolioItem,
-  useCreateMessageTemplate, useDeleteMessageTemplate,
+  useMyProfile,
+  useUpdateMyProfile,
+  useAddService,
+  useRemoveService,
+  useUploadPortfolio,
+  useDeletePortfolioItem,
+  useCreateMessageTemplate,
+  useDeleteMessageTemplate,
   useUploadIdDocument,
 } from "@/api/users";
 import { useReviews } from "@/api/reviews";
+import {
+  useBalance,
+  usePaymentHistory,
+  useUpdateAutoTopup,
+} from "@/api/payments";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
 import { ReviewCard } from "@/components/shared/ReviewCard";
+import { PurchaseCreditsModal } from "@/components/payments/PurchaseCreditsModal";
 
 // ── Constants ──────────────────────────────────────────────────
 
 const TABS = [
-  { id: "company-description", label: "Company description", icon: FileText, section: "profile" },
+  {
+    id: "company-description",
+    label: "Company description",
+    icon: FileText,
+    section: "profile",
+  },
   { id: "reviews", label: "Reviews", icon: Star, section: "profile" },
   { id: "portfolio", label: "Portfolio", icon: Image, section: "profile" },
-  { id: "contact-details", label: "Contact details", icon: FileText, section: "account", badge: "ID required", badgeColor: "text-destructive" },
-  { id: "manage-account", label: "Manage account", icon: Settings, section: "account" },
-  { id: "saved-leads", label: "Saved leads", icon: BookmarkIcon, section: "account" },
+  {
+    id: "contact-details",
+    label: "Contact details",
+    icon: FileText,
+    section: "account",
+    badge: "ID required",
+    badgeColor: "text-destructive",
+  },
+  {
+    id: "manage-account",
+    label: "Manage account",
+    icon: Settings,
+    section: "account",
+  },
+  {
+    id: "saved-leads",
+    label: "Saved leads",
+    icon: BookmarkIcon,
+    section: "account",
+  },
   { id: "work-area", label: "Work area", icon: MapPin, section: "lead" },
   { id: "services", label: "Services", icon: Wrench, section: "lead" },
-  { id: "my-message-templates", label: "My message templates", icon: MessageSquare, section: "lead" },
+  {
+    id: "my-message-templates",
+    label: "My message templates",
+    icon: MessageSquare,
+    section: "lead",
+  },
   { id: "notifications", label: "Notifications", icon: Bell, section: "lead" },
-  { id: "sponsored-placement", label: "Sponsored placement", icon: Zap, section: "premium", badgeText: "New" },
+  {
+    id: "sponsored-placement",
+    label: "Sponsored placement",
+    icon: Zap,
+    section: "premium",
+    badgeText: "New",
+  },
   { id: "balance", label: "Balance", icon: CreditCard, section: "payments" },
   { id: "payments", label: "Payments", icon: Receipt, section: "payments" },
-  { id: "subscription", label: "Subscription", icon: Crown, section: "payments" },
-  { id: "support-centre", label: "Support centre", icon: HelpCircle, section: "support" },
+  {
+    id: "subscription",
+    label: "Subscription",
+    icon: Crown,
+    section: "payments",
+  },
+  {
+    id: "support-centre",
+    label: "Support centre",
+    icon: HelpCircle,
+    section: "support",
+  },
   { id: "trade-perks", label: "Trade Perks", icon: Gift, section: "discover" },
 ];
 
@@ -57,12 +153,30 @@ const SECTIONS = [
 ];
 
 const PROFESSIONS = [
-  "Moving company", "Cleaning company", "Architectural Designer", "Architectural Technician",
-  "Painter & Decorator", "Bathroom Fitter", "Repointing Specialist", "Heating Engineer",
-  "Conservatory Installer", "Conversions Specialist", "Damp Proofing Specialist", "Decking Specialist",
-  "Joiner", "Carpenter", "Driveways Installer", "Tarmac Specialist",
-  "Electrician", "Extension Builder", "Fascias & Soffits Specialist", "Guttering Installer",
-  "Bricklayer", "Plumber", "Roofer", "Tiler",
+  "Moving company",
+  "Cleaning company",
+  "Architectural Designer",
+  "Architectural Technician",
+  "Painter & Decorator",
+  "Bathroom Fitter",
+  "Repointing Specialist",
+  "Heating Engineer",
+  "Conservatory Installer",
+  "Conversions Specialist",
+  "Damp Proofing Specialist",
+  "Decking Specialist",
+  "Joiner",
+  "Carpenter",
+  "Driveways Installer",
+  "Tarmac Specialist",
+  "Electrician",
+  "Extension Builder",
+  "Fascias & Soffits Specialist",
+  "Guttering Installer",
+  "Bricklayer",
+  "Plumber",
+  "Roofer",
+  "Tiler",
 ];
 
 // ── CompanyDescriptionTab ──────────────────────────────────────
@@ -132,10 +246,7 @@ const CompanyDescriptionTab = () => {
               >
                 Discard
               </Button>
-              <Button
-                onClick={handleSave}
-                disabled={updateMutation.isPending}
-              >
+              <Button onClick={handleSave} disabled={updateMutation.isPending}>
                 {updateMutation.isPending ? "Saving…" : "Save"}
               </Button>
             </div>
@@ -225,9 +336,7 @@ const ReviewsTab = () => {
           Reviews ({profile?.reviewCount ?? 0})
         </h3>
 
-        {isLoading && (
-          <p className="text-muted-foreground">Loading reviews…</p>
-        )}
+        {isLoading && <p className="text-muted-foreground">Loading reviews…</p>}
 
         {!isLoading && reviews.length === 0 && (
           <p className="text-muted-foreground">No reviews yet.</p>
@@ -246,7 +355,10 @@ const ReviewsTab = () => {
               createdAt={review.createdAt}
               reply={
                 review.reply
-                  ? { text: review.reply.body, createdAt: review.reply.createdAt }
+                  ? {
+                      text: review.reply.body,
+                      createdAt: review.reply.createdAt,
+                    }
                   : undefined
               }
               canReply
@@ -365,8 +477,7 @@ const ContactDetailsTab = () => {
     uploadId(file, {
       onSuccess: () =>
         toast({ title: "ID document uploaded. We'll review it shortly." }),
-      onError: () =>
-        toast({ title: "Upload failed", variant: "destructive" }),
+      onError: () => toast({ title: "Upload failed", variant: "destructive" }),
     });
     e.target.value = "";
   }
@@ -489,7 +600,9 @@ const SavedLeadsTab = () => (
       <h3 className="text-xl font-bold mb-2">
         You don&apos;t have any saved leads
       </h3>
-      <p className="text-muted-foreground mb-6">Save a lead to access it later</p>
+      <p className="text-muted-foreground mb-6">
+        Save a lead to access it later
+      </p>
       <Button className="bg-primary text-primary-foreground">
         Your next lead is just around the corner
       </Button>
@@ -521,7 +634,10 @@ const WorkAreaTab = () => {
       {
         onSuccess: () => toast({ title: "Work area updated" }),
         onError: () =>
-          toast({ title: "Failed to update work area", variant: "destructive" }),
+          toast({
+            title: "Failed to update work area",
+            variant: "destructive",
+          }),
       },
     );
   }
@@ -633,7 +749,10 @@ const ServicesTab = () => {
       </div>
 
       {(profile?.services ?? []).map((s) => (
-        <div key={s.id} className="flex items-center justify-between py-4 border-b">
+        <div
+          key={s.id}
+          className="flex items-center justify-between py-4 border-b"
+        >
           <div>
             <p className="font-bold text-base">{s.serviceSlug}</p>
             {s.tradeSlug && (
@@ -653,9 +772,7 @@ const ServicesTab = () => {
       <Dialog open={showAddDialog} onOpenChange={setShowAddDialog}>
         <DialogContent className="max-w-md max-h-[80vh] flex flex-col">
           <DialogHeader>
-            <DialogTitle className="text-xl font-bold">
-              Add service
-            </DialogTitle>
+            <DialogTitle className="text-xl font-bold">Add service</DialogTitle>
           </DialogHeader>
           <div className="relative mb-4">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -809,6 +926,282 @@ const MessageTemplatesTab = () => {
   );
 };
 
+// ── BalanceTab ────────────────────────────────────────────────
+
+const BalanceTab = () => {
+  const [showPurchaseModal, setShowPurchaseModal] = useState(false);
+  const { data: balanceInfo, isLoading } = useBalance();
+  const { mutate: updateAutoTopup, isPending: savingAutoTopup } =
+    useUpdateAutoTopup();
+  const { toast } = useToast();
+
+  const balance = balanceInfo?.balance ?? 0;
+  const autoTopupEnabled = balanceInfo?.autoTopup ?? false;
+
+  function handleAutoTopupToggle(enabled: boolean) {
+    updateAutoTopup(
+      { enabled },
+      {
+        onSuccess: () =>
+          toast({
+            title: enabled ? "Auto top-up enabled" : "Auto top-up disabled",
+          }),
+        onError: () =>
+          toast({
+            title: "Failed to update auto top-up",
+            variant: "destructive",
+          }),
+      },
+    );
+  }
+
+  return (
+    <div>
+      <h2 className="text-2xl font-bold mb-6">Balance</h2>
+
+      {/* Current balance card */}
+      <div className="border rounded-xl p-6 mb-6 bg-gradient-to-br from-primary/5 to-transparent">
+        <div className="flex items-center gap-3 mb-1">
+          <Wallet className="h-5 w-5 text-muted-foreground" />
+          <p className="text-sm text-muted-foreground font-medium">
+            Available credits
+          </p>
+        </div>
+        {isLoading ? (
+          <div className="h-10 w-24 rounded animate-pulse bg-muted" />
+        ) : (
+          <p className="text-4xl font-bold flex items-baseline gap-2">
+            <Coins className="h-7 w-7 text-amber-500" />
+            {balance}
+            <span className="text-base font-normal text-muted-foreground">
+              credits
+            </span>
+          </p>
+        )}
+        <Button
+          className="mt-4 gap-2"
+          onClick={() => setShowPurchaseModal(true)}
+        >
+          <Coins className="h-4 w-4" />
+          Buy credits
+        </Button>
+      </div>
+
+      {/* Auto top-up */}
+      <div className="border rounded-xl p-5 mb-6">
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <p className="font-semibold">Auto top-up</p>
+            <p className="text-sm text-muted-foreground">
+              Automatically buy more credits when your balance runs low.
+            </p>
+          </div>
+          <Switch
+            checked={autoTopupEnabled}
+            onCheckedChange={handleAutoTopupToggle}
+            disabled={savingAutoTopup}
+          />
+        </div>
+        {autoTopupEnabled && (
+          <div className="pt-3 border-t space-y-2 text-sm text-muted-foreground">
+            <p>
+              Top-up pack:{" "}
+              <span className="font-medium text-foreground">
+                {balanceInfo?.topupAmount ?? "—"} credits
+              </span>
+            </p>
+            <p>
+              Trigger when balance below:{" "}
+              <span className="font-medium text-foreground">
+                {balanceInfo?.topupThreshold ?? "—"} credits
+              </span>
+            </p>
+          </div>
+        )}
+      </div>
+
+      {/* Credit pack info */}
+      <div className="border rounded-xl p-5">
+        <p className="font-semibold mb-3">Credit pack pricing</p>
+        <div className="space-y-2 text-sm">
+          {[
+            {
+              credits: 25,
+              price: "£25",
+              per: "£1.00/credit",
+              label: "Starter",
+            },
+            {
+              credits: 60,
+              price: "£50",
+              per: "£0.83/credit",
+              label: "Standard",
+            },
+            { credits: 150, price: "£100", per: "£0.67/credit", label: "Pro" },
+            {
+              credits: 400,
+              price: "£200",
+              per: "£0.50/credit",
+              label: "Enterprise",
+            },
+          ].map((pack) => (
+            <div
+              key={pack.credits}
+              className="flex items-center justify-between py-1"
+            >
+              <span className="text-muted-foreground">
+                {pack.label} — {pack.credits} credits
+              </span>
+              <span className="font-medium">
+                {pack.price}{" "}
+                <span className="text-muted-foreground font-normal">
+                  ({pack.per})
+                </span>
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <PurchaseCreditsModal
+        open={showPurchaseModal}
+        onClose={() => setShowPurchaseModal(false)}
+      />
+    </div>
+  );
+};
+
+// ── PaymentsTab ────────────────────────────────────────────────
+
+const PAYMENT_TYPE_ICONS: Record<string, React.ReactNode> = {
+  CREDIT_PURCHASE: <TrendingUp className="h-4 w-4 text-green-500" />,
+  REFUND: <RefreshCw className="h-4 w-4 text-blue-500" />,
+  SUBSCRIPTION: <CreditCard className="h-4 w-4 text-purple-500" />,
+};
+
+const PAYMENT_STATUS_COLORS: Record<string, string> = {
+  COMPLETED: "text-green-600 bg-green-50",
+  PENDING: "text-amber-600 bg-amber-50",
+  FAILED: "text-destructive bg-destructive/10",
+  REFUNDED: "text-blue-600 bg-blue-50",
+};
+
+const PaymentsTab = () => {
+  const [page, setPage] = useState(1);
+  const { data, isLoading } = usePaymentHistory(page);
+
+  const payments = data?.data ?? [];
+  const totalPages = data?.meta.totalPages ?? 1;
+
+  function formatDate(iso: string) {
+    return new Date(iso).toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    });
+  }
+
+  function formatAmount(pence: number) {
+    return `£${(pence / 100).toFixed(2)}`;
+  }
+
+  return (
+    <div>
+      <h2 className="text-2xl font-bold mb-6">Payment history</h2>
+
+      {isLoading ? (
+        <div className="space-y-3">
+          {[...Array(5)].map((_, i) => (
+            <div key={i} className="h-16 rounded-lg animate-pulse bg-muted" />
+          ))}
+        </div>
+      ) : payments.length === 0 ? (
+        <div className="text-center py-12">
+          <History className="h-12 w-12 text-muted-foreground/30 mx-auto mb-3" />
+          <p className="font-semibold mb-1">No payment history yet</p>
+          <p className="text-sm text-muted-foreground">
+            Your purchases will appear here.
+          </p>
+        </div>
+      ) : (
+        <div className="space-y-2">
+          {payments.map((payment) => (
+            <div
+              key={payment.id}
+              className="border rounded-lg p-4 flex items-center gap-3"
+            >
+              <div className="shrink-0">
+                {PAYMENT_TYPE_ICONS[payment.type] ?? (
+                  <TrendingDown className="h-4 w-4" />
+                )}
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="font-medium text-sm truncate">
+                  {payment.description ??
+                    payment.type.replace(/_/g, " ").toLowerCase()}
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  {formatDate(payment.createdAt)}
+                </p>
+              </div>
+              {payment.credits !== null && payment.credits !== undefined && (
+                <div className="text-sm font-semibold shrink-0">
+                  <span
+                    className={
+                      payment.credits > 0
+                        ? "text-green-600"
+                        : "text-destructive"
+                    }
+                  >
+                    {payment.credits > 0 ? "+" : ""}
+                    {payment.credits} credits
+                  </span>
+                </div>
+              )}
+              <div className="text-sm font-semibold shrink-0 text-right">
+                <p>{formatAmount(payment.amountPence)}</p>
+                <span
+                  className={`text-xs px-1.5 py-0.5 rounded font-medium ${
+                    PAYMENT_STATUS_COLORS[payment.status] ??
+                    "text-muted-foreground bg-muted"
+                  }`}
+                >
+                  {payment.status.toLowerCase()}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="flex items-center justify-center gap-3 mt-6">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setPage((p) => Math.max(1, p - 1))}
+            disabled={page === 1 || isLoading}
+          >
+            Previous
+          </Button>
+          <span className="text-sm text-muted-foreground">
+            Page {page} of {totalPages}
+          </span>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+            disabled={page === totalPages || isLoading}
+          >
+            Next
+          </Button>
+        </div>
+      )}
+    </div>
+  );
+};
+
 // ── PlaceholderTab ─────────────────────────────────────────────
 
 const PlaceholderTab = ({ title }: { title: string }) => (
@@ -832,8 +1225,8 @@ const TAB_CONTENT: Record<string, React.ReactNode> = {
   "my-message-templates": <MessageTemplatesTab />,
   notifications: <PlaceholderTab title="Notifications" />,
   "sponsored-placement": <PlaceholderTab title="Sponsored placement" />,
-  balance: <PlaceholderTab title="Balance" />,
-  payments: <PlaceholderTab title="Payments" />,
+  balance: <BalanceTab />,
+  payments: <PaymentsTab />,
   subscription: <PlaceholderTab title="Subscription" />,
   "support-centre": <PlaceholderTab title="Support centre" />,
   "trade-perks": <PlaceholderTab title="Trade Perks" />,
@@ -849,11 +1242,17 @@ const TradesProfile = () => {
 
   const setTab = (tab: string) => setSearchParams({ tab });
 
-  const displayName =
-    profile?.companyName ?? user?.name ?? "My Profile";
+  const displayName = profile?.companyName ?? user?.name ?? "My Profile";
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
+      <Helmet>
+        <title>{displayName} — My Profile — Builder Network</title>
+        <meta
+          name="description"
+          content="Manage your tradesperson profile, services, work area, reviews and account settings on Builder Network."
+        />
+      </Helmet>
       <h1 className="text-4xl font-bold mb-6">Profile</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-8">
@@ -863,7 +1262,9 @@ const TradesProfile = () => {
             <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center font-bold">
               {displayName.charAt(0).toUpperCase()}
             </div>
-            <span className="font-semibold text-lg truncate">{displayName}</span>
+            <span className="font-semibold text-lg truncate">
+              {displayName}
+            </span>
           </div>
 
           <button
@@ -910,7 +1311,9 @@ const TradesProfile = () => {
                       )}
                     </button>
                   ))}
-                  {section.id !== "discover" && <div className="border-t my-2" />}
+                  {section.id !== "discover" && (
+                    <div className="border-t my-2" />
+                  )}
                 </div>
               );
             })}
@@ -926,9 +1329,7 @@ const TradesProfile = () => {
 
         {/* Content */}
         <div>
-          {TAB_CONTENT[activeTab] ?? (
-            <PlaceholderTab title="Page not found" />
-          )}
+          {TAB_CONTENT[activeTab] ?? <PlaceholderTab title="Page not found" />}
         </div>
       </div>
     </div>

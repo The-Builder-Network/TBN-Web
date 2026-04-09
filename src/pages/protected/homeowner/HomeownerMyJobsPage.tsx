@@ -22,6 +22,7 @@ import JobsStatusBadge from "@/components/shared/JobsStatusBadge";
 import { SkeletonCard } from "@/components/shared/SkeletonCard";
 import { useJobs } from "@/api/jobs";
 import { Button } from "@/components/ui/button";
+import { Helmet } from "react-helmet-async";
 
 const popularServices = [
   { label: "Electrical", popular: true },
@@ -44,6 +45,10 @@ const MyJobs = () => {
 
   return (
     <div className="container py-10 grid grid-cols-8 gap-x-12">
+      <Helmet>
+        <title>My Jobs — Builder Network</title>
+        <meta name="description" content="Manage your posted jobs, track quotes and hire trusted tradespeople." />
+      </Helmet>
       <div className="space-y-4 col-span-5">
         <h1 className="text-3xl font-bold mb-8">My jobs</h1>
 

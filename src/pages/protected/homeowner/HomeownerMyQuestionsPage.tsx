@@ -3,12 +3,17 @@ import { Link } from "react-router-dom";
 import { FolderOpen, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AskQuestionModal from "@/components/modals/AskQuestionModal";
+import { Helmet } from "react-helmet-async";
 
 const HomeownerMyQuestionsPage = () => {
   const [showAskModal, setShowAskModal] = useState(false);
 
   return (
     <div className="container py-10">
+      <Helmet>
+        <title>My Questions — Builder Network</title>
+        <meta name="description" content="View and manage the questions you have asked on Builder Network." />
+      </Helmet>
       <h1 className="text-3xl font-bold">My questions</h1>
 
       <div className="flex flex-col items-center justify-center py-16">
