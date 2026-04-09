@@ -24,32 +24,32 @@
 
 ## Phase 1: Backend Scaffold
 
-- [ ] 1.1 — Initialize NestJS in `TBN-Server/`
-- [ ] 1.2 — Install and configure Prisma + PostgreSQL
-- [ ] 1.3 — Add full Prisma schema from `DATABASE.md`
-- [ ] 1.4 — Run initial migration
-- [ ] 1.5 — Seed `services` and `trades` tables
-- [ ] 1.6 — Create all NestJS module structure (13 modules)
-- [ ] 1.7 — Set up environment config with validation (Joi)
-- [ ] 1.8 — Set up CORS for frontend origin
-- [ ] 1.9 — Add global `ValidationPipe`
-- [ ] 1.10 — Create `GET /api/v1/health` endpoint
-- [ ] 1.11 — Set up `postgresql://neondb_owner:npg_PsqyI0fBTCA3@ep-still-dawn-a1bp5ei6-pooler.ap-southeast-1.aws.neon.tech/tbn?sslmode=require&channel_binding=require` for PostgreSQL DB
+- [x] 1.1 — Initialize NestJS in `TBN-Server/`
+- [x] 1.2 — Install and configure Prisma + PostgreSQL
+- [x] 1.3 — Add full Prisma schema from `DATABASE.md`
+- [x] 1.4 — Run initial migration
+- [x] 1.5 — Seed `services` and `trades` tables
+- [x] 1.6 — Create all NestJS module structure (13 modules)
+- [x] 1.7 — Set up environment config with validation (Joi)
+- [x] 1.8 — Set up CORS for frontend origin
+- [x] 1.9 — Add global `ValidationPipe`
+- [x] 1.10 — Create `GET /api/v1/health` endpoint
+- [x] 1.11 — Connected to Neon PostgreSQL (DATABASE_URL in `.env`)
 
 ---
 
 ## Phase 2: Authentication System
 
-- [ ] 2.1 — Backend: `POST /auth/register`
-- [ ] 2.2 — Backend: `POST /auth/login`
-- [ ] 2.3 — Backend: `POST /auth/refresh`
-- [ ] 2.4 — Backend: `GET /auth/me`
+- [x] 2.1 — Backend: `POST /auth/register`
+- [x] 2.2 — Backend: `POST /auth/login`
+- [x] 2.3 — Backend: `POST /auth/refresh`
+- [x] 2.4 — Backend: `GET /auth/me`
 - [ ] 2.5 — Backend: Forgot password + reset password (Resend email)
-- [ ] 2.6 — Backend: Email verification
-- [ ] 2.7 — Backend: JwtAuthGuard + RolesGuard
-- [ ] 2.8 — Frontend: Rewrite `AuthContext.tsx` with `useMe()` query
-- [ ] 2.9 — Frontend: Fill in `src/api/auth.ts`
-- [ ] 2.10 — Frontend: Wire `LoginModal.tsx` to `useLogin()`
+- [ ] 2.6  — Backend: Email verification
+- [x] 2.7 — Backend: JwtAuthGuard + RolesGuard
+- [x] 2.8 — Frontend: Rewrite `AuthContext.tsx` with `useMe()` query
+- [x] 2.9 — Frontend: Fill in `src/api/auth.ts`
+- [x] 2.10 — Frontend: Wire `LoginModal.tsx` to `useLogin()`
 - [ ] 2.11 — Frontend: Wire `ForgotPasswordModal.tsx`
 - [ ] 2.12 — Frontend: Registration submission with Zustand store
 - [ ] 2.13 — Frontend: Session expired toast + redirect
