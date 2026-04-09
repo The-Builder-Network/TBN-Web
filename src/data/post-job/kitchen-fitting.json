@@ -7,19 +7,16 @@
       "type": "SelectQuestion",
       "required": true,
       "formLabel": "What type of kitchen fitting service do you require?",
-
       "options": [
         {
           "id": "8746",
           "type": "StandardChoiceOption",
           "formLabel": "New kitchen installation",
-
           "next": {
             "id": "2843",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "How big is your kitchen project?",
-
             "options": [
               {
                 "id": "8751",
@@ -45,7 +42,6 @@
               "type": "SelectQuestion",
               "required": true,
               "formLabel": "Have you purchased a kitchen already?",
-
               "options": [
                 {
                   "id": "8754",
@@ -65,19 +61,16 @@
                 "type": "SelectQuestion",
                 "required": true,
                 "formLabel": "Do you require any structural work (e.g. removing walls)?",
-
                 "options": [
                   {
                     "id": "8788",
                     "type": "StandardChoiceOption",
                     "formLabel": "Yes",
-
                     "next": {
                       "id": "2853",
                       "type": "SelectQuestion",
                       "required": true,
                       "formLabel": "Do you own the property?",
-
                       "options": [
                         {
                           "id": "8790",
@@ -103,7 +96,6 @@
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (approx. kitchen size, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -128,7 +120,8 @@
                               "formLabel": "Postcode for the job ",
                               "helpText": "To find kitchen fitters nearby we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -137,13 +130,11 @@
                     "id": "8789",
                     "type": "StandardChoiceOption",
                     "formLabel": "No",
-
                     "next": {
                       "id": "2854",
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (approx. kitchen size, timeframe, etc.)",
                       "minLength": 20,
                       "maxLength": 10000,
@@ -168,7 +159,8 @@
                             "formLabel": "Postcode for the job ",
                             "helpText": "To find kitchen fitters nearby we need to know where the job is."
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -181,13 +173,11 @@
           "id": "8747",
           "type": "StandardChoiceOption",
           "formLabel": "Worktop installation",
-
           "next": {
             "id": "2856",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What worktop material would you like?",
-
             "options": [
               {
                 "id": "8793",
@@ -199,7 +189,6 @@
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (approx, worktop size, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -224,7 +213,8 @@
                         "formLabel": "Postcode for the job ",
                         "helpText": "To find kitchen fitters nearby we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -238,7 +228,6 @@
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (approx, worktop size, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -263,7 +252,8 @@
                         "formLabel": "Postcode for the job ",
                         "helpText": "To find kitchen fitters nearby we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -277,7 +267,6 @@
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (approx, worktop size, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -302,7 +291,8 @@
                         "formLabel": "Postcode for the job ",
                         "helpText": "To find kitchen fitters nearby we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -316,7 +306,6 @@
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (approx, worktop size, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -341,7 +330,8 @@
                         "formLabel": "Postcode for the job ",
                         "helpText": "To find kitchen fitters nearby we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -349,13 +339,11 @@
                 "id": "8797",
                 "type": "StandardChoiceOption",
                 "formLabel": "Not sure - need help deciding",
-
                 "next": {
                   "id": "2857",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (approx, worktop size, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -380,7 +368,8 @@
                         "formLabel": "Postcode for the job ",
                         "helpText": "To find kitchen fitters nearby we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -389,13 +378,11 @@
                 "type": "TextChoiceOption",
                 "formLabel": "Other",
                 "placeholder": "Worktop material",
-
                 "next": {
                   "id": "2857",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (approx, worktop size, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -420,7 +407,8 @@
                         "formLabel": "Postcode for the job ",
                         "helpText": "To find kitchen fitters nearby we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               }
@@ -431,13 +419,11 @@
           "id": "8748",
           "type": "StandardChoiceOption",
           "formLabel": "Cabinet door refurbishment / replacement",
-
           "next": {
             "id": "2858",
             "type": "TextareaQuestion",
             "required": true,
             "formLabel": "Add a description to your job",
-
             "placeholder": "Include any details you think the tradesperson should know (number of cabinets, timeframe, etc.)",
             "minLength": 20,
             "maxLength": 10000,
@@ -462,7 +448,8 @@
                   "formLabel": "Postcode for the job ",
                   "helpText": "To find kitchen fitters nearby we need to know where the job is."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         },
@@ -470,25 +457,21 @@
           "id": "8802",
           "type": "StandardChoiceOption",
           "formLabel": "Fit appliance (sink, oven, dishwasher, etc.)",
-
           "next": {
             "id": "2861",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What type of appliance do you require fitting?",
-
             "options": [
               {
                 "id": "8803",
                 "type": "StandardChoiceOption",
                 "formLabel": "Gas / dual-fuel cooker / oven",
-
                 "next": {
                   "id": "2862",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (appliance model, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -513,7 +496,8 @@
                         "formLabel": "Postcode for the job ",
                         "helpText": "To find kitchen fitters nearby we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -521,13 +505,11 @@
                 "id": "8804",
                 "type": "StandardChoiceOption",
                 "formLabel": "Electric cooker / oven",
-
                 "next": {
                   "id": "2862",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (appliance model, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -552,7 +534,8 @@
                         "formLabel": "Postcode for the job ",
                         "helpText": "To find kitchen fitters nearby we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -560,13 +543,11 @@
                 "id": "8805",
                 "type": "StandardChoiceOption",
                 "formLabel": "Washing machine",
-
                 "next": {
                   "id": "2862",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (appliance model, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -591,7 +572,8 @@
                         "formLabel": "Postcode for the job ",
                         "helpText": "To find kitchen fitters nearby we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -599,13 +581,11 @@
                 "id": "8806",
                 "type": "StandardChoiceOption",
                 "formLabel": "Dishwasher",
-
                 "next": {
                   "id": "2862",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (appliance model, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -630,7 +610,8 @@
                         "formLabel": "Postcode for the job ",
                         "helpText": "To find kitchen fitters nearby we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -638,13 +619,11 @@
                 "id": "8807",
                 "type": "StandardChoiceOption",
                 "formLabel": "Sink",
-
                 "next": {
                   "id": "2862",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (appliance model, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -669,7 +648,8 @@
                         "formLabel": "Postcode for the job ",
                         "helpText": "To find kitchen fitters nearby we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -678,13 +658,11 @@
                 "type": "TextChoiceOption",
                 "formLabel": "Other",
                 "placeholder": "Appliance type",
-
                 "next": {
                   "id": "2862",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (appliance model, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -709,7 +687,8 @@
                         "formLabel": "Postcode for the job ",
                         "helpText": "To find kitchen fitters nearby we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               }
@@ -720,13 +699,11 @@
           "id": "8749",
           "type": "StandardChoiceOption",
           "formLabel": "Minor repair",
-
           "next": {
             "id": "2863",
             "type": "TextareaQuestion",
             "required": true,
             "formLabel": "Add a description to your job",
-
             "placeholder": "Include any details you think the tradesperson should know (nature of damage, timeframe, etc.)",
             "minLength": 20,
             "maxLength": 10000,
@@ -751,7 +728,8 @@
                   "formLabel": "Postcode for the job ",
                   "helpText": "To find kitchen fitters nearby we need to know where the job is."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         },
@@ -759,7 +737,6 @@
           "id": "8750",
           "type": "StandardChoiceOption",
           "formLabel": "Several of the above, or other",
-
           "next": {
             "id": "2864",
             "type": "TextareaQuestion",
@@ -790,7 +767,8 @@
                   "formLabel": "Postcode for the job ",
                   "helpText": "To find kitchen fitters nearby we need to know where the job is."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         }

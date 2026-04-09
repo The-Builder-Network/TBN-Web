@@ -7,7 +7,6 @@
       "type": "SelectQuestion",
       "required": true,
       "formLabel": "What type of loft conversion do you want?",
-
       "options": [
         {
           "id": "8526",
@@ -19,7 +18,6 @@
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What type of house is the loft conversion for?",
-
             "options": [
               {
                 "id": "8530",
@@ -64,31 +62,26 @@
               "type": "SelectQuestion",
               "required": true,
               "formLabel": "Do you own the property?",
-
               "options": [
                 {
                   "id": "8536",
                   "type": "StandardChoiceOption",
                   "formLabel": "Yes",
-
                   "next": {
                     "id": "2743",
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "Have you had any plans drawn up?",
-
                     "options": [
                       {
                         "id": "8539",
                         "type": "StandardChoiceOption",
                         "formLabel": "Yes I have plans",
-
                         "next": {
                           "id": "2745",
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -113,7 +106,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find loft conversion specialists near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       },
@@ -121,13 +115,11 @@
                         "id": "8540",
                         "type": "StandardChoiceOption",
                         "formLabel": "Plans are being drawn up",
-
                         "next": {
                           "id": "2745",
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -152,7 +144,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find loft conversion specialists near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       },
@@ -160,7 +153,6 @@
                         "id": "8541",
                         "type": "StandardChoiceOption",
                         "formLabel": "No plans have been drawn up",
-
                         "next": {
                           "id": "2744",
                           "type": "SelectQuestion",
@@ -172,13 +164,11 @@
                               "id": "8542",
                               "type": "StandardChoiceOption",
                               "formLabel": "Okay - send my job to architects",
-
                               "next": {
                                 "id": "2745",
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -203,7 +193,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find loft conversion specialists near you we need to know where the job is."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             },
@@ -211,13 +202,11 @@
                               "id": "8543",
                               "type": "StandardChoiceOption",
                               "formLabel": "Continue posting this job without plans",
-
                               "next": {
                                 "id": "2745",
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -242,7 +231,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find loft conversion specialists near you we need to know where the job is."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             }
@@ -256,13 +246,11 @@
                   "id": "8537",
                   "type": "StandardChoiceOption",
                   "formLabel": "I will - purchase in progress",
-
                   "next": {
                     "id": "2745",
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -287,7 +275,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find loft conversion specialists near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 },
@@ -295,13 +284,11 @@
                   "id": "8538",
                   "type": "StandardChoiceOption",
                   "formLabel": "No",
-
                   "next": {
                     "id": "2745",
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -326,7 +313,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find loft conversion specialists near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -344,7 +332,6 @@
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What type of house is the loft conversion for?",
-
             "options": [
               {
                 "id": "8530",
@@ -389,31 +376,26 @@
               "type": "SelectQuestion",
               "required": true,
               "formLabel": "Do you own the property?",
-
               "options": [
                 {
                   "id": "8536",
                   "type": "StandardChoiceOption",
                   "formLabel": "Yes",
-
                   "next": {
                     "id": "2743",
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "Have you had any plans drawn up?",
-
                     "options": [
                       {
                         "id": "8539",
                         "type": "StandardChoiceOption",
                         "formLabel": "Yes I have plans",
-
                         "next": {
                           "id": "2745",
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -438,7 +420,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find loft conversion specialists near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       },
@@ -446,13 +429,11 @@
                         "id": "8540",
                         "type": "StandardChoiceOption",
                         "formLabel": "Plans are being drawn up",
-
                         "next": {
                           "id": "2745",
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -477,7 +458,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find loft conversion specialists near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       },
@@ -485,7 +467,6 @@
                         "id": "8541",
                         "type": "StandardChoiceOption",
                         "formLabel": "No plans have been drawn up",
-
                         "next": {
                           "id": "2744",
                           "type": "SelectQuestion",
@@ -497,13 +478,11 @@
                               "id": "8542",
                               "type": "StandardChoiceOption",
                               "formLabel": "Okay - send my job to architects",
-
                               "next": {
                                 "id": "2745",
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -528,7 +507,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find loft conversion specialists near you we need to know where the job is."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             },
@@ -536,13 +516,11 @@
                               "id": "8543",
                               "type": "StandardChoiceOption",
                               "formLabel": "Continue posting this job without plans",
-
                               "next": {
                                 "id": "2745",
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -567,7 +545,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find loft conversion specialists near you we need to know where the job is."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             }
@@ -581,13 +560,11 @@
                   "id": "8537",
                   "type": "StandardChoiceOption",
                   "formLabel": "I will - purchase in progress",
-
                   "next": {
                     "id": "2745",
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -612,7 +589,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find loft conversion specialists near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 },
@@ -620,13 +598,11 @@
                   "id": "8538",
                   "type": "StandardChoiceOption",
                   "formLabel": "No",
-
                   "next": {
                     "id": "2745",
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -651,7 +627,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find loft conversion specialists near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -669,7 +646,6 @@
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What do you need doing in your loft?",
-
             "options": [
               {
                 "id": "8544",
@@ -681,7 +657,6 @@
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -706,7 +681,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find loft conversion specialists near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -720,7 +696,6 @@
                   "type": "CheckboxQuestion",
                   "required": true,
                   "formLabel": "What extra work do you need doing in your loft?",
-
                   "options": [
                     {
                       "id": "8546",
@@ -752,7 +727,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -777,7 +751,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find loft conversion specialists near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -795,7 +770,6 @@
             "type": "TextareaQuestion",
             "required": true,
             "formLabel": "Add a description to your job",
-
             "placeholder": "Include any details you think the tradesperson should know (skylight type, timeframe, etc.)",
             "minLength": 20,
             "maxLength": 10000,
@@ -820,7 +794,8 @@
                   "formLabel": "Postcode for the job",
                   "helpText": "To find loft conversion specialists near you we need to know where the job is."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         }

@@ -7,7 +7,6 @@
       "type": "SelectQuestion",
       "required": true,
       "formLabel": "What type of job is it?",
-
       "options": [
         {
           "id": "9291",
@@ -19,7 +18,6 @@
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What do you want foundations for?",
-
             "options": [
               {
                 "id": "9295",
@@ -57,7 +55,6 @@
               "type": "TextareaQuestion",
               "required": true,
               "formLabel": "Add a description to your job",
-
               "placeholder": "Include any details you think the tradesperson should know (approx. foundation size, timeframe, etc.)",
               "minLength": 20,
               "maxLength": 10000,
@@ -82,7 +79,8 @@
                     "formLabel": "Postcode for the job",
                     "helpText": "To find groundworkers near you we need to know where the job is."
                   }
-                }
+                },
+                "minLength": 10
               }
             }
           }
@@ -97,7 +95,6 @@
             "type": "TextareaQuestion",
             "required": true,
             "formLabel": "Add a description to your job",
-
             "placeholder": "Include any details you think the tradesperson should know (work needed, timeframe, etc.)",
             "minLength": 20,
             "maxLength": 10000,
@@ -122,7 +119,8 @@
                   "formLabel": "Postcode for the job",
                   "helpText": "To find groundworkers near you we need to know where the job is."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         },
@@ -161,7 +159,8 @@
                   "formLabel": "Postcode for the job",
                   "helpText": "To find groundworkers near you we need to know where the job is."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         },
@@ -169,7 +168,6 @@
           "id": "9294",
           "type": "StandardChoiceOption",
           "formLabel": "Other",
-
           "next": {
             "id": "3121",
             "type": "TextareaQuestion",
@@ -200,7 +198,8 @@
                   "formLabel": "Postcode for the job",
                   "helpText": "To find groundworkers near you we need to know where the job is."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         }

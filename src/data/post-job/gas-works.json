@@ -7,31 +7,26 @@
       "type": "SelectQuestion",
       "required": true,
       "formLabel": "What does your gas job involve?",
-
       "options": [
         {
           "id": "9082",
           "type": "StandardChoiceOption",
           "formLabel": "Gas safety check",
-
           "next": {
             "id": "3006",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What do you need certified?",
-
             "options": [
               {
                 "id": "9089",
                 "type": "StandardChoiceOption",
                 "formLabel": "Boiler",
-
                 "next": {
                   "id": "3007",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Would you also like the boiler serviced?",
-
                   "options": [
                     {
                       "id": "9092",
@@ -51,7 +46,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "Is this for a domestic or commercial property?",
-
                     "options": [
                       {
                         "id": "8713",
@@ -69,7 +63,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (boiler location, timeframe, etc.)",
                       "minLength": 20,
                       "maxLength": 10000,
@@ -94,7 +87,8 @@
                             "formLabel": "Postcode for the job",
                             "helpText": "To find gas engineers near you we need to know where the job is."
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -104,13 +98,11 @@
                 "id": "9090",
                 "type": "StandardChoiceOption",
                 "formLabel": "Single appliance",
-
                 "next": {
                   "id": "3008",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Would you also like the appliance serviced?",
-
                   "options": [
                     {
                       "id": "9094",
@@ -130,7 +122,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "Is this for a domestic or commercial property?",
-
                     "options": [
                       {
                         "id": "8713",
@@ -148,7 +139,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (appliance type, timeframe, etc.)",
                       "minLength": 20,
                       "maxLength": 10000,
@@ -173,7 +163,8 @@
                             "formLabel": "Postcode for the job",
                             "helpText": "To find gas engineers near you we need to know where the job is."
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -183,13 +174,11 @@
                 "id": "9091",
                 "type": "StandardChoiceOption",
                 "formLabel": "Multiple appliances",
-
                 "next": {
                   "id": "3009",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Would you also like the appliances serviced?",
-
                   "options": [
                     {
                       "id": "9096",
@@ -209,7 +198,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "Is this for a domestic or commercial property?",
-
                     "options": [
                       {
                         "id": "8713",
@@ -227,7 +215,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (appliance types, timeframe, etc.)",
                       "minLength": 20,
                       "maxLength": 10000,
@@ -252,7 +239,8 @@
                             "formLabel": "Postcode for the job",
                             "helpText": "To find gas engineers near you we need to know where the job is."
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -265,25 +253,21 @@
           "id": "9083",
           "type": "StandardChoiceOption",
           "formLabel": "Service boiler or appliance",
-
           "next": {
             "id": "3010",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What do you need serviced?",
-
             "options": [
               {
                 "id": "9098",
                 "type": "StandardChoiceOption",
                 "formLabel": "Boiler",
-
                 "next": {
                   "id": "3011",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Would you also like the appliance certified?",
-
                   "options": [
                     {
                       "id": "9101",
@@ -303,7 +287,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "Is this for a domestic or commercial property?",
-
                     "options": [
                       {
                         "id": "8713",
@@ -321,7 +304,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (boiler location, timeframe, etc.)",
                       "minLength": 20,
                       "maxLength": 10000,
@@ -346,7 +328,8 @@
                             "formLabel": "Postcode for the job",
                             "helpText": "To find gas engineers near you we need to know where the job is."
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -356,13 +339,11 @@
                 "id": "9099",
                 "type": "StandardChoiceOption",
                 "formLabel": "Single appliance",
-
                 "next": {
                   "id": "3012",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Would you also like the appliance certified?",
-
                   "options": [
                     {
                       "id": "9103",
@@ -382,7 +363,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "Is this for a domestic or commercial property?",
-
                     "options": [
                       {
                         "id": "8713",
@@ -400,7 +380,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (appliance type, timeframe, etc.)",
                       "minLength": 20,
                       "maxLength": 10000,
@@ -425,7 +404,8 @@
                             "formLabel": "Postcode for the job",
                             "helpText": "To find gas engineers near you we need to know where the job is."
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -435,13 +415,11 @@
                 "id": "9100",
                 "type": "StandardChoiceOption",
                 "formLabel": "Multiple appliances",
-
                 "next": {
                   "id": "3013",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Would you also like the appliances certified?",
-
                   "options": [
                     {
                       "id": "9105",
@@ -461,7 +439,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "Is this for a domestic or commercial property?",
-
                     "options": [
                       {
                         "id": "8713",
@@ -479,7 +456,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (appliance types, timeframe, etc.)",
                       "minLength": 20,
                       "maxLength": 10000,
@@ -504,7 +480,8 @@
                             "formLabel": "Postcode for the job",
                             "helpText": "To find gas engineers near you we need to know where the job is."
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -517,25 +494,21 @@
           "id": "9084",
           "type": "StandardChoiceOption",
           "formLabel": "Install or replace boiler or appliance",
-
           "next": {
             "id": "3014",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What kind of appliance are you looking to have installed or replaced?",
-
             "options": [
               {
                 "id": "9107",
                 "type": "StandardChoiceOption",
                 "formLabel": "Gas boiler",
-
                 "next": {
                   "id": "2817",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Is this for a domestic or commercial property?",
-
                   "options": [
                     {
                       "id": "8713",
@@ -555,7 +528,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (install location, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -580,7 +552,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find gas engineers near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -589,13 +562,11 @@
                 "id": "9108",
                 "type": "StandardChoiceOption",
                 "formLabel": "Gas hob or oven",
-
                 "next": {
                   "id": "2817",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Is this for a domestic or commercial property?",
-
                   "options": [
                     {
                       "id": "8713",
@@ -615,7 +586,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (appliance model, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -640,7 +610,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find gas engineers near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -649,13 +620,11 @@
                 "id": "9109",
                 "type": "StandardChoiceOption",
                 "formLabel": "Other or several of the above",
-
                 "next": {
                   "id": "2817",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Is this for a domestic or commercial property?",
-
                   "options": [
                     {
                       "id": "8713",
@@ -675,7 +644,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (appliance model(s), timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -700,7 +668,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find gas engineers near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -712,25 +681,21 @@
           "id": "9085",
           "type": "StandardChoiceOption",
           "formLabel": "Move or remove boiler or appliance",
-
           "next": {
             "id": "3016",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "Do you want to remove a gas boiler?",
-
             "options": [
               {
                 "id": "9110",
                 "type": "StandardChoiceOption",
                 "formLabel": "Yes",
-
                 "next": {
                   "id": "2817",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Is this for a domestic or commercial property?",
-
                   "options": [
                     {
                       "id": "8713",
@@ -750,7 +715,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (boiler model, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -775,7 +739,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find gas engineers near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -784,13 +749,11 @@
                 "id": "9111",
                 "type": "StandardChoiceOption",
                 "formLabel": "No",
-
                 "next": {
                   "id": "2817",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Is this for a domestic or commercial property?",
-
                   "options": [
                     {
                       "id": "8713",
@@ -810,7 +773,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (appliance model, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -835,7 +797,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find gas engineers near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -847,25 +810,21 @@
           "id": "9086",
           "type": "StandardChoiceOption",
           "formLabel": "Pipework only",
-
           "next": {
             "id": "3017",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What needs to be changed with the pipework?",
-
             "options": [
               {
                 "id": "9112",
                 "type": "StandardChoiceOption",
                 "formLabel": "Disconnect or cap pipework",
-
                 "next": {
                   "id": "3018",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (approx. pipework length, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -890,7 +849,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find gas engineers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -898,13 +858,11 @@
                 "id": "9113",
                 "type": "StandardChoiceOption",
                 "formLabel": "Install or alter pipework",
-
                 "next": {
                   "id": "3018",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (approx. pipework length, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -929,7 +887,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find gas engineers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -937,13 +896,11 @@
                 "id": "9114",
                 "type": "StandardChoiceOption",
                 "formLabel": "Other",
-
                 "next": {
                   "id": "2827",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (work needed, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -968,7 +925,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find gas engineers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               }
@@ -979,13 +937,11 @@
           "id": "9087",
           "type": "StandardChoiceOption",
           "formLabel": "Problem or repair",
-
           "next": {
             "id": "3021",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What appliance needs repairing?",
-
             "options": [
               {
                 "id": "9115",
@@ -1017,7 +973,6 @@
               "type": "SelectQuestion",
               "required": true,
               "formLabel": "Is this for a domestic or commercial property?",
-
               "options": [
                 {
                   "id": "8713",
@@ -1037,7 +992,6 @@
                 "type": "TextareaQuestion",
                 "required": true,
                 "formLabel": "Add a description to your job",
-
                 "placeholder": "Include any details you think the tradesperson should know (nature of the fault, timeframe, etc.)",
                 "minLength": 20,
                 "maxLength": 10000,
@@ -1062,7 +1016,8 @@
                       "formLabel": "Postcode for the job",
                       "helpText": "To find gas engineers near you we need to know where the job is."
                     }
-                  }
+                  },
+                  "minLength": 10
                 }
               }
             }
@@ -1072,13 +1027,11 @@
           "id": "9088",
           "type": "StandardChoiceOption",
           "formLabel": "Other",
-
           "next": {
             "id": "3025",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "Is this for a domestic or commercial property?",
-
             "options": [
               {
                 "id": "9124",
@@ -1123,7 +1076,8 @@
                     "formLabel": "Postcode for the job",
                     "helpText": "To find gas engineers near you we need to know where the job is."
                   }
-                }
+                },
+                "minLength": 10
               }
             }
           }

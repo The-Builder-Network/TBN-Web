@@ -6,32 +6,27 @@
       "id": "2961",
       "type": "SelectQuestion",
       "required": true,
-      "formLabel": "What do you need an electrician\u2019s help with?",
-
+      "formLabel": "What do you need an electrician’s help with?",
       "options": [
         {
           "id": "8994",
           "type": "StandardChoiceOption",
           "formLabel": "Rewiring",
-
           "next": {
             "id": "2963",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "How much rewiring do you need?",
-
             "options": [
               {
                 "id": "9003",
                 "type": "StandardChoiceOption",
                 "formLabel": "Part of my property",
-
                 "next": {
                   "id": "2966",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (property age, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -56,7 +51,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find electricians near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -64,25 +60,21 @@
                 "id": "9004",
                 "type": "StandardChoiceOption",
                 "formLabel": "Entire property",
-
                 "next": {
                   "id": "2964",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Do you own the property?",
-
                   "options": [
                     {
                       "id": "9005",
                       "type": "StandardChoiceOption",
                       "formLabel": "Yes or I will",
-
                       "next": {
                         "id": "2965",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "How big is your property?",
-
                         "options": [
                           {
                             "id": "9007",
@@ -108,7 +100,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (property age, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -133,7 +124,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find electricians near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -142,13 +134,11 @@
                       "id": "9006",
                       "type": "StandardChoiceOption",
                       "formLabel": "No",
-
                       "next": {
                         "id": "2966",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (property age, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -173,7 +163,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find electricians near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -187,13 +178,11 @@
           "id": "8995",
           "type": "StandardChoiceOption",
           "formLabel": "Fuseboxes",
-
           "next": {
             "id": "2967",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What type of fusebox job is it?",
-
             "options": [
               {
                 "id": "9010",
@@ -225,7 +214,6 @@
               "type": "SelectQuestion",
               "required": true,
               "formLabel": "Is the fusebox for your main house, an outbuilding or garage?",
-
               "options": [
                 {
                   "id": "9014",
@@ -245,7 +233,6 @@
                 "type": "TextareaQuestion",
                 "required": true,
                 "formLabel": "Add a description to your job",
-
                 "placeholder": "Include any details you think the tradesperson should know (fusebox location, timeframe, etc.)",
                 "minLength": 20,
                 "maxLength": 10000,
@@ -270,7 +257,8 @@
                       "formLabel": "Postcode for the job",
                       "helpText": "To find electricians near you we need to know where the job is."
                     }
-                  }
+                  },
+                  "minLength": 10
                 }
               }
             }
@@ -280,25 +268,21 @@
           "id": "8996",
           "type": "StandardChoiceOption",
           "formLabel": "Electrical fittings & appliances",
-
           "next": {
             "id": "2970",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What do you want installed?",
-
             "options": [
               {
                 "id": "9016",
                 "type": "StandardChoiceOption",
                 "formLabel": "Electrical fittings",
-
                 "next": {
                   "id": "2971",
                   "type": "CheckboxQuestion",
                   "required": true,
                   "formLabel": "What do you want installed?",
-
                   "options": [
                     {
                       "id": "9020",
@@ -360,7 +344,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (fittings location, timeframe, etc.)",
                       "minLength": 20,
                       "maxLength": 10000,
@@ -385,7 +368,8 @@
                             "formLabel": "Postcode for the job",
                             "helpText": "To find electricians near you we need to know where the job is."
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -395,7 +379,6 @@
                 "id": "9017",
                 "type": "StandardChoiceOption",
                 "formLabel": "Appliances",
-
                 "next": {
                   "id": "2983",
                   "type": "CheckboxQuestion",
@@ -415,7 +398,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (appliance type, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -440,7 +422,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find electricians near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -449,37 +432,31 @@
                 "id": "9018",
                 "type": "StandardChoiceOption",
                 "formLabel": "Security systems",
-
                 "next": {
                   "id": "2976",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What type of security system?",
-
                   "options": [
                     {
                       "id": "9030",
                       "type": "StandardChoiceOption",
                       "formLabel": "Security alarm system",
-
                       "next": {
                         "id": "2988",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "What service do you require?",
-
                         "options": [
                           {
                             "id": "9055",
                             "type": "StandardChoiceOption",
                             "formLabel": "Installation",
-
                             "next": {
                               "id": "2989",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "What type of security system?",
-
                               "options": [
                                 {
                                   "id": "9059",
@@ -505,7 +482,6 @@
                                 "type": "SelectQuestion",
                                 "required": true,
                                 "formLabel": "Have you purchased the system already?",
-
                                 "options": [
                                   {
                                     "id": "9062",
@@ -531,7 +507,6 @@
                                   "type": "SelectQuestion",
                                   "required": true,
                                   "formLabel": "What type of property is the system for?",
-
                                   "options": [
                                     {
                                       "id": "9065",
@@ -551,7 +526,6 @@
                                     "type": "TextareaQuestion",
                                     "required": true,
                                     "formLabel": "Add a description to your job",
-
                                     "placeholder": "Include any details you think the tradesperson should know (type of alarm system, timeframe, etc.)",
                                     "minLength": 20,
                                     "maxLength": 10000,
@@ -576,7 +550,8 @@
                                           "formLabel": "Postcode for the job",
                                           "helpText": "To find electricians near you we need to know where the job is."
                                         }
-                                      }
+                                      },
+                                      "minLength": 10
                                     }
                                   }
                                 }
@@ -587,13 +562,11 @@
                             "id": "9056",
                             "type": "StandardChoiceOption",
                             "formLabel": "Servicing / repair",
-
                             "next": {
                               "id": "2991",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "What type of property is the system for?",
-
                               "options": [
                                 {
                                   "id": "9065",
@@ -613,7 +586,6 @@
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (type of alarm system, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -638,7 +610,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find electricians near you we need to know where the job is."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             }
@@ -647,13 +620,11 @@
                             "id": "9057",
                             "type": "StandardChoiceOption",
                             "formLabel": "Removal",
-
                             "next": {
                               "id": "2991",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "What type of property is the system for?",
-
                               "options": [
                                 {
                                   "id": "9065",
@@ -673,7 +644,6 @@
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (type of alarm system, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -698,7 +668,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find electricians near you we need to know where the job is."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             }
@@ -707,13 +678,11 @@
                             "id": "9058",
                             "type": "StandardChoiceOption",
                             "formLabel": "Other",
-
                             "next": {
                               "id": "2991",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "What type of property is the system for?",
-
                               "options": [
                                 {
                                   "id": "9065",
@@ -733,7 +702,6 @@
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (type of alarm system, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -758,7 +726,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find electricians near you we need to know where the job is."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             }
@@ -770,25 +739,21 @@
                       "id": "9031",
                       "type": "StandardChoiceOption",
                       "formLabel": "CCTV / Smart camera",
-
                       "next": {
                         "id": "3148",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "What type of security camera service do you require?",
-
                         "options": [
                           {
                             "id": "9345",
                             "type": "StandardChoiceOption",
                             "formLabel": "Installation",
-
                             "next": {
                               "id": "3149",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "What type of camera system?",
-
                               "options": [
                                 {
                                   "id": "9349",
@@ -814,7 +779,6 @@
                                 "type": "SelectQuestion",
                                 "required": true,
                                 "formLabel": "Have you purchased the camera already?",
-
                                 "options": [
                                   {
                                     "id": "9352",
@@ -840,7 +804,6 @@
                                   "type": "SelectQuestion",
                                   "required": true,
                                   "formLabel": "What type of property is the camera for?",
-
                                   "options": [
                                     {
                                       "id": "9355",
@@ -860,7 +823,6 @@
                                     "type": "TextareaQuestion",
                                     "required": true,
                                     "formLabel": "Add a description to your job",
-
                                     "placeholder": "Include any details you think the tradesperson should know (number of cameras, timeframe, etc.)",
                                     "minLength": 20,
                                     "maxLength": 10000,
@@ -885,7 +847,8 @@
                                           "formLabel": "Postcode for the job",
                                           "helpText": "To find electricians near you we need to know where the job is."
                                         }
-                                      }
+                                      },
+                                      "minLength": 10
                                     }
                                   }
                                 }
@@ -896,13 +859,11 @@
                             "id": "9346",
                             "type": "StandardChoiceOption",
                             "formLabel": "Servicing / repair",
-
                             "next": {
                               "id": "3151",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "What type of property is the camera for?",
-
                               "options": [
                                 {
                                   "id": "9355",
@@ -922,7 +883,6 @@
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (number of cameras, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -947,7 +907,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find electricians near you we need to know where the job is."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             }
@@ -956,13 +917,11 @@
                             "id": "9347",
                             "type": "StandardChoiceOption",
                             "formLabel": "Removal",
-
                             "next": {
                               "id": "3151",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "What type of property is the camera for?",
-
                               "options": [
                                 {
                                   "id": "9355",
@@ -982,7 +941,6 @@
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (number of cameras, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -1007,7 +965,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find electricians near you we need to know where the job is."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             }
@@ -1016,13 +975,11 @@
                             "id": "9348",
                             "type": "StandardChoiceOption",
                             "formLabel": "Other",
-
                             "next": {
                               "id": "3151",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "What type of property is the camera for?",
-
                               "options": [
                                 {
                                   "id": "9355",
@@ -1042,7 +999,6 @@
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (number of cameras, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -1067,7 +1023,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find electricians near you we need to know where the job is."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             }
@@ -1079,13 +1036,11 @@
                       "id": "9032",
                       "type": "StandardChoiceOption",
                       "formLabel": "Entry system",
-
                       "next": {
                         "id": "2994",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (type of entry system, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -1110,7 +1065,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find electricians near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     },
@@ -1118,13 +1074,11 @@
                       "id": "9033",
                       "type": "StandardChoiceOption",
                       "formLabel": "Smoke alarms",
-
                       "next": {
                         "id": "2996",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (number of alarms, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -1149,7 +1103,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find electricians near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     },
@@ -1157,13 +1112,11 @@
                       "id": "9034",
                       "type": "StandardChoiceOption",
                       "formLabel": "Security lights",
-
                       "next": {
                         "id": "2995",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (number of lights, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -1188,7 +1141,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find electricians near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     },
@@ -1196,13 +1150,11 @@
                       "id": "9035",
                       "type": "StandardChoiceOption",
                       "formLabel": "Locks",
-
                       "next": {
                         "id": "2997",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (lock types, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -1227,7 +1179,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find electricians near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     },
@@ -1235,7 +1188,6 @@
                       "id": "9036",
                       "type": "StandardChoiceOption",
                       "formLabel": "Other",
-
                       "next": {
                         "id": "2998",
                         "type": "TextareaQuestion",
@@ -1266,7 +1218,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find electricians near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -1277,7 +1230,6 @@
                 "id": "9019",
                 "type": "StandardChoiceOption",
                 "formLabel": "Boilers & heating",
-
                 "next": {
                   "id": "2999",
                   "type": "SelectQuestion",
@@ -1289,37 +1241,31 @@
                       "id": "9067",
                       "type": "StandardChoiceOption",
                       "formLabel": "Yes",
-
                       "next": {
                         "id": "3005",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "What does your gas job involve?",
-
                         "options": [
                           {
                             "id": "9082",
                             "type": "StandardChoiceOption",
                             "formLabel": "Gas safety check",
-
                             "next": {
                               "id": "3006",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "What do you need certified?",
-
                               "options": [
                                 {
                                   "id": "9089",
                                   "type": "StandardChoiceOption",
                                   "formLabel": "Boiler",
-
                                   "next": {
                                     "id": "3007",
                                     "type": "SelectQuestion",
                                     "required": true,
                                     "formLabel": "Would you also like the boiler serviced?",
-
                                     "options": [
                                       {
                                         "id": "9092",
@@ -1339,7 +1285,6 @@
                                       "type": "SelectQuestion",
                                       "required": true,
                                       "formLabel": "Is this for a domestic or commercial property?",
-
                                       "options": [
                                         {
                                           "id": "8713",
@@ -1359,7 +1304,6 @@
                                         "type": "TextareaQuestion",
                                         "required": true,
                                         "formLabel": "Add a description to your job",
-
                                         "placeholder": "Include any details you think the tradesperson should know (boiler model, timeframe, etc.)",
                                         "minLength": 20,
                                         "maxLength": 10000,
@@ -1384,7 +1328,8 @@
                                               "formLabel": "Postcode for the job",
                                               "helpText": "To find electricians near you we need to know where the job is."
                                             }
-                                          }
+                                          },
+                                          "minLength": 10
                                         }
                                       }
                                     }
@@ -1394,13 +1339,11 @@
                                   "id": "9090",
                                   "type": "StandardChoiceOption",
                                   "formLabel": "Single appliance",
-
                                   "next": {
                                     "id": "3008",
                                     "type": "SelectQuestion",
                                     "required": true,
                                     "formLabel": "Would you also like the appliance serviced?",
-
                                     "options": [
                                       {
                                         "id": "9094",
@@ -1420,7 +1363,6 @@
                                       "type": "SelectQuestion",
                                       "required": true,
                                       "formLabel": "Is this for a domestic or commercial property?",
-
                                       "options": [
                                         {
                                           "id": "8713",
@@ -1440,7 +1382,6 @@
                                         "type": "TextareaQuestion",
                                         "required": true,
                                         "formLabel": "Add a description to your job",
-
                                         "placeholder": "Include any details you think the tradesperson should know (appliance type, timeframe, etc.)",
                                         "minLength": 20,
                                         "maxLength": 10000,
@@ -1465,7 +1406,8 @@
                                               "formLabel": "Postcode for the job",
                                               "helpText": "To find electricians near you we need to know where the job is."
                                             }
-                                          }
+                                          },
+                                          "minLength": 10
                                         }
                                       }
                                     }
@@ -1475,13 +1417,11 @@
                                   "id": "9091",
                                   "type": "StandardChoiceOption",
                                   "formLabel": "Multiple appliances",
-
                                   "next": {
                                     "id": "3009",
                                     "type": "SelectQuestion",
                                     "required": true,
                                     "formLabel": "Would you also like the appliances serviced?",
-
                                     "options": [
                                       {
                                         "id": "9096",
@@ -1501,7 +1441,6 @@
                                       "type": "SelectQuestion",
                                       "required": true,
                                       "formLabel": "Is this for a domestic or commercial property?",
-
                                       "options": [
                                         {
                                           "id": "8713",
@@ -1521,7 +1460,6 @@
                                         "type": "TextareaQuestion",
                                         "required": true,
                                         "formLabel": "Add a description to your job",
-
                                         "placeholder": "Include any details you think the tradesperson should know (appliance types, timeframe, etc.)",
                                         "minLength": 20,
                                         "maxLength": 10000,
@@ -1546,7 +1484,8 @@
                                               "formLabel": "Postcode for the job",
                                               "helpText": "To find electricians near you we need to know where the job is."
                                             }
-                                          }
+                                          },
+                                          "minLength": 10
                                         }
                                       }
                                     }
@@ -1559,25 +1498,21 @@
                             "id": "9083",
                             "type": "StandardChoiceOption",
                             "formLabel": "Service boiler or appliance",
-
                             "next": {
                               "id": "3010",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "What do you need serviced?",
-
                               "options": [
                                 {
                                   "id": "9098",
                                   "type": "StandardChoiceOption",
                                   "formLabel": "Boiler",
-
                                   "next": {
                                     "id": "3011",
                                     "type": "SelectQuestion",
                                     "required": true,
                                     "formLabel": "Would you also like the appliance certified?",
-
                                     "options": [
                                       {
                                         "id": "9101",
@@ -1597,7 +1532,6 @@
                                       "type": "SelectQuestion",
                                       "required": true,
                                       "formLabel": "Is this for a domestic or commercial property?",
-
                                       "options": [
                                         {
                                           "id": "8713",
@@ -1617,7 +1551,6 @@
                                         "type": "TextareaQuestion",
                                         "required": true,
                                         "formLabel": "Add a description to your job",
-
                                         "placeholder": "Include any details you think the tradesperson should know (boiler model, problems, timeframe, etc.)",
                                         "minLength": 20,
                                         "maxLength": 10000,
@@ -1642,7 +1575,8 @@
                                               "formLabel": "Postcode for the job",
                                               "helpText": "To find electricians near you we need to know where the job is."
                                             }
-                                          }
+                                          },
+                                          "minLength": 10
                                         }
                                       }
                                     }
@@ -1652,13 +1586,11 @@
                                   "id": "9099",
                                   "type": "StandardChoiceOption",
                                   "formLabel": "Single appliance",
-
                                   "next": {
                                     "id": "3012",
                                     "type": "SelectQuestion",
                                     "required": true,
                                     "formLabel": "Would you also like the appliance certified?",
-
                                     "options": [
                                       {
                                         "id": "9103",
@@ -1678,7 +1610,6 @@
                                       "type": "SelectQuestion",
                                       "required": true,
                                       "formLabel": "Is this for a domestic or commercial property?",
-
                                       "options": [
                                         {
                                           "id": "8713",
@@ -1698,7 +1629,6 @@
                                         "type": "TextareaQuestion",
                                         "required": true,
                                         "formLabel": "Add a description to your job",
-
                                         "placeholder": "Include any details you think the tradesperson should know (boiler model, problems, timeframe, etc.)",
                                         "minLength": 20,
                                         "maxLength": 10000,
@@ -1723,7 +1653,8 @@
                                               "formLabel": "Postcode for the job",
                                               "helpText": "To find electricians near you we need to know where the job is."
                                             }
-                                          }
+                                          },
+                                          "minLength": 10
                                         }
                                       }
                                     }
@@ -1733,13 +1664,11 @@
                                   "id": "9100",
                                   "type": "StandardChoiceOption",
                                   "formLabel": "Multiple appliances",
-
                                   "next": {
                                     "id": "3013",
                                     "type": "SelectQuestion",
                                     "required": true,
                                     "formLabel": "Would you also like the appliances certified?",
-
                                     "options": [
                                       {
                                         "id": "9105",
@@ -1759,7 +1688,6 @@
                                       "type": "SelectQuestion",
                                       "required": true,
                                       "formLabel": "Is this for a domestic or commercial property?",
-
                                       "options": [
                                         {
                                           "id": "8713",
@@ -1779,7 +1707,6 @@
                                         "type": "TextareaQuestion",
                                         "required": true,
                                         "formLabel": "Add a description to your job",
-
                                         "placeholder": "Include any details you think the tradesperson should know (boiler model, problems, timeframe, etc.)",
                                         "minLength": 20,
                                         "maxLength": 10000,
@@ -1804,7 +1731,8 @@
                                               "formLabel": "Postcode for the job",
                                               "helpText": "To find electricians near you we need to know where the job is."
                                             }
-                                          }
+                                          },
+                                          "minLength": 10
                                         }
                                       }
                                     }
@@ -1817,25 +1745,21 @@
                             "id": "9084",
                             "type": "StandardChoiceOption",
                             "formLabel": "Install or replace boiler or appliance",
-
                             "next": {
                               "id": "3014",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "What kind of appliance are you looking to have installed or replaced?",
-
                               "options": [
                                 {
                                   "id": "9107",
                                   "type": "StandardChoiceOption",
                                   "formLabel": "Gas boiler",
-
                                   "next": {
                                     "id": "2817",
                                     "type": "SelectQuestion",
                                     "required": true,
                                     "formLabel": "Is this for a domestic or commercial property?",
-
                                     "options": [
                                       {
                                         "id": "8713",
@@ -1855,7 +1779,6 @@
                                       "type": "TextareaQuestion",
                                       "required": true,
                                       "formLabel": "Add a description to your job",
-
                                       "placeholder": "Include any details you think the tradesperson should know (install location, timeframe, etc.)",
                                       "minLength": 20,
                                       "maxLength": 10000,
@@ -1880,7 +1803,8 @@
                                             "formLabel": "Postcode for the job",
                                             "helpText": "To find electricians near you we need to know where the job is."
                                           }
-                                        }
+                                        },
+                                        "minLength": 10
                                       }
                                     }
                                   }
@@ -1889,13 +1813,11 @@
                                   "id": "9108",
                                   "type": "StandardChoiceOption",
                                   "formLabel": "Gas hob or oven",
-
                                   "next": {
                                     "id": "2817",
                                     "type": "SelectQuestion",
                                     "required": true,
                                     "formLabel": "Is this for a domestic or commercial property?",
-
                                     "options": [
                                       {
                                         "id": "8713",
@@ -1915,7 +1837,6 @@
                                       "type": "TextareaQuestion",
                                       "required": true,
                                       "formLabel": "Add a description to your job",
-
                                       "placeholder": "Include any details you think the tradesperson should know (appliance model, timeframe, etc.)",
                                       "minLength": 20,
                                       "maxLength": 10000,
@@ -1940,7 +1861,8 @@
                                             "formLabel": "Postcode for the job",
                                             "helpText": "To find electricians near you we need to know where the job is."
                                           }
-                                        }
+                                        },
+                                        "minLength": 10
                                       }
                                     }
                                   }
@@ -1949,13 +1871,11 @@
                                   "id": "9109",
                                   "type": "StandardChoiceOption",
                                   "formLabel": "Other or several of the above",
-
                                   "next": {
                                     "id": "2817",
                                     "type": "SelectQuestion",
                                     "required": true,
                                     "formLabel": "Is this for a domestic or commercial property?",
-
                                     "options": [
                                       {
                                         "id": "8713",
@@ -1975,7 +1895,6 @@
                                       "type": "TextareaQuestion",
                                       "required": true,
                                       "formLabel": "Add a description to your job",
-
                                       "placeholder": "Include any details you think the tradesperson should know (appliance model(s), timeframe, etc.)",
                                       "minLength": 20,
                                       "maxLength": 10000,
@@ -2000,7 +1919,8 @@
                                             "formLabel": "Postcode for the job",
                                             "helpText": "To find electricians near you we need to know where the job is."
                                           }
-                                        }
+                                        },
+                                        "minLength": 10
                                       }
                                     }
                                   }
@@ -2012,25 +1932,21 @@
                             "id": "9085",
                             "type": "StandardChoiceOption",
                             "formLabel": "Move or remove boiler or appliance",
-
                             "next": {
                               "id": "3016",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "Do you want to remove a gas boiler?",
-
                               "options": [
                                 {
                                   "id": "9110",
                                   "type": "StandardChoiceOption",
                                   "formLabel": "Yes",
-
                                   "next": {
                                     "id": "2817",
                                     "type": "SelectQuestion",
                                     "required": true,
                                     "formLabel": "Is this for a domestic or commercial property?",
-
                                     "options": [
                                       {
                                         "id": "8713",
@@ -2050,7 +1966,6 @@
                                       "type": "TextareaQuestion",
                                       "required": true,
                                       "formLabel": "Add a description to your job",
-
                                       "placeholder": "Include any details you think the tradesperson should know (boiler model, timeframe, etc.)",
                                       "minLength": 20,
                                       "maxLength": 10000,
@@ -2075,7 +1990,8 @@
                                             "formLabel": "Postcode for the job",
                                             "helpText": "To find electricians near you we need to know where the job is."
                                           }
-                                        }
+                                        },
+                                        "minLength": 10
                                       }
                                     }
                                   }
@@ -2084,13 +2000,11 @@
                                   "id": "9111",
                                   "type": "StandardChoiceOption",
                                   "formLabel": "No",
-
                                   "next": {
                                     "id": "2817",
                                     "type": "SelectQuestion",
                                     "required": true,
                                     "formLabel": "Is this for a domestic or commercial property?",
-
                                     "options": [
                                       {
                                         "id": "8713",
@@ -2110,7 +2024,6 @@
                                       "type": "TextareaQuestion",
                                       "required": true,
                                       "formLabel": "Add a description to your job",
-
                                       "placeholder": "Include any details you think the tradesperson should know (appliance model, timeframe, etc.)",
                                       "minLength": 20,
                                       "maxLength": 10000,
@@ -2135,7 +2048,8 @@
                                             "formLabel": "Postcode for the job",
                                             "helpText": "To find electricians near you we need to know where the job is."
                                           }
-                                        }
+                                        },
+                                        "minLength": 10
                                       }
                                     }
                                   }
@@ -2147,25 +2061,21 @@
                             "id": "9086",
                             "type": "StandardChoiceOption",
                             "formLabel": "Pipework only",
-
                             "next": {
                               "id": "3017",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "What needs to be changed with the pipework?",
-
                               "options": [
                                 {
                                   "id": "9112",
                                   "type": "StandardChoiceOption",
                                   "formLabel": "Disconnect or cap pipework",
-
                                   "next": {
                                     "id": "3018",
                                     "type": "TextareaQuestion",
                                     "required": true,
                                     "formLabel": "Add a description to your job",
-
                                     "placeholder": "Include any details you think the tradesperson should know (approx. pipework length, timeframe, etc.)",
                                     "minLength": 20,
                                     "maxLength": 10000,
@@ -2190,7 +2100,8 @@
                                           "formLabel": "Postcode for the job",
                                           "helpText": "To find electricians near you we need to know where the job is."
                                         }
-                                      }
+                                      },
+                                      "minLength": 10
                                     }
                                   }
                                 },
@@ -2198,13 +2109,11 @@
                                   "id": "9113",
                                   "type": "StandardChoiceOption",
                                   "formLabel": "Install or alter pipework",
-
                                   "next": {
                                     "id": "3018",
                                     "type": "TextareaQuestion",
                                     "required": true,
                                     "formLabel": "Add a description to your job",
-
                                     "placeholder": "Include any details you think the tradesperson should know (approx. pipework length, timeframe, etc.)",
                                     "minLength": 20,
                                     "maxLength": 10000,
@@ -2229,7 +2138,8 @@
                                           "formLabel": "Postcode for the job",
                                           "helpText": "To find electricians near you we need to know where the job is."
                                         }
-                                      }
+                                      },
+                                      "minLength": 10
                                     }
                                   }
                                 },
@@ -2237,13 +2147,11 @@
                                   "id": "9114",
                                   "type": "StandardChoiceOption",
                                   "formLabel": "Other",
-
                                   "next": {
                                     "id": "2827",
                                     "type": "TextareaQuestion",
                                     "required": true,
                                     "formLabel": "Add a description to your job",
-
                                     "placeholder": "Include any details you think the tradesperson should know (work needed, timeframe, etc.)",
                                     "minLength": 20,
                                     "maxLength": 10000,
@@ -2268,7 +2176,8 @@
                                           "formLabel": "Postcode for the job",
                                           "helpText": "To find electricians near you we need to know where the job is."
                                         }
-                                      }
+                                      },
+                                      "minLength": 10
                                     }
                                   }
                                 }
@@ -2279,13 +2188,11 @@
                             "id": "9087",
                             "type": "StandardChoiceOption",
                             "formLabel": "Problem or repair",
-
                             "next": {
                               "id": "3021",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "What appliance needs repairing?",
-
                               "options": [
                                 {
                                   "id": "9115",
@@ -2317,7 +2224,6 @@
                                 "type": "SelectQuestion",
                                 "required": true,
                                 "formLabel": "Is this for a domestic or commercial property?",
-
                                 "options": [
                                   {
                                     "id": "8713",
@@ -2337,7 +2243,6 @@
                                   "type": "TextareaQuestion",
                                   "required": true,
                                   "formLabel": "Add a description to your job",
-
                                   "placeholder": "Include any details you think the tradesperson should know (nature of the fault, timeframe, etc.)",
                                   "minLength": 20,
                                   "maxLength": 10000,
@@ -2362,7 +2267,8 @@
                                         "formLabel": "Postcode for the job",
                                         "helpText": "To find electricians near you we need to know where the job is."
                                       }
-                                    }
+                                    },
+                                    "minLength": 10
                                   }
                                 }
                               }
@@ -2372,13 +2278,11 @@
                             "id": "9088",
                             "type": "StandardChoiceOption",
                             "formLabel": "Other",
-
                             "next": {
                               "id": "3025",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "Is this for a domestic or commercial property?",
-
                               "options": [
                                 {
                                   "id": "9124",
@@ -2423,7 +2327,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find electricians near you we need to know where the job is."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             }
@@ -2435,25 +2340,21 @@
                       "id": "9068",
                       "type": "StandardChoiceOption",
                       "formLabel": "No",
-
                       "next": {
                         "id": "3000",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "What does your central heating job involve?",
-
                         "options": [
                           {
                             "id": "9069",
                             "type": "StandardChoiceOption",
                             "formLabel": "Boiler",
-
                             "next": {
                               "id": "3019",
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (boiler model, timeframe, etc.)",
                               "minLength": 20,
                               "maxLength": 10000,
@@ -2478,7 +2379,8 @@
                                     "formLabel": "Postcode for the job",
                                     "helpText": "To find electricians near you we need to know where the job is."
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           },
@@ -2486,13 +2388,11 @@
                             "id": "9070",
                             "type": "StandardChoiceOption",
                             "formLabel": "Radiators",
-
                             "next": {
                               "id": "3020",
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (radiator(s) location, timeframe, etc.)",
                               "minLength": 20,
                               "maxLength": 10000,
@@ -2517,7 +2417,8 @@
                                     "formLabel": "Postcode for the job",
                                     "helpText": "To find electricians near you we need to know where the job is."
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           },
@@ -2525,13 +2426,11 @@
                             "id": "9071",
                             "type": "StandardChoiceOption",
                             "formLabel": "Thermostat",
-
                             "next": {
                               "id": "2834",
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (thermostat location, timeframe, etc.)",
                               "minLength": 20,
                               "maxLength": 10000,
@@ -2556,7 +2455,8 @@
                                     "formLabel": "Postcode for the job",
                                     "helpText": "To find electricians near you we need to know where the job is."
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           },
@@ -2564,25 +2464,21 @@
                             "id": "9072",
                             "type": "StandardChoiceOption",
                             "formLabel": "Underfloor heating",
-
                             "next": {
                               "id": "3022",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "What type of underfloor heating do you need?",
-
                               "options": [
                                 {
                                   "id": "9119",
                                   "type": "StandardChoiceOption",
                                   "formLabel": "Boiler supplied (wet)",
-
                                   "next": {
                                     "id": "3039",
                                     "type": "SelectQuestion",
                                     "required": true,
                                     "formLabel": "How many rooms require underfloor heating?",
-
                                     "options": [
                                       {
                                         "id": "9147",
@@ -2608,7 +2504,6 @@
                                       "type": "TextareaQuestion",
                                       "required": true,
                                       "formLabel": "Add a description to your job",
-
                                       "placeholder": "Include any details you think the tradesperson should know (size of area, timeframe, etc.)",
                                       "minLength": 20,
                                       "maxLength": 10000,
@@ -2633,7 +2528,8 @@
                                             "formLabel": "Postcode for the job",
                                             "helpText": "To find electricians near you we need to know where the job is."
                                           }
-                                        }
+                                        },
+                                        "minLength": 10
                                       }
                                     }
                                   }
@@ -2642,13 +2538,11 @@
                                   "id": "9120",
                                   "type": "StandardChoiceOption",
                                   "formLabel": "Electrical (dry)",
-
                                   "next": {
                                     "id": "3039",
                                     "type": "SelectQuestion",
                                     "required": true,
                                     "formLabel": "How many rooms require underfloor heating?",
-
                                     "options": [
                                       {
                                         "id": "9147",
@@ -2674,7 +2568,6 @@
                                       "type": "TextareaQuestion",
                                       "required": true,
                                       "formLabel": "Add a description to your job",
-
                                       "placeholder": "Include any details you think the tradesperson should know (size of area, timeframe, etc.)",
                                       "minLength": 20,
                                       "maxLength": 10000,
@@ -2699,7 +2592,8 @@
                                             "formLabel": "Postcode for the job",
                                             "helpText": "To find electricians near you we need to know where the job is."
                                           }
-                                        }
+                                        },
+                                        "minLength": 10
                                       }
                                     }
                                   }
@@ -2711,7 +2605,6 @@
                             "id": "9073",
                             "type": "StandardChoiceOption",
                             "formLabel": "Other or several of the above",
-
                             "next": {
                               "id": "3023",
                               "type": "TextareaQuestion",
@@ -2742,7 +2635,8 @@
                                     "formLabel": "Postcode for the job",
                                     "helpText": "To find electricians near you we need to know where the job is."
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -2759,13 +2653,11 @@
           "id": "8997",
           "type": "StandardChoiceOption",
           "formLabel": "Safety check or certificate",
-
           "next": {
             "id": "3024",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What do you need checked or certified?",
-
             "options": [
               {
                 "id": "9121",
@@ -2791,7 +2683,6 @@
               "type": "TextareaQuestion",
               "required": true,
               "formLabel": "Add a description to your job",
-
               "placeholder": "Include any details you think the tradesperson should know (appliances type, timeframe, etc.)",
               "minLength": 20,
               "maxLength": 10000,
@@ -2816,7 +2707,8 @@
                     "formLabel": "Postcode for the job",
                     "helpText": "To find electricians near you we need to know where the job is."
                   }
-                }
+                },
+                "minLength": 10
               }
             }
           }
@@ -2825,13 +2717,11 @@
           "id": "8998",
           "type": "StandardChoiceOption",
           "formLabel": "Electrical faults & repairs",
-
           "next": {
             "id": "3026",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "Which best describes your issue?",
-
             "options": [
               {
                 "id": "9126",
@@ -2851,7 +2741,6 @@
               "type": "TextareaQuestion",
               "required": true,
               "formLabel": "Add a description to your job",
-
               "placeholder": "Include any details you think the tradesperson should know (nature of fault, timeframe, etc.)",
               "minLength": 20,
               "maxLength": 10000,
@@ -2876,7 +2765,8 @@
                     "formLabel": "Postcode for the job",
                     "helpText": "To find electricians near you we need to know where the job is."
                   }
-                }
+                },
+                "minLength": 10
               }
             }
           }
@@ -2885,7 +2775,6 @@
           "id": "8999",
           "type": "StandardChoiceOption",
           "formLabel": "Other",
-
           "next": {
             "id": "3028",
             "type": "TextareaQuestion",
@@ -2916,7 +2805,8 @@
                   "formLabel": "Postcode for the job",
                   "helpText": "To find electricians near you we need to know where the job is."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         }

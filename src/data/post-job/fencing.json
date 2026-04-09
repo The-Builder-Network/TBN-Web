@@ -7,19 +7,16 @@
       "type": "SelectQuestion",
       "required": true,
       "formLabel": "What does your fencing job involve?",
-
       "options": [
         {
           "id": "9286",
           "type": "StandardChoiceOption",
           "formLabel": "Fencing",
-
           "next": {
             "id": "3092",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What type of fence would you like?",
-
             "options": [
               {
                 "id": "9244",
@@ -63,7 +60,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (area layout, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -88,7 +84,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find fencers near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -135,7 +132,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (area layout, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -160,7 +156,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find fencers near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -170,7 +167,6 @@
                 "type": "TextChoiceOption",
                 "formLabel": "Other",
                 "placeholder": "type of fence (e.g. trellis, woven, hit and miss)",
-
                 "next": {
                   "id": "3094",
                   "type": "SelectQuestion",
@@ -208,7 +204,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (area layout, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -233,7 +228,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find fencers near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -245,13 +241,11 @@
           "id": "9287",
           "type": "StandardChoiceOption",
           "formLabel": "Gates",
-
           "next": {
             "id": "3099",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "How many gates do you need?",
-
             "options": [
               {
                 "id": "9268",
@@ -283,7 +277,6 @@
               "type": "SelectQuestion",
               "required": true,
               "formLabel": "Do you already have the gate(s)?",
-
               "options": [
                 {
                   "id": "9272",
@@ -303,7 +296,6 @@
                 "type": "TextareaQuestion",
                 "required": true,
                 "formLabel": "Add a description to your job",
-
                 "placeholder": "Include any details you think the tradesperson should know (gate(s) type, timeframe, etc.)",
                 "minLength": 20,
                 "maxLength": 10000,
@@ -328,7 +320,8 @@
                       "formLabel": "Postcode for the job",
                       "helpText": "To find fencers near you we need to know where the job is."
                     }
-                  }
+                  },
+                  "minLength": 10
                 }
               }
             }
@@ -338,13 +331,11 @@
           "id": "9288",
           "type": "StandardChoiceOption",
           "formLabel": "Fencing and gates",
-
           "next": {
             "id": "3092",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What type of fence would you like?",
-
             "options": [
               {
                 "id": "9244",
@@ -388,7 +379,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "How many gates do you need?",
-
                     "options": [
                       {
                         "id": "9280",
@@ -412,7 +402,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (area layout, timeframe, etc.)",
                       "minLength": 20,
                       "maxLength": 10000,
@@ -437,7 +426,8 @@
                             "formLabel": "Postcode for the job",
                             "helpText": "To find fencers near you we need to know where the job is."
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -485,7 +475,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "How many gates do you need?",
-
                     "options": [
                       {
                         "id": "9280",
@@ -509,7 +498,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (area layout, timeframe, etc.)",
                       "minLength": 20,
                       "maxLength": 10000,
@@ -534,7 +522,8 @@
                             "formLabel": "Postcode for the job",
                             "helpText": "To find fencers near you we need to know where the job is."
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -545,7 +534,6 @@
                 "type": "TextChoiceOption",
                 "formLabel": "Other",
                 "placeholder": "type of fence (e.g. trellis, woven, hit and miss)",
-
                 "next": {
                   "id": "3094",
                   "type": "SelectQuestion",
@@ -583,7 +571,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "How many gates do you need?",
-
                     "options": [
                       {
                         "id": "9280",
@@ -607,7 +594,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (area layout, timeframe, etc.)",
                       "minLength": 20,
                       "maxLength": 10000,
@@ -632,7 +618,8 @@
                             "formLabel": "Postcode for the job",
                             "helpText": "To find fencers near you we need to know where the job is."
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -645,13 +632,11 @@
           "id": "9289",
           "type": "StandardChoiceOption",
           "formLabel": "Repair a fence or gate",
-
           "next": {
             "id": "3079",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "Which of the following best describes your gardening job?",
-
             "options": [
               {
                 "id": "9223",
@@ -671,7 +656,6 @@
               "type": "TextareaQuestion",
               "required": true,
               "formLabel": "Add a description to your job",
-
               "placeholder": "Include any details you think the tradesperson should know (gate(s) type, timeframe, etc.)",
               "minLength": 20,
               "maxLength": 10000,
@@ -696,7 +680,8 @@
                     "formLabel": "Postcode for the job",
                     "helpText": "To find fencers near you we need to know where the job is."
                   }
-                }
+                },
+                "minLength": 10
               }
             }
           }

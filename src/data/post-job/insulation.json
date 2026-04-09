@@ -7,19 +7,16 @@
       "type": "SelectQuestion",
       "required": true,
       "formLabel": "  What type of insulation do you want?",
-
       "options": [
         {
           "id": "8820",
           "type": "StandardChoiceOption",
           "formLabel": "Loft / roof insulation",
-
           "next": {
             "id": "2877",
             "type": "TextareaQuestion",
             "required": true,
             "formLabel": "Add a description to your job",
-
             "placeholder": "Include any details you think the tradesperson should know (approx. area size, timeframe, etc.)",
             "minLength": 20,
             "maxLength": 10000,
@@ -44,7 +41,8 @@
                   "formLabel": "Postcode for the job",
                   "helpText": "To find insulation installers near you we need to know where the job is."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         },
@@ -52,13 +50,11 @@
           "id": "8821",
           "type": "StandardChoiceOption",
           "formLabel": "Wall insulation",
-
           "next": {
             "id": "2878",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "How many walls need insulating?",
-
             "options": [
               {
                 "id": "8824",
@@ -84,7 +80,6 @@
               "type": "TextareaQuestion",
               "required": true,
               "formLabel": "Add a description to your job",
-
               "placeholder": "Include any details you think the tradesperson should know (insulation type, timeframe, etc.)",
               "minLength": 20,
               "maxLength": 10000,
@@ -109,7 +104,8 @@
                     "formLabel": "Postcode for the job",
                     "helpText": "To find insulation installers near you we need to know where the job is."
                   }
-                }
+                },
+                "minLength": 10
               }
             }
           }
@@ -118,13 +114,11 @@
           "id": "8822",
           "type": "StandardChoiceOption",
           "formLabel": "Floor insulation",
-
           "next": {
             "id": "2879",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "How many rooms need insulating?",
-
             "options": [
               {
                 "id": "8827",
@@ -150,7 +144,6 @@
               "type": "TextareaQuestion",
               "required": true,
               "formLabel": "Add a description to your job",
-
               "placeholder": "Include any details you think the tradesperson should know (insulation type, timeframe, etc.)",
               "minLength": 20,
               "maxLength": 10000,
@@ -175,7 +168,8 @@
                     "formLabel": "Postcode for the job",
                     "helpText": "To find insulation installers near you we need to know where the job is."
                   }
-                }
+                },
+                "minLength": 10
               }
             }
           }
@@ -184,7 +178,6 @@
           "id": "8823",
           "type": "StandardChoiceOption",
           "formLabel": "Other",
-
           "next": {
             "id": "2881",
             "type": "TextareaQuestion",
@@ -215,7 +208,8 @@
                   "formLabel": "Postcode for the job",
                   "helpText": "To find insulation installers near you we need to know where the job is."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         }

@@ -7,32 +7,28 @@
       "type": "SelectQuestion",
       "required": true,
       "formLabel": "What type of extension work are you planning?",
-
       "options": [
         {
           "id": "8577",
           "type": "StandardChoiceOption",
           "formLabel": "Property extension",
-
           "next": {
             "id": "2771",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What stage of the project are you currently at?",
-
             "options": [
               {
                 "id": "8602",
                 "type": "StandardChoiceOption",
                 "formLabel": "I am ready / almost ready for the work to start",
-
                 "next": {
                   "id": "2773",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Describe the help you need with your extension project",
                   "helpText": "Good descriptions attract good tradespeople. Give detail on the property purchase situation. Do you require an extension builder to accompany you on a house visit? Include the type of extension and sizes if known.",
-                  "placeholder": "E.g. We have bought a 1930\u2019s semi we would like to get a single storey rear extension, knocking through existing kitchen & diner...",
+                  "placeholder": "E.g. We have bought a 1930’s semi we would like to get a single storey rear extension, knocking through existing kitchen & diner...",
                   "minLength": 20,
                   "maxLength": 10000,
                   "next": {
@@ -56,7 +52,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find driveway installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -64,7 +61,6 @@
                 "id": "8603",
                 "type": "StandardChoiceOption",
                 "formLabel": "I need help with design or planning before starting the work",
-
                 "next": {
                   "id": "2783",
                   "type": "TextareaQuestion",
@@ -95,7 +91,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find driveway installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -109,20 +106,18 @@
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Do you own the property?",
-
                   "options": [
                     {
                       "id": "8605",
                       "type": "StandardChoiceOption",
                       "formLabel": "Yes",
-
                       "next": {
                         "id": "2773",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Describe the help you need with your extension project",
                         "helpText": "Good descriptions attract good tradespeople. Give detail on the property purchase situation. Do you require an extension builder to accompany you on a house visit? Include the type of extension and sizes if known.",
-                        "placeholder": "E.g. We have bought a 1930\u2019s semi we would like to get a single storey rear extension, knocking through existing kitchen & diner...",
+                        "placeholder": "E.g. We have bought a 1930’s semi we would like to get a single storey rear extension, knocking through existing kitchen & diner...",
                         "minLength": 20,
                         "maxLength": 10000,
                         "next": {
@@ -146,7 +141,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find driveway installers near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     },
@@ -154,7 +150,6 @@
                       "id": "8606",
                       "type": "StandardChoiceOption",
                       "formLabel": "I will - purchase in progress",
-
                       "next": {
                         "id": "2783",
                         "type": "TextareaQuestion",
@@ -185,7 +180,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find driveway installers near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     },
@@ -193,13 +189,11 @@
                       "id": "8607",
                       "type": "StandardChoiceOption",
                       "formLabel": "No",
-
                       "next": {
                         "id": "2775",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "What is your relationship to the property?",
-
                         "options": [
                           {
                             "id": "8616",
@@ -251,7 +245,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find driveway installers near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -266,13 +261,11 @@
           "id": "8578",
           "type": "StandardChoiceOption",
           "formLabel": "Loft conversion",
-
           "next": {
             "id": "2740",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What type of loft conversion do you want?",
-
             "options": [
               {
                 "id": "8526",
@@ -284,7 +277,6 @@
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What type of house is the loft conversion for?",
-
                   "options": [
                     {
                       "id": "8530",
@@ -329,31 +321,26 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "Do you own the property?",
-
                     "options": [
                       {
                         "id": "8536",
                         "type": "StandardChoiceOption",
                         "formLabel": "Yes",
-
                         "next": {
                           "id": "2743",
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "Have you had any plans drawn up?",
-
                           "options": [
                             {
                               "id": "8539",
                               "type": "StandardChoiceOption",
                               "formLabel": "Yes I have plans",
-
                               "next": {
                                 "id": "2745",
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -378,7 +365,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find driveway installers near you we need to know where the job is."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             },
@@ -386,13 +374,11 @@
                               "id": "8540",
                               "type": "StandardChoiceOption",
                               "formLabel": "Plans are being drawn up",
-
                               "next": {
                                 "id": "2745",
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -417,7 +403,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find driveway installers near you we need to know where the job is."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             },
@@ -425,7 +412,6 @@
                               "id": "8541",
                               "type": "StandardChoiceOption",
                               "formLabel": "No plans have been drawn up",
-
                               "next": {
                                 "id": "2744",
                                 "type": "SelectQuestion",
@@ -437,13 +423,11 @@
                                     "id": "8542",
                                     "type": "StandardChoiceOption",
                                     "formLabel": "Okay - send my job to architects",
-
                                     "next": {
                                       "id": "2745",
                                       "type": "TextareaQuestion",
                                       "required": true,
                                       "formLabel": "Add a description to your job",
-
                                       "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                                       "minLength": 20,
                                       "maxLength": 10000,
@@ -468,7 +452,8 @@
                                             "formLabel": "Postcode for the job",
                                             "helpText": "To find driveway installers near you we need to know where the job is."
                                           }
-                                        }
+                                        },
+                                        "minLength": 10
                                       }
                                     }
                                   },
@@ -476,13 +461,11 @@
                                     "id": "8543",
                                     "type": "StandardChoiceOption",
                                     "formLabel": "Continue posting this job without plans",
-
                                     "next": {
                                       "id": "2745",
                                       "type": "TextareaQuestion",
                                       "required": true,
                                       "formLabel": "Add a description to your job",
-
                                       "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                                       "minLength": 20,
                                       "maxLength": 10000,
@@ -507,7 +490,8 @@
                                             "formLabel": "Postcode for the job",
                                             "helpText": "To find driveway installers near you we need to know where the job is."
                                           }
-                                        }
+                                        },
+                                        "minLength": 10
                                       }
                                     }
                                   }
@@ -521,13 +505,11 @@
                         "id": "8537",
                         "type": "StandardChoiceOption",
                         "formLabel": "I will - purchase in progress",
-
                         "next": {
                           "id": "2745",
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -552,7 +534,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find driveway installers near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       },
@@ -560,13 +543,11 @@
                         "id": "8538",
                         "type": "StandardChoiceOption",
                         "formLabel": "No",
-
                         "next": {
                           "id": "2745",
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -591,7 +572,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find driveway installers near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -609,7 +591,6 @@
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What type of house is the loft conversion for?",
-
                   "options": [
                     {
                       "id": "8530",
@@ -654,31 +635,26 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "Do you own the property?",
-
                     "options": [
                       {
                         "id": "8536",
                         "type": "StandardChoiceOption",
                         "formLabel": "Yes",
-
                         "next": {
                           "id": "2743",
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "Have you had any plans drawn up?",
-
                           "options": [
                             {
                               "id": "8539",
                               "type": "StandardChoiceOption",
                               "formLabel": "Yes I have plans",
-
                               "next": {
                                 "id": "2745",
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -703,7 +679,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find driveway installers near you we need to know where the job is."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             },
@@ -711,13 +688,11 @@
                               "id": "8540",
                               "type": "StandardChoiceOption",
                               "formLabel": "Plans are being drawn up",
-
                               "next": {
                                 "id": "2745",
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -742,7 +717,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find driveway installers near you we need to know where the job is."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             },
@@ -750,7 +726,6 @@
                               "id": "8541",
                               "type": "StandardChoiceOption",
                               "formLabel": "No plans have been drawn up",
-
                               "next": {
                                 "id": "2744",
                                 "type": "SelectQuestion",
@@ -762,13 +737,11 @@
                                     "id": "8542",
                                     "type": "StandardChoiceOption",
                                     "formLabel": "Okay - send my job to architects",
-
                                     "next": {
                                       "id": "2745",
                                       "type": "TextareaQuestion",
                                       "required": true,
                                       "formLabel": "Add a description to your job",
-
                                       "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                                       "minLength": 20,
                                       "maxLength": 10000,
@@ -793,7 +766,8 @@
                                             "formLabel": "Postcode for the job",
                                             "helpText": "To find driveway installers near you we need to know where the job is."
                                           }
-                                        }
+                                        },
+                                        "minLength": 10
                                       }
                                     }
                                   },
@@ -801,13 +775,11 @@
                                     "id": "8543",
                                     "type": "StandardChoiceOption",
                                     "formLabel": "Continue posting this job without plans",
-
                                     "next": {
                                       "id": "2745",
                                       "type": "TextareaQuestion",
                                       "required": true,
                                       "formLabel": "Add a description to your job",
-
                                       "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                                       "minLength": 20,
                                       "maxLength": 10000,
@@ -832,7 +804,8 @@
                                             "formLabel": "Postcode for the job",
                                             "helpText": "To find driveway installers near you we need to know where the job is."
                                           }
-                                        }
+                                        },
+                                        "minLength": 10
                                       }
                                     }
                                   }
@@ -846,13 +819,11 @@
                         "id": "8537",
                         "type": "StandardChoiceOption",
                         "formLabel": "I will - purchase in progress",
-
                         "next": {
                           "id": "2745",
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -877,7 +848,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find driveway installers near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       },
@@ -885,13 +857,11 @@
                         "id": "8538",
                         "type": "StandardChoiceOption",
                         "formLabel": "No",
-
                         "next": {
                           "id": "2745",
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -916,7 +886,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find driveway installers near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -934,7 +905,6 @@
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What do you need doing in your loft?",
-
                   "options": [
                     {
                       "id": "8544",
@@ -946,7 +916,6 @@
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -971,7 +940,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find driveway installers near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     },
@@ -985,7 +955,6 @@
                         "type": "CheckboxQuestion",
                         "required": true,
                         "formLabel": "What extra work do you need doing in your loft?",
-
                         "options": [
                           {
                             "id": "8546",
@@ -1017,7 +986,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -1042,7 +1010,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find driveway installers near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -1060,7 +1029,6 @@
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (skylight type, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -1085,7 +1053,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find driveway installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               }
@@ -1096,13 +1065,11 @@
           "id": "8579",
           "type": "StandardChoiceOption",
           "formLabel": "A porch",
-
           "next": {
             "id": "2774",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What type of porch job is it?",
-
             "options": [
               {
                 "id": "8608",
@@ -1122,7 +1089,6 @@
               "type": "TextareaQuestion",
               "required": true,
               "formLabel": "Add a description to your job",
-
               "placeholder": "Include any details you think the tradesperson should know (approx. porch size, timeframe, etc.)",
               "minLength": 20,
               "maxLength": 10000,
@@ -1147,7 +1113,8 @@
                     "formLabel": "Postcode for the job",
                     "helpText": "To find driveway installers near you we need to know where the job is."
                   }
-                }
+                },
+                "minLength": 10
               }
             }
           }
@@ -1162,13 +1129,11 @@
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "Do you own the property?",
-
             "options": [
               {
                 "id": "8605",
                 "type": "StandardChoiceOption",
                 "formLabel": "Yes",
-
                 "next": {
                   "id": "2779",
                   "type": "TextareaQuestion",
@@ -1199,7 +1164,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find driveway installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -1207,7 +1173,6 @@
                 "id": "8606",
                 "type": "StandardChoiceOption",
                 "formLabel": "I will - purchase in progress",
-
                 "next": {
                   "id": "2779",
                   "type": "TextareaQuestion",
@@ -1238,7 +1203,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find driveway installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -1246,13 +1212,11 @@
                 "id": "8607",
                 "type": "StandardChoiceOption",
                 "formLabel": "No",
-
                 "next": {
                   "id": "2775",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What is your relationship to the property?",
-
                   "options": [
                     {
                       "id": "8616",
@@ -1304,7 +1268,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find driveway installers near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -1322,7 +1287,6 @@
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "Do you own the property?",
-
             "options": [
               {
                 "id": "8605",
@@ -1373,7 +1337,8 @@
                     "formLabel": "Postcode for the job",
                     "helpText": "To find driveway installers near you we need to know where the job is."
                   }
-                }
+                },
+                "minLength": 10
               }
             }
           }
@@ -1383,26 +1348,23 @@
           "type": "TextChoiceOption",
           "formLabel": "Other",
           "placeholder": "Type of extension",
-
           "next": {
             "id": "2772",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "Do you own the property?",
-
             "options": [
               {
                 "id": "8605",
                 "type": "StandardChoiceOption",
                 "formLabel": "Yes",
-
                 "next": {
                   "id": "2773",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Describe the help you need with your extension project",
                   "helpText": "Good descriptions attract good tradespeople. Give detail on the property purchase situation. Do you require an extension builder to accompany you on a house visit? Include the type of extension and sizes if known.",
-                  "placeholder": "E.g. We have bought a 1930\u2019s semi we would like to get a single storey rear extension, knocking through existing kitchen & diner...",
+                  "placeholder": "E.g. We have bought a 1930’s semi we would like to get a single storey rear extension, knocking through existing kitchen & diner...",
                   "minLength": 20,
                   "maxLength": 10000,
                   "next": {
@@ -1426,7 +1388,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find driveway installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -1434,14 +1397,13 @@
                 "id": "8606",
                 "type": "StandardChoiceOption",
                 "formLabel": "I will - purchase in progress",
-
                 "next": {
                   "id": "2773",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Describe the help you need with your extension project",
                   "helpText": "Good descriptions attract good tradespeople. Give detail on the property purchase situation. Do you require an extension builder to accompany you on a house visit? Include the type of extension and sizes if known.",
-                  "placeholder": "E.g. We have bought a 1930\u2019s semi we would like to get a single storey rear extension, knocking through existing kitchen & diner...",
+                  "placeholder": "E.g. We have bought a 1930’s semi we would like to get a single storey rear extension, knocking through existing kitchen & diner...",
                   "minLength": 20,
                   "maxLength": 10000,
                   "next": {
@@ -1465,7 +1427,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find driveway installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -1473,13 +1436,11 @@
                 "id": "8607",
                 "type": "StandardChoiceOption",
                 "formLabel": "No",
-
                 "next": {
                   "id": "2775",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What is your relationship to the property?",
-
                   "options": [
                     {
                       "id": "8616",
@@ -1507,7 +1468,7 @@
                     "required": true,
                     "formLabel": "Describe the help you need with your extension project",
                     "helpText": "Good descriptions attract good tradespeople. Give detail on the property purchase situation. Do you require an extension builder to accompany you on a house visit? Include the type of extension and sizes if known.",
-                    "placeholder": "E.g. We have bought a 1930\u2019s semi we would like to get a single storey rear extension, knocking through existing kitchen & diner...",
+                    "placeholder": "E.g. We have bought a 1930’s semi we would like to get a single storey rear extension, knocking through existing kitchen & diner...",
                     "minLength": 20,
                     "maxLength": 10000,
                     "next": {
@@ -1531,7 +1492,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find driveway installers near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }

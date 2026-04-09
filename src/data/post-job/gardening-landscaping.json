@@ -7,7 +7,6 @@
       "type": "SelectQuestion",
       "required": true,
       "formLabel": "What service do you require?",
-
       "options": [
         {
           "id": "9192",
@@ -19,7 +18,6 @@
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "Which of the following best describes your gardening job?",
-
             "options": [
               {
                 "id": "9195",
@@ -51,7 +49,6 @@
               "type": "CheckboxQuestion",
               "required": true,
               "formLabel": "Please select the tasks you need completing",
-
               "options": [
                 {
                   "id": "9202",
@@ -102,7 +99,6 @@
                 "type": "TextareaQuestion",
                 "required": true,
                 "formLabel": "Add a description to your job",
-
                 "placeholder": "Include any details you think the tradesperson should know (garden access, timeframe, etc.)",
                 "minLength": 20,
                 "maxLength": 10000,
@@ -127,7 +123,8 @@
                       "formLabel": "Postcode for the job",
                       "helpText": "To find landscape gardeners near you we need to know where the job is."
                     }
-                  }
+                  },
+                  "minLength": 10
                 }
               }
             }
@@ -143,7 +140,6 @@
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "Which of the following best describes your landscaping job?",
-
             "options": [
               {
                 "id": "9214",
@@ -155,7 +151,6 @@
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What needs repairing?",
-
                   "options": [
                     {
                       "id": "9217",
@@ -167,7 +162,6 @@
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (materials, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -192,7 +186,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find landscape gardeners near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     },
@@ -200,13 +195,11 @@
                       "id": "9218",
                       "type": "StandardChoiceOption",
                       "formLabel": "A lawn",
-
                       "next": {
                         "id": "3080",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (materials, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -231,7 +224,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find landscape gardeners near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     },
@@ -239,13 +233,11 @@
                       "id": "9219",
                       "type": "StandardChoiceOption",
                       "formLabel": "A patio",
-
                       "next": {
                         "id": "3080",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (materials, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -270,7 +262,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find landscape gardeners near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     },
@@ -278,13 +271,11 @@
                       "id": "9220",
                       "type": "StandardChoiceOption",
                       "formLabel": "Fencing",
-
                       "next": {
                         "id": "3079",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "Which of the following best describes your gardening job?",
-
                         "options": [
                           {
                             "id": "9223",
@@ -304,7 +295,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (materials, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -329,7 +319,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find landscape gardeners near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -338,13 +329,11 @@
                       "id": "9221",
                       "type": "StandardChoiceOption",
                       "formLabel": "Decking",
-
                       "next": {
                         "id": "3080",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (materials, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -369,7 +358,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find landscape gardeners near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     },
@@ -377,13 +367,11 @@
                       "id": "9222",
                       "type": "StandardChoiceOption",
                       "formLabel": "Other",
-
                       "next": {
                         "id": "3080",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (materials, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -408,7 +396,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find landscape gardeners near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -425,7 +414,6 @@
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What do you wish to add or replace?",
-
                   "options": [
                     {
                       "id": "9225",
@@ -437,7 +425,6 @@
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (items to be installed, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -462,7 +449,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find landscape gardeners near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     },
@@ -470,13 +458,11 @@
                       "id": "9226",
                       "type": "StandardChoiceOption",
                       "formLabel": "A lawn",
-
                       "next": {
                         "id": "3084",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "What type of grass would you like on your lawn?",
-
                         "options": [
                           {
                             "id": "9232",
@@ -496,25 +482,24 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How large is the lawn?",
-
                           "options": [
                             {
                               "id": "9241",
                               "type": "StandardChoiceOption",
                               "formLabel": "Small",
-                              "helpText": "Up to 50m\u00b2 / 500 sq ft"
+                              "helpText": "Up to 50m² / 500 sq ft"
                             },
                             {
                               "id": "9242",
                               "type": "StandardChoiceOption",
                               "formLabel": "Medium",
-                              "helpText": "50m\u00b2 - 100m\u00b2 / 500 - 1000 sq ft"
+                              "helpText": "50m² - 100m² / 500 - 1000 sq ft"
                             },
                             {
                               "id": "9243",
                               "type": "StandardChoiceOption",
                               "formLabel": "Large",
-                              "helpText": "over 100m\u00b2 / 1000 sq ft"
+                              "helpText": "over 100m² / 1000 sq ft"
                             }
                           ],
                           "next": {
@@ -522,7 +507,6 @@
                             "type": "TextareaQuestion",
                             "required": true,
                             "formLabel": "Add a description to your job",
-
                             "placeholder": "Include any details you think the tradesperson should know (soil conditions, timeframe, etc.)",
                             "minLength": 20,
                             "maxLength": 10000,
@@ -547,7 +531,8 @@
                                   "formLabel": "Postcode for the job",
                                   "helpText": "To find landscape gardeners near you we need to know where the job is."
                                 }
-                              }
+                              },
+                              "minLength": 10
                             }
                           }
                         }
@@ -557,37 +542,35 @@
                       "id": "9227",
                       "type": "StandardChoiceOption",
                       "formLabel": "A patio",
-
                       "next": {
                         "id": "3085",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "Roughly how large is the patio area?",
-
                         "options": [
                           {
                             "id": "9234",
                             "type": "StandardChoiceOption",
                             "formLabel": "Small",
-                            "helpText": "Up to 15m\u00b2 / 150 sq ft"
+                            "helpText": "Up to 15m² / 150 sq ft"
                           },
                           {
                             "id": "9235",
                             "type": "StandardChoiceOption",
                             "formLabel": "Medium",
-                            "helpText": "15m\u00b2 - 30m\u00b2 / 150 - 300 sq ft"
+                            "helpText": "15m² - 30m² / 150 - 300 sq ft"
                           },
                           {
                             "id": "9236",
                             "type": "StandardChoiceOption",
                             "formLabel": "Large",
-                            "helpText": "30m\u00b2 - 60m\u00b2 / 300 - 600 sq ft"
+                            "helpText": "30m² - 60m² / 300 - 600 sq ft"
                           },
                           {
                             "id": "9237",
                             "type": "StandardChoiceOption",
                             "formLabel": "X-Large",
-                            "helpText": "Over 60m\u00b2 / 600 sq ft"
+                            "helpText": "Over 60m² / 600 sq ft"
                           }
                         ],
                         "next": {
@@ -595,7 +578,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (paving material, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -620,7 +602,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find landscape gardeners near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -629,13 +612,11 @@
                       "id": "9228",
                       "type": "StandardChoiceOption",
                       "formLabel": "A path",
-
                       "next": {
                         "id": "3086",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (paving material, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -660,7 +641,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find landscape gardeners near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     },
@@ -668,25 +650,21 @@
                       "id": "9229",
                       "type": "StandardChoiceOption",
                       "formLabel": "Fencing",
-
                       "next": {
                         "id": "3087",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "What does your fencing job involve?",
-
                         "options": [
                           {
                             "id": "9238",
                             "type": "StandardChoiceOption",
                             "formLabel": "Fencing",
-
                             "next": {
                               "id": "3092",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "What type of fence would you like?",
-
                               "options": [
                                 {
                                   "id": "9244",
@@ -730,7 +708,6 @@
                                       "type": "TextareaQuestion",
                                       "required": true,
                                       "formLabel": "Add a description to your job",
-
                                       "placeholder": "Include any details you think the tradesperson should know (area layout, timeframe, etc.)",
                                       "minLength": 20,
                                       "maxLength": 10000,
@@ -755,7 +732,8 @@
                                             "formLabel": "Postcode for the job",
                                             "helpText": "To find landscape gardeners near you we need to know where the job is."
                                           }
-                                        }
+                                        },
+                                        "minLength": 10
                                       }
                                     }
                                   }
@@ -802,7 +780,6 @@
                                       "type": "TextareaQuestion",
                                       "required": true,
                                       "formLabel": "Add a description to your job",
-
                                       "placeholder": "Include any details you think the tradesperson should know (area layout, timeframe, etc.)",
                                       "minLength": 20,
                                       "maxLength": 10000,
@@ -827,7 +804,8 @@
                                             "formLabel": "Postcode for the job",
                                             "helpText": "To find landscape gardeners near you we need to know where the job is."
                                           }
-                                        }
+                                        },
+                                        "minLength": 10
                                       }
                                     }
                                   }
@@ -837,7 +815,6 @@
                                   "type": "TextChoiceOption",
                                   "formLabel": "Other",
                                   "placeholder": "type of fence (e.g. trellis, woven, hit and miss)",
-
                                   "next": {
                                     "id": "3094",
                                     "type": "SelectQuestion",
@@ -875,7 +852,6 @@
                                       "type": "TextareaQuestion",
                                       "required": true,
                                       "formLabel": "Add a description to your job",
-
                                       "placeholder": "Include any details you think the tradesperson should know (fence type, timeframe, etc.)",
                                       "minLength": 20,
                                       "maxLength": 10000,
@@ -900,7 +876,8 @@
                                             "formLabel": "Postcode for the job",
                                             "helpText": "To find landscape gardeners near you we need to know where the job is."
                                           }
-                                        }
+                                        },
+                                        "minLength": 10
                                       }
                                     }
                                   }
@@ -912,13 +889,11 @@
                             "id": "9239",
                             "type": "StandardChoiceOption",
                             "formLabel": "Gates",
-
                             "next": {
                               "id": "3099",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "How many gates do you need?",
-
                               "options": [
                                 {
                                   "id": "9268",
@@ -950,7 +925,6 @@
                                 "type": "SelectQuestion",
                                 "required": true,
                                 "formLabel": "Do you already have the gate(s)?",
-
                                 "options": [
                                   {
                                     "id": "9272",
@@ -970,7 +944,6 @@
                                   "type": "TextareaQuestion",
                                   "required": true,
                                   "formLabel": "Add a description to your job",
-
                                   "placeholder": "Include any details you think the tradesperson should know (gate(s) type, timeframe, etc.)",
                                   "minLength": 20,
                                   "maxLength": 10000,
@@ -995,7 +968,8 @@
                                         "formLabel": "Postcode for the job",
                                         "helpText": "To find landscape gardeners near you we need to know where the job is."
                                       }
-                                    }
+                                    },
+                                    "minLength": 10
                                   }
                                 }
                               }
@@ -1005,13 +979,11 @@
                             "id": "9240",
                             "type": "StandardChoiceOption",
                             "formLabel": "Fencing and gates",
-
                             "next": {
                               "id": "3092",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "What type of fence would you like?",
-
                               "options": [
                                 {
                                   "id": "9244",
@@ -1055,7 +1027,6 @@
                                       "type": "SelectQuestion",
                                       "required": true,
                                       "formLabel": "How many gates do you need?",
-
                                       "options": [
                                         {
                                           "id": "9280",
@@ -1081,7 +1052,6 @@
                                         "type": "TextareaQuestion",
                                         "required": true,
                                         "formLabel": "Add a description to your job",
-
                                         "placeholder": "Include any details you think the tradesperson should know (area layout, timeframe, etc.)",
                                         "minLength": 20,
                                         "maxLength": 10000,
@@ -1106,7 +1076,8 @@
                                               "formLabel": "Postcode for the job",
                                               "helpText": "To find landscape gardeners near you we need to know where the job is."
                                             }
-                                          }
+                                          },
+                                          "minLength": 10
                                         }
                                       }
                                     }
@@ -1154,7 +1125,6 @@
                                       "type": "SelectQuestion",
                                       "required": true,
                                       "formLabel": "How many gates do you need?",
-
                                       "options": [
                                         {
                                           "id": "9280",
@@ -1180,7 +1150,6 @@
                                         "type": "TextareaQuestion",
                                         "required": true,
                                         "formLabel": "Add a description to your job",
-
                                         "placeholder": "Include any details you think the tradesperson should know (area layout, timeframe, etc.)",
                                         "minLength": 20,
                                         "maxLength": 10000,
@@ -1205,7 +1174,8 @@
                                               "formLabel": "Postcode for the job",
                                               "helpText": "To find landscape gardeners near you we need to know where the job is."
                                             }
-                                          }
+                                          },
+                                          "minLength": 10
                                         }
                                       }
                                     }
@@ -1216,7 +1186,6 @@
                                   "type": "TextChoiceOption",
                                   "formLabel": "Other",
                                   "placeholder": "type of fence (e.g. trellis, woven, hit and miss)",
-
                                   "next": {
                                     "id": "3094",
                                     "type": "SelectQuestion",
@@ -1254,7 +1223,6 @@
                                       "type": "TextareaQuestion",
                                       "required": true,
                                       "formLabel": "Add a description to your job",
-
                                       "placeholder": "Include any details you think the tradesperson should know (fence type, timeframe, etc.)",
                                       "minLength": 20,
                                       "maxLength": 10000,
@@ -1279,7 +1247,8 @@
                                             "formLabel": "Postcode for the job",
                                             "helpText": "To find landscape gardeners near you we need to know where the job is."
                                           }
-                                        }
+                                        },
+                                        "minLength": 10
                                       }
                                     }
                                   }
@@ -1294,37 +1263,35 @@
                       "id": "9230",
                       "type": "StandardChoiceOption",
                       "formLabel": "Decking",
-
                       "next": {
                         "id": "2932",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "Roughly how large is the area to be decked?",
-
                         "options": [
                           {
                             "id": "8943",
                             "type": "StandardChoiceOption",
                             "formLabel": "Small",
-                            "helpText": "Up to 15m\u00b2 / 150 sq ft"
+                            "helpText": "Up to 15m² / 150 sq ft"
                           },
                           {
                             "id": "8944",
                             "type": "StandardChoiceOption",
                             "formLabel": "Medium",
-                            "helpText": "15m\u00b2 - 30m\u00b2 / 150 - 300 sq ft"
+                            "helpText": "15m² - 30m² / 150 - 300 sq ft"
                           },
                           {
                             "id": "8945",
                             "type": "StandardChoiceOption",
                             "formLabel": "Large",
-                            "helpText": "30m2 - 60m\u00b2 / 300 - 600 sq ft"
+                            "helpText": "30m2 - 60m² / 300 - 600 sq ft"
                           },
                           {
                             "id": "8946",
                             "type": "StandardChoiceOption",
                             "formLabel": "X-large",
-                            "helpText": "Over 60m\u00b2 / 600 sq ft"
+                            "helpText": "Over 60m² / 600 sq ft"
                           }
                         ],
                         "next": {
@@ -1332,7 +1299,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (materials, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -1357,7 +1323,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find landscape gardeners near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -1366,13 +1333,11 @@
                       "id": "9231",
                       "type": "StandardChoiceOption",
                       "formLabel": "Other",
-
                       "next": {
                         "id": "3088",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (item(s) to be installed, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -1397,7 +1362,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find landscape gardeners near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -1414,7 +1380,6 @@
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (approx. garden size, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -1439,7 +1404,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find landscape gardeners near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               }
@@ -1456,31 +1422,26 @@
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What type of tree surgery service do you require?",
-
             "options": [
               {
                 "id": "9247",
                 "type": "StandardChoiceOption",
                 "formLabel": "Trimming or topping",
-
                 "next": {
                   "id": "3095",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "How many trees are involved?",
-
                   "options": [
                     {
                       "id": "9257",
                       "type": "StandardChoiceOption",
                       "formLabel": "1",
-
                       "next": {
                         "id": "3097",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "How large is the tree?",
-
                         "options": [
                           {
                             "id": "9265",
@@ -1506,7 +1467,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (tree type, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -1531,7 +1491,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find landscape gardeners near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -1540,7 +1501,6 @@
                       "id": "9258",
                       "type": "StandardChoiceOption",
                       "formLabel": "2",
-
                       "next": {
                         "id": "3101",
                         "type": "SelectQuestion",
@@ -1572,7 +1532,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (tree type, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -1597,7 +1556,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find landscape gardeners near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -1606,7 +1566,6 @@
                       "id": "9259",
                       "type": "StandardChoiceOption",
                       "formLabel": "3",
-
                       "next": {
                         "id": "3101",
                         "type": "SelectQuestion",
@@ -1638,7 +1597,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (tree type, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -1663,7 +1621,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find landscape gardeners near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -1672,7 +1631,6 @@
                       "id": "9260",
                       "type": "StandardChoiceOption",
                       "formLabel": "4 or more",
-
                       "next": {
                         "id": "3101",
                         "type": "SelectQuestion",
@@ -1704,7 +1662,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (tree type, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -1729,7 +1686,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find landscape gardeners near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -1741,25 +1699,21 @@
                 "id": "9248",
                 "type": "StandardChoiceOption",
                 "formLabel": "Cutting down (felling)",
-
                 "next": {
                   "id": "3102",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "How many trees need to be cut down?",
-
                   "options": [
                     {
                       "id": "9277",
                       "type": "StandardChoiceOption",
                       "formLabel": "1",
-
                       "next": {
                         "id": "3097",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "How large is the tree?",
-
                         "options": [
                           {
                             "id": "9265",
@@ -1785,7 +1739,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (tree type, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -1810,7 +1763,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find landscape gardeners near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -1819,7 +1773,6 @@
                       "id": "9278",
                       "type": "StandardChoiceOption",
                       "formLabel": "2",
-
                       "next": {
                         "id": "3101",
                         "type": "SelectQuestion",
@@ -1851,7 +1804,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (tree type, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -1876,7 +1828,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find landscape gardeners near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -1885,7 +1838,6 @@
                       "id": "9279",
                       "type": "StandardChoiceOption",
                       "formLabel": "3 or more",
-
                       "next": {
                         "id": "3101",
                         "type": "SelectQuestion",
@@ -1917,7 +1869,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (tree type, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -1942,7 +1893,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find landscape gardeners near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -1954,13 +1906,11 @@
                 "id": "9249",
                 "type": "StandardChoiceOption",
                 "formLabel": "Stump removal only",
-
                 "next": {
                   "id": "3105",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "How many stumps do you need removed?",
-
                   "options": [
                     {
                       "id": "9283",
@@ -1980,7 +1930,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (approx. stump size, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -2005,7 +1954,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find landscape gardeners near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -2014,13 +1964,11 @@
                 "id": "9250",
                 "type": "StandardChoiceOption",
                 "formLabel": "Diagnosis / Assessment",
-
                 "next": {
                   "id": "3110",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (problem description, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -2045,7 +1993,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find landscape gardeners near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -2053,7 +2002,6 @@
                 "id": "9251",
                 "type": "StandardChoiceOption",
                 "formLabel": "Bushes, or other gardening tasks",
-
                 "next": {
                   "id": "3109",
                   "type": "TextareaQuestion",
@@ -2084,7 +2032,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find landscape gardeners near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -2092,7 +2041,6 @@
                 "id": "9252",
                 "type": "StandardChoiceOption",
                 "formLabel": "Other",
-
                 "next": {
                   "id": "3111",
                   "type": "TextareaQuestion",
@@ -2123,7 +2071,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find landscape gardeners near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               }
