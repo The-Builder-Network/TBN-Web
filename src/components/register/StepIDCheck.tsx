@@ -60,8 +60,8 @@ const StepIDCheck = ({
           <h2 className="text-3xl font-bold">Verify your identity</h2>
         </div>
         <p className="text-base mb-4">
-          This helps us check that you're really you and helps keep MyBuilder
-          secure.
+          This helps us check that you're really you and helps keep The Builder
+          Network secure.
         </p>
         <p className="text-base mb-8">
           We will handle your personal data securely and in accordance with our{" "}
