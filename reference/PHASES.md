@@ -500,7 +500,7 @@ FRONTEND:
 8. Build PurchaseCreditsModal: show 4 credit packs (25/60/150/400 credits at different prices), "Buy" button calls useCreateCheckout() which redirects to Stripe
 9. Wire Balance tab in TradespersonProfilePage: show balance from useBalance(), "Buy credits" button opens PurchaseCreditsModal, auto-topup toggle
 10. Wire Payments tab: usePaymentHistory() with pagination
-11. In TradespersonLeadDetailPage: if balance < creditCost, show "Insufficient credits" with CTA to open PurchaseCreditsModal instead of express interest form
+11. In TradespersonLeadDetailPage: if balance < creditCost, show  "Insufficient credits" with CTA to open PurchaseCreditsModal instead of express interest form
 
 Test: Purchase credits via Stripe test mode → verify balance increases → express interest → verify deduction → check payment history.
 ```
