@@ -1,6 +1,8 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import { useSocketConnection } from "@/hooks/useSocketConnection";
+import { useNotificationSocket } from "@/hooks/useNotificationSocket";
 
 /**
  * Shared page layout shell that wraps all public pages with Header + Footer.
@@ -8,6 +10,9 @@ import Footer from "./Footer";
  * import Header/Footer themselves.
  */
 const PageLayout = () => {
+  useSocketConnection();
+  useNotificationSocket();
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />

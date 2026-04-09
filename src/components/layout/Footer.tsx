@@ -33,7 +33,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    to="/tradespeople"
+                    to="/trades"
                     className="hover:text-foreground hover:underline transition-colors underline"
                   >
                     Find trades
