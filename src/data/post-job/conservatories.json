@@ -7,31 +7,26 @@
       "type": "SelectQuestion",
       "required": true,
       "formLabel": "What do you need a conservatory installer's help with?",
-
       "options": [
         {
           "id": "8325",
           "type": "StandardChoiceOption",
           "formLabel": "A new conservatory installation",
-
           "next": {
             "id": "2650",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What do you need to have done?",
-
             "options": [
               {
                 "id": "8328",
                 "type": "StandardChoiceOption",
                 "formLabel": "Build the conservatory and base",
-
                 "next": {
                   "id": "2651",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (approx. conservatory size, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -56,7 +51,8 @@
                         "formLabel": "Postcode",
                         "helpText": "To find conservatory installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -64,13 +60,11 @@
                 "id": "8329",
                 "type": "StandardChoiceOption",
                 "formLabel": "Erect conservatory only",
-
                 "next": {
                   "id": "2651",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (approx. conservatory size, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -95,7 +89,8 @@
                         "formLabel": "Postcode",
                         "helpText": "To find conservatory installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -103,13 +98,11 @@
                 "id": "8330",
                 "type": "StandardChoiceOption",
                 "formLabel": "Build base only",
-
                 "next": {
                   "id": "2655",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (approx. base size, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -134,7 +127,8 @@
                         "formLabel": "Postcode",
                         "helpText": "To find conservatory installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               }
@@ -145,13 +139,11 @@
           "id": "8326",
           "type": "StandardChoiceOption",
           "formLabel": "Replace or improve an existing conservatory",
-
           "next": {
             "id": "2652",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What needs doing?",
-
             "options": [
               {
                 "id": "8331",
@@ -177,7 +169,6 @@
               "type": "TextareaQuestion",
               "required": true,
               "formLabel": "Add a description to your job",
-
               "placeholder": "Include any details you think the tradesperson should know (type of improvement, timeframe, etc.)",
               "minLength": 20,
               "maxLength": 10000,
@@ -202,7 +193,8 @@
                     "formLabel": "Postcode",
                     "helpText": "To find conservatory installers near you we need to know where the job is."
                   }
-                }
+                },
+                "minLength": 10
               }
             }
           }
@@ -211,25 +203,21 @@
           "id": "8327",
           "type": "StandardChoiceOption",
           "formLabel": "A repair",
-
           "next": {
             "id": "2654",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What is the issue?",
-
             "options": [
               {
                 "id": "8334",
                 "type": "StandardChoiceOption",
                 "formLabel": "Leak",
-
                 "next": {
                   "id": "2655",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (approx. base size, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -254,7 +242,8 @@
                         "formLabel": "Postcode",
                         "helpText": "To find conservatory installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -262,13 +251,11 @@
                 "id": "8335",
                 "type": "StandardChoiceOption",
                 "formLabel": "Roof",
-
                 "next": {
                   "id": "2655",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (approx. base size, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -293,7 +280,8 @@
                         "formLabel": "Postcode",
                         "helpText": "To find conservatory installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -301,13 +289,11 @@
                 "id": "8336",
                 "type": "StandardChoiceOption",
                 "formLabel": "Faulty door or windows",
-
                 "next": {
                   "id": "2655",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (approx. base size, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -332,7 +318,8 @@
                         "formLabel": "Postcode",
                         "helpText": "To find conservatory installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -340,13 +327,11 @@
                 "id": "8337",
                 "type": "StandardChoiceOption",
                 "formLabel": "Broken glass",
-
                 "next": {
                   "id": "2655",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (approx. base size, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -371,7 +356,8 @@
                         "formLabel": "Postcode",
                         "helpText": "To find conservatory installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -379,13 +365,11 @@
                 "id": "8339",
                 "type": "StandardChoiceOption",
                 "formLabel": "Other",
-
                 "next": {
                   "id": "2655",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (approx. base size, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -410,7 +394,8 @@
                         "formLabel": "Postcode",
                         "helpText": "To find conservatory installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               }

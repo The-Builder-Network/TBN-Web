@@ -7,19 +7,16 @@
       "type": "SelectQuestion",
       "required": true,
       "formLabel": "Please select what best describes your job:",
-
       "options": [
         {
           "id": "8522",
           "type": "StandardChoiceOption",
           "formLabel": "Loft conversion",
-
           "next": {
             "id": "2740",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What type of loft conversion do you want?",
-
             "options": [
               {
                 "id": "8526",
@@ -31,7 +28,6 @@
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What type of house is the loft conversion for?",
-
                   "options": [
                     {
                       "id": "8530",
@@ -76,31 +72,26 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "Do you own the property?",
-
                     "options": [
                       {
                         "id": "8536",
                         "type": "StandardChoiceOption",
                         "formLabel": "Yes",
-
                         "next": {
                           "id": "2743",
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "Have you had any plans drawn up?",
-
                           "options": [
                             {
                               "id": "8539",
                               "type": "StandardChoiceOption",
                               "formLabel": "Yes I have plans",
-
                               "next": {
                                 "id": "2745",
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -125,7 +116,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find conversion specialists near you we need to know where the job is"
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             },
@@ -133,13 +125,11 @@
                               "id": "8540",
                               "type": "StandardChoiceOption",
                               "formLabel": "Plans are being drawn up",
-
                               "next": {
                                 "id": "2745",
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -164,7 +154,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find conversion specialists near you we need to know where the job is"
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             },
@@ -172,7 +163,6 @@
                               "id": "8541",
                               "type": "StandardChoiceOption",
                               "formLabel": "No plans have been drawn up",
-
                               "next": {
                                 "id": "2744",
                                 "type": "SelectQuestion",
@@ -184,13 +174,11 @@
                                     "id": "8542",
                                     "type": "StandardChoiceOption",
                                     "formLabel": "Okay - send my job to architects",
-
                                     "next": {
                                       "id": "2745",
                                       "type": "TextareaQuestion",
                                       "required": true,
                                       "formLabel": "Add a description to your job",
-
                                       "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                                       "minLength": 20,
                                       "maxLength": 10000,
@@ -215,7 +203,8 @@
                                             "formLabel": "Postcode for the job",
                                             "helpText": "To find conversion specialists near you we need to know where the job is"
                                           }
-                                        }
+                                        },
+                                        "minLength": 10
                                       }
                                     }
                                   },
@@ -223,13 +212,11 @@
                                     "id": "8543",
                                     "type": "StandardChoiceOption",
                                     "formLabel": "Continue posting this job without plans",
-
                                     "next": {
                                       "id": "2745",
                                       "type": "TextareaQuestion",
                                       "required": true,
                                       "formLabel": "Add a description to your job",
-
                                       "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                                       "minLength": 20,
                                       "maxLength": 10000,
@@ -254,7 +241,8 @@
                                             "formLabel": "Postcode for the job",
                                             "helpText": "To find conversion specialists near you we need to know where the job is"
                                           }
-                                        }
+                                        },
+                                        "minLength": 10
                                       }
                                     }
                                   }
@@ -268,13 +256,11 @@
                         "id": "8537",
                         "type": "StandardChoiceOption",
                         "formLabel": "I will - purchase in progress",
-
                         "next": {
                           "id": "2745",
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -299,7 +285,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find conversion specialists near you we need to know where the job is"
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       },
@@ -307,13 +294,11 @@
                         "id": "8538",
                         "type": "StandardChoiceOption",
                         "formLabel": "No",
-
                         "next": {
                           "id": "2745",
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -338,7 +323,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find conversion specialists near you we need to know where the job is"
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -356,7 +342,6 @@
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What type of house is the loft conversion for?",
-
                   "options": [
                     {
                       "id": "8530",
@@ -401,31 +386,26 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "Do you own the property?",
-
                     "options": [
                       {
                         "id": "8536",
                         "type": "StandardChoiceOption",
                         "formLabel": "Yes",
-
                         "next": {
                           "id": "2743",
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "Have you had any plans drawn up?",
-
                           "options": [
                             {
                               "id": "8539",
                               "type": "StandardChoiceOption",
                               "formLabel": "Yes I have plans",
-
                               "next": {
                                 "id": "2745",
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -450,7 +430,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find conversion specialists near you we need to know where the job is"
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             },
@@ -458,13 +439,11 @@
                               "id": "8540",
                               "type": "StandardChoiceOption",
                               "formLabel": "Plans are being drawn up",
-
                               "next": {
                                 "id": "2745",
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -489,7 +468,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find conversion specialists near you we need to know where the job is"
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             },
@@ -497,7 +477,6 @@
                               "id": "8541",
                               "type": "StandardChoiceOption",
                               "formLabel": "No plans have been drawn up",
-
                               "next": {
                                 "id": "2744",
                                 "type": "SelectQuestion",
@@ -509,13 +488,11 @@
                                     "id": "8542",
                                     "type": "StandardChoiceOption",
                                     "formLabel": "Okay - send my job to architects",
-
                                     "next": {
                                       "id": "2745",
                                       "type": "TextareaQuestion",
                                       "required": true,
                                       "formLabel": "Add a description to your job",
-
                                       "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                                       "minLength": 20,
                                       "maxLength": 10000,
@@ -540,7 +517,8 @@
                                             "formLabel": "Postcode for the job",
                                             "helpText": "To find conversion specialists near you we need to know where the job is"
                                           }
-                                        }
+                                        },
+                                        "minLength": 10
                                       }
                                     }
                                   },
@@ -548,13 +526,11 @@
                                     "id": "8543",
                                     "type": "StandardChoiceOption",
                                     "formLabel": "Continue posting this job without plans",
-
                                     "next": {
                                       "id": "2745",
                                       "type": "TextareaQuestion",
                                       "required": true,
                                       "formLabel": "Add a description to your job",
-
                                       "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                                       "minLength": 20,
                                       "maxLength": 10000,
@@ -579,7 +555,8 @@
                                             "formLabel": "Postcode for the job",
                                             "helpText": "To find conversion specialists near you we need to know where the job is"
                                           }
-                                        }
+                                        },
+                                        "minLength": 10
                                       }
                                     }
                                   }
@@ -593,13 +570,11 @@
                         "id": "8537",
                         "type": "StandardChoiceOption",
                         "formLabel": "I will - purchase in progress",
-
                         "next": {
                           "id": "2745",
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -624,7 +599,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find conversion specialists near you we need to know where the job is"
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       },
@@ -632,13 +608,11 @@
                         "id": "8538",
                         "type": "StandardChoiceOption",
                         "formLabel": "No",
-
                         "next": {
                           "id": "2745",
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -663,7 +637,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find conversion specialists near you we need to know where the job is"
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -681,7 +656,6 @@
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What do you need doing in your loft?",
-
                   "options": [
                     {
                       "id": "8544",
@@ -693,7 +667,6 @@
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -718,7 +691,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find conversion specialists near you we need to know where the job is"
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     },
@@ -732,7 +706,6 @@
                         "type": "CheckboxQuestion",
                         "required": true,
                         "formLabel": "What extra work do you need doing in your loft?",
-
                         "options": [
                           {
                             "id": "8546",
@@ -764,7 +737,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (approx. loft size, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -789,7 +761,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find conversion specialists near you we need to know where the job is"
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -807,7 +780,6 @@
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (skylight type, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -832,7 +804,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find conversion specialists near you we need to know where the job is"
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               }
@@ -849,7 +822,6 @@
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "How extensive is your conversion job?",
-
             "options": [
               {
                 "id": "8550",
@@ -881,7 +853,6 @@
               "type": "SelectQuestion",
               "required": true,
               "formLabel": "Do you own the property?",
-
               "options": [
                 {
                   "id": "8536",
@@ -907,7 +878,6 @@
                 "type": "CheckboxQuestion",
                 "required": true,
                 "formLabel": "Select all the works that are required for your job:",
-
                 "options": [
                   {
                     "id": "8554",
@@ -958,7 +928,6 @@
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (approx. size of area to be converted, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -983,7 +952,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find conversion specialists near you we need to know where the job is"
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               }
@@ -1000,19 +970,16 @@
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "Which of the following best describes your wall alteration job?",
-
             "options": [
               {
                 "id": "8561",
                 "type": "StandardChoiceOption",
                 "formLabel": "Window or door installation / replacement",
-
                 "next": {
                   "id": "2755",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (wall alteration location, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -1037,7 +1004,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find conversion specialists near you we need to know where the job is"
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -1045,13 +1013,11 @@
                 "id": "8562",
                 "type": "StandardChoiceOption",
                 "formLabel": "Wall removal",
-
                 "next": {
                   "id": "2754",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Is it a load bearing wall?",
-
                   "options": [
                     {
                       "id": "8564",
@@ -1077,7 +1043,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (wall alteration location, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -1102,7 +1067,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find conversion specialists near you we need to know where the job is"
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -1111,13 +1077,11 @@
                 "id": "8563",
                 "type": "StandardChoiceOption",
                 "formLabel": "Other",
-
                 "next": {
                   "id": "2755",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (wall alteration location, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -1142,7 +1106,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find conversion specialists near you we need to know where the job is"
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               }
@@ -1159,19 +1124,16 @@
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "Do you own the property?",
-
             "options": [
               {
                 "id": "8567",
                 "type": "StandardChoiceOption",
                 "formLabel": "Yes",
-
                 "next": {
                   "id": "2757",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What type of job is it?",
-
                   "options": [
                     {
                       "id": "8571",
@@ -1222,7 +1184,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find conversion specialists near you we need to know where the job is"
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -1231,13 +1194,11 @@
                 "id": "8568",
                 "type": "StandardChoiceOption",
                 "formLabel": "I will - purchase in progress",
-
                 "next": {
                   "id": "2757",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What type of job is it?",
-
                   "options": [
                     {
                       "id": "8571",
@@ -1288,7 +1249,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find conversion specialists near you we need to know where the job is"
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -1297,13 +1259,11 @@
                 "id": "8569",
                 "type": "StandardChoiceOption",
                 "formLabel": "No - I'm posting on behalf of the property owner",
-
                 "next": {
                   "id": "2757",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What type of job is it?",
-
                   "options": [
                     {
                       "id": "8571",
@@ -1354,7 +1314,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find conversion specialists near you we need to know where the job is"
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -1363,13 +1324,11 @@
                 "id": "8570",
                 "type": "StandardChoiceOption",
                 "formLabel": "It's a commercial property",
-
                 "next": {
                   "id": "2758",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What type of job is it?",
-
                   "options": [
                     {
                       "id": "8574",
@@ -1420,7 +1379,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find conversion specialists near you we need to know where the job is"
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }

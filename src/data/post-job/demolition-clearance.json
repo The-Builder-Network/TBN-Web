@@ -7,7 +7,6 @@
       "type": "SelectQuestion",
       "required": true,
       "formLabel": "What type of service do you require?",
-
       "options": [
         {
           "id": "8405",
@@ -19,7 +18,6 @@
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "How much waste do you need clearing?",
-
             "options": [
               {
                 "id": "8408",
@@ -57,13 +55,11 @@
                   "id": "8412",
                   "type": "StandardChoiceOption",
                   "formLabel": "Yes",
-
                   "next": {
                     "id": "2681",
                     "type": "CheckboxQuestion",
                     "required": true,
                     "formLabel": "Select the hazardous materials that you're aware of:",
-
                     "options": [
                       {
                         "id": "8415",
@@ -112,7 +108,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
                       "minLength": 20,
                       "maxLength": 10000,
@@ -137,7 +132,8 @@
                             "formLabel": "Postcode for the job",
                             "helpText": "To find clearance specialists near you we need to know where the job is."
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -146,13 +142,11 @@
                   "id": "8413",
                   "type": "StandardChoiceOption",
                   "formLabel": "No",
-
                   "next": {
                     "id": "2684",
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -177,7 +171,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find clearance specialists near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 },
@@ -185,13 +180,11 @@
                   "id": "8414",
                   "type": "StandardChoiceOption",
                   "formLabel": "I am not sure",
-
                   "next": {
                     "id": "2684",
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -216,7 +209,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find clearance specialists near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -234,7 +228,6 @@
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "Roughly, how large is the structure that needs demolishing?",
-
             "options": [
               {
                 "id": "8423",
@@ -252,13 +245,11 @@
                       "id": "8412",
                       "type": "StandardChoiceOption",
                       "formLabel": "Yes",
-
                       "next": {
                         "id": "2681",
                         "type": "CheckboxQuestion",
                         "required": true,
                         "formLabel": "Select the hazardous materials that you're aware of:",
-
                         "options": [
                           {
                             "id": "8415",
@@ -315,7 +306,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -340,7 +330,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find clearance specialists near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -349,13 +340,11 @@
                       "id": "8413",
                       "type": "StandardChoiceOption",
                       "formLabel": "No",
-
                       "next": {
                         "id": "2684",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -380,7 +369,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find clearance specialists near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     },
@@ -388,13 +378,11 @@
                       "id": "8414",
                       "type": "StandardChoiceOption",
                       "formLabel": "I am not sure",
-
                       "next": {
                         "id": "2684",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -419,7 +407,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find clearance specialists near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -442,13 +431,11 @@
                       "id": "8412",
                       "type": "StandardChoiceOption",
                       "formLabel": "Yes",
-
                       "next": {
                         "id": "2681",
                         "type": "CheckboxQuestion",
                         "required": true,
                         "formLabel": "Select the hazardous materials that you're aware of:",
-
                         "options": [
                           {
                             "id": "8415",
@@ -505,7 +492,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -530,7 +516,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find clearance specialists near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -539,13 +526,11 @@
                       "id": "8413",
                       "type": "StandardChoiceOption",
                       "formLabel": "No",
-
                       "next": {
                         "id": "2684",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -570,7 +555,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find clearance specialists near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     },
@@ -578,13 +564,11 @@
                       "id": "8414",
                       "type": "StandardChoiceOption",
                       "formLabel": "I am not sure",
-
                       "next": {
                         "id": "2684",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -609,7 +593,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find clearance specialists near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -632,13 +617,11 @@
                       "id": "8412",
                       "type": "StandardChoiceOption",
                       "formLabel": "Yes",
-
                       "next": {
                         "id": "2681",
                         "type": "CheckboxQuestion",
                         "required": true,
                         "formLabel": "Select the hazardous materials that you're aware of:",
-
                         "options": [
                           {
                             "id": "8415",
@@ -695,7 +678,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -720,7 +702,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find clearance specialists near you we need to know where the job is."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -729,13 +712,11 @@
                       "id": "8413",
                       "type": "StandardChoiceOption",
                       "formLabel": "No",
-
                       "next": {
                         "id": "2684",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -760,7 +741,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find clearance specialists near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     },
@@ -768,13 +750,11 @@
                       "id": "8414",
                       "type": "StandardChoiceOption",
                       "formLabel": "I am not sure",
-
                       "next": {
                         "id": "2684",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -799,7 +779,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find clearance specialists near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -816,7 +797,6 @@
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (waste type, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -841,7 +821,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find clearance specialists near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               }
@@ -858,7 +839,6 @@
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What type of wall do you want to remove?",
-
             "options": [
               {
                 "id": "8437",
@@ -884,7 +864,6 @@
               "type": "TextareaQuestion",
               "required": true,
               "formLabel": "Add a description to your job",
-
               "placeholder": "Include any details you think the tradesperson should know (wall size, timeframe, etc.)",
               "minLength": 20,
               "maxLength": 10000,
@@ -909,7 +888,8 @@
                     "formLabel": "Postcode for the job",
                     "helpText": "To find clearance specialists near you we need to know where the job is."
                   }
-                }
+                },
+                "minLength": 10
               }
             }
           }

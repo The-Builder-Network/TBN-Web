@@ -7,19 +7,16 @@
       "type": "SelectQuestion",
       "required": true,
       "formLabel": "Do you know what is causing your damp problem?",
-
       "options": [
         {
           "id": "8319",
           "type": "StandardChoiceOption",
           "formLabel": "No - I need help investigating",
-
           "next": {
             "id": "2644",
             "type": "TextareaQuestion",
             "required": true,
             "formLabel": "Add a description to your job",
-
             "placeholder": "Include any details you think the tradesperson should know (size of damaged area, timeframe, etc.)",
             "minLength": 20,
             "maxLength": 10000,
@@ -44,7 +41,8 @@
                   "formLabel": "Postcode for the job",
                   "helpText": "To find damp proof specialists near you we need to know where the job is."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         },
@@ -52,13 +50,11 @@
           "id": "8320",
           "type": "StandardChoiceOption",
           "formLabel": "Yes - I just need help fixing the problem",
-
           "next": {
             "id": "2645",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "How big is the affected area?",
-
             "options": [
               {
                 "id": "8321",
@@ -75,7 +71,7 @@
               {
                 "id": "8323",
                 "type": "StandardChoiceOption",
-                "formLabel": "I\u2019m not sure",
+                "formLabel": "I’m not sure",
                 "helpText": null
               }
             ],
@@ -84,7 +80,6 @@
               "type": "TextareaQuestion",
               "required": true,
               "formLabel": "Add a description to your job",
-
               "placeholder": "Include any details you think the tradesperson should know (damage material, timeframe, etc.)",
               "minLength": 20,
               "maxLength": 10000,
@@ -109,7 +104,8 @@
                     "formLabel": "Postcode for the job",
                     "helpText": "To find damp proof specialists near you we need to know where the job is."
                   }
-                }
+                },
+                "minLength": 10
               }
             }
           }

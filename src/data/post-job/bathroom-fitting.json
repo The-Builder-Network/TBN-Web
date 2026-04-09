@@ -7,7 +7,6 @@
       "type": "SelectQuestion",
       "required": true,
       "formLabel": "What work are you looking to undertake?",
-
       "options": [
         {
           "id": "8266",
@@ -19,31 +18,26 @@
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "How many bathrooms need refurbishing / installing?",
-
             "options": [
               {
                 "id": "8271",
                 "type": "StandardChoiceOption",
                 "formLabel": "1",
-
                 "next": {
                   "id": "2621",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What type of bathroom?",
-
                   "options": [
                     {
                       "id": "8273",
                       "type": "StandardChoiceOption",
                       "formLabel": "A main bathroom",
-
                       "next": {
                         "id": "2622",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "How extensive are the works?",
-
                         "options": [
                           {
                             "id": "8277",
@@ -61,13 +55,11 @@
                                   "id": "8280",
                                   "type": "StandardChoiceOption",
                                   "formLabel": "Yes",
-
                                   "next": {
                                     "id": "2626",
                                     "type": "TextareaQuestion",
                                     "required": true,
                                     "formLabel": "Add a description to your job",
-
                                     "placeholder": "Include any details you think the tradesperson should know (structural work details, timeframe, etc.)",
                                     "minLength": 20,
                                     "maxLength": 10000,
@@ -92,7 +84,8 @@
                                           "formLabel": "Postcode for the job",
                                           "helpText": "To find bathroom fitters near you we need to know where the job is."
                                         }
-                                      }
+                                      },
+                                      "minLength": 10
                                     }
                                   }
                                 },
@@ -100,13 +93,11 @@
                                   "id": "8281",
                                   "type": "StandardChoiceOption",
                                   "formLabel": "No",
-
                                   "next": {
                                     "id": "2625",
                                     "type": "TextareaQuestion",
                                     "required": true,
                                     "formLabel": "Add a description to your job",
-
                                     "placeholder": "Include any details you think the tradesperson should know (works included, timeframe, etc.)",
                                     "minLength": 20,
                                     "maxLength": 10000,
@@ -131,7 +122,8 @@
                                           "formLabel": "Postcode for the job",
                                           "helpText": "To find bathroom fitters near you we need to know where the job is."
                                         }
-                                      }
+                                      },
+                                      "minLength": 10
                                     }
                                   }
                                 }
@@ -148,7 +140,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (works included, timeframe, etc.)",
                               "minLength": 20,
                               "maxLength": 10000,
@@ -173,7 +164,8 @@
                                     "formLabel": "Postcode for the job",
                                     "helpText": "To find bathroom fitters near you we need to know where the job is."
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           },
@@ -187,7 +179,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (works included, timeframe, etc.)",
                               "minLength": 20,
                               "maxLength": 10000,
@@ -212,7 +203,8 @@
                                     "formLabel": "Postcode for the job",
                                     "helpText": "To find bathroom fitters near you we need to know where the job is."
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -223,13 +215,11 @@
                       "id": "8274",
                       "type": "StandardChoiceOption",
                       "formLabel": "Ensuite",
-
                       "next": {
                         "id": "2622",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "How extensive are the works?",
-
                         "options": [
                           {
                             "id": "8277",
@@ -247,13 +237,11 @@
                                   "id": "8280",
                                   "type": "StandardChoiceOption",
                                   "formLabel": "Yes",
-
                                   "next": {
                                     "id": "2626",
                                     "type": "TextareaQuestion",
                                     "required": true,
                                     "formLabel": "Add a description to your job",
-
                                     "placeholder": "Include any details you think the tradesperson should know (structural work details, timeframe, etc.)",
                                     "minLength": 20,
                                     "maxLength": 10000,
@@ -278,7 +266,8 @@
                                           "formLabel": "Postcode for the job",
                                           "helpText": "To find bathroom fitters near you we need to know where the job is."
                                         }
-                                      }
+                                      },
+                                      "minLength": 10
                                     }
                                   }
                                 },
@@ -286,13 +275,11 @@
                                   "id": "8281",
                                   "type": "StandardChoiceOption",
                                   "formLabel": "No",
-
                                   "next": {
                                     "id": "2625",
                                     "type": "TextareaQuestion",
                                     "required": true,
                                     "formLabel": "Add a description to your job",
-
                                     "placeholder": "Include any details you think the tradesperson should know (works included, timeframe, etc.)",
                                     "minLength": 20,
                                     "maxLength": 10000,
@@ -317,7 +304,8 @@
                                           "formLabel": "Postcode for the job",
                                           "helpText": "To find bathroom fitters near you we need to know where the job is."
                                         }
-                                      }
+                                      },
+                                      "minLength": 10
                                     }
                                   }
                                 }
@@ -334,7 +322,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (works included, timeframe, etc.)",
                               "minLength": 20,
                               "maxLength": 10000,
@@ -359,7 +346,8 @@
                                     "formLabel": "Postcode for the job",
                                     "helpText": "To find bathroom fitters near you we need to know where the job is."
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           },
@@ -373,7 +361,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (works included, timeframe, etc.)",
                               "minLength": 20,
                               "maxLength": 10000,
@@ -398,7 +385,8 @@
                                     "formLabel": "Postcode for the job",
                                     "helpText": "To find bathroom fitters near you we need to know where the job is."
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -409,13 +397,11 @@
                       "id": "8275",
                       "type": "StandardChoiceOption",
                       "formLabel": "Toilet / cloakroom",
-
                       "next": {
                         "id": "2625",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (works included, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -440,7 +426,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find bathroom fitters near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     },
@@ -448,7 +435,6 @@
                       "id": "8276",
                       "type": "StandardChoiceOption",
                       "formLabel": "Other",
-
                       "next": {
                         "id": "2623",
                         "type": "TextareaQuestion",
@@ -479,7 +465,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find bathroom fitters near you we need to know where the job is."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -490,13 +477,11 @@
                 "id": "8272",
                 "type": "StandardChoiceOption",
                 "formLabel": "2 or more",
-
                 "next": {
                   "id": "2625",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (works included, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -521,7 +506,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find bathroom fitters near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               }
@@ -544,13 +530,11 @@
                 "id": "8282",
                 "type": "StandardChoiceOption",
                 "formLabel": "Yes",
-
                 "next": {
                   "id": "2628",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "How many items do you need installed or replaced?",
-
                   "options": [
                     {
                       "id": "8284",
@@ -576,7 +560,6 @@
                     "type": "CheckboxQuestion",
                     "required": true,
                     "formLabel": "Which fixtures require installation / replacing?",
-
                     "options": [
                       {
                         "id": "8287",
@@ -614,7 +597,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (additional works included, timeframe, etc.)",
                       "minLength": 20,
                       "maxLength": 10000,
@@ -639,7 +621,8 @@
                             "formLabel": "Postcode for the job",
                             "helpText": "To find bathroom fitters near you we need to know where the job is."
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -649,13 +632,11 @@
                 "id": "8283",
                 "type": "StandardChoiceOption",
                 "formLabel": "No",
-
                 "next": {
                   "id": "2628",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "How many items do you need installed or replaced?",
-
                   "options": [
                     {
                       "id": "8284",
@@ -681,7 +662,6 @@
                     "type": "CheckboxQuestion",
                     "required": true,
                     "formLabel": "Which fixtures require installation / replacing?",
-
                     "options": [
                       {
                         "id": "8287",
@@ -719,7 +699,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (fixture model, timeframe, etc.)",
                       "minLength": 20,
                       "maxLength": 10000,
@@ -744,7 +723,8 @@
                             "formLabel": "Postcode for the job",
                             "helpText": "To find bathroom fitters near you we need to know where the job is."
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -763,19 +743,16 @@
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "Is it a leak?",
-
             "options": [
               {
                 "id": "8293",
                 "type": "StandardChoiceOption",
                 "formLabel": "Yes",
-
                 "next": {
                   "id": "2632",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Have you identified the source of the leak?",
-
                   "options": [
                     {
                       "id": "8295",
@@ -795,7 +772,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (fault description, timeframe, etc)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -820,7 +796,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find bathroom fitters near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -829,13 +806,11 @@
                 "id": "8294",
                 "type": "StandardChoiceOption",
                 "formLabel": "No",
-
                 "next": {
                   "id": "2633",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "How many fixtures / appliances do you need repaired?",
-
                   "options": [
                     {
                       "id": "8297",
@@ -855,7 +830,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (fault description, timeframe, etc)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -880,7 +854,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find bathroom fitters near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -898,13 +873,11 @@
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What does your tiling job involve?",
-
             "options": [
               {
                 "id": "8299",
                 "type": "StandardChoiceOption",
                 "formLabel": "New or replacement tiles",
-
                 "next": {
                   "id": "2636",
                   "type": "SelectQuestion",
@@ -915,31 +888,31 @@
                     {
                       "id": "8302",
                       "type": "StandardChoiceOption",
-                      "formLabel": "Less than 2\u33a1",
+                      "formLabel": "Less than 2㎡",
                       "helpText": null
                     },
                     {
                       "id": "8303",
                       "type": "StandardChoiceOption",
-                      "formLabel": "2 - 14\u33a1",
+                      "formLabel": "2 - 14㎡",
                       "helpText": null
                     },
                     {
                       "id": "8304",
                       "type": "StandardChoiceOption",
-                      "formLabel": "15 - 30\u33a1",
+                      "formLabel": "15 - 30㎡",
                       "helpText": null
                     },
                     {
                       "id": "8305",
                       "type": "StandardChoiceOption",
-                      "formLabel": "30 - 50\u33a1",
+                      "formLabel": "30 - 50㎡",
                       "helpText": null
                     },
                     {
                       "id": "8306",
                       "type": "StandardChoiceOption",
-                      "formLabel": "Over 50\u33a1",
+                      "formLabel": "Over 50㎡",
                       "helpText": null
                     },
                     {
@@ -960,7 +933,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "Will you supply the tiles?",
-
                     "options": [
                       {
                         "id": "8309",
@@ -978,7 +950,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (tile types (if known), timeframe, etc.)",
                       "minLength": 20,
                       "maxLength": 10000,
@@ -1003,7 +974,8 @@
                             "formLabel": "Postcode for the job",
                             "helpText": "To find bathroom fitters near you we need to know where the job is."
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -1013,24 +985,22 @@
                 "id": "8300",
                 "type": "StandardChoiceOption",
                 "formLabel": "Repair / regrout tiles",
-
                 "next": {
                   "id": "2638",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Roughly, how big is the affected area?",
-
                   "options": [
                     {
                       "id": "8311",
                       "type": "StandardChoiceOption",
-                      "formLabel": "Small (less than 2\u33a1)",
+                      "formLabel": "Small (less than 2㎡)",
                       "helpText": "A small area needs repairing and / or regrouting"
                     },
                     {
                       "id": "8312",
                       "type": "StandardChoiceOption",
-                      "formLabel": "Large (2\u33a1 or more)",
+                      "formLabel": "Large (2㎡ or more)",
                       "helpText": "Significant damage to more than a few tiles"
                     }
                   ],
@@ -1039,7 +1009,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (tile types (if known), timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -1064,7 +1033,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find bathroom fitters near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -1073,7 +1043,6 @@
                 "id": "8301",
                 "type": "StandardChoiceOption",
                 "formLabel": "Other",
-
                 "next": {
                   "id": "2639",
                   "type": "SelectQuestion",
@@ -1123,7 +1092,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (tile types (if known), timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -1148,7 +1116,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find bathroom fitters near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -1160,7 +1129,6 @@
           "id": "8270",
           "type": "StandardChoiceOption",
           "formLabel": "Other",
-
           "next": {
             "id": "2641",
             "type": "TextareaQuestion",
@@ -1191,7 +1159,8 @@
                   "formLabel": "Postcode for the job",
                   "helpText": "To find bathroom fitters near you we need to know where the job is."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         }

@@ -7,31 +7,26 @@
       "type": "SelectQuestion",
       "required": true,
       "formLabel": "What services can we help you with?",
-
       "options": [
         {
           "id": "9300",
           "type": "StandardChoiceOption",
           "formLabel": "Install a driveway",
-
           "next": {
             "id": "3123",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What surface material do you need?",
-
             "options": [
               {
                 "id": "9305",
                 "type": "StandardChoiceOption",
                 "formLabel": "Block paving",
-
                 "next": {
                   "id": "3147",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Roughly how large is the driveway?",
-
                   "options": [
                     {
                       "id": "9339",
@@ -57,7 +52,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (current area conditions, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -82,7 +76,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find driveway installers near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -91,13 +86,11 @@
                 "id": "9306",
                 "type": "StandardChoiceOption",
                 "formLabel": "Gravel",
-
                 "next": {
                   "id": "3147",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Roughly how large is the driveway?",
-
                   "options": [
                     {
                       "id": "9339",
@@ -123,7 +116,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (current area conditions, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -148,7 +140,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find driveway installers near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -157,13 +150,11 @@
                 "id": "9307",
                 "type": "StandardChoiceOption",
                 "formLabel": "Concrete",
-
                 "next": {
                   "id": "3147",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Roughly how large is the driveway?",
-
                   "options": [
                     {
                       "id": "9339",
@@ -189,7 +180,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (current area conditions, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -214,7 +204,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find driveway installers near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -223,13 +214,11 @@
                 "id": "9308",
                 "type": "StandardChoiceOption",
                 "formLabel": "Tarmac or Resin",
-
                 "next": {
                   "id": "3124",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Roughly how large is the tarmac driveway or paving?",
-
                   "options": [
                     {
                       "id": "9311",
@@ -255,7 +244,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (current area conditions, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -280,7 +268,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find driveway installers near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -289,13 +278,11 @@
                 "id": "9309",
                 "type": "StandardChoiceOption",
                 "formLabel": "I'm not sure - need help deciding",
-
                 "next": {
                   "id": "3147",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Roughly how large is the driveway?",
-
                   "options": [
                     {
                       "id": "9339",
@@ -321,7 +308,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (current area conditions, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -346,7 +332,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find driveway installers near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -356,13 +343,11 @@
                 "type": "TextChoiceOption",
                 "formLabel": "Other",
                 "placeholder": "Type of driveway",
-
                 "next": {
                   "id": "3147",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Roughly how large is the driveway?",
-
                   "options": [
                     {
                       "id": "9339",
@@ -388,7 +373,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (current area conditions, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -413,7 +397,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find driveway installers near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -425,13 +410,11 @@
           "id": "9301",
           "type": "StandardChoiceOption",
           "formLabel": "Clean or reseal a driveway",
-
           "next": {
             "id": "3126",
             "type": "TextareaQuestion",
             "required": true,
             "formLabel": "Add a description to your job",
-
             "placeholder": "Include any details you think the tradesperson should know (approx. driveway size, timeframe, etc.)",
             "minLength": 20,
             "maxLength": 10000,
@@ -456,7 +439,8 @@
                   "formLabel": "Postcode for the job",
                   "helpText": "To find driveway installers near you we need to know where the job is."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         },
@@ -464,13 +448,11 @@
           "id": "9302",
           "type": "StandardChoiceOption",
           "formLabel": "Dropped kerb (crossover)",
-
           "next": {
             "id": "3127",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "Do you have permission from the council to lower the kerb?",
-
             "options": [
               {
                 "id": "9314",
@@ -490,7 +472,6 @@
               "type": "TextareaQuestion",
               "required": true,
               "formLabel": "Add a description to your job",
-
               "placeholder": "Include any details you think the tradesperson should know (approx. kerb height, timeframe, etc.)",
               "minLength": 20,
               "maxLength": 10000,
@@ -515,7 +496,8 @@
                     "formLabel": "Postcode for the job",
                     "helpText": "To find driveway installers near you we need to know where the job is."
                   }
-                }
+                },
+                "minLength": 10
               }
             }
           }
@@ -530,19 +512,16 @@
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What surface material do you need repairing?",
-
             "options": [
               {
                 "id": "9316",
                 "type": "StandardChoiceOption",
                 "formLabel": "Block paving",
-
                 "next": {
                   "id": "3130",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (nature of damage, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -567,7 +546,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find driveway installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -575,13 +555,11 @@
                 "id": "9317",
                 "type": "StandardChoiceOption",
                 "formLabel": "Gravel",
-
                 "next": {
                   "id": "3130",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (nature of damage, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -606,7 +584,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find driveway installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -614,13 +593,11 @@
                 "id": "9318",
                 "type": "StandardChoiceOption",
                 "formLabel": "Concrete",
-
                 "next": {
                   "id": "3130",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (nature of damage, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -645,7 +622,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find driveway installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -653,13 +631,11 @@
                 "id": "9319",
                 "type": "StandardChoiceOption",
                 "formLabel": "Tarmac or Resin",
-
                 "next": {
                   "id": "3130",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (nature of damage, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -684,7 +660,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find driveway installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -692,13 +669,11 @@
                 "id": "9320",
                 "type": "StandardChoiceOption",
                 "formLabel": "Other or I'm not sure",
-
                 "next": {
                   "id": "3130",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (nature of damage, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -723,7 +698,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find driveway installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               }
@@ -740,43 +716,40 @@
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What type of work do you require?",
-
             "options": [
               {
                 "id": "9321",
                 "type": "StandardChoiceOption",
                 "formLabel": "Lay or replace a patio",
-
                 "next": {
                   "id": "3132",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Roughly how large is the patio area?",
-
                   "options": [
                     {
                       "id": "9324",
                       "type": "StandardChoiceOption",
                       "formLabel": "Small",
-                      "helpText": "Up to 15\u33a1 / 150 sq ft"
+                      "helpText": "Up to 15㎡ / 150 sq ft"
                     },
                     {
                       "id": "9325",
                       "type": "StandardChoiceOption",
                       "formLabel": "Medium",
-                      "helpText": "15\u33a1 - 30\u33a1 / 150 - 300 sq ft"
+                      "helpText": "15㎡ - 30㎡ / 150 - 300 sq ft"
                     },
                     {
                       "id": "9326",
                       "type": "StandardChoiceOption",
                       "formLabel": "Large",
-                      "helpText": "30\u33a1 - 60\u33a1 / 300 - 600 sq ft"
+                      "helpText": "30㎡ - 60㎡ / 300 - 600 sq ft"
                     },
                     {
                       "id": "9327",
                       "type": "StandardChoiceOption",
                       "formLabel": "X-Large",
-                      "helpText": "Over 60\u33a1 / 600 sq ft"
+                      "helpText": "Over 60㎡ / 600 sq ft"
                     }
                   ],
                   "next": {
@@ -784,7 +757,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (state of current garden, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -809,7 +781,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find driveway installers near you we need to know where the job is."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -818,13 +791,11 @@
                 "id": "9322",
                 "type": "StandardChoiceOption",
                 "formLabel": "Lay or replace a pathway",
-
                 "next": {
                   "id": "3133",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (state of current garden, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -849,7 +820,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find driveway installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -857,13 +829,11 @@
                 "id": "9323",
                 "type": "StandardChoiceOption",
                 "formLabel": "Repair paving, pathway or patio",
-
                 "next": {
                   "id": "3133",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (state of current garden, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -888,7 +858,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find driveway installers near you we need to know where the job is."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               }

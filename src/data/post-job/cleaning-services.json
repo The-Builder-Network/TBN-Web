@@ -7,25 +7,21 @@
       "type": "SelectQuestion",
       "required": true,
       "formLabel": "Where do you need the cleaning?",
-
       "options": [
         {
           "id": "13495",
           "type": "StandardChoiceOption",
           "formLabel": "House",
-
           "next": {
             "id": "4437",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "Which cleaning service do you need?",
-
             "options": [
               {
                 "id": "13499",
                 "type": "StandardChoiceOption",
                 "formLabel": "General house cleaning",
-
                 "next": {
                   "id": "4439",
                   "type": "SelectQuestion",
@@ -37,13 +33,11 @@
                       "id": "13511",
                       "type": "StandardChoiceOption",
                       "formLabel": "Whole house",
-
                       "next": {
                         "id": "4445",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "How often do you need this cleaning service?",
-
                         "options": [
                           {
                             "id": "13530",
@@ -82,7 +76,6 @@
                           "type": "SelectQuestion",
                           "required": false,
                           "formLabel": "When would you like to schedule the first cleaning?",
-
                           "options": [
                             {
                               "id": "13547",
@@ -120,7 +113,6 @@
                             "type": "TextareaQuestion",
                             "required": true,
                             "formLabel": "Add a description to your job",
-
                             "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                             "minLength": null,
                             "maxLength": 10000,
@@ -146,7 +138,8 @@
                                   "helpText": "To find cleaners near you we need to know where the job is.",
                                   "placeholder": "E.g. W5 4SS"
                                 }
-                              }
+                              },
+                              "minLength": 10
                             }
                           }
                         }
@@ -156,7 +149,6 @@
                       "id": "13512",
                       "type": "StandardChoiceOption",
                       "formLabel": "1 room",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -207,7 +199,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -246,7 +237,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -284,7 +274,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -310,7 +299,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -321,7 +311,6 @@
                       "id": "13513",
                       "type": "StandardChoiceOption",
                       "formLabel": "2 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -372,7 +361,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -411,7 +399,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -449,7 +436,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -475,7 +461,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -486,7 +473,6 @@
                       "id": "13514",
                       "type": "StandardChoiceOption",
                       "formLabel": "3 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -537,7 +523,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -576,7 +561,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -614,7 +598,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -640,7 +623,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -651,7 +635,6 @@
                       "id": "13515",
                       "type": "StandardChoiceOption",
                       "formLabel": "4 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -702,7 +685,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -741,7 +723,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -779,7 +760,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -805,7 +785,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -816,7 +797,6 @@
                       "id": "13516",
                       "type": "StandardChoiceOption",
                       "formLabel": "5 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -867,7 +847,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -906,7 +885,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -944,7 +922,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -970,7 +947,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -981,7 +959,6 @@
                       "id": "13517",
                       "type": "StandardChoiceOption",
                       "formLabel": "More than 5 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -1032,7 +1009,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -1071,7 +1047,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -1109,7 +1084,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -1135,7 +1109,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -1149,13 +1124,11 @@
                 "id": "13500",
                 "type": "StandardChoiceOption",
                 "formLabel": "Window cleaning (exterior)",
-
                 "next": {
                   "id": "4442",
                   "type": "IntegerQuestion",
                   "required": true,
                   "formLabel": "How many windows do you need cleaned?",
-
                   "notIntegerErrorMessage": "Please enter a valid number",
                   "outOfRangeErrorMessage": "Please provide a value higher than 0",
                   "placeholder": "",
@@ -1166,7 +1139,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "How often do you need this cleaning service?",
-
                     "options": [
                       {
                         "id": "13535",
@@ -1195,7 +1167,6 @@
                       "type": "SelectQuestion",
                       "required": false,
                       "formLabel": "When would you like to schedule the first cleaning?",
-
                       "options": [
                         {
                           "id": "13547",
@@ -1233,7 +1204,6 @@
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                         "minLength": null,
                         "maxLength": 10000,
@@ -1259,7 +1229,8 @@
                               "helpText": "To find cleaners near you we need to know where the job is.",
                               "placeholder": "E.g. W5 4SS"
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -1270,7 +1241,6 @@
                 "id": "13501",
                 "type": "StandardChoiceOption",
                 "formLabel": "Carpet cleaning",
-
                 "next": {
                   "id": "4439",
                   "type": "SelectQuestion",
@@ -1326,7 +1296,6 @@
                     "type": "SelectQuestion",
                     "required": false,
                     "formLabel": "When would you like to schedule the first cleaning?",
-
                     "options": [
                       {
                         "id": "13547",
@@ -1359,7 +1328,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                       "minLength": null,
                       "maxLength": 10000,
@@ -1385,7 +1353,8 @@
                             "helpText": "To find cleaners near you we need to know where the job is.",
                             "placeholder": "E.g. W5 4SS"
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -1395,7 +1364,6 @@
                 "id": "13502",
                 "type": "StandardChoiceOption",
                 "formLabel": "Move-in/move-out cleaning",
-
                 "next": {
                   "id": "4439",
                   "type": "SelectQuestion",
@@ -1451,7 +1419,6 @@
                     "type": "SelectQuestion",
                     "required": false,
                     "formLabel": "When would you like to schedule the first cleaning?",
-
                     "options": [
                       {
                         "id": "13547",
@@ -1484,7 +1451,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                       "minLength": null,
                       "maxLength": 10000,
@@ -1510,7 +1476,8 @@
                             "helpText": "To find cleaners near you we need to know where the job is.",
                             "placeholder": "E.g. W5 4SS"
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -1520,13 +1487,11 @@
                 "id": "13503",
                 "type": "StandardChoiceOption",
                 "formLabel": "Appliance deep cleaning",
-
                 "next": {
                   "id": "4443",
                   "type": "CheckboxQuestion",
                   "required": true,
                   "formLabel": "Which appliances need cleaning?",
-
                   "options": [
                     {
                       "id": "13518",
@@ -1571,7 +1536,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "How often do you need this cleaning service?",
-
                     "options": [
                       {
                         "id": "13535",
@@ -1600,7 +1564,6 @@
                       "type": "SelectQuestion",
                       "required": false,
                       "formLabel": "When would you like to schedule the first cleaning?",
-
                       "options": [
                         {
                           "id": "13547",
@@ -1638,7 +1601,6 @@
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                         "minLength": null,
                         "maxLength": 10000,
@@ -1664,7 +1626,8 @@
                               "helpText": "To find cleaners near you we need to know where the job is.",
                               "placeholder": "E.g. W5 4SS"
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -1675,7 +1638,6 @@
                 "id": "13504",
                 "type": "StandardChoiceOption",
                 "formLabel": "Post-construction cleaning",
-
                 "next": {
                   "id": "4439",
                   "type": "SelectQuestion",
@@ -1731,7 +1693,6 @@
                     "type": "SelectQuestion",
                     "required": false,
                     "formLabel": "When would you like to schedule the first cleaning?",
-
                     "options": [
                       {
                         "id": "13547",
@@ -1764,7 +1725,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                       "minLength": null,
                       "maxLength": 10000,
@@ -1790,7 +1750,8 @@
                             "helpText": "To find cleaners near you we need to know where the job is.",
                             "placeholder": "E.g. W5 4SS"
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -1801,7 +1762,6 @@
                 "type": "TextChoiceOption",
                 "formLabel": "Other",
                 "placeholder": "Please specify",
-
                 "next": {
                   "id": "4439",
                   "type": "SelectQuestion",
@@ -1813,13 +1773,11 @@
                       "id": "13511",
                       "type": "StandardChoiceOption",
                       "formLabel": "Whole house",
-
                       "next": {
                         "id": "4445",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "How often do you need this cleaning service?",
-
                         "options": [
                           {
                             "id": "13530",
@@ -1858,7 +1816,6 @@
                           "type": "SelectQuestion",
                           "required": false,
                           "formLabel": "When would you like to schedule the first cleaning?",
-
                           "options": [
                             {
                               "id": "13547",
@@ -1896,7 +1853,6 @@
                             "type": "TextareaQuestion",
                             "required": true,
                             "formLabel": "Add a description to your job",
-
                             "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                             "minLength": null,
                             "maxLength": 10000,
@@ -1922,7 +1878,8 @@
                                   "helpText": "To find cleaners near you we need to know where the job is.",
                                   "placeholder": "E.g. W5 4SS"
                                 }
-                              }
+                              },
+                              "minLength": 10
                             }
                           }
                         }
@@ -1932,7 +1889,6 @@
                       "id": "13512",
                       "type": "StandardChoiceOption",
                       "formLabel": "1 room",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -1983,7 +1939,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -2022,7 +1977,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -2060,7 +2014,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -2086,7 +2039,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -2097,7 +2051,6 @@
                       "id": "13513",
                       "type": "StandardChoiceOption",
                       "formLabel": "2 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -2148,7 +2101,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -2187,7 +2139,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -2225,7 +2176,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -2251,7 +2201,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -2262,7 +2213,6 @@
                       "id": "13514",
                       "type": "StandardChoiceOption",
                       "formLabel": "3 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -2313,7 +2263,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -2352,7 +2301,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -2390,7 +2338,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -2416,7 +2363,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -2427,7 +2375,6 @@
                       "id": "13515",
                       "type": "StandardChoiceOption",
                       "formLabel": "4 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -2478,7 +2425,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -2517,7 +2463,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -2555,7 +2500,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -2581,7 +2525,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -2592,7 +2537,6 @@
                       "id": "13516",
                       "type": "StandardChoiceOption",
                       "formLabel": "5 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -2643,7 +2587,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -2682,7 +2625,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -2720,7 +2662,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -2746,7 +2687,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -2757,7 +2699,6 @@
                       "id": "13517",
                       "type": "StandardChoiceOption",
                       "formLabel": "More than 5 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -2808,7 +2749,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -2847,7 +2787,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -2885,7 +2824,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -2911,7 +2849,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -2928,19 +2867,16 @@
           "id": "13496",
           "type": "StandardChoiceOption",
           "formLabel": "Apartment/flat",
-
           "next": {
             "id": "4437",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "Which cleaning service do you need?",
-
             "options": [
               {
                 "id": "13499",
                 "type": "StandardChoiceOption",
                 "formLabel": "General house cleaning",
-
                 "next": {
                   "id": "4439",
                   "type": "SelectQuestion",
@@ -2952,13 +2888,11 @@
                       "id": "13511",
                       "type": "StandardChoiceOption",
                       "formLabel": "Whole house",
-
                       "next": {
                         "id": "4445",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "How often do you need this cleaning service?",
-
                         "options": [
                           {
                             "id": "13530",
@@ -2997,7 +2931,6 @@
                           "type": "SelectQuestion",
                           "required": false,
                           "formLabel": "When would you like to schedule the first cleaning?",
-
                           "options": [
                             {
                               "id": "13547",
@@ -3035,7 +2968,6 @@
                             "type": "TextareaQuestion",
                             "required": true,
                             "formLabel": "Add a description to your job",
-
                             "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                             "minLength": null,
                             "maxLength": 10000,
@@ -3061,7 +2993,8 @@
                                   "helpText": "To find cleaners near you we need to know where the job is.",
                                   "placeholder": "E.g. W5 4SS"
                                 }
-                              }
+                              },
+                              "minLength": 10
                             }
                           }
                         }
@@ -3071,7 +3004,6 @@
                       "id": "13512",
                       "type": "StandardChoiceOption",
                       "formLabel": "1 room",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -3122,7 +3054,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -3161,7 +3092,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -3199,7 +3129,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -3225,7 +3154,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -3236,7 +3166,6 @@
                       "id": "13513",
                       "type": "StandardChoiceOption",
                       "formLabel": "2 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -3287,7 +3216,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -3326,7 +3254,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -3364,7 +3291,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -3390,7 +3316,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -3401,7 +3328,6 @@
                       "id": "13514",
                       "type": "StandardChoiceOption",
                       "formLabel": "3 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -3452,7 +3378,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -3491,7 +3416,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -3529,7 +3453,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -3555,7 +3478,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -3566,7 +3490,6 @@
                       "id": "13515",
                       "type": "StandardChoiceOption",
                       "formLabel": "4 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -3617,7 +3540,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -3656,7 +3578,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -3694,7 +3615,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -3720,7 +3640,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -3731,7 +3652,6 @@
                       "id": "13516",
                       "type": "StandardChoiceOption",
                       "formLabel": "5 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -3782,7 +3702,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -3821,7 +3740,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -3859,7 +3777,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -3885,7 +3802,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -3896,7 +3814,6 @@
                       "id": "13517",
                       "type": "StandardChoiceOption",
                       "formLabel": "More than 5 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -3947,7 +3864,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -3986,7 +3902,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -4024,7 +3939,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -4050,7 +3964,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -4064,13 +3979,11 @@
                 "id": "13500",
                 "type": "StandardChoiceOption",
                 "formLabel": "Window cleaning (exterior)",
-
                 "next": {
                   "id": "4442",
                   "type": "IntegerQuestion",
                   "required": true,
                   "formLabel": "How many windows do you need cleaned?",
-
                   "notIntegerErrorMessage": "Please enter a valid number",
                   "outOfRangeErrorMessage": "Please provide a value higher than 0",
                   "placeholder": "",
@@ -4081,7 +3994,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "How often do you need this cleaning service?",
-
                     "options": [
                       {
                         "id": "13535",
@@ -4110,7 +4022,6 @@
                       "type": "SelectQuestion",
                       "required": false,
                       "formLabel": "When would you like to schedule the first cleaning?",
-
                       "options": [
                         {
                           "id": "13547",
@@ -4148,7 +4059,6 @@
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                         "minLength": null,
                         "maxLength": 10000,
@@ -4174,7 +4084,8 @@
                               "helpText": "To find cleaners near you we need to know where the job is.",
                               "placeholder": "E.g. W5 4SS"
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -4185,7 +4096,6 @@
                 "id": "13501",
                 "type": "StandardChoiceOption",
                 "formLabel": "Carpet cleaning",
-
                 "next": {
                   "id": "4439",
                   "type": "SelectQuestion",
@@ -4241,7 +4151,6 @@
                     "type": "SelectQuestion",
                     "required": false,
                     "formLabel": "When would you like to schedule the first cleaning?",
-
                     "options": [
                       {
                         "id": "13547",
@@ -4274,7 +4183,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                       "minLength": null,
                       "maxLength": 10000,
@@ -4300,7 +4208,8 @@
                             "helpText": "To find cleaners near you we need to know where the job is.",
                             "placeholder": "E.g. W5 4SS"
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -4310,7 +4219,6 @@
                 "id": "13502",
                 "type": "StandardChoiceOption",
                 "formLabel": "Move-in/move-out cleaning",
-
                 "next": {
                   "id": "4439",
                   "type": "SelectQuestion",
@@ -4366,7 +4274,6 @@
                     "type": "SelectQuestion",
                     "required": false,
                     "formLabel": "When would you like to schedule the first cleaning?",
-
                     "options": [
                       {
                         "id": "13547",
@@ -4399,7 +4306,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                       "minLength": null,
                       "maxLength": 10000,
@@ -4425,7 +4331,8 @@
                             "helpText": "To find cleaners near you we need to know where the job is.",
                             "placeholder": "E.g. W5 4SS"
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -4435,13 +4342,11 @@
                 "id": "13503",
                 "type": "StandardChoiceOption",
                 "formLabel": "Appliance deep cleaning",
-
                 "next": {
                   "id": "4443",
                   "type": "CheckboxQuestion",
                   "required": true,
                   "formLabel": "Which appliances need cleaning?",
-
                   "options": [
                     {
                       "id": "13518",
@@ -4486,7 +4391,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "How often do you need this cleaning service?",
-
                     "options": [
                       {
                         "id": "13535",
@@ -4515,7 +4419,6 @@
                       "type": "SelectQuestion",
                       "required": false,
                       "formLabel": "When would you like to schedule the first cleaning?",
-
                       "options": [
                         {
                           "id": "13547",
@@ -4553,7 +4456,6 @@
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                         "minLength": null,
                         "maxLength": 10000,
@@ -4579,7 +4481,8 @@
                               "helpText": "To find cleaners near you we need to know where the job is.",
                               "placeholder": "E.g. W5 4SS"
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -4590,7 +4493,6 @@
                 "id": "13504",
                 "type": "StandardChoiceOption",
                 "formLabel": "Post-construction cleaning",
-
                 "next": {
                   "id": "4439",
                   "type": "SelectQuestion",
@@ -4646,7 +4548,6 @@
                     "type": "SelectQuestion",
                     "required": false,
                     "formLabel": "When would you like to schedule the first cleaning?",
-
                     "options": [
                       {
                         "id": "13547",
@@ -4679,7 +4580,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                       "minLength": null,
                       "maxLength": 10000,
@@ -4705,7 +4605,8 @@
                             "helpText": "To find cleaners near you we need to know where the job is.",
                             "placeholder": "E.g. W5 4SS"
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -4716,7 +4617,6 @@
                 "type": "TextChoiceOption",
                 "formLabel": "Other",
                 "placeholder": "Please specify",
-
                 "next": {
                   "id": "4439",
                   "type": "SelectQuestion",
@@ -4728,13 +4628,11 @@
                       "id": "13511",
                       "type": "StandardChoiceOption",
                       "formLabel": "Whole house",
-
                       "next": {
                         "id": "4445",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "How often do you need this cleaning service?",
-
                         "options": [
                           {
                             "id": "13530",
@@ -4773,7 +4671,6 @@
                           "type": "SelectQuestion",
                           "required": false,
                           "formLabel": "When would you like to schedule the first cleaning?",
-
                           "options": [
                             {
                               "id": "13547",
@@ -4811,7 +4708,6 @@
                             "type": "TextareaQuestion",
                             "required": true,
                             "formLabel": "Add a description to your job",
-
                             "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                             "minLength": null,
                             "maxLength": 10000,
@@ -4837,7 +4733,8 @@
                                   "helpText": "To find cleaners near you we need to know where the job is.",
                                   "placeholder": "E.g. W5 4SS"
                                 }
-                              }
+                              },
+                              "minLength": 10
                             }
                           }
                         }
@@ -4847,7 +4744,6 @@
                       "id": "13512",
                       "type": "StandardChoiceOption",
                       "formLabel": "1 room",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -4898,7 +4794,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -4937,7 +4832,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -4975,7 +4869,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -5001,7 +4894,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -5012,7 +4906,6 @@
                       "id": "13513",
                       "type": "StandardChoiceOption",
                       "formLabel": "2 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -5063,7 +4956,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -5102,7 +4994,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -5140,7 +5031,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -5166,7 +5056,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -5177,7 +5068,6 @@
                       "id": "13514",
                       "type": "StandardChoiceOption",
                       "formLabel": "3 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -5228,7 +5118,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -5267,7 +5156,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -5305,7 +5193,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -5331,7 +5218,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -5342,7 +5230,6 @@
                       "id": "13515",
                       "type": "StandardChoiceOption",
                       "formLabel": "4 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -5393,7 +5280,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -5432,7 +5318,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -5470,7 +5355,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -5496,7 +5380,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -5507,7 +5392,6 @@
                       "id": "13516",
                       "type": "StandardChoiceOption",
                       "formLabel": "5 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -5558,7 +5442,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -5597,7 +5480,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -5635,7 +5517,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -5661,7 +5542,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -5672,7 +5554,6 @@
                       "id": "13517",
                       "type": "StandardChoiceOption",
                       "formLabel": "More than 5 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -5723,7 +5604,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -5762,7 +5642,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -5800,7 +5679,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -5826,7 +5704,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -5843,25 +5722,21 @@
           "id": "13497",
           "type": "StandardChoiceOption",
           "formLabel": "Office/commercial property",
-
           "next": {
             "id": "4438",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "Which cleaning service do you need?",
-
             "options": [
               {
                 "id": "13506",
                 "type": "StandardChoiceOption",
                 "formLabel": "General cleaning",
-
                 "next": {
                   "id": "4440",
                   "type": "IntegerQuestion",
                   "required": true,
-                  "formLabel": "What is the approximate area (in m\u00b2) to be cleaned?",
-
+                  "formLabel": "What is the approximate area (in m²) to be cleaned?",
                   "notIntegerErrorMessage": "Please enter a valid number",
                   "outOfRangeErrorMessage": "Please provide a value higher than 0",
                   "placeholder": "",
@@ -5872,7 +5747,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "How often do you need this cleaning service?",
-
                     "options": [
                       {
                         "id": "13541",
@@ -5911,7 +5785,6 @@
                       "type": "SelectQuestion",
                       "required": false,
                       "formLabel": "When would you like to schedule the first cleaning?",
-
                       "options": [
                         {
                           "id": "13547",
@@ -5949,7 +5822,6 @@
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                         "minLength": null,
                         "maxLength": 10000,
@@ -5975,7 +5847,8 @@
                               "helpText": "To find cleaners near you we need to know where the job is.",
                               "placeholder": "E.g. W5 4SS"
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -5986,13 +5859,11 @@
                 "id": "13507",
                 "type": "StandardChoiceOption",
                 "formLabel": "Window cleaning (exterior)",
-
                 "next": {
                   "id": "4442",
                   "type": "IntegerQuestion",
                   "required": true,
                   "formLabel": "How many windows do you need cleaned?",
-
                   "notIntegerErrorMessage": "Please enter a valid number",
                   "outOfRangeErrorMessage": "Please provide a value higher than 0",
                   "placeholder": "",
@@ -6003,7 +5874,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "How often do you need this cleaning service?",
-
                     "options": [
                       {
                         "id": "13535",
@@ -6032,7 +5902,6 @@
                       "type": "SelectQuestion",
                       "required": false,
                       "formLabel": "When would you like to schedule the first cleaning?",
-
                       "options": [
                         {
                           "id": "13547",
@@ -6070,7 +5939,6 @@
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                         "minLength": null,
                         "maxLength": 10000,
@@ -6096,7 +5964,8 @@
                               "helpText": "To find cleaners near you we need to know where the job is.",
                               "placeholder": "E.g. W5 4SS"
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -6107,13 +5976,11 @@
                 "id": "13508",
                 "type": "StandardChoiceOption",
                 "formLabel": "Carpet cleaning",
-
                 "next": {
                   "id": "4440",
                   "type": "IntegerQuestion",
                   "required": true,
-                  "formLabel": "What is the approximate area (in m\u00b2) to be cleaned?",
-
+                  "formLabel": "What is the approximate area (in m²) to be cleaned?",
                   "notIntegerErrorMessage": "Please enter a valid number",
                   "outOfRangeErrorMessage": "Please provide a value higher than 0",
                   "placeholder": "",
@@ -6124,7 +5991,6 @@
                     "type": "SelectQuestion",
                     "required": false,
                     "formLabel": "When would you like to schedule the first cleaning?",
-
                     "options": [
                       {
                         "id": "13547",
@@ -6157,7 +6023,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                       "minLength": null,
                       "maxLength": 10000,
@@ -6183,7 +6048,8 @@
                             "helpText": "To find cleaners near you we need to know where the job is.",
                             "placeholder": "E.g. W5 4SS"
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -6193,13 +6059,11 @@
                 "id": "13509",
                 "type": "StandardChoiceOption",
                 "formLabel": "Post-construction cleaning",
-
                 "next": {
                   "id": "4440",
                   "type": "IntegerQuestion",
                   "required": true,
-                  "formLabel": "What is the approximate area (in m\u00b2) to be cleaned?",
-
+                  "formLabel": "What is the approximate area (in m²) to be cleaned?",
                   "notIntegerErrorMessage": "Please enter a valid number",
                   "outOfRangeErrorMessage": "Please provide a value higher than 0",
                   "placeholder": "",
@@ -6210,7 +6074,6 @@
                     "type": "SelectQuestion",
                     "required": false,
                     "formLabel": "When would you like to schedule the first cleaning?",
-
                     "options": [
                       {
                         "id": "13547",
@@ -6243,7 +6106,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                       "minLength": null,
                       "maxLength": 10000,
@@ -6269,7 +6131,8 @@
                             "helpText": "To find cleaners near you we need to know where the job is.",
                             "placeholder": "E.g. W5 4SS"
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -6280,13 +6143,11 @@
                 "type": "TextChoiceOption",
                 "formLabel": "Other",
                 "placeholder": "Please specify",
-
                 "next": {
                   "id": "4440",
                   "type": "IntegerQuestion",
                   "required": true,
-                  "formLabel": "What is the approximate area (in m\u00b2) to be cleaned?",
-
+                  "formLabel": "What is the approximate area (in m²) to be cleaned?",
                   "notIntegerErrorMessage": "Please enter a valid number",
                   "outOfRangeErrorMessage": "Please provide a value higher than 0",
                   "placeholder": "",
@@ -6297,7 +6158,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "How often do you need this cleaning service?",
-
                     "options": [
                       {
                         "id": "13541",
@@ -6336,7 +6196,6 @@
                       "type": "SelectQuestion",
                       "required": false,
                       "formLabel": "When would you like to schedule the first cleaning?",
-
                       "options": [
                         {
                           "id": "13547",
@@ -6374,7 +6233,6 @@
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                         "minLength": null,
                         "maxLength": 10000,
@@ -6400,7 +6258,8 @@
                               "helpText": "To find cleaners near you we need to know where the job is.",
                               "placeholder": "E.g. W5 4SS"
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -6415,19 +6274,16 @@
           "type": "TextChoiceOption",
           "formLabel": "Other",
           "placeholder": "Please specify",
-
           "next": {
             "id": "4437",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "Which cleaning service do you need?",
-
             "options": [
               {
                 "id": "13499",
                 "type": "StandardChoiceOption",
                 "formLabel": "General house cleaning",
-
                 "next": {
                   "id": "4439",
                   "type": "SelectQuestion",
@@ -6439,13 +6295,11 @@
                       "id": "13511",
                       "type": "StandardChoiceOption",
                       "formLabel": "Whole house",
-
                       "next": {
                         "id": "4445",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "How often do you need this cleaning service?",
-
                         "options": [
                           {
                             "id": "13530",
@@ -6484,7 +6338,6 @@
                           "type": "SelectQuestion",
                           "required": false,
                           "formLabel": "When would you like to schedule the first cleaning?",
-
                           "options": [
                             {
                               "id": "13547",
@@ -6522,7 +6375,6 @@
                             "type": "TextareaQuestion",
                             "required": true,
                             "formLabel": "Add a description to your job",
-
                             "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                             "minLength": null,
                             "maxLength": 10000,
@@ -6548,7 +6400,8 @@
                                   "helpText": "To find cleaners near you we need to know where the job is.",
                                   "placeholder": "E.g. W5 4SS"
                                 }
-                              }
+                              },
+                              "minLength": 10
                             }
                           }
                         }
@@ -6558,7 +6411,6 @@
                       "id": "13512",
                       "type": "StandardChoiceOption",
                       "formLabel": "1 room",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -6609,7 +6461,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -6648,7 +6499,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -6686,7 +6536,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -6712,7 +6561,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -6723,7 +6573,6 @@
                       "id": "13513",
                       "type": "StandardChoiceOption",
                       "formLabel": "2 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -6774,7 +6623,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -6813,7 +6661,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -6851,7 +6698,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -6877,7 +6723,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -6888,7 +6735,6 @@
                       "id": "13514",
                       "type": "StandardChoiceOption",
                       "formLabel": "3 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -6939,7 +6785,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -6978,7 +6823,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -7016,7 +6860,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -7042,7 +6885,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -7053,7 +6897,6 @@
                       "id": "13515",
                       "type": "StandardChoiceOption",
                       "formLabel": "4 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -7104,7 +6947,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -7143,7 +6985,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -7181,7 +7022,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -7207,7 +7047,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -7218,7 +7059,6 @@
                       "id": "13516",
                       "type": "StandardChoiceOption",
                       "formLabel": "5 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -7269,7 +7109,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -7308,7 +7147,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -7346,7 +7184,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -7372,7 +7209,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -7383,7 +7221,6 @@
                       "id": "13517",
                       "type": "StandardChoiceOption",
                       "formLabel": "More than 5 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -7434,7 +7271,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -7473,7 +7309,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -7511,7 +7346,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -7537,7 +7371,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -7551,13 +7386,11 @@
                 "id": "13500",
                 "type": "StandardChoiceOption",
                 "formLabel": "Window cleaning (exterior)",
-
                 "next": {
                   "id": "4442",
                   "type": "IntegerQuestion",
                   "required": true,
                   "formLabel": "How many windows do you need cleaned?",
-
                   "notIntegerErrorMessage": "Please enter a valid number",
                   "outOfRangeErrorMessage": "Please provide a value higher than 0",
                   "placeholder": "",
@@ -7568,7 +7401,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "How often do you need this cleaning service?",
-
                     "options": [
                       {
                         "id": "13535",
@@ -7597,7 +7429,6 @@
                       "type": "SelectQuestion",
                       "required": false,
                       "formLabel": "When would you like to schedule the first cleaning?",
-
                       "options": [
                         {
                           "id": "13547",
@@ -7635,7 +7466,6 @@
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                         "minLength": null,
                         "maxLength": 10000,
@@ -7661,7 +7491,8 @@
                               "helpText": "To find cleaners near you we need to know where the job is.",
                               "placeholder": "E.g. W5 4SS"
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -7672,7 +7503,6 @@
                 "id": "13501",
                 "type": "StandardChoiceOption",
                 "formLabel": "Carpet cleaning",
-
                 "next": {
                   "id": "4439",
                   "type": "SelectQuestion",
@@ -7728,7 +7558,6 @@
                     "type": "SelectQuestion",
                     "required": false,
                     "formLabel": "When would you like to schedule the first cleaning?",
-
                     "options": [
                       {
                         "id": "13547",
@@ -7761,7 +7590,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                       "minLength": null,
                       "maxLength": 10000,
@@ -7787,7 +7615,8 @@
                             "helpText": "To find cleaners near you we need to know where the job is.",
                             "placeholder": "E.g. W5 4SS"
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -7797,7 +7626,6 @@
                 "id": "13502",
                 "type": "StandardChoiceOption",
                 "formLabel": "Move-in/move-out cleaning",
-
                 "next": {
                   "id": "4439",
                   "type": "SelectQuestion",
@@ -7853,7 +7681,6 @@
                     "type": "SelectQuestion",
                     "required": false,
                     "formLabel": "When would you like to schedule the first cleaning?",
-
                     "options": [
                       {
                         "id": "13547",
@@ -7886,7 +7713,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                       "minLength": null,
                       "maxLength": 10000,
@@ -7912,7 +7738,8 @@
                             "helpText": "To find cleaners near you we need to know where the job is.",
                             "placeholder": "E.g. W5 4SS"
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -7922,13 +7749,11 @@
                 "id": "13503",
                 "type": "StandardChoiceOption",
                 "formLabel": "Appliance deep cleaning",
-
                 "next": {
                   "id": "4443",
                   "type": "CheckboxQuestion",
                   "required": true,
                   "formLabel": "Which appliances need cleaning?",
-
                   "options": [
                     {
                       "id": "13518",
@@ -7973,7 +7798,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "How often do you need this cleaning service?",
-
                     "options": [
                       {
                         "id": "13535",
@@ -8002,7 +7826,6 @@
                       "type": "SelectQuestion",
                       "required": false,
                       "formLabel": "When would you like to schedule the first cleaning?",
-
                       "options": [
                         {
                           "id": "13547",
@@ -8040,7 +7863,6 @@
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                         "minLength": null,
                         "maxLength": 10000,
@@ -8066,7 +7888,8 @@
                               "helpText": "To find cleaners near you we need to know where the job is.",
                               "placeholder": "E.g. W5 4SS"
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -8077,7 +7900,6 @@
                 "id": "13504",
                 "type": "StandardChoiceOption",
                 "formLabel": "Post-construction cleaning",
-
                 "next": {
                   "id": "4439",
                   "type": "SelectQuestion",
@@ -8133,7 +7955,6 @@
                     "type": "SelectQuestion",
                     "required": false,
                     "formLabel": "When would you like to schedule the first cleaning?",
-
                     "options": [
                       {
                         "id": "13547",
@@ -8166,7 +7987,6 @@
                       "type": "TextareaQuestion",
                       "required": true,
                       "formLabel": "Add a description to your job",
-
                       "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                       "minLength": null,
                       "maxLength": 10000,
@@ -8192,7 +8012,8 @@
                             "helpText": "To find cleaners near you we need to know where the job is.",
                             "placeholder": "E.g. W5 4SS"
                           }
-                        }
+                        },
+                        "minLength": 10
                       }
                     }
                   }
@@ -8203,7 +8024,6 @@
                 "type": "TextChoiceOption",
                 "formLabel": "Other",
                 "placeholder": "Please specify",
-
                 "next": {
                   "id": "4439",
                   "type": "SelectQuestion",
@@ -8215,13 +8035,11 @@
                       "id": "13511",
                       "type": "StandardChoiceOption",
                       "formLabel": "Whole house",
-
                       "next": {
                         "id": "4445",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "How often do you need this cleaning service?",
-
                         "options": [
                           {
                             "id": "13530",
@@ -8260,7 +8078,6 @@
                           "type": "SelectQuestion",
                           "required": false,
                           "formLabel": "When would you like to schedule the first cleaning?",
-
                           "options": [
                             {
                               "id": "13547",
@@ -8298,7 +8115,6 @@
                             "type": "TextareaQuestion",
                             "required": true,
                             "formLabel": "Add a description to your job",
-
                             "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                             "minLength": null,
                             "maxLength": 10000,
@@ -8324,7 +8140,8 @@
                                   "helpText": "To find cleaners near you we need to know where the job is.",
                                   "placeholder": "E.g. W5 4SS"
                                 }
-                              }
+                              },
+                              "minLength": 10
                             }
                           }
                         }
@@ -8334,7 +8151,6 @@
                       "id": "13512",
                       "type": "StandardChoiceOption",
                       "formLabel": "1 room",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -8385,7 +8201,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -8424,7 +8239,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -8462,7 +8276,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -8488,7 +8301,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -8499,7 +8313,6 @@
                       "id": "13513",
                       "type": "StandardChoiceOption",
                       "formLabel": "2 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -8550,7 +8363,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -8589,7 +8401,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -8627,7 +8438,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -8653,7 +8463,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -8664,7 +8475,6 @@
                       "id": "13514",
                       "type": "StandardChoiceOption",
                       "formLabel": "3 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -8715,7 +8525,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -8754,7 +8563,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -8792,7 +8600,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -8818,7 +8625,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -8829,7 +8637,6 @@
                       "id": "13515",
                       "type": "StandardChoiceOption",
                       "formLabel": "4 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -8880,7 +8687,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -8919,7 +8725,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -8957,7 +8762,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -8983,7 +8787,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -8994,7 +8799,6 @@
                       "id": "13516",
                       "type": "StandardChoiceOption",
                       "formLabel": "5 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -9045,7 +8849,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -9084,7 +8887,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -9122,7 +8924,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -9148,7 +8949,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
@@ -9159,7 +8961,6 @@
                       "id": "13517",
                       "type": "StandardChoiceOption",
                       "formLabel": "More than 5 rooms",
-
                       "next": {
                         "id": "4444",
                         "type": "CheckboxQuestion",
@@ -9210,7 +9011,6 @@
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "How often do you need this cleaning service?",
-
                           "options": [
                             {
                               "id": "13530",
@@ -9249,7 +9049,6 @@
                             "type": "SelectQuestion",
                             "required": false,
                             "formLabel": "When would you like to schedule the first cleaning?",
-
                             "options": [
                               {
                                 "id": "13547",
@@ -9287,7 +9086,6 @@
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (e.g. preferred time for cleaning, hypoallergenic products, etc.)",
                               "minLength": null,
                               "maxLength": 10000,
@@ -9313,7 +9111,8 @@
                                     "helpText": "To find cleaners near you we need to know where the job is.",
                                     "placeholder": "E.g. W5 4SS"
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           }
