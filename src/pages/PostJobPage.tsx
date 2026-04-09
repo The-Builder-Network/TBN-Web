@@ -86,6 +86,7 @@ const PostJob = () => {
             key={selectedSlug}
             rootNode={rootNode}
             serviceName={serviceName}
+            serviceSlug={selectedSlug}
             initialPostcode={initialPostcode}
             onBackToServices={handleBackToServices}
           />
