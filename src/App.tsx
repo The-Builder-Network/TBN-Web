@@ -9,6 +9,7 @@ import ScrollToTop from "@/components/shared/ScrollToTop";
 import { AuthProvider } from "@/contexts/AuthContext";
 import PageLayout from "@/components/layout/PageLayout";
 import { ErrorBoundary } from "@/components/shared/ErrorBoundary";
+import ProtectedRoute from "@/components/auth/ProtectedRoute";
 
 // ─── Public pages ───────────────────────────────────────────────
 const HomePage = lazy(() => import("./pages/Home"));
@@ -63,10 +64,6 @@ const QuestionsPage = lazy(() => import("./pages/questions/QuestionsPage"));
 const QuestionPage = lazy(() => import("./pages/questions/QuestionPage"));
 const TradesPersonContactsPage = lazy(
   () => import("./pages/protected/tradesperson/TradespersonContactsPage"),
-);
-const JobResponses = lazy(() => import("./pages/unused/JobwithnoResponses"));
-const RecommendedTradespeople = lazy(
-  () => import("./pages/unused/recommendedtradespersons"),
 );
 
 const PageFallback = () => (
@@ -250,88 +247,86 @@ const App = () => (
                   />
 
                   {/* ── Homeowner protected routes ── */}
-                  <Route
-                    path="/homeowner/my-jobs"
-                    element={
-                      <ErrorBoundary name="my jobs">
-                        <HomeownerMyJobs />
-                      </ErrorBoundary>
-                    }
-                  />
-                  <Route
-                    path="/homeowner/my-jobs/:jobId"
-                    element={
-                      <ErrorBoundary name="job detail">
-                        <HomeownerJobDetail />
-                      </ErrorBoundary>
-                    }
-                  />
-                  <Route
-                    path="/homeowner/my-jobs/:jobId/recommended"
-                    element={
-                      <ErrorBoundary name="recommended tradespeople">
-                        <RecommendedTradespeople />
-                      </ErrorBoundary>
-                    }
-                  />
-                  <Route
-                    path="/homeowner/profile"
-                    element={
-                      <ErrorBoundary name="homeowner profile">
-                        <HomeownerProfile />
-                      </ErrorBoundary>
-                    }
-                  />
-                  <Route
-                    path="/homeowner/my-questions"
-                    element={
-                      <ErrorBoundary name="my questions">
-                        <HomeownerMyQuestionsPage />
-                      </ErrorBoundary>
-                    }
-                  />
-                  <Route
-                    path="/homeowner"
-                    element={<Navigate to="/homeowner/profile" replace />}
-                  />
+                  <Route element={<ProtectedRoute allowedRole="homeowner" />}>
+                    <Route
+                      path="/homeowner/my-jobs"
+                      element={
+                        <ErrorBoundary name="my jobs">
+                          <HomeownerMyJobs />
+                        </ErrorBoundary>
+                      }
+                    />
+                    <Route
+                      path="/homeowner/my-jobs/:jobId"
+                      element={
+                        <ErrorBoundary name="job detail">
+                          <HomeownerJobDetail />
+                        </ErrorBoundary>
+                      }
+                    />
+                    <Route
+                      path="/homeowner/profile"
+                      element={
+                        <ErrorBoundary name="homeowner profile">
+                          <HomeownerProfile />
+                        </ErrorBoundary>
+                      }
+                    />
+                    <Route
+                      path="/homeowner/my-questions"
+                      element={
+                        <ErrorBoundary name="my questions">
+                          <HomeownerMyQuestionsPage />
+                        </ErrorBoundary>
+                      }
+                    />
+                    <Route
+                      path="/homeowner"
+                      element={<Navigate to="/homeowner/profile" replace />}
+                    />
+                  </Route>
 
                   {/* ── Tradesperson protected routes ── */}
                   <Route
-                    path="/tradesperson/my-leads"
-                    element={
-                      <ErrorBoundary name="my leads">
-                        <MyLeads />
-                      </ErrorBoundary>
-                    }
-                  />
-                  <Route
-                    path="/tradesperson/my-leads/:leadId"
-                    element={
-                      <ErrorBoundary name="lead detail">
-                        <TradesPersonLeadDetail />
-                      </ErrorBoundary>
-                    }
-                  />
-                  <Route
-                    path="/tradesperson/contacts"
-                    element={
-                      <ErrorBoundary name="contacts & messaging">
-                        <TradesPersonContactsPage />
-                      </ErrorBoundary>
-                    }
-                  />
-                  <Route
-                    path="/tradesperson/profile"
-                    element={
-                      <ErrorBoundary name="tradesperson profile">
-                        <TradesPersonProfile />
-                      </ErrorBoundary>
-                    }
-                  />
-                  <Route
-                    path="/tradesperson"
-                    element={<Navigate to="/tradesperson/profile" replace />}
-                  />
+                    element={<ProtectedRoute allowedRole="tradesperson" />}
+                  >
+                    <Route
+                      path="/tradesperson/my-leads"
+                      element={
+                        <ErrorBoundary name="my leads">
+                          <MyLeads />
+                        </ErrorBoundary>
+                      }
+                    />
+                    <Route
+                      path="/tradesperson/my-leads/:leadId"
+                      element={
+                        <ErrorBoundary name="lead detail">
+                          <TradesPersonLeadDetail />
+                        </ErrorBoundary>
+                      }
+                    />
+                    <Route
+                      path="/tradesperson/contacts"
+                      element={
+                        <ErrorBoundary name="contacts & messaging">
+                          <TradesPersonContactsPage />
+                        </ErrorBoundary>
+                      }
+                    />
+                    <Route
+                      path="/tradesperson/profile"
+                      element={
+                        <ErrorBoundary name="tradesperson profile">
+                          <TradesPersonProfile />
+                        </ErrorBoundary>
+                      }
+                    />
+                    <Route
+                      path="/tradesperson"
+                      element={<Navigate to="/tradesperson/profile" replace />}
+                    />
+                  </Route>
 
                   {/* Public tradesperson profile (not protected) */}
                   <Route
