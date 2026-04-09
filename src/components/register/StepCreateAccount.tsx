@@ -83,7 +83,10 @@ const StepCreateAccount = ({ data, onUpdate, onNext }) => {
       <form onSubmit={handleSubmit} className="space-y-5">
         {/* Email — pre-filled from URL, read-only */}
         <div>
-          <label htmlFor="sc-email" className="text-sm font-medium block mb-1.5">
+          <label
+            htmlFor="sc-email"
+            className="text-sm font-medium block mb-1.5"
+          >
             Email address
           </label>
           <Input
@@ -99,7 +102,10 @@ const StepCreateAccount = ({ data, onUpdate, onNext }) => {
         </div>
 
         <div>
-          <label htmlFor="sc-first-name" className="text-sm font-medium block mb-1.5">
+          <label
+            htmlFor="sc-first-name"
+            className="text-sm font-medium block mb-1.5"
+          >
             First name <span className="text-destructive">*</span>
           </label>
           <Input
@@ -115,7 +121,10 @@ const StepCreateAccount = ({ data, onUpdate, onNext }) => {
         </div>
 
         <div>
-          <label htmlFor="sc-last-name" className="text-sm font-medium block mb-1.5">
+          <label
+            htmlFor="sc-last-name"
+            className="text-sm font-medium block mb-1.5"
+          >
             Last name <span className="text-destructive">*</span>
           </label>
           <Input

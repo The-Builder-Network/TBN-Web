@@ -445,7 +445,10 @@ const StepWorkDetails = ({
         className="space-y-5"
       >
         <div>
-          <label htmlFor="wd-trading-name" className="text-sm font-medium block mb-1.5">
+          <label
+            htmlFor="wd-trading-name"
+            className="text-sm font-medium block mb-1.5"
+          >
             Trading name <span className="text-destructive">*</span>
           </label>
           <Input
@@ -462,7 +465,10 @@ const StepWorkDetails = ({
             {(businessType === "ordinary-partnership" ||
               businessType === "llp") && (
               <div>
-                <label htmlFor="wd-partner-names" className="text-sm font-medium block mb-1.5">
+                <label
+                  htmlFor="wd-partner-names"
+                  className="text-sm font-medium block mb-1.5"
+                >
                   Full names of all partners{" "}
                   <span className="text-destructive">*</span>
                 </label>
@@ -477,7 +483,10 @@ const StepWorkDetails = ({
               </div>
             )}
             <div>
-              <label htmlFor="wd-company-name" className="text-sm font-medium block mb-1.5">
+              <label
+                htmlFor="wd-company-name"
+                className="text-sm font-medium block mb-1.5"
+              >
                 Registered company name{" "}
                 <span className="text-destructive">*</span>
               </label>
@@ -491,7 +500,10 @@ const StepWorkDetails = ({
               />
             </div>
             <div>
-              <label htmlFor="wd-company-reg" className="text-sm font-medium block mb-1.5">
+              <label
+                htmlFor="wd-company-reg"
+                className="text-sm font-medium block mb-1.5"
+              >
                 Company registration number{" "}
                 <span className="text-destructive">*</span>
               </label>
@@ -507,7 +519,10 @@ const StepWorkDetails = ({
           </>
         )}
         <div>
-          <label htmlFor="wd-work-address" className="text-sm font-medium block mb-1.5">
+          <label
+            htmlFor="wd-work-address"
+            className="text-sm font-medium block mb-1.5"
+          >
             Work address <span className="text-destructive">*</span>
           </label>
           <Input
