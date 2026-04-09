@@ -7,19 +7,16 @@
       "type": "SelectQuestion",
       "required": true,
       "formLabel": "What type of masonry service do you require?",
-
       "options": [
         {
           "id": "8583",
           "type": "StandardChoiceOption",
           "formLabel": "Building",
-
           "next": {
             "id": "2763",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What type of stonework do you want?",
-
             "options": [
               {
                 "id": "8587",
@@ -51,7 +48,6 @@
               "type": "SelectQuestion",
               "required": true,
               "formLabel": "How large is the job?",
-
               "options": [
                 {
                   "id": "8591",
@@ -83,7 +79,6 @@
                 "type": "TextareaQuestion",
                 "required": true,
                 "formLabel": "Add a description to your job",
-
                 "placeholder": "Include any details you think the tradesperson should know (structure location, timeframe, etc.)",
                 "minLength": 20,
                 "maxLength": 10000,
@@ -108,7 +103,8 @@
                       "formLabel": "Postcode for the job",
                       "helpText": "To find stone masons nearby we need to know where you are based."
                     }
-                  }
+                  },
+                  "minLength": 10
                 }
               }
             }
@@ -118,13 +114,11 @@
           "id": "8584",
           "type": "StandardChoiceOption",
           "formLabel": "Repairing",
-
           "next": {
             "id": "2766",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What type of stonework do you need repaired?",
-
             "options": [
               {
                 "id": "8595",
@@ -156,7 +150,6 @@
               "type": "SelectQuestion",
               "required": true,
               "formLabel": "How large is the job?",
-
               "options": [
                 {
                   "id": "8591",
@@ -188,7 +181,6 @@
                 "type": "TextareaQuestion",
                 "required": true,
                 "formLabel": "Add a description to your job",
-
                 "placeholder": "Include any details you think the tradesperson should know (extent of damage, timeframe, etc.)",
                 "minLength": 20,
                 "maxLength": 10000,
@@ -213,7 +205,8 @@
                       "formLabel": "Postcode for the job",
                       "helpText": "To find stone masons nearby we need to know where you are based."
                     }
-                  }
+                  },
+                  "minLength": 10
                 }
               }
             }
@@ -223,13 +216,11 @@
           "id": "8585",
           "type": "StandardChoiceOption",
           "formLabel": "Repointing",
-
           "next": {
             "id": "2769",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What type of stonework do you need repointed?",
-
             "options": [
               {
                 "id": "8599",
@@ -255,7 +246,6 @@
               "type": "SelectQuestion",
               "required": true,
               "formLabel": "How large is the job?",
-
               "options": [
                 {
                   "id": "8591",
@@ -287,7 +277,6 @@
                 "type": "TextareaQuestion",
                 "required": true,
                 "formLabel": "Add a description to your job",
-
                 "placeholder": "Include any details you think the tradesperson should know (structure location, timeframe, etc.)",
                 "minLength": 20,
                 "maxLength": 10000,
@@ -312,7 +301,8 @@
                       "formLabel": "Postcode for the job",
                       "helpText": "To find stone masons nearby we need to know where you are based."
                     }
-                  }
+                  },
+                  "minLength": 10
                 }
               }
             }
@@ -322,14 +312,13 @@
           "id": "8586",
           "type": "StandardChoiceOption",
           "formLabel": "Other",
-
           "next": {
             "id": "2770",
             "type": "TextareaQuestion",
             "required": true,
             "formLabel": "Describe your stonemasonry job in detail",
             "helpText": "E.g. Rebuild stone wall at front of property. Approx 8m long and 1m high. The stone is still on site...",
-            "placeholder": "Good descriptions attract good tradespeople. Are the walls in the house or outside? Estimate the size of the walls involved. For other repairs, simply describe the problem in as much detail as possible. Please indicate if it\u2019s historic or conservation work.",
+            "placeholder": "Good descriptions attract good tradespeople. Are the walls in the house or outside? Estimate the size of the walls involved. For other repairs, simply describe the problem in as much detail as possible. Please indicate if it’s historic or conservation work.",
             "minLength": 20,
             "maxLength": 10000,
             "next": {
@@ -353,7 +342,8 @@
                   "formLabel": "Postcode for the job",
                   "helpText": "To find stone masons nearby we need to know where you are based."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         }

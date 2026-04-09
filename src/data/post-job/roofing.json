@@ -7,43 +7,36 @@
       "type": "SelectQuestion",
       "required": true,
       "formLabel": "What roofing service do you require?",
-
       "options": [
         {
           "id": "8646",
           "type": "StandardChoiceOption",
           "formLabel": "New or replacement roof",
-
           "next": {
             "id": "2796",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What type of roof do you need?",
-
             "options": [
               {
                 "id": "8650",
                 "type": "StandardChoiceOption",
                 "formLabel": "Pitched roof",
-
                 "next": {
                   "id": "2797",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Do you own the property?",
-
                   "options": [
                     {
                       "id": "8653",
                       "type": "StandardChoiceOption",
                       "formLabel": "Yes",
-
                       "next": {
                         "id": "2798",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "What type of roof is it?",
-
                         "options": [
                           {
                             "id": "8656",
@@ -69,7 +62,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (roof type, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -94,7 +86,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find local roofers we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -103,13 +96,11 @@
                       "id": "8654",
                       "type": "StandardChoiceOption",
                       "formLabel": "No, I'm a prospective buyer",
-
                       "next": {
                         "id": "2799",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (roof type, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -134,7 +125,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find local roofers we need to know where you are based."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     },
@@ -142,13 +134,11 @@
                       "id": "8655",
                       "type": "StandardChoiceOption",
                       "formLabel": "No, I'm posting on the owner's behalf",
-
                       "next": {
                         "id": "2798",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "What type of roof is it?",
-
                         "options": [
                           {
                             "id": "8656",
@@ -174,7 +164,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (roof type, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -199,7 +188,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find local roofers we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -211,13 +201,11 @@
                 "id": "8651",
                 "type": "StandardChoiceOption",
                 "formLabel": "Flat roof",
-
                 "next": {
                   "id": "2801",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What material do you want for the new roof?",
-
                   "options": [
                     {
                       "id": "8659",
@@ -249,19 +237,16 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "Do you own the property?",
-
                     "options": [
                       {
                         "id": "8653",
                         "type": "StandardChoiceOption",
                         "formLabel": "Yes",
-
                         "next": {
                           "id": "2798",
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "What type of roof is it?",
-
                           "options": [
                             {
                               "id": "8656",
@@ -287,7 +272,6 @@
                             "type": "TextareaQuestion",
                             "required": true,
                             "formLabel": "Add a description to your job",
-
                             "placeholder": "Include any details you think the tradesperson should know (approx. roof size, timeframe, etc.)",
                             "minLength": 20,
                             "maxLength": 10000,
@@ -312,7 +296,8 @@
                                   "formLabel": "Postcode for the job",
                                   "helpText": "To find local roofers we need to know where you are based."
                                 }
-                              }
+                              },
+                              "minLength": 10
                             }
                           }
                         }
@@ -321,13 +306,11 @@
                         "id": "8654",
                         "type": "StandardChoiceOption",
                         "formLabel": "No, I'm a prospective buyer",
-
                         "next": {
                           "id": "2802",
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (approx. roof size, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -352,7 +335,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find local roofers we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       },
@@ -360,13 +344,11 @@
                         "id": "8655",
                         "type": "StandardChoiceOption",
                         "formLabel": "No, I'm posting on the owner's behalf",
-
                         "next": {
                           "id": "2798",
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "What type of roof is it?",
-
                           "options": [
                             {
                               "id": "8656",
@@ -392,7 +374,6 @@
                             "type": "TextareaQuestion",
                             "required": true,
                             "formLabel": "Add a description to your job",
-
                             "placeholder": "Include any details you think the tradesperson should know (approx. roof size, timeframe, etc.)",
                             "minLength": 20,
                             "maxLength": 10000,
@@ -417,7 +398,8 @@
                                   "formLabel": "Postcode for the job",
                                   "helpText": "To find local roofers we need to know where you are based."
                                 }
-                              }
+                              },
+                              "minLength": 10
                             }
                           }
                         }
@@ -430,13 +412,11 @@
                 "id": "8652",
                 "type": "StandardChoiceOption",
                 "formLabel": "I'm not sure",
-
                 "next": {
                   "id": "2802",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (approx. roof size, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -461,7 +441,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find local roofers we need to know where you are based."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               }
@@ -472,37 +453,31 @@
           "id": "8647",
           "type": "StandardChoiceOption",
           "formLabel": "Roof repair or assessment",
-
           "next": {
             "id": "2803",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What type of roof is it?",
-
             "options": [
               {
                 "id": "8663",
                 "type": "StandardChoiceOption",
                 "formLabel": "Pitched roof",
-
                 "next": {
                   "id": "2804",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What can a roofer help you with?",
-
                   "options": [
                     {
                       "id": "8666",
                       "type": "StandardChoiceOption",
                       "formLabel": "Leak",
-
                       "next": {
                         "id": "2805",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (extent of damage, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -527,7 +502,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find local roofers we need to know where you are based."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     },
@@ -535,25 +511,21 @@
                       "id": "8667",
                       "type": "StandardChoiceOption",
                       "formLabel": "Tiling repairs",
-
                       "next": {
                         "id": "2806",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "How extensive is the repair?",
-
                         "options": [
                           {
                             "id": "8670",
                             "type": "StandardChoiceOption",
                             "formLabel": "A single tile",
-
                             "next": {
                               "id": "2805",
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (extent of damage, timeframe, etc.)",
                               "minLength": 20,
                               "maxLength": 10000,
@@ -578,7 +550,8 @@
                                     "formLabel": "Postcode for the job",
                                     "helpText": "To find local roofers we need to know where you are based."
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           },
@@ -586,13 +559,11 @@
                             "id": "8671",
                             "type": "StandardChoiceOption",
                             "formLabel": "2 - 5 tiles",
-
                             "next": {
                               "id": "2805",
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (extent of damage, timeframe, etc.)",
                               "minLength": 20,
                               "maxLength": 10000,
@@ -617,7 +588,8 @@
                                     "formLabel": "Postcode for the job",
                                     "helpText": "To find local roofers we need to know where you are based."
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           },
@@ -625,13 +597,11 @@
                             "id": "8672",
                             "type": "StandardChoiceOption",
                             "formLabel": "6 - 15 tiles",
-
                             "next": {
                               "id": "2805",
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (extent of damage, timeframe, etc.)",
                               "minLength": 20,
                               "maxLength": 10000,
@@ -656,7 +626,8 @@
                                     "formLabel": "Postcode for the job",
                                     "helpText": "To find local roofers we need to know where you are based."
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           },
@@ -664,13 +635,11 @@
                             "id": "8673",
                             "type": "StandardChoiceOption",
                             "formLabel": "16 - 30 tiles",
-
                             "next": {
                               "id": "2805",
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (extent of damage, timeframe, etc.)",
                               "minLength": 20,
                               "maxLength": 10000,
@@ -695,7 +664,8 @@
                                     "formLabel": "Postcode for the job",
                                     "helpText": "To find local roofers we need to know where you are based."
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           },
@@ -703,13 +673,11 @@
                             "id": "8674",
                             "type": "StandardChoiceOption",
                             "formLabel": "30+ tiles",
-
                             "next": {
                               "id": "2797",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "Do you own the property?",
-
                               "options": [
                                 {
                                   "id": "8653",
@@ -735,7 +703,6 @@
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (extent of damage, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -760,7 +727,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find local roofers we need to know where you are based."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             }
@@ -772,13 +740,11 @@
                       "id": "8668",
                       "type": "StandardChoiceOption",
                       "formLabel": "Roof structure",
-
                       "next": {
                         "id": "2805",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (extent of damage, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -803,7 +769,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find local roofers we need to know where you are based."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -814,13 +781,11 @@
                 "id": "8664",
                 "type": "StandardChoiceOption",
                 "formLabel": "Flat roof",
-
                 "next": {
                   "id": "2807",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What is the roof material?",
-
                   "options": [
                     {
                       "id": "8675",
@@ -852,7 +817,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "What type of roof are you looking to repair?",
-
                     "options": [
                       {
                         "id": "8679",
@@ -875,7 +839,6 @@
                       "type": "SelectQuestion",
                       "required": true,
                       "formLabel": "Do you own the property?",
-
                       "options": [
                         {
                           "id": "8653",
@@ -901,7 +864,6 @@
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (extent of damage, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -926,7 +888,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find local roofers we need to know where you are based."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -938,13 +901,11 @@
                 "type": "TextChoiceOption",
                 "formLabel": "Other",
                 "placeholder": "Roof type...",
-
                 "next": {
                   "id": "2805",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (extent of damage, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -969,7 +930,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find local roofers we need to know where you are based."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               }
@@ -980,25 +942,21 @@
           "id": "8648",
           "type": "StandardChoiceOption",
           "formLabel": "Chimney work",
-
           "next": {
             "id": "2809",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What chimney work needs doing?",
-
             "options": [
               {
                 "id": "8682",
                 "type": "StandardChoiceOption",
                 "formLabel": "Install or rebuild new chimney",
-
                 "next": {
                   "id": "2810",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (type of chimney, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -1023,7 +981,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find local roofers we need to know where you are based."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -1031,13 +990,11 @@
                 "id": "8683",
                 "type": "StandardChoiceOption",
                 "formLabel": "Remove an existing chimney",
-
                 "next": {
                   "id": "2810",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (type of chimney, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -1062,7 +1019,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find local roofers we need to know where you are based."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -1070,13 +1028,11 @@
                 "id": "8684",
                 "type": "StandardChoiceOption",
                 "formLabel": "Repair or repoint my chimney",
-
                 "next": {
                   "id": "2810",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (type of chimney, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -1101,7 +1057,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find local roofers we need to know where you are based."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -1109,13 +1066,11 @@
                 "id": "8685",
                 "type": "StandardChoiceOption",
                 "formLabel": "Chimney capping",
-
                 "next": {
                   "id": "2810",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (type of chimney, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -1140,7 +1095,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find local roofers we need to know where you are based."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               },
@@ -1148,13 +1104,11 @@
                 "id": "8686",
                 "type": "StandardChoiceOption",
                 "formLabel": "Other",
-
                 "next": {
                   "id": "2810",
                   "type": "TextareaQuestion",
                   "required": true,
                   "formLabel": "Add a description to your job",
-
                   "placeholder": "Include any details you think the tradesperson should know (type of chimney, timeframe, etc.)",
                   "minLength": 20,
                   "maxLength": 10000,
@@ -1179,7 +1133,8 @@
                         "formLabel": "Postcode for the job",
                         "helpText": "To find local roofers we need to know where you are based."
                       }
-                    }
+                    },
+                    "minLength": 10
                   }
                 }
               }
@@ -1190,7 +1145,6 @@
           "id": "8649",
           "type": "StandardChoiceOption",
           "formLabel": "Something else",
-
           "next": {
             "id": "2811",
             "type": "TextareaQuestion",
@@ -1221,7 +1175,8 @@
                   "formLabel": "Postcode for the job",
                   "helpText": "To find local roofers we need to know where you are based."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         }

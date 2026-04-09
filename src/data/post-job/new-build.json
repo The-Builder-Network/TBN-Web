@@ -7,7 +7,6 @@
       "type": "SelectQuestion",
       "required": true,
       "formLabel": "Do you own the land you plan to build on?",
-
       "options": [
         {
           "id": "9189",
@@ -33,7 +32,6 @@
         "type": "SelectQuestion",
         "required": true,
         "formLabel": "Do you have planning permission?",
-
         "options": [
           {
             "id": "9199",
@@ -59,30 +57,29 @@
           "type": "SelectQuestion",
           "required": true,
           "formLabel": "Roughly what is the budget?",
-
           "options": [
             {
               "id": "9209",
               "type": "StandardChoiceOption",
-              "formLabel": "Less than \u00a3200k",
+              "formLabel": "Less than £200k",
               "helpText": null
             },
             {
               "id": "9210",
               "type": "StandardChoiceOption",
-              "formLabel": "\u00a3200k - \u00a3500k",
+              "formLabel": "£200k - £500k",
               "helpText": null
             },
             {
               "id": "9211",
               "type": "StandardChoiceOption",
-              "formLabel": "\u00a3500k - \u00a31m",
+              "formLabel": "£500k - £1m",
               "helpText": null
             },
             {
               "id": "9212",
               "type": "StandardChoiceOption",
-              "formLabel": "More than \u00a31m",
+              "formLabel": "More than £1m",
               "helpText": null
             },
             {
@@ -122,7 +119,8 @@
                   "formLabel": "Postcode for the job",
                   "helpText": "To find new build specialists nearby we need to know where the job is."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         }

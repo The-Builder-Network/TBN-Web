@@ -7,31 +7,26 @@
       "type": "SelectQuestion",
       "required": true,
       "formLabel": "What type of security system?",
-
       "options": [
         {
           "id": "9030",
           "type": "StandardChoiceOption",
           "formLabel": "Security alarm system",
-
           "next": {
             "id": "2988",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What service do you require?",
-
             "options": [
               {
                 "id": "9055",
                 "type": "StandardChoiceOption",
                 "formLabel": "Installation",
-
                 "next": {
                   "id": "2989",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What type of security system?",
-
                   "options": [
                     {
                       "id": "9059",
@@ -57,7 +52,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "Have you purchased the system already?",
-
                     "options": [
                       {
                         "id": "9062",
@@ -80,7 +74,6 @@
                       "type": "SelectQuestion",
                       "required": true,
                       "formLabel": "What type of property is the system for?",
-
                       "options": [
                         {
                           "id": "9065",
@@ -100,7 +93,6 @@
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (type of alarm system, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -125,7 +117,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find security system specialists nearby we need to know where you are based."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -136,13 +129,11 @@
                 "id": "9056",
                 "type": "StandardChoiceOption",
                 "formLabel": "Servicing / repair",
-
                 "next": {
                   "id": "2991",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What type of property is the system for?",
-
                   "options": [
                     {
                       "id": "9065",
@@ -162,7 +153,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (type of alarm system, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -187,7 +177,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find security system specialists nearby we need to know where you are based."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -196,13 +187,11 @@
                 "id": "9057",
                 "type": "StandardChoiceOption",
                 "formLabel": "Removal",
-
                 "next": {
                   "id": "2991",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What type of property is the system for?",
-
                   "options": [
                     {
                       "id": "9065",
@@ -222,7 +211,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (type of alarm system, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -247,7 +235,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find security system specialists nearby we need to know where you are based."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -256,13 +245,11 @@
                 "id": "9058",
                 "type": "StandardChoiceOption",
                 "formLabel": "Other",
-
                 "next": {
                   "id": "2991",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What type of property is the system for?",
-
                   "options": [
                     {
                       "id": "9065",
@@ -282,7 +269,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (type of alarm system, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -307,7 +293,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find security system specialists nearby we need to know where you are based."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -319,25 +306,21 @@
           "id": "9031",
           "type": "StandardChoiceOption",
           "formLabel": "CCTV / Smart camera",
-
           "next": {
             "id": "3148",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What type of security camera service do you require?",
-
             "options": [
               {
                 "id": "9345",
                 "type": "StandardChoiceOption",
                 "formLabel": "Installation",
-
                 "next": {
                   "id": "3149",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What type of camera system?",
-
                   "options": [
                     {
                       "id": "9349",
@@ -363,7 +346,6 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "Have you purchased the camera already?",
-
                     "options": [
                       {
                         "id": "9352",
@@ -386,7 +368,6 @@
                       "type": "SelectQuestion",
                       "required": true,
                       "formLabel": "What type of property is the camera for?",
-
                       "options": [
                         {
                           "id": "9355",
@@ -406,7 +387,6 @@
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (number of cameras, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -431,7 +411,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find security system specialists nearby we need to know where you are based."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -442,13 +423,11 @@
                 "id": "9346",
                 "type": "StandardChoiceOption",
                 "formLabel": "Servicing / repair",
-
                 "next": {
                   "id": "3151",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What type of property is the camera for?",
-
                   "options": [
                     {
                       "id": "9355",
@@ -468,7 +447,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (number of cameras, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -493,7 +471,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find security system specialists nearby we need to know where you are based."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -502,13 +481,11 @@
                 "id": "9347",
                 "type": "StandardChoiceOption",
                 "formLabel": "Removal",
-
                 "next": {
                   "id": "3151",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What type of property is the camera for?",
-
                   "options": [
                     {
                       "id": "9355",
@@ -528,7 +505,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (number of cameras, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -553,7 +529,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find security system specialists nearby we need to know where you are based."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -562,13 +539,11 @@
                 "id": "9348",
                 "type": "StandardChoiceOption",
                 "formLabel": "Other",
-
                 "next": {
                   "id": "3151",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What type of property is the camera for?",
-
                   "options": [
                     {
                       "id": "9355",
@@ -588,7 +563,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (number of cameras, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -613,7 +587,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find security system specialists nearby we need to know where you are based."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -625,13 +600,11 @@
           "id": "9032",
           "type": "StandardChoiceOption",
           "formLabel": "Entry system",
-
           "next": {
             "id": "2994",
             "type": "TextareaQuestion",
             "required": true,
             "formLabel": "Add a description to your job",
-
             "placeholder": "Include any details you think the tradesperson should know (type of entry system, timeframe, etc.)",
             "minLength": 20,
             "maxLength": 10000,
@@ -656,7 +629,8 @@
                   "formLabel": "Postcode for the job",
                   "helpText": "To find security system specialists nearby we need to know where you are based."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         },
@@ -664,13 +638,11 @@
           "id": "9033",
           "type": "StandardChoiceOption",
           "formLabel": "Smoke alarms",
-
           "next": {
             "id": "2996",
             "type": "TextareaQuestion",
             "required": true,
             "formLabel": "Add a description to your job",
-
             "placeholder": "Include any details you think the tradesperson should know (number of alarms, timeframe, etc.)",
             "minLength": 20,
             "maxLength": 10000,
@@ -695,7 +667,8 @@
                   "formLabel": "Postcode for the job",
                   "helpText": "To find security system specialists nearby we need to know where you are based."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         },
@@ -703,13 +676,11 @@
           "id": "9034",
           "type": "StandardChoiceOption",
           "formLabel": "Security lights",
-
           "next": {
             "id": "2995",
             "type": "TextareaQuestion",
             "required": true,
             "formLabel": "Add a description to your job",
-
             "placeholder": "Include any details you think the tradesperson should know (number of lights, timeframe, etc.)",
             "minLength": 20,
             "maxLength": 10000,
@@ -734,7 +705,8 @@
                   "formLabel": "Postcode for the job",
                   "helpText": "To find security system specialists nearby we need to know where you are based."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         },
@@ -742,13 +714,11 @@
           "id": "9035",
           "type": "StandardChoiceOption",
           "formLabel": "Locks",
-
           "next": {
             "id": "2997",
             "type": "TextareaQuestion",
             "required": true,
             "formLabel": "Add a description to your job",
-
             "placeholder": "Include any details you think the tradesperson should know (lock types, timeframe, etc.)",
             "minLength": 20,
             "maxLength": 10000,
@@ -773,7 +743,8 @@
                   "formLabel": "Postcode for the job",
                   "helpText": "To find security system specialists nearby we need to know where you are based."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         },
@@ -781,7 +752,6 @@
           "id": "9036",
           "type": "StandardChoiceOption",
           "formLabel": "Other",
-
           "next": {
             "id": "2998",
             "type": "TextareaQuestion",
@@ -812,7 +782,8 @@
                   "formLabel": "Postcode for the job",
                   "helpText": "To find security system specialists nearby we need to know where you are based."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         }

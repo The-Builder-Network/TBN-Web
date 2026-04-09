@@ -7,13 +7,11 @@
       "type": "SelectQuestion",
       "required": true,
       "formLabel": "What does your tiling job involve?",
-
       "options": [
         {
           "id": "8299",
           "type": "StandardChoiceOption",
           "formLabel": "New or replacement tiles",
-
           "next": {
             "id": "2636",
             "type": "SelectQuestion",
@@ -24,31 +22,31 @@
               {
                 "id": "8302",
                 "type": "StandardChoiceOption",
-                "formLabel": "Less than 2\u33a1",
+                "formLabel": "Less than 2㎡",
                 "helpText": null
               },
               {
                 "id": "8303",
                 "type": "StandardChoiceOption",
-                "formLabel": "2 - 14\u33a1",
+                "formLabel": "2 - 14㎡",
                 "helpText": null
               },
               {
                 "id": "8304",
                 "type": "StandardChoiceOption",
-                "formLabel": "15 - 30\u33a1",
+                "formLabel": "15 - 30㎡",
                 "helpText": null
               },
               {
                 "id": "8305",
                 "type": "StandardChoiceOption",
-                "formLabel": "30 - 50\u33a1",
+                "formLabel": "30 - 50㎡",
                 "helpText": null
               },
               {
                 "id": "8306",
                 "type": "StandardChoiceOption",
-                "formLabel": "Over 50\u33a1",
+                "formLabel": "Over 50㎡",
                 "helpText": null
               },
               {
@@ -69,7 +67,6 @@
               "type": "SelectQuestion",
               "required": true,
               "formLabel": "Will you supply the tiles?",
-
               "options": [
                 {
                   "id": "8309",
@@ -89,7 +86,6 @@
                 "type": "TextareaQuestion",
                 "required": true,
                 "formLabel": "Add a description to your job",
-
                 "placeholder": "Include any details you think the tradesperson should know (tile types (if known), timeframe, etc.)",
                 "minLength": 20,
                 "maxLength": 10000,
@@ -114,7 +110,8 @@
                       "formLabel": "Postcode for the job",
                       "helpText": "To find professional tilers nearby we need to know where the job is"
                     }
-                  }
+                  },
+                  "minLength": 10
                 }
               }
             }
@@ -124,24 +121,22 @@
           "id": "8300",
           "type": "StandardChoiceOption",
           "formLabel": "Repair / regrout tiles",
-
           "next": {
             "id": "2638",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "Roughly, how big is the affected area?",
-
             "options": [
               {
                 "id": "8311",
                 "type": "StandardChoiceOption",
-                "formLabel": "Small (less than 2\u33a1)",
+                "formLabel": "Small (less than 2㎡)",
                 "helpText": "A small area needs repairing and / or regrouting"
               },
               {
                 "id": "8312",
                 "type": "StandardChoiceOption",
-                "formLabel": "Large (2\u33a1 or more)",
+                "formLabel": "Large (2㎡ or more)",
                 "helpText": "Significant damage to more than a few tiles"
               }
             ],
@@ -150,7 +145,6 @@
               "type": "TextareaQuestion",
               "required": true,
               "formLabel": "Add a description to your job",
-
               "placeholder": "Include any details you think the tradesperson should know (tile types (if known), timeframe, etc.)",
               "minLength": 20,
               "maxLength": 10000,
@@ -175,7 +169,8 @@
                     "formLabel": "Postcode for the job",
                     "helpText": "To find professional tilers nearby we need to know where the job is"
                   }
-                }
+                },
+                "minLength": 10
               }
             }
           }
@@ -184,7 +179,6 @@
           "id": "8301",
           "type": "StandardChoiceOption",
           "formLabel": "Other",
-
           "next": {
             "id": "2639",
             "type": "SelectQuestion",
@@ -234,7 +228,6 @@
               "type": "TextareaQuestion",
               "required": true,
               "formLabel": "Add a description to your job",
-
               "placeholder": "Include any details you think the tradesperson should know (tile types (if known), timeframe, etc.)",
               "minLength": 20,
               "maxLength": 10000,
@@ -259,7 +252,8 @@
                     "formLabel": "Postcode for the job",
                     "helpText": "To find professional tilers nearby we need to know where the job is"
                   }
-                }
+                },
+                "minLength": 10
               }
             }
           }

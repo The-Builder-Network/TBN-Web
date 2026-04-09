@@ -7,19 +7,16 @@
       "type": "SelectQuestion",
       "required": true,
       "formLabel": "What service do you require?",
-
       "options": [
         {
           "id": "8624",
           "type": "StandardChoiceOption",
           "formLabel": "Plastering (indoors)",
-
           "next": {
             "id": "2787",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What type of plastering do you need?",
-
             "options": [
               {
                 "id": "8626",
@@ -31,19 +28,16 @@
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Roughly, how much work is it?",
-
                   "options": [
                     {
                       "id": "8629",
                       "type": "StandardChoiceOption",
                       "formLabel": "A small area (less than one full wall or ceiling)",
-
                       "next": {
                         "id": "2789",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "Is this area your hallway, stairs and landing?",
-
                         "options": [
                           {
                             "id": "8634",
@@ -63,7 +57,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (surface conditions, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -88,7 +81,8 @@
                                 "formLabel": "Postcode for the job ",
                                 "helpText": "To find a plasterer near you we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -97,13 +91,11 @@
                       "id": "8630",
                       "type": "StandardChoiceOption",
                       "formLabel": "Up to 5 walls and / or ceilings",
-
                       "next": {
                         "id": "2789",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "Is this area your hallway, stairs and landing?",
-
                         "options": [
                           {
                             "id": "8634",
@@ -123,7 +115,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (surface conditions, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -148,7 +139,8 @@
                                 "formLabel": "Postcode for the job ",
                                 "helpText": "To find a plasterer near you we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -157,13 +149,11 @@
                       "id": "8631",
                       "type": "StandardChoiceOption",
                       "formLabel": "6 - 10 walls and / or ceilings",
-
                       "next": {
                         "id": "3146",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "Does this include your hallway, stairs and landing?",
-
                         "options": [
                           {
                             "id": "9330",
@@ -183,7 +173,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (surface conditions, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -208,7 +197,8 @@
                                 "formLabel": "Postcode for the job ",
                                 "helpText": "To find a plasterer near you we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -217,13 +207,11 @@
                       "id": "8632",
                       "type": "StandardChoiceOption",
                       "formLabel": "11 - 20 walls and / or ceilings",
-
                       "next": {
                         "id": "3146",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "Does this include your hallway, stairs and landing?",
-
                         "options": [
                           {
                             "id": "9330",
@@ -243,7 +231,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (surface conditions, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -268,7 +255,8 @@
                                 "formLabel": "Postcode for the job ",
                                 "helpText": "To find a plasterer near you we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -277,13 +265,11 @@
                       "id": "8633",
                       "type": "StandardChoiceOption",
                       "formLabel": "More than 20 walls and / or ceilings",
-
                       "next": {
                         "id": "3146",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "Does this include your hallway, stairs and landing?",
-
                         "options": [
                           {
                             "id": "9330",
@@ -303,7 +289,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (surface conditions, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -328,7 +313,8 @@
                                 "formLabel": "Postcode for the job ",
                                 "helpText": "To find a plasterer near you we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -346,19 +332,16 @@
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Roughly, how much work is it?",
-
                   "options": [
                     {
                       "id": "8629",
                       "type": "StandardChoiceOption",
                       "formLabel": "A small area (less than one full wall or ceiling)",
-
                       "next": {
                         "id": "2789",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "Is this area your hallway, stairs and landing?",
-
                         "options": [
                           {
                             "id": "8634",
@@ -378,7 +361,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (surface conditions, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -403,7 +385,8 @@
                                 "formLabel": "Postcode for the job ",
                                 "helpText": "To find a plasterer near you we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -412,13 +395,11 @@
                       "id": "8630",
                       "type": "StandardChoiceOption",
                       "formLabel": "Up to 5 walls and / or ceilings",
-
                       "next": {
                         "id": "3146",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "Does this include your hallway, stairs and landing?",
-
                         "options": [
                           {
                             "id": "9330",
@@ -438,7 +419,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (surface conditions, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -463,7 +443,8 @@
                                 "formLabel": "Postcode for the job ",
                                 "helpText": "To find a plasterer near you we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -472,13 +453,11 @@
                       "id": "8631",
                       "type": "StandardChoiceOption",
                       "formLabel": "6 - 10 walls and / or ceilings",
-
                       "next": {
                         "id": "3146",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "Does this include your hallway, stairs and landing?",
-
                         "options": [
                           {
                             "id": "9330",
@@ -498,7 +477,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (surface conditions, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -523,7 +501,8 @@
                                 "formLabel": "Postcode for the job ",
                                 "helpText": "To find a plasterer near you we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -532,13 +511,11 @@
                       "id": "8632",
                       "type": "StandardChoiceOption",
                       "formLabel": "11 - 20 walls and / or ceilings",
-
                       "next": {
                         "id": "3146",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "Does this include your hallway, stairs and landing?",
-
                         "options": [
                           {
                             "id": "9330",
@@ -558,7 +535,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (surface conditions, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -583,7 +559,8 @@
                                 "formLabel": "Postcode for the job ",
                                 "helpText": "To find a plasterer near you we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -592,13 +569,11 @@
                       "id": "8633",
                       "type": "StandardChoiceOption",
                       "formLabel": "More than 20 walls and / or ceilings",
-
                       "next": {
                         "id": "2790",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (surface conditions, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -623,7 +598,8 @@
                               "formLabel": "Postcode for the job ",
                               "helpText": "To find a plasterer near you we need to know where you are based."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -634,25 +610,21 @@
                 "id": "8628",
                 "type": "StandardChoiceOption",
                 "formLabel": "Other or I don't know",
-
                 "next": {
                   "id": "2788",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Roughly, how much work is it?",
-
                   "options": [
                     {
                       "id": "8629",
                       "type": "StandardChoiceOption",
                       "formLabel": "A small area (less than one full wall or ceiling)",
-
                       "next": {
                         "id": "2789",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "Is this area your hallway, stairs and landing?",
-
                         "options": [
                           {
                             "id": "8634",
@@ -672,7 +644,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (surface conditions, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -697,7 +668,8 @@
                                 "formLabel": "Postcode for the job ",
                                 "helpText": "To find a plasterer near you we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -706,13 +678,11 @@
                       "id": "8630",
                       "type": "StandardChoiceOption",
                       "formLabel": "Up to 5 walls and / or ceilings",
-
                       "next": {
                         "id": "3146",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "Does this include your hallway, stairs and landing?",
-
                         "options": [
                           {
                             "id": "9330",
@@ -732,7 +702,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (surface conditions, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -757,7 +726,8 @@
                                 "formLabel": "Postcode for the job ",
                                 "helpText": "To find a plasterer near you we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -766,13 +736,11 @@
                       "id": "8631",
                       "type": "StandardChoiceOption",
                       "formLabel": "6 - 10 walls and / or ceilings",
-
                       "next": {
                         "id": "3146",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "Does this include your hallway, stairs and landing?",
-
                         "options": [
                           {
                             "id": "9330",
@@ -792,7 +760,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (surface conditions, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -817,7 +784,8 @@
                                 "formLabel": "Postcode for the job ",
                                 "helpText": "To find a plasterer near you we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -826,13 +794,11 @@
                       "id": "8632",
                       "type": "StandardChoiceOption",
                       "formLabel": "11 - 20 walls and / or ceilings",
-
                       "next": {
                         "id": "3146",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "Does this include your hallway, stairs and landing?",
-
                         "options": [
                           {
                             "id": "9330",
@@ -852,7 +818,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (surface conditions, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -877,7 +842,8 @@
                                 "formLabel": "Postcode for the job ",
                                 "helpText": "To find a plasterer near you we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -886,13 +852,11 @@
                       "id": "8633",
                       "type": "StandardChoiceOption",
                       "formLabel": "More than 20 walls and / or ceilings",
-
                       "next": {
                         "id": "3146",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "Does this include your hallway, stairs and landing?",
-
                         "options": [
                           {
                             "id": "9330",
@@ -912,7 +876,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (surface conditions, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -937,7 +900,8 @@
                                 "formLabel": "Postcode for the job ",
                                 "helpText": "To find a plasterer near you we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -952,25 +916,21 @@
           "id": "8625",
           "type": "StandardChoiceOption",
           "formLabel": "Rendering (outdoors)",
-
           "next": {
             "id": "2792",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What do you need rendered?",
-
             "options": [
               {
                 "id": "8636",
                 "type": "StandardChoiceOption",
                 "formLabel": "Exterior of house",
-
                 "next": {
                   "id": "2793",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Roughly how large is your rendering job?",
-
                   "options": [
                     {
                       "id": "8638",
@@ -1002,7 +962,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (surface conditions, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -1027,7 +986,8 @@
                           "formLabel": "Postcode for the job ",
                           "helpText": "To find a plasterer near you we need to know where you are based."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -1036,13 +996,11 @@
                 "id": "8637",
                 "type": "StandardChoiceOption",
                 "formLabel": "Garden wall(s)",
-
                 "next": {
                   "id": "2794",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "Roughly how large is your rendering job?",
-
                   "options": [
                     {
                       "id": "8642",
@@ -1053,19 +1011,19 @@
                     {
                       "id": "8643",
                       "type": "StandardChoiceOption",
-                      "formLabel": "Small (up to 10m\u00b2)",
+                      "formLabel": "Small (up to 10m²)",
                       "helpText": null
                     },
                     {
                       "id": "8644",
                       "type": "StandardChoiceOption",
-                      "formLabel": "Medium (10 - 30m\u00b2)",
+                      "formLabel": "Medium (10 - 30m²)",
                       "helpText": null
                     },
                     {
                       "id": "8645",
                       "type": "StandardChoiceOption",
-                      "formLabel": "Large (over 30m\u00b2)",
+                      "formLabel": "Large (over 30m²)",
                       "helpText": null
                     }
                   ],
@@ -1074,7 +1032,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (surface conditions, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -1099,7 +1056,8 @@
                           "formLabel": "Postcode for the job ",
                           "helpText": "To find a plasterer near you we need to know where you are based."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }

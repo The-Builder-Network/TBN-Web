@@ -7,31 +7,26 @@
       "type": "SelectQuestion",
       "required": false,
       "formLabel": "What service do you require?",
-
       "options": [
         {
           "id": "8856",
           "type": "StandardChoiceOption",
           "formLabel": "New windows",
-
           "next": {
             "id": "2893",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What kind of windows do you need?",
-
             "options": [
               {
                 "id": "8862",
                 "type": "StandardChoiceOption",
                 "formLabel": "Wooden",
-
                 "next": {
                   "id": "2894",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "How many windows need replacing?",
-
                   "options": [
                     {
                       "id": "8866",
@@ -63,7 +58,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (number of windows, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -88,7 +82,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find window fitters nearby we need to know where you are based."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -97,13 +92,11 @@
                 "id": "8864",
                 "type": "StandardChoiceOption",
                 "formLabel": "uPVC",
-
                 "next": {
                   "id": "2894",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "How many windows need replacing?",
-
                   "options": [
                     {
                       "id": "8866",
@@ -135,7 +128,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (number of windows, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -160,7 +152,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find window fitters nearby we need to know where you are based."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -169,13 +162,11 @@
                 "id": "8863",
                 "type": "StandardChoiceOption",
                 "formLabel": "Aluminium",
-
                 "next": {
                   "id": "2894",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "How many windows need replacing?",
-
                   "options": [
                     {
                       "id": "8866",
@@ -207,7 +198,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (number of windows, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -232,7 +222,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find window fitters nearby we need to know where you are based."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -242,13 +233,11 @@
                 "type": "TextChoiceOption",
                 "formLabel": "Other",
                 "placeholder": "window frame material",
-
                 "next": {
                   "id": "2894",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "How many windows need replacing?",
-
                   "options": [
                     {
                       "id": "8866",
@@ -280,7 +269,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (number of windows, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -305,7 +293,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find window fitters nearby we need to know where you are based."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -317,49 +306,41 @@
           "id": "8857",
           "type": "StandardChoiceOption",
           "formLabel": "New doors (internal or external)",
-
           "next": {
             "id": "2898",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "Are these internal or external doors?",
-
             "options": [
               {
                 "id": "8873",
                 "type": "StandardChoiceOption",
                 "formLabel": "Internal doors",
-
                 "next": {
                   "id": "2899",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What type of doors need fitting?",
-
                   "options": [
                     {
                       "id": "8875",
                       "type": "StandardChoiceOption",
                       "formLabel": "Single door (standard)",
-
                       "next": {
                         "id": "2901",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "Who is supplying the door(s)?",
-
                         "options": [
                           {
                             "id": "8884",
                             "type": "StandardChoiceOption",
                             "formLabel": "I am supplying the door(s)",
-
                             "next": {
                               "id": "2904",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "How many new doors do you need fitted?",
-
                               "options": [
                                 {
                                   "id": "8890",
@@ -422,7 +403,6 @@
                                 "type": "SelectQuestion",
                                 "required": true,
                                 "formLabel": "What type of door(s) do you need fitted?",
-
                                 "options": [
                                   {
                                     "id": "8902",
@@ -460,7 +440,6 @@
                                   "type": "TextareaQuestion",
                                   "required": true,
                                   "formLabel": "Additional information about your job",
-
                                   "placeholder": "Include any additional details or specific requirements you think the carpenter should know",
                                   "minLength": 20,
                                   "maxLength": 10000,
@@ -485,7 +464,8 @@
                                         "formLabel": "Postcode for the job",
                                         "helpText": "To find window fitters nearby we need to know where you are based."
                                       }
-                                    }
+                                    },
+                                    "minLength": 10
                                   }
                                 }
                               }
@@ -495,13 +475,11 @@
                             "id": "8885",
                             "type": "StandardChoiceOption",
                             "formLabel": "I would like the tradesperson to supply the door(s)",
-
                             "next": {
                               "id": "2908",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "How many doors do you need hanging?",
-
                               "options": [
                                 {
                                   "id": "8907",
@@ -527,7 +505,6 @@
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -552,7 +529,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find window fitters nearby we need to know where you are based."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             }
@@ -564,25 +542,21 @@
                       "id": "8876",
                       "type": "StandardChoiceOption",
                       "formLabel": "Double door",
-
                       "next": {
                         "id": "2901",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "Who is supplying the door(s)?",
-
                         "options": [
                           {
                             "id": "8884",
                             "type": "StandardChoiceOption",
                             "formLabel": "I am supplying the door(s)",
-
                             "next": {
                               "id": "2904",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "How many new doors do you need fitted?",
-
                               "options": [
                                 {
                                   "id": "8890",
@@ -645,7 +619,6 @@
                                 "type": "SelectQuestion",
                                 "required": true,
                                 "formLabel": "What type of door(s) do you need fitted?",
-
                                 "options": [
                                   {
                                     "id": "8902",
@@ -683,7 +656,6 @@
                                   "type": "TextareaQuestion",
                                   "required": true,
                                   "formLabel": "Additional information about your job",
-
                                   "placeholder": "Include any additional details or specific requirements you think the carpenter should know",
                                   "minLength": 20,
                                   "maxLength": 10000,
@@ -708,7 +680,8 @@
                                         "formLabel": "Postcode for the job",
                                         "helpText": "To find window fitters nearby we need to know where you are based."
                                       }
-                                    }
+                                    },
+                                    "minLength": 10
                                   }
                                 }
                               }
@@ -718,13 +691,11 @@
                             "id": "8885",
                             "type": "StandardChoiceOption",
                             "formLabel": "I would like the tradesperson to supply the door(s)",
-
                             "next": {
                               "id": "2908",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "How many doors do you need hanging?",
-
                               "options": [
                                 {
                                   "id": "8907",
@@ -750,7 +721,6 @@
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Tell us about the types and number of doors, plus any timeframe or other requirements",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -775,7 +745,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find window fitters nearby we need to know where you are based."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             }
@@ -787,13 +758,11 @@
                       "id": "8877",
                       "type": "StandardChoiceOption",
                       "formLabel": "Bi-fold door",
-
                       "next": {
                         "id": "2908",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "How many doors do you need hanging?",
-
                         "options": [
                           {
                             "id": "8907",
@@ -819,7 +788,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (door type, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -844,7 +812,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find window fitters nearby we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -859,7 +828,6 @@
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "How many doors do you need hanging?",
-
                         "options": [
                           {
                             "id": "8907",
@@ -885,7 +853,6 @@
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (door type, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -910,7 +877,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find window fitters nearby we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       }
@@ -925,7 +893,6 @@
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Tell us about the types and number of doors, plus any timeframe or other requirements",
-
                         "placeholder": "Please provide a list of the door types and how many of each",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -950,7 +917,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find window fitters nearby we need to know where you are based."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -961,37 +929,31 @@
                 "id": "8874",
                 "type": "StandardChoiceOption",
                 "formLabel": "External doors",
-
                 "next": {
                   "id": "2930",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What kind of doors do you need?",
-
                   "options": [
                     {
                       "id": "8936",
                       "type": "StandardChoiceOption",
                       "formLabel": "Wooden",
-
                       "next": {
                         "id": "2931",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "How many doors need replacing?",
-
                         "options": [
                           {
                             "id": "8940",
                             "type": "StandardChoiceOption",
                             "formLabel": "1",
-
                             "next": {
                               "id": "2940",
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (door material, timeframe, etc.)",
                               "minLength": 20,
                               "maxLength": 10000,
@@ -1016,7 +978,8 @@
                                     "formLabel": "Postcode for the job",
                                     "helpText": "To find window fitters nearby we need to know where you are based."
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           },
@@ -1024,13 +987,11 @@
                             "id": "8941",
                             "type": "StandardChoiceOption",
                             "formLabel": "2",
-
                             "next": {
                               "id": "2934",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "A single double door, or two separate doors?",
-
                               "options": [
                                 {
                                   "id": "8947",
@@ -1050,7 +1011,6 @@
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (door material, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -1075,7 +1035,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find window fitters nearby we need to know where you are based."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             }
@@ -1084,13 +1045,11 @@
                             "id": "8942",
                             "type": "StandardChoiceOption",
                             "formLabel": "3 or more",
-
                             "next": {
                               "id": "2939",
                               "type": "CheckboxQuestion",
                               "required": true,
                               "formLabel": "What type of doors need fitting?",
-
                               "options": [
                                 {
                                   "id": "8960",
@@ -1129,7 +1088,6 @@
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (door material, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -1154,7 +1112,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find window fitters nearby we need to know where you are based."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             }
@@ -1166,25 +1125,21 @@
                       "id": "8938",
                       "type": "StandardChoiceOption",
                       "formLabel": "uPVC",
-
                       "next": {
                         "id": "2931",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "How many doors need replacing?",
-
                         "options": [
                           {
                             "id": "8940",
                             "type": "StandardChoiceOption",
                             "formLabel": "1",
-
                             "next": {
                               "id": "2940",
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (door material, timeframe, etc.)",
                               "minLength": 20,
                               "maxLength": 10000,
@@ -1209,7 +1164,8 @@
                                     "formLabel": "Postcode for the job",
                                     "helpText": "To find window fitters nearby we need to know where you are based."
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           },
@@ -1217,13 +1173,11 @@
                             "id": "8941",
                             "type": "StandardChoiceOption",
                             "formLabel": "2",
-
                             "next": {
                               "id": "2934",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "A single double door, or two separate doors?",
-
                               "options": [
                                 {
                                   "id": "8947",
@@ -1243,7 +1197,6 @@
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (door material, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -1268,7 +1221,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find window fitters nearby we need to know where you are based."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             }
@@ -1277,13 +1231,11 @@
                             "id": "8942",
                             "type": "StandardChoiceOption",
                             "formLabel": "3 or more",
-
                             "next": {
                               "id": "2939",
                               "type": "CheckboxQuestion",
                               "required": true,
                               "formLabel": "What type of doors need fitting?",
-
                               "options": [
                                 {
                                   "id": "8960",
@@ -1322,7 +1274,6 @@
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (door material, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -1347,7 +1298,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find window fitters nearby we need to know where you are based."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             }
@@ -1359,25 +1311,21 @@
                       "id": "8937",
                       "type": "StandardChoiceOption",
                       "formLabel": "Aluminium",
-
                       "next": {
                         "id": "2931",
                         "type": "SelectQuestion",
                         "required": true,
                         "formLabel": "How many doors need replacing?",
-
                         "options": [
                           {
                             "id": "8940",
                             "type": "StandardChoiceOption",
                             "formLabel": "1",
-
                             "next": {
                               "id": "2940",
                               "type": "TextareaQuestion",
                               "required": true,
                               "formLabel": "Add a description to your job",
-
                               "placeholder": "Include any details you think the tradesperson should know (door material, timeframe, etc.)",
                               "minLength": 20,
                               "maxLength": 10000,
@@ -1402,7 +1350,8 @@
                                     "formLabel": "Postcode for the job",
                                     "helpText": "To find window fitters nearby we need to know where you are based."
                                   }
-                                }
+                                },
+                                "minLength": 10
                               }
                             }
                           },
@@ -1410,13 +1359,11 @@
                             "id": "8941",
                             "type": "StandardChoiceOption",
                             "formLabel": "2",
-
                             "next": {
                               "id": "2934",
                               "type": "SelectQuestion",
                               "required": true,
                               "formLabel": "A single double door, or two separate doors?",
-
                               "options": [
                                 {
                                   "id": "8947",
@@ -1436,7 +1383,6 @@
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (door material, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -1461,7 +1407,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find window fitters nearby we need to know where you are based."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             }
@@ -1470,13 +1417,11 @@
                             "id": "8942",
                             "type": "StandardChoiceOption",
                             "formLabel": "3 or more",
-
                             "next": {
                               "id": "2939",
                               "type": "CheckboxQuestion",
                               "required": true,
                               "formLabel": "What type of doors need fitting?",
-
                               "options": [
                                 {
                                   "id": "8960",
@@ -1515,7 +1460,6 @@
                                 "type": "TextareaQuestion",
                                 "required": true,
                                 "formLabel": "Add a description to your job",
-
                                 "placeholder": "Include any details you think the tradesperson should know (door material, timeframe, etc.)",
                                 "minLength": 20,
                                 "maxLength": 10000,
@@ -1540,7 +1484,8 @@
                                       "formLabel": "Postcode for the job",
                                       "helpText": "To find window fitters nearby we need to know where you are based."
                                     }
-                                  }
+                                  },
+                                  "minLength": 10
                                 }
                               }
                             }
@@ -1553,13 +1498,11 @@
                       "type": "TextChoiceOption",
                       "formLabel": "Other or multiple kinds",
                       "placeholder": "Please specify",
-
                       "next": {
                         "id": "2940",
                         "type": "TextareaQuestion",
                         "required": true,
                         "formLabel": "Add a description to your job",
-
                         "placeholder": "Include any details you think the tradesperson should know (door material, timeframe, etc.)",
                         "minLength": 20,
                         "maxLength": 10000,
@@ -1584,7 +1527,8 @@
                               "formLabel": "Postcode for the job",
                               "helpText": "To find window fitters nearby we need to know where you are based."
                             }
-                          }
+                          },
+                          "minLength": 10
                         }
                       }
                     }
@@ -1598,25 +1542,21 @@
           "id": "8858",
           "type": "StandardChoiceOption",
           "formLabel": "New windows and external doors",
-
           "next": {
             "id": "2893",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What kind of windows do you need?",
-
             "options": [
               {
                 "id": "8862",
                 "type": "StandardChoiceOption",
                 "formLabel": "Wooden",
-
                 "next": {
                   "id": "2894",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "How many windows need replacing?",
-
                   "options": [
                     {
                       "id": "8866",
@@ -1648,19 +1588,16 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "How many doors need replacing?",
-
                     "options": [
                       {
                         "id": "8940",
                         "type": "StandardChoiceOption",
                         "formLabel": "1",
-
                         "next": {
                           "id": "2952",
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (door / window locations, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -1685,7 +1622,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find window fitters nearby we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       },
@@ -1693,13 +1631,11 @@
                         "id": "8941",
                         "type": "StandardChoiceOption",
                         "formLabel": "2",
-
                         "next": {
                           "id": "2934",
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "A single double door, or two separate doors?",
-
                           "options": [
                             {
                               "id": "8947",
@@ -1719,7 +1655,6 @@
                             "type": "TextareaQuestion",
                             "required": true,
                             "formLabel": "Add a description to your job",
-
                             "placeholder": "Include any details you think the tradesperson should know (door / window locations, timeframe, etc.)",
                             "minLength": 20,
                             "maxLength": 10000,
@@ -1744,7 +1679,8 @@
                                   "formLabel": "Postcode for the job",
                                   "helpText": "To find window fitters nearby we need to know where you are based."
                                 }
-                              }
+                              },
+                              "minLength": 10
                             }
                           }
                         }
@@ -1753,13 +1689,11 @@
                         "id": "8942",
                         "type": "StandardChoiceOption",
                         "formLabel": "3 or more",
-
                         "next": {
                           "id": "2939",
                           "type": "CheckboxQuestion",
                           "required": true,
                           "formLabel": "What type of doors need fitting?",
-
                           "options": [
                             {
                               "id": "8960",
@@ -1798,7 +1732,6 @@
                             "type": "TextareaQuestion",
                             "required": true,
                             "formLabel": "Add a description to your job",
-
                             "placeholder": "Include any details you think the tradesperson should know (door / window locations, timeframe, etc.)",
                             "minLength": 20,
                             "maxLength": 10000,
@@ -1823,7 +1756,8 @@
                                   "formLabel": "Postcode for the job",
                                   "helpText": "To find window fitters nearby we need to know where you are based."
                                 }
-                              }
+                              },
+                              "minLength": 10
                             }
                           }
                         }
@@ -1836,13 +1770,11 @@
                 "id": "8864",
                 "type": "StandardChoiceOption",
                 "formLabel": "uPVC",
-
                 "next": {
                   "id": "2894",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "How many windows need replacing?",
-
                   "options": [
                     {
                       "id": "8866",
@@ -1874,19 +1806,16 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "How many doors need replacing?",
-
                     "options": [
                       {
                         "id": "8940",
                         "type": "StandardChoiceOption",
                         "formLabel": "1",
-
                         "next": {
                           "id": "2952",
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (door / window locations, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -1911,7 +1840,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find window fitters nearby we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       },
@@ -1919,13 +1849,11 @@
                         "id": "8941",
                         "type": "StandardChoiceOption",
                         "formLabel": "2",
-
                         "next": {
                           "id": "2934",
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "A single double door, or two separate doors?",
-
                           "options": [
                             {
                               "id": "8947",
@@ -1945,7 +1873,6 @@
                             "type": "TextareaQuestion",
                             "required": true,
                             "formLabel": "Add a description to your job",
-
                             "placeholder": "Include any details you think the tradesperson should know (door / window locations, timeframe, etc.)",
                             "minLength": 20,
                             "maxLength": 10000,
@@ -1970,7 +1897,8 @@
                                   "formLabel": "Postcode for the job",
                                   "helpText": "To find window fitters nearby we need to know where you are based."
                                 }
-                              }
+                              },
+                              "minLength": 10
                             }
                           }
                         }
@@ -1979,13 +1907,11 @@
                         "id": "8942",
                         "type": "StandardChoiceOption",
                         "formLabel": "3 or more",
-
                         "next": {
                           "id": "2939",
                           "type": "CheckboxQuestion",
                           "required": true,
                           "formLabel": "What type of doors need fitting?",
-
                           "options": [
                             {
                               "id": "8960",
@@ -2024,7 +1950,6 @@
                             "type": "TextareaQuestion",
                             "required": true,
                             "formLabel": "Add a description to your job",
-
                             "placeholder": "Include any details you think the tradesperson should know (door / window locations, timeframe, etc.)",
                             "minLength": 20,
                             "maxLength": 10000,
@@ -2049,7 +1974,8 @@
                                   "formLabel": "Postcode for the job",
                                   "helpText": "To find window fitters nearby we need to know where you are based."
                                 }
-                              }
+                              },
+                              "minLength": 10
                             }
                           }
                         }
@@ -2062,13 +1988,11 @@
                 "id": "8863",
                 "type": "StandardChoiceOption",
                 "formLabel": "Aluminium",
-
                 "next": {
                   "id": "2894",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "How many windows need replacing?",
-
                   "options": [
                     {
                       "id": "8866",
@@ -2100,19 +2024,16 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "How many doors need replacing?",
-
                     "options": [
                       {
                         "id": "8940",
                         "type": "StandardChoiceOption",
                         "formLabel": "1",
-
                         "next": {
                           "id": "2952",
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (door / window locations, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -2137,7 +2058,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find window fitters nearby we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       },
@@ -2145,13 +2067,11 @@
                         "id": "8941",
                         "type": "StandardChoiceOption",
                         "formLabel": "2",
-
                         "next": {
                           "id": "2934",
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "A single double door, or two separate doors?",
-
                           "options": [
                             {
                               "id": "8947",
@@ -2171,7 +2091,6 @@
                             "type": "TextareaQuestion",
                             "required": true,
                             "formLabel": "Add a description to your job",
-
                             "placeholder": "Include any details you think the tradesperson should know (door / window locations, timeframe, etc.)",
                             "minLength": 20,
                             "maxLength": 10000,
@@ -2196,7 +2115,8 @@
                                   "formLabel": "Postcode for the job",
                                   "helpText": "To find window fitters nearby we need to know where you are based."
                                 }
-                              }
+                              },
+                              "minLength": 10
                             }
                           }
                         }
@@ -2205,13 +2125,11 @@
                         "id": "8942",
                         "type": "StandardChoiceOption",
                         "formLabel": "3 or more",
-
                         "next": {
                           "id": "2939",
                           "type": "CheckboxQuestion",
                           "required": true,
                           "formLabel": "What type of doors need fitting?",
-
                           "options": [
                             {
                               "id": "8960",
@@ -2250,7 +2168,6 @@
                             "type": "TextareaQuestion",
                             "required": true,
                             "formLabel": "Add a description to your job",
-
                             "placeholder": "Include any details you think the tradesperson should know (door / window locations, timeframe, etc.)",
                             "minLength": 20,
                             "maxLength": 10000,
@@ -2275,7 +2192,8 @@
                                   "formLabel": "Postcode for the job",
                                   "helpText": "To find window fitters nearby we need to know where you are based."
                                 }
-                              }
+                              },
+                              "minLength": 10
                             }
                           }
                         }
@@ -2289,13 +2207,11 @@
                 "type": "TextChoiceOption",
                 "formLabel": "Other",
                 "placeholder": "window frame material",
-
                 "next": {
                   "id": "2894",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "How many windows need replacing?",
-
                   "options": [
                     {
                       "id": "8866",
@@ -2327,19 +2243,16 @@
                     "type": "SelectQuestion",
                     "required": true,
                     "formLabel": "How many doors need replacing?",
-
                     "options": [
                       {
                         "id": "8940",
                         "type": "StandardChoiceOption",
                         "formLabel": "1",
-
                         "next": {
                           "id": "2952",
                           "type": "TextareaQuestion",
                           "required": true,
                           "formLabel": "Add a description to your job",
-
                           "placeholder": "Include any details you think the tradesperson should know (door / window locations, timeframe, etc.)",
                           "minLength": 20,
                           "maxLength": 10000,
@@ -2364,7 +2277,8 @@
                                 "formLabel": "Postcode for the job",
                                 "helpText": "To find window fitters nearby we need to know where you are based."
                               }
-                            }
+                            },
+                            "minLength": 10
                           }
                         }
                       },
@@ -2372,13 +2286,11 @@
                         "id": "8941",
                         "type": "StandardChoiceOption",
                         "formLabel": "2",
-
                         "next": {
                           "id": "2934",
                           "type": "SelectQuestion",
                           "required": true,
                           "formLabel": "A single double door, or two separate doors?",
-
                           "options": [
                             {
                               "id": "8947",
@@ -2398,7 +2310,6 @@
                             "type": "TextareaQuestion",
                             "required": true,
                             "formLabel": "Add a description to your job",
-
                             "placeholder": "Include any details you think the tradesperson should know (door / window locations, timeframe, etc.)",
                             "minLength": 20,
                             "maxLength": 10000,
@@ -2423,7 +2334,8 @@
                                   "formLabel": "Postcode for the job",
                                   "helpText": "To find window fitters nearby we need to know where you are based."
                                 }
-                              }
+                              },
+                              "minLength": 10
                             }
                           }
                         }
@@ -2432,13 +2344,11 @@
                         "id": "8942",
                         "type": "StandardChoiceOption",
                         "formLabel": "3 or more",
-
                         "next": {
                           "id": "2939",
                           "type": "CheckboxQuestion",
                           "required": true,
                           "formLabel": "What type of doors need fitting?",
-
                           "options": [
                             {
                               "id": "8960",
@@ -2477,7 +2387,6 @@
                             "type": "TextareaQuestion",
                             "required": true,
                             "formLabel": "Add a description to your job",
-
                             "placeholder": "Include any details you think the tradesperson should know (door / window locations, timeframe, etc.)",
                             "minLength": 20,
                             "maxLength": 10000,
@@ -2502,7 +2411,8 @@
                                   "formLabel": "Postcode for the job",
                                   "helpText": "To find window fitters nearby we need to know where you are based."
                                 }
-                              }
+                              },
+                              "minLength": 10
                             }
                           }
                         }
@@ -2518,13 +2428,11 @@
           "id": "8859",
           "type": "StandardChoiceOption",
           "formLabel": "Replace glass",
-
           "next": {
             "id": "2953",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "How many panes of glass need replacing?",
-
             "options": [
               {
                 "id": "8982",
@@ -2550,7 +2458,6 @@
               "type": "TextareaQuestion",
               "required": true,
               "formLabel": "Add a description to your job",
-
               "placeholder": "Include any details you think the tradesperson should know (window locations, timeframe, etc.)",
               "minLength": 20,
               "maxLength": 10000,
@@ -2575,7 +2482,8 @@
                     "formLabel": "Postcode for the job",
                     "helpText": "To find window fitters nearby we need to know where you are based."
                   }
-                }
+                },
+                "minLength": 10
               }
             }
           }
@@ -2584,25 +2492,21 @@
           "id": "8860",
           "type": "StandardChoiceOption",
           "formLabel": "Repair",
-
           "next": {
             "id": "2955",
             "type": "SelectQuestion",
             "required": true,
             "formLabel": "What type of windows / doors need repair?",
-
             "options": [
               {
                 "id": "8985",
                 "type": "StandardChoiceOption",
                 "formLabel": "Wooden",
-
                 "next": {
                   "id": "2956",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What kind of repair are you looking for?",
-
                   "options": [
                     {
                       "id": "8987",
@@ -2622,7 +2526,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (frame material, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -2647,7 +2550,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find window fitters nearby we need to know where you are based."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -2656,13 +2560,11 @@
                 "id": "8986",
                 "type": "StandardChoiceOption",
                 "formLabel": "uPVC or metal",
-
                 "next": {
                   "id": "2956",
                   "type": "SelectQuestion",
                   "required": true,
                   "formLabel": "What kind of repair are you looking for?",
-
                   "options": [
                     {
                       "id": "8987",
@@ -2682,7 +2584,6 @@
                     "type": "TextareaQuestion",
                     "required": true,
                     "formLabel": "Add a description to your job",
-
                     "placeholder": "Include any details you think the tradesperson should know (frame material, timeframe, etc.)",
                     "minLength": 20,
                     "maxLength": 10000,
@@ -2707,7 +2608,8 @@
                           "formLabel": "Postcode for the job",
                           "helpText": "To find window fitters nearby we need to know where you are based."
                         }
-                      }
+                      },
+                      "minLength": 10
                     }
                   }
                 }
@@ -2719,7 +2621,6 @@
           "id": "8861",
           "type": "StandardChoiceOption",
           "formLabel": "Other",
-
           "next": {
             "id": "2958",
             "type": "TextareaQuestion",
@@ -2750,7 +2651,8 @@
                   "formLabel": "Postcode for the job",
                   "helpText": "To find window fitters nearby we need to know where you are based."
                 }
-              }
+              },
+              "minLength": 10
             }
           }
         }
