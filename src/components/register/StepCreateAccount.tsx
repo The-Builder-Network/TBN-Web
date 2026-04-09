@@ -77,7 +77,7 @@ const StepCreateAccount = ({ data, onUpdate, onNext }) => {
     <div>
       <h2 className="text-2xl font-bold mb-1.5">Create your account</h2>
       <p className="text-sm text-muted-foreground mb-6">
-        Sign up to be a trade member on MyBuilder.
+        Sign up to be a trade member on The Builder Network.
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-5">
@@ -164,9 +164,9 @@ const StepCreateAccount = ({ data, onUpdate, onNext }) => {
             className="mt-1"
           />
           <label htmlFor="marketing" className="text-sm leading-relaxed">
-            I would like to receive marketing communications about MyBuilder
-            services and offers by email, SMS and/or phone and understand that I
-            can unsubscribe at any time.
+            I would like to receive marketing communications about The Builder
+            Network services and offers by email, SMS and/or phone and
+            understand that I can unsubscribe at any time.
           </label>
         </div>
 

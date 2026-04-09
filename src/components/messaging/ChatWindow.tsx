@@ -7,21 +7,25 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { MessageBubble } from "./MessageBubble";
 import { useMessages, useSendMessage } from "@/api/messaging";
 import { useAuth } from "@/hooks/useAuth";
+import { useChatSocket } from "@/hooks/useChatSocket";
 
 interface ChatWindowProps {
   conversationId: string;
   otherPartyName: string;
 }
 
-export function ChatWindow({ conversationId, otherPartyName }: ChatWindowProps) {
+export function ChatWindow({
+  conversationId,
+  otherPartyName,
+}: ChatWindowProps) {
   const { user } = useAuth();
   const [input, setInput] = useState("");
-  const [isTyping, setIsTyping] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const typingTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const { data, isLoading } = useMessages(conversationId);
   const sendMessage = useSendMessage();
+  const { peerTyping, emitTyping } = useChatSocket(conversationId);
 
   // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
@@ -32,7 +36,6 @@ export function ChatWindow({ conversationId, otherPartyName }: ChatWindowProps) 
     const body = input.trim();
     if (!body || sendMessage.isPending) return;
     setInput("");
-    setIsTyping(false);
     sendMessage.mutate({ conversationId, body });
   };
 
@@ -45,9 +48,9 @@ export function ChatWindow({ conversationId, otherPartyName }: ChatWindowProps) 
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInput(e.target.value);
-    setIsTyping(true);
+    emitTyping(conversationId);
     if (typingTimeoutRef.current) clearTimeout(typingTimeoutRef.current);
-    typingTimeoutRef.current = setTimeout(() => setIsTyping(false), 1500);
+    typingTimeoutRef.current = setTimeout(() => {}, 1500);
   };
 
   return (
@@ -65,7 +68,10 @@ export function ChatWindow({ conversationId, otherPartyName }: ChatWindowProps) 
         {isLoading ? (
           <div className="space-y-3">
             {[1, 2, 3].map((i) => (
-              <div key={i} className={`flex ${i % 2 === 0 ? "justify-end" : "justify-start"}`}>
+              <div
+                key={i}
+                className={`flex ${i % 2 === 0 ? "justify-end" : "justify-start"}`}
+              >
                 <Skeleton className="h-10 w-48 rounded-2xl" />
               </div>
             ))}
@@ -87,7 +93,7 @@ export function ChatWindow({ conversationId, otherPartyName }: ChatWindowProps) 
         )}
 
         {/* Typing indicator */}
-        {isTyping && (
+        {peerTyping && (
           <div className="flex justify-start mb-2">
             <div className="bg-muted rounded-2xl rounded-tl-sm px-4 py-2">
               <div className="flex gap-1 items-center h-4">
