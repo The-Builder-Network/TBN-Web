@@ -11,7 +11,17 @@ const ID_TYPES = [
   { value: "drivers-licence", label: "Driver's licence", icon: Car },
 ];
 
-const StepIDCheck = ({ data, onUpdate, onNext, onBack }) => {
+const StepIDCheck = ({
+  data,
+  onUpdate,
+  onNext,
+  onBack,
+}: {
+  data: Record<string, unknown>;
+  onUpdate: (d: Record<string, unknown>) => void;
+  onNext: () => void;
+  onBack: () => void;
+}) => {
   const { toast } = useToast();
   const [subStep, setSubStep] = useState<SubStep>("intro");
   const [selectedIdType, setSelectedIdType] = useState<string>(

@@ -1,32 +1,83 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link } from "react-router-dom";
+import { Loader2 } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import JobServiceCombobox from "@/components/shared/JobServiceCombobox";
 import PostcodeInput from "@/components/shared/PostcodeInput";
+import { api } from "@/api/client";
+import { useAuth } from "@/hooks/useAuth";
+import LoginModal from "@/components/modals/LoginModal";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const TradespersonHero = () => {
+  const navigate = useNavigate();
+  const { isAuthenticated, logout } = useAuth();
   const [selectedTrade, setSelectedTrade] = useState("");
   const [postcode, setPostcode] = useState("");
   const [postcodeValid, setPostcodeValid] = useState(false);
   const [email, setEmail] = useState("");
   const [emailTouched, setEmailTouched] = useState(false);
+  const [isCheckingEmail, setIsCheckingEmail] = useState(false);
+  const [emailExists, setEmailExists] = useState(false);
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const emailValid = EMAIL_REGEX.test(email);
-  const emailError = emailTouched && !emailValid && email.length > 0;
-  const canSubmit = !!selectedTrade && postcodeValid && emailValid;
+  const emailFormatError = emailTouched && !emailValid && email.length > 0;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Debounced email existence check for the tradesperson signup form
+  useEffect(() => {
+    setEmailExists(false);
+    if (!emailValid) return;
+
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(async () => {
+      setIsCheckingEmail(true);
+      try {
+        const res = await api.post<{ exists: boolean }>("/auth/check-email", {
+          email,
+        });
+        setEmailExists(res.data.exists);
+      } catch {
+        setEmailExists(false);
+      } finally {
+        setIsCheckingEmail(false);
+      }
+    }, 600);
+
+    return () => {
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [email]);
+
+  const canSubmit =
+    !!selectedTrade &&
+    postcodeValid &&
+    emailValid &&
+    !isCheckingEmail &&
+    !emailExists;
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!canSubmit) return;
-    // TODO: wire up actual registration flow (Phase 2)
+    if (isAuthenticated) {
+      await logout();
+    }
+    const params = new URLSearchParams({
+      trade: selectedTrade,
+      postcode,
+      email,
+    });
+    navigate(`/join?${params.toString()}`);
   };
 
   return (
-    <section className="py-16 md:py-20 bg-background overflow-hidden pattern">
+    <>
+      <section className="py-16 md:py-20 bg-background overflow-hidden pattern">
       <div className="container">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-12 items-center">
           {/* Left Column: Text and Form */}
@@ -72,17 +123,37 @@ const TradespersonHero = () => {
                     Email to receive leads{" "}
                     <span className="text-destructive">*</span>
                   </Label>
-                  <Input
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    onBlur={() => setEmailTouched(true)}
-                    placeholder="Your email to receive leads"
-                    type="email"
-                    className={`h-14 text-lg ${emailError ? "border-destructive" : ""}`}
-                  />
-                  {emailError && (
+                  <div className="relative">
+                    <Input
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value.toLowerCase());
+                        setEmailExists(false);
+                      }}
+                      onBlur={() => setEmailTouched(true)}
+                      placeholder="Your email to receive leads"
+                      type="email"
+                      className={`h-14 text-lg pr-10 ${emailFormatError || emailExists ? "border-destructive" : ""}`}
+                    />
+                    {isCheckingEmail && (
+                      <Loader2 className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 animate-spin text-muted-foreground" />
+                    )}
+                  </div>
+                  {emailFormatError && (
                     <p className="text-xs text-destructive">
                       Please enter a valid email address
+                    </p>
+                  )}
+                  {emailExists && !isCheckingEmail && (
+                    <p className="text-xs text-destructive">
+                      An account with this email already exists.{" "}
+                      <button
+                        type="button"
+                        onClick={() => setLoginModalOpen(true)}
+                        className="underline font-medium"
+                      >
+                        Log in instead
+                      </button>
                     </p>
                   )}
                 </div>
@@ -134,6 +205,8 @@ const TradespersonHero = () => {
         </div>
       </div>
     </section>
+      <LoginModal open={loginModalOpen} onOpenChange={setLoginModalOpen} />
+    </>
   );
 };
 

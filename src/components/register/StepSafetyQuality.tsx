@@ -60,7 +60,17 @@ const getQualificationInfo = (skill: string) => {
   );
 };
 
-const StepSafetyQuality = ({ data, onUpdate, onNext, onBack }) => {
+const StepSafetyQuality = ({
+  data,
+  onUpdate,
+  onNext,
+  onBack,
+}: {
+  data: Record<string, unknown>;
+  onUpdate: (d: Record<string, unknown>) => void;
+  onNext: () => void;
+  onBack: () => void;
+}) => {
   const { toast } = useToast();
   const [subStep, setSubStep] = useState<SubStep>("intro");
   const [selectedSkill, setSelectedSkill] = useState<string>(
@@ -90,29 +100,24 @@ const StepSafetyQuality = ({ data, onUpdate, onNext, onBack }) => {
   if (subStep === "intro") {
     return (
       <div>
-        <h2 className="text-3xl font-bold mb-1">Verify your skills</h2>
-        <p className="text-base text-muted-foreground mb-6">~ 5 mins</p>
-        <p className="text-lg mb-4">MyBuilder supports quality tradespeople.</p>
-        <p className="text-lg mb-4">
-          In this step, we check the skills of all tradespeople joining so
-          customers use MyBuilder with confidence.
+        <h2 className="text-2xl font-bold mb-1">Verify your skills</h2>
+        <p className="text-sm text-muted-foreground mb-6">~ 5 mins</p>
+        <p className="text-sm mb-4">
+          The Builder Network supports quality tradespeople.
         </p>
-        <p className="text-lg mb-8">
+        <p className="text-sm mb-4">
+          In this step, we check the skills of all tradespeople joining so
+          customers use The Builder Network with confidence.
+        </p>
+        <p className="text-sm mb-8">
           Our application process is thorough, and only those who meet our high
           standards are accepted.
         </p>
         <div className="flex gap-3">
-          <Button
-            variant="outline"
-            onClick={onBack}
-            className="h-12 px-6 text-base"
-          >
+          <Button variant="outline" onClick={onBack} className="h-11 px-6">
             Back
           </Button>
-          <Button
-            onClick={() => setSubStep("skillset")}
-            className="h-12 px-6 text-base"
-          >
+          <Button onClick={() => setSubStep("skillset")} className="h-11 px-6">
             Continue
           </Button>
         </div>
@@ -121,48 +126,64 @@ const StepSafetyQuality = ({ data, onUpdate, onNext, onBack }) => {
   }
 
   if (subStep === "skillset") {
+    // Use the professions selected in StepWorkDetails, falling back to the static list
+    const skillsetOptions: string[] =
+      Array.isArray(data.professions) &&
+      (data.professions as string[]).length > 0
+        ? (data.professions as string[])
+        : SKILLSETS;
+
     return (
       <div>
-        <h2 className="text-3xl font-bold mb-2">
+        <h2 className="text-2xl font-bold mb-1">
           Select your strongest skillset
         </h2>
-        <p className="text-lg text-muted-foreground mb-6">
-          Choose the area where you have the most experience and expertise.
+        <p className="text-sm text-muted-foreground mb-6">
+          Pass skills evaluations to unlock leads in your areas of expertise.
         </p>
-        <div className="grid grid-cols-2 gap-3 mb-8">
-          {SKILLSETS.map((skill) => (
-            <button
+        <div className="space-y-2 mb-8">
+          {skillsetOptions.map((skill) => (
+            <div
               key={skill}
-              onClick={() => setSelectedSkill(skill)}
-              className={`p-4 rounded-lg border text-left text-base transition-all ${
+              className={`flex items-center gap-3 border px-4 py-3 rounded-lg cursor-pointer transition-colors hover:bg-accent/50 ${
                 selectedSkill === skill
-                  ? "border-primary bg-primary/5 font-medium"
-                  : "border-border hover:border-primary/50"
+                  ? "border-primary/70 bg-accent/30"
+                  : "border-border"
               }`}
+              onClick={() => setSelectedSkill(skill)}
             >
-              <div className="flex items-center justify-between">
-                <span>{skill}</span>
+              <div
+                className={`h-4 w-4 rounded-full border-2 flex-shrink-0 flex items-center justify-center transition-colors ${
+                  selectedSkill === skill
+                    ? "border-primary"
+                    : "border-muted-foreground/40"
+                }`}
+              >
                 {selectedSkill === skill && (
-                  <span className="text-primary text-lg">✓</span>
+                  <div className="h-2 w-2 rounded-full bg-primary" />
                 )}
               </div>
-            </button>
+              <span className="text-sm">{skill}</span>
+            </div>
           ))}
         </div>
         <div className="flex gap-3">
           <Button
             variant="outline"
             onClick={() => setSubStep("intro")}
-            className="h-12 px-6 text-base"
+            className="h-11 px-6"
           >
             Back
           </Button>
           <Button
             disabled={!selectedSkill}
-            onClick={() => setSubStep("evaluation-intro")}
-            className="h-12 px-6 text-base"
+            onClick={() => {
+              onUpdate({ strongestSkill: selectedSkill });
+              setSubStep("evaluation-intro");
+            }}
+            className="h-11 px-6"
           >
-            Continue
+            Next
           </Button>
         </div>
       </div>

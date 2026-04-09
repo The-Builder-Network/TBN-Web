@@ -305,6 +305,11 @@ function TitleBody({
         placeholder={node.placeholder ?? "e.g. Single storey extension"}
         maxLength={node.maxLength}
       />
+      {node.minLength && (
+        <p className="text-xs text-muted-foreground">
+          Min {node.minLength} chars
+        </p>
+      )}
     </div>
   );
 }
@@ -446,8 +451,10 @@ function isValid(node: QuestionNode, answer: AnswerValue): boolean {
       const text = answer as string;
       return text.trim().length >= (node.minLength ?? 1);
     }
-    case "TitleQuestion":
-      return typeof answer === "string" && answer.trim().length > 0;
+    case "TitleQuestion": {
+      const text = answer as string;
+      return text.trim().length >= (node.minLength ?? 1);
+    }
     case "PostalCodeQuestion":
       return typeof answer === "string" && answer.trim().length > 0;
     case "AttachmentQuestion":
