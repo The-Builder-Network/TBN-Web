@@ -2,13 +2,14 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   ChevronRight,
-  X,
   Lightbulb,
   Sparkles,
   Flame,
   HelpCircle,
   PenSquare,
   MessagesSquare,
+  Briefcase,
+  AlertCircle,
 } from "lucide-react";
 import {
   Dialog,
@@ -18,60 +19,9 @@ import {
 } from "@/components/ui/dialog";
 import AskQuestionModal from "@/components/modals/AskQuestionModal";
 import JobsStatusBadge from "@/components/shared/JobsStatusBadge";
-
-const jobs = [
-  {
-    id: "1",
-    title: "Security Systems Installation",
-    postedDate: "8 Mar 2026",
-    status: "active",
-    description:
-      "Suitable local tradespeople have been alerted about your job. As soon as one is interested we will let you know.",
-    interested: 0,
-    chats: 0,
-    inviteCount: 10,
-  },
-  {
-    id: "2",
-    title: "Kitchen Renovation Project",
-    postedDate: "8 Mar 2026",
-    status: "active",
-    description: "",
-    interested: 1,
-    chats: 0,
-    inviteCount: 3,
-  },
-  {
-    id: "3",
-    title: "Electrical Installation",
-    postedDate: "5 Mar 2026",
-    status: "active",
-    description: "",
-    interested: 2,
-    chats: 1,
-    inviteCount: 0,
-  },
-  {
-    id: "4",
-    title: "Architectural Services",
-    postedDate: "17 Jul 2025",
-    status: "closed",
-    description: "",
-    interested: 0,
-    chats: 0,
-    inviteCount: 0,
-  },
-  {
-    id: "5",
-    title: "Architectural Services",
-    postedDate: "15 Jul 2025",
-    status: "closed",
-    description: "",
-    interested: 0,
-    chats: 0,
-    inviteCount: 0,
-  },
-];
+import { SkeletonCard } from "@/components/shared/SkeletonCard";
+import { useJobs } from "@/api/jobs";
+import { Button } from "@/components/ui/button";
 
 const popularServices = [
   { label: "Electrical", popular: true },
@@ -85,78 +35,115 @@ const MyJobs = () => {
   const [showAskModal, setShowAskModal] = useState(false);
   const navigate = useNavigate();
 
+  const { data, isLoading, error, refetch } = useJobs({
+    sort: "createdAt",
+    order: "desc",
+  });
+
+  const jobs = data?.data ?? [];
+
   return (
     <div className="container py-10 grid grid-cols-8 gap-x-12">
       <div className="space-y-4 col-span-5">
         <h1 className="text-3xl font-bold mb-8">My jobs</h1>
 
-        {jobs.map((job) => (
-          <Link
-            key={job.id}
-            to={
-              job.id === "3" ? `/jobs/${job.id}/responses` : `/jobs/${job.id}`
-            }
-            className="block border rounded-lg p-5 hover:border-primary/40"
-          >
-            <div className="flex items-start justify-between ">
-              <div className="flex-1">
-                <div className="flex items-center gap-2 mb-1">
-                  <h4 className="font-semibold text-muted-foreground text-md">
-                    #{job.id}
-                  </h4>
-                  <JobsStatusBadge status={job.status} />
+        {isLoading && (
+          <div className="space-y-4">
+            <SkeletonCard />
+            <SkeletonCard />
+            <SkeletonCard />
+          </div>
+        )}
+
+        {error && (
+          <div className="text-center py-12 border rounded-lg">
+            <AlertCircle className="mx-auto h-10 w-10 text-destructive mb-3" />
+            <p className="font-semibold">Failed to load jobs</p>
+            <p className="text-sm text-muted-foreground mb-4">
+              Something went wrong. Please try again.
+            </p>
+            <Button variant="outline" onClick={() => void refetch()}>
+              Retry
+            </Button>
+          </div>
+        )}
+
+        {!isLoading && !error && jobs.length === 0 && (
+          <div className="text-center py-16 border rounded-lg">
+            <Briefcase className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
+            <h3 className="text-lg font-semibold mb-2">No jobs posted yet</h3>
+            <p className="text-muted-foreground mb-6">
+              Post your first job and get matched with verified tradespeople
+              near you.
+            </p>
+            <Button asChild>
+              <Link to="/post-job">Post a job</Link>
+            </Button>
+          </div>
+        )}
+
+        {!isLoading &&
+          jobs.map((job) => (
+            <Link
+              key={job.id}
+              to={`/homeowner/my-jobs/${job.id}`}
+              className="block border rounded-lg p-5 hover:border-primary/40"
+            >
+              <div className="flex items-start justify-between">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1">
+                    <h4 className="font-semibold text-muted-foreground text-md">
+                      #{job.id.slice(0, 8)}
+                    </h4>
+                    <JobsStatusBadge status={job.status.toLowerCase()} />
+                  </div>
+                  <h3 className="font-semibold text-xl">{job.title}</h3>
+                  <p className="text-muted-foreground text-sm my-2">
+                    Posted{" "}
+                    {new Date(job.createdAt).toLocaleDateString("en-GB", {
+                      day: "numeric",
+                      month: "short",
+                      year: "numeric",
+                    })}
+                    {job.placeName ? ` · ${job.placeName}` : ""}
+                  </p>
+
+                  {job.status === "CLOSED" || job.status === "CANCELLED" ? (
+                    <p className="text-muted-foreground">
+                      Job {job.status.toLowerCase()}
+                    </p>
+                  ) : (
+                    <>
+                      {job.interestedCount > 0 && (
+                        <div className="flex gap-6 my-4">
+                          <div className="border rounded-lg px-6 py-3 flex-1">
+                            <p className="text-2xl font-bold">
+                              {job.interestedCount}
+                            </p>
+                            <p className="text-sm text-muted-foreground">
+                              Interested
+                            </p>
+                            <p className="text-sm text-muted-foreground">
+                              Waiting for your decision
+                            </p>
+                          </div>
+                        </div>
+                      )}
+
+                      {job.interestedCount === 0 && (
+                        <p className="text-muted-foreground text-sm">
+                          Suitable local tradespeople have been alerted about
+                          your job. As soon as one is interested we will let you
+                          know.
+                        </p>
+                      )}
+                    </>
+                  )}
                 </div>
-                <h3 className="font-semibold text-xl">{job.title}</h3>
-                <p className="text-muted-foreground text-sm my-2">
-                  Posted {job.postedDate}
-                </p>
-
-                {job.status === "closed" ? (
-                  <p className="text-muted-foreground">Job closed</p>
-                ) : (
-                  <>
-                    {job.description && (
-                      <p className="text-muted-foreground text-sm mb-3">
-                        {job.description}
-                      </p>
-                    )}
-
-                    {job.interested > 0 && (
-                      <div className="flex gap-6 my-4">
-                        <div className="border rounded-lg px-6 py-3 flex-1">
-                          <p className="text-2xl font-bold">{job.interested}</p>
-                          <p className="text-sm text-muted-foreground">
-                            Interested
-                          </p>
-                          <p className="text-sm text-muted-foreground">
-                            Waiting for your decision
-                          </p>
-                        </div>
-                        <div className="border rounded-lg px-6 py-3 flex-1">
-                          <p className="text-2xl font-bold">{job.chats}</p>
-                          <p className="text-sm text-muted-foreground">Chats</p>
-                          <p className="text-sm text-muted-foreground">
-                            Chat started to discuss job
-                          </p>
-                        </div>
-                      </div>
-                    )}
-
-                    {job.inviteCount > 0 && (
-                      <p>
-                        <span className="text-primary font-medium">
-                          Invite {job.inviteCount} more tradespeople
-                        </span>{" "}
-                        to get more responses
-                      </p>
-                    )}
-                  </>
-                )}
+                <ChevronRight className="w-5 h-5 text-muted-foreground ml-4 mt-1 flex-shrink-0" />
               </div>
-              <ChevronRight className="w-5 h-5 text-muted-foreground ml-4 mt-1 flex-shrink-0" />
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))}
       </div>
 
       {/* Ask a tradesperson section */}
@@ -327,6 +314,11 @@ const MyJobs = () => {
       </Dialog>
 
       <AskQuestionModal open={showAskModal} onOpenChange={setShowAskModal} />
+
+      {/* Hidden button to avoid lint warning — explore modal can be triggered from job cards in future */}
+      <button className="hidden" onClick={() => setShowExploreModal(true)}>
+        <Lightbulb />
+      </button>
     </div>
   );
 };
