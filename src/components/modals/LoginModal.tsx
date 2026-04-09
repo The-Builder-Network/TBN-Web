@@ -18,7 +18,10 @@ import { useLogin } from "@/api/auth";
 import ForgotPasswordModal from "./ForgotPasswordModal";
 
 const loginSchema = z.object({
-  email: z.string().email("Enter a valid email").transform((v) => v.toLowerCase()),
+  email: z
+    .string()
+    .email("Enter a valid email")
+    .transform((v) => v.toLowerCase()),
   password: z.string().min(1, "Password is required"),
 });
 type LoginFormData = z.infer<typeof loginSchema>;
@@ -85,7 +88,9 @@ const LoginModal = ({ open, onOpenChange }: LoginModalProps) => {
                   type="email"
                   placeholder="Email"
                   className="w-full"
-                  {...register("email", { setValueAs: (v: string) => v.toLowerCase() })}
+                  {...register("email", {
+                    setValueAs: (v: string) => v.toLowerCase(),
+                  })}
                 />
                 {errors.email && (
                   <p className="text-xs text-destructive">

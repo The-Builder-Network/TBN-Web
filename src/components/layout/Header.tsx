@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, ChevronDown, LogOut, User, Briefcase, MessageSquare } from "lucide-react";
+import {
+  Menu,
+  X,
+  ChevronDown,
+  LogOut,
+  User,
+  Briefcase,
+  MessageSquare,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -11,6 +19,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import LoginModal from "@/components/modals/LoginModal";
+import { CreditBalance } from "@/components/shared/CreditBalance";
 import { useAuth } from "@/hooks/useAuth";
 
 const Header = () => {
@@ -20,7 +29,8 @@ const Header = () => {
   const navigate = useNavigate();
   const isTradespersonPage = location.pathname === "/tradesnetwork";
 
-  const { isAuthenticated, isHomeowner, isTradesperson, user, logout } = useAuth();
+  const { isAuthenticated, isHomeowner, isTradesperson, user, logout } =
+    useAuth();
 
   const handleLogout = async () => {
     await logout();
@@ -87,7 +97,9 @@ const Header = () => {
                 ) : (
                   <Link to="/tradesnetwork">
                     <Button variant="outline" size="sm">
-                      <span className="text-base">Sign up as a tradesperson</span>
+                      <span className="text-base">
+                        Sign up as a tradesperson
+                      </span>
                     </Button>
                   </Link>
                 )}
@@ -126,18 +138,21 @@ const Header = () => {
 
             {/* ── Tradesperson ── */}
             {isAuthenticated && isTradesperson && (
-              <AccountDropdown
-                name={user?.name ?? ""}
-                onLogout={handleLogout}
-                onProfile={() => navigate("/profile")}
-                extraItems={[
-                  {
-                    label: "My leads",
-                    icon: Briefcase,
-                    onClick: () => navigate("/tradesperson/my-leads"),
-                  },
-                ]}
-              />
+              <>
+                <CreditBalance />
+                <AccountDropdown
+                  name={user?.name ?? ""}
+                  onLogout={handleLogout}
+                  onProfile={() => navigate("/profile")}
+                  extraItems={[
+                    {
+                      label: "My leads",
+                      icon: Briefcase,
+                      onClick: () => navigate("/tradesperson/my-leads"),
+                    },
+                  ]}
+                />
+              </>
             )}
           </nav>
 
@@ -181,13 +196,24 @@ const Header = () => {
                   <div className="px-4 pt-2">
                     {isTradespersonPage ? (
                       <Link to="/" onClick={() => setMobileMenuOpen(false)}>
-                        <Button variant="outline" size={"xl"} className="w-full">
+                        <Button
+                          variant="outline"
+                          size={"xl"}
+                          className="w-full"
+                        >
                           I'm a customer
                         </Button>
                       </Link>
                     ) : (
-                      <Link to="/tradesnetwork" onClick={() => setMobileMenuOpen(false)}>
-                        <Button variant="outline" size={"xl"} className="w-full">
+                      <Link
+                        to="/tradesnetwork"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        <Button
+                          variant="outline"
+                          size={"xl"}
+                          className="w-full"
+                        >
                           Sign up as a tradesperson
                         </Button>
                       </Link>
@@ -273,10 +299,19 @@ interface AccountDropdownProps {
   name: string;
   onLogout: () => void;
   onProfile: () => void;
-  extraItems?: { label: string; icon: React.ElementType; onClick: () => void }[];
+  extraItems?: {
+    label: string;
+    icon: React.ElementType;
+    onClick: () => void;
+  }[];
 }
 
-function AccountDropdown({ name, onLogout, onProfile, extraItems = [] }: AccountDropdownProps) {
+function AccountDropdown({
+  name,
+  onLogout,
+  onProfile,
+  extraItems = [],
+}: AccountDropdownProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
