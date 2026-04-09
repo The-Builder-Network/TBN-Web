@@ -3,6 +3,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import type { User } from "@/types/auth";
 import { AuthContext } from "./authContextValue";
 import { useMe, logoutApi, authKeys } from "@/api/auth";
+import { disconnectSockets } from "@/lib/socket";
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const qc = useQueryClient();
@@ -16,6 +17,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   );
 
   const logout = useCallback(async () => {
+    disconnectSockets();
     await logoutApi();
     qc.setQueryData(authKeys.me, null);
   }, [qc]);
