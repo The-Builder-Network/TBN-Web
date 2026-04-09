@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "@/components/shared/ScrollToTop";
 import { AuthProvider } from "@/contexts/AuthContext";
 import PageLayout from "@/components/layout/PageLayout";
+import { ErrorBoundary } from "@/components/shared/ErrorBoundary";
 
 // ─── Public pages ───────────────────────────────────────────────
 const HomePage = lazy(() => import("./pages/Home"));
@@ -89,67 +90,205 @@ const App = () => (
               <Routes>
                 {/* ── Public pages (with shared Header + Footer layout) ── */}
                 <Route element={<PageLayout />}>
-                  <Route path="/" element={<HomePage />} />
-                  <Route path="/tradesnetwork" element={<TradesNetwork />} />
-                  <Route path="/join" element={<TradespersonJoinPage />} />
+                  <Route
+                    path="/"
+                    element={
+                      <ErrorBoundary name="home page">
+                        <HomePage />
+                      </ErrorBoundary>
+                    }
+                  />
+                  <Route
+                    path="/tradesnetwork"
+                    element={
+                      <ErrorBoundary name="tradesnetwork page">
+                        <TradesNetwork />
+                      </ErrorBoundary>
+                    }
+                  />
+                  <Route
+                    path="/join"
+                    element={
+                      <ErrorBoundary name="join page">
+                        <TradespersonJoinPage />
+                      </ErrorBoundary>
+                    }
+                  />
 
-                  <Route path="/post-job" element={<PostJob />} />
+                  <Route
+                    path="/post-job"
+                    element={
+                      <ErrorBoundary name="post-job flow">
+                        <PostJob />
+                      </ErrorBoundary>
+                    }
+                  />
 
-                  <Route path="/how-it-works" element={<HowItWorks />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/cities" element={<Cities />} />
+                  <Route
+                    path="/how-it-works"
+                    element={
+                      <ErrorBoundary name="how it works">
+                        <HowItWorks />
+                      </ErrorBoundary>
+                    }
+                  />
+                  <Route
+                    path="/about"
+                    element={
+                      <ErrorBoundary name="about page">
+                        <About />
+                      </ErrorBoundary>
+                    }
+                  />
+                  <Route
+                    path="/cities"
+                    element={
+                      <ErrorBoundary name="cities page">
+                        <Cities />
+                      </ErrorBoundary>
+                    }
+                  />
                   <Route
                     path="/become-a-partner"
-                    element={<BecomeAPartner />}
+                    element={
+                      <ErrorBoundary name="become a partner">
+                        <BecomeAPartner />
+                      </ErrorBoundary>
+                    }
                   />
-                  <Route path="/quality-checks" element={<QualityChecks />} />
+                  <Route
+                    path="/quality-checks"
+                    element={
+                      <ErrorBoundary name="quality checks">
+                        <QualityChecks />
+                      </ErrorBoundary>
+                    }
+                  />
 
-                  <Route path="/terms" element={<Terms />} />
-                  <Route path="/privacy" element={<Privacy />} />
-                  <Route path="/reviews-policy" element={<ReviewsPolicy />} />
+                  <Route
+                    path="/terms"
+                    element={
+                      <ErrorBoundary name="terms page">
+                        <Terms />
+                      </ErrorBoundary>
+                    }
+                  />
+                  <Route
+                    path="/privacy"
+                    element={
+                      <ErrorBoundary name="privacy page">
+                        <Privacy />
+                      </ErrorBoundary>
+                    }
+                  />
+                  <Route
+                    path="/reviews-policy"
+                    element={
+                      <ErrorBoundary name="reviews policy">
+                        <ReviewsPolicy />
+                      </ErrorBoundary>
+                    }
+                  />
                   <Route
                     path="/quality-requirements"
-                    element={<QualityRequirements />}
+                    element={
+                      <ErrorBoundary name="quality requirements">
+                        <QualityRequirements />
+                      </ErrorBoundary>
+                    }
                   />
 
-                  <Route path="/trades" element={<Trades />} />
+                  <Route
+                    path="/trades"
+                    element={
+                      <ErrorBoundary name="trades directory">
+                        <Trades />
+                      </ErrorBoundary>
+                    }
+                  />
                   <Route
                     path="/:serviceSlug/:tradeSlug"
-                    element={<TradePage />}
+                    element={
+                      <ErrorBoundary name="trade page">
+                        <TradePage />
+                      </ErrorBoundary>
+                    }
                   />
 
-                  <Route path="/services" element={<Services />} />
+                  <Route
+                    path="/services"
+                    element={
+                      <ErrorBoundary name="services directory">
+                        <Services />
+                      </ErrorBoundary>
+                    }
+                  />
                   <Route
                     path="/services/:serviceSlug"
-                    element={<ServicePage />}
+                    element={
+                      <ErrorBoundary name="service page">
+                        <ServicePage />
+                      </ErrorBoundary>
+                    }
                   />
 
-                  <Route path="/questions" element={<QuestionsPage />} />
+                  <Route
+                    path="/questions"
+                    element={
+                      <ErrorBoundary name="questions list">
+                        <QuestionsPage />
+                      </ErrorBoundary>
+                    }
+                  />
                   <Route
                     path="/questions/:questionId"
-                    element={<QuestionPage />}
+                    element={
+                      <ErrorBoundary name="question detail">
+                        <QuestionPage />
+                      </ErrorBoundary>
+                    }
                   />
 
                   {/* ── Homeowner protected routes ── */}
                   <Route
                     path="/homeowner/my-jobs"
-                    element={<HomeownerMyJobs />}
+                    element={
+                      <ErrorBoundary name="my jobs">
+                        <HomeownerMyJobs />
+                      </ErrorBoundary>
+                    }
                   />
                   <Route
                     path="/homeowner/my-jobs/:jobId"
-                    element={<HomeownerJobDetail />}
+                    element={
+                      <ErrorBoundary name="job detail">
+                        <HomeownerJobDetail />
+                      </ErrorBoundary>
+                    }
                   />
                   <Route
                     path="/homeowner/my-jobs/:jobId/recommended"
-                    element={<RecommendedTradespeople />}
+                    element={
+                      <ErrorBoundary name="recommended tradespeople">
+                        <RecommendedTradespeople />
+                      </ErrorBoundary>
+                    }
                   />
                   <Route
                     path="/homeowner/profile"
-                    element={<HomeownerProfile />}
+                    element={
+                      <ErrorBoundary name="homeowner profile">
+                        <HomeownerProfile />
+                      </ErrorBoundary>
+                    }
                   />
                   <Route
                     path="/homeowner/my-questions"
-                    element={<HomeownerMyQuestionsPage />}
+                    element={
+                      <ErrorBoundary name="my questions">
+                        <HomeownerMyQuestionsPage />
+                      </ErrorBoundary>
+                    }
                   />
                   <Route
                     path="/homeowner"
@@ -157,18 +296,37 @@ const App = () => (
                   />
 
                   {/* ── Tradesperson protected routes ── */}
-                  <Route path="/tradesperson/my-leads" element={<MyLeads />} />
+                  <Route
+                    path="/tradesperson/my-leads"
+                    element={
+                      <ErrorBoundary name="my leads">
+                        <MyLeads />
+                      </ErrorBoundary>
+                    }
+                  />
                   <Route
                     path="/tradesperson/my-leads/:leadId"
-                    element={<TradesPersonLeadDetail />}
+                    element={
+                      <ErrorBoundary name="lead detail">
+                        <TradesPersonLeadDetail />
+                      </ErrorBoundary>
+                    }
                   />
                   <Route
                     path="/tradesperson/contacts"
-                    element={<TradesPersonContactsPage />}
+                    element={
+                      <ErrorBoundary name="contacts & messaging">
+                        <TradesPersonContactsPage />
+                      </ErrorBoundary>
+                    }
                   />
                   <Route
                     path="/tradesperson/profile"
-                    element={<TradesPersonProfile />}
+                    element={
+                      <ErrorBoundary name="tradesperson profile">
+                        <TradesPersonProfile />
+                      </ErrorBoundary>
+                    }
                   />
                   <Route
                     path="/tradesperson"
@@ -178,7 +336,11 @@ const App = () => (
                   {/* Public tradesperson profile (not protected) */}
                   <Route
                     path="/tradesperson/:username"
-                    element={<TradespersonPublicProfile />}
+                    element={
+                      <ErrorBoundary name="public profile">
+                        <TradespersonPublicProfile />
+                      </ErrorBoundary>
+                    }
                   />
 
                   {/* Catch-all */}
