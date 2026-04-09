@@ -45,9 +45,12 @@ const TradePage = () => {
     <main className="flex-1">
       <Helmet>
         <title>{trade.name} in the UK — Builder Network</title>
-        <meta name="description" content={`Find trusted ${trade.name.toLowerCase()} near you. Compare quotes, read reviews and hire with confidence on Builder Network.`} />
+        <meta
+          name="description"
+          content={`Find trusted ${trade.name.toLowerCase()} near you. Compare quotes, read reviews and hire with confidence on Builder Network.`}
+        />
       </Helmet>
-      {/* Breadcrumb */
+      {/* Breadcrumb */}
       <PageBreadcrumb
         items={[
           { label: "Trades", href: "/trades" },

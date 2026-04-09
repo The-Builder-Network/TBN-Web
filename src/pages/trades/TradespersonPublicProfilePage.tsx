@@ -98,9 +98,12 @@ const TradespersonPublicProfile = () => {
     <main className="flex-1">
       <Helmet>
         <title>{tp.companyName || tp.name} — Builder Network</title>
-        <meta name="description" content={`View ${tp.companyName || tp.name}'s profile on Builder Network. ${tp.reviewCount} reviews, verified tradesperson.`} />
+        <meta
+          name="description"
+          content={`View ${tp.companyName || tp.name}'s profile on Builder Network. ${tp.reviewCount} reviews, verified tradesperson.`}
+        />
       </Helmet>
-      {/* Cover Image */}}
+      {/* Cover Image */}
       <div className="relative h-48 md:h-64 bg-gradient-to-br from-primary to-primary/80">
         {tp.coverImageUrl && (
           <img
@@ -155,7 +158,9 @@ const TradespersonPublicProfile = () => {
                 {tp.reviewCount > 0 && (
                   <div className="flex items-center gap-1">
                     <Star className="h-4 w-4 fill-star text-star" />
-                    <span className="font-semibold">{tp.avgRating.toFixed(1)}</span>
+                    <span className="font-semibold">
+                      {tp.avgRating.toFixed(1)}
+                    </span>
                     <span className="text-muted-foreground">
                       ({tp.reviewCount} reviews)
                     </span>
