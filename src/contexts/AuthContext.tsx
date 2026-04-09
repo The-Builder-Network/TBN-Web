@@ -1,40 +1,29 @@
-import { useState, useEffect, type ReactNode } from "react";
+import { useCallback, type ReactNode } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 import type { User } from "@/types/auth";
 import { AuthContext } from "./authContextValue";
-
-const STORAGE_KEY = "tbn_auth_user";
+import { useMe, logoutApi, authKeys } from "@/api/auth";
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const qc = useQueryClient();
+  const { data: user, isLoading } = useMe();
 
-  // Hydrate from localStorage on mount (placeholder for real session check)
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        setUser(JSON.parse(stored));
-      }
-    } catch {
-      // Ignore corrupt storage
-    }
-    setIsLoading(false);
-  }, []);
+  const login = useCallback(
+    (u: User) => {
+      qc.setQueryData(authKeys.me, u);
+    },
+    [qc],
+  );
 
-  const login = (u: User) => {
-    setUser(u);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(u));
-  };
-
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem(STORAGE_KEY);
-  };
+  const logout = useCallback(async () => {
+    await logoutApi();
+    qc.setQueryData(authKeys.me, null);
+  }, [qc]);
 
   return (
     <AuthContext.Provider
       value={{
-        user,
+        user: user ?? null,
         isLoading,
         login,
         logout,
