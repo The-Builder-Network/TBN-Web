@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { ChevronRight, MessageSquare, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import JobServiceCombobox from "@/components/shared/JobServiceCombobox";
 import SortOptionsModal from "@/components/modals/SortOptionsModal";
 import AskQuestionModal from "@/components/modals/AskQuestionModal";
@@ -11,97 +12,33 @@ import {
   PaginationItem,
   PaginationLink,
   PaginationNext,
+  PaginationPrevious,
   PaginationEllipsis,
 } from "@/components/ui/pagination";
-import { services } from "@/constants/services";
-
-const questions = [
-  {
-    category: "Painting & Decorating",
-    title: "Concrete/cement interior wall",
-    author: "Anonymous user",
-    date: "08/03/2026 - 2:09 PM",
-    preview:
-      "Hi, we have just stripped wallpaper off in our bedroom that's not been decorated since 1970s and underneath it all appears to be concrete wall? We have some cracks under our window and some pink stuff...",
-    answers: 1,
-    bestAnswer: true,
-    likes: 1,
-  },
-  {
-    category: "Handyman",
-    title: "Carpenter",
-    author: "Anonymous user",
-    date: "08/03/2026 - 2:05 PM",
-    preview:
-      "Is it common practice for a tradesman to ask for just over 60% of total price of job upfront before starting job to buy materials?",
-    answers: 3,
-    bestAnswer: true,
-    likes: 2,
-  },
-  {
-    category: "Plumbing",
-    title: "How complicated would it be to rearrange bathroom?",
-    author: "Anonymous user",
-    date: "08/03/2026 - 1:53 PM",
-    preview:
-      "I recently bought a house and the bathroom is absolutely fine but the layout is awkward (bath with shower against windowsill making it difficult to have any kind of shower screen and boiler placed ominously above your head...",
-    answers: 1,
-    bestAnswer: true,
-    likes: 1,
-  },
-  {
-    category: "Carpentry & Joinery",
-    title: "Doors",
-    author: "Anonymous user",
-    date: "08/03/2026 - 12:33 PM",
-    preview:
-      "Can you hang a solid wood door on a wood frame. Do you need two people to fit this type of door",
-    answers: 3,
-    bestAnswer: true,
-    likes: 1,
-  },
-  {
-    category: "Plumbing",
-    title: "John Root",
-    author: "John Root",
-    date: "08/03/2026 - 9:44 AM",
-    preview:
-      "Whilst most houses in our street have the external stop cock on the outside pavement, ours is located in our back yard. It is leaking. Our plumber said it is Thames Water property and he can not touch it...",
-    answers: 5,
-    bestAnswer: true,
-    likes: 1,
-  },
-];
+import { useQuestions } from "@/api/questions";
 
 const QuestionsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [selectedService, setSelectedService] = useState("");
   const [sortModalOpen, setSortModalOpen] = useState(false);
   const [askModalOpen, setAskModalOpen] = useState(false);
 
-  // Sync URL to State on mount
-  useEffect(() => {
-    const serviceSlug = searchParams.get("service");
-    if (serviceSlug) {
-      // Validate slug
-      const service = services.find((s) => s.slug === serviceSlug);
-      if (service) {
-        setSelectedService(serviceSlug);
-      } else {
-        // Invalid slug, reset URL
-        setSearchParams((prev) => {
-          const next = new URLSearchParams(prev);
-          next.delete("service");
-          return next;
-        });
-      }
-    } else {
-      setSelectedService("");
-    }
-  }, [searchParams, setSearchParams]);
+  const serviceSlug = searchParams.get("service") ?? undefined;
+  const sort = (searchParams.get("sort") as "createdAt" | "answerCount") ?? "createdAt";
+  const page = Math.max(1, Number(searchParams.get("page")) || 1);
+
+  const { data, isLoading, error } = useQuestions({
+    serviceSlug,
+    sort,
+    order: "desc",
+    page,
+    perPage: 20,
+  });
+
+  const questions = data?.data ?? [];
+  const totalPages = data?.meta.totalPages ?? 1;
+  const total = data?.meta.total ?? 0;
 
   const handleServiceChange = (slug: string) => {
-    setSelectedService(slug);
     setSearchParams((prev) => {
       const next = new URLSearchParams(prev);
       if (slug) {
@@ -109,14 +46,31 @@ const QuestionsPage = () => {
       } else {
         next.delete("service");
       }
+      next.delete("page");
       return next;
     });
   };
 
-  const handleSortApply = (sort: string) => {
-    // Sort logic will be wired to API in Phase 6
-    void sort;
+  const handleSortApply = (newSort: string) => {
+    setSearchParams((prev) => {
+      const next = new URLSearchParams(prev);
+      next.set("sort", newSort);
+      next.delete("page");
+      return next;
+    });
   };
+
+  const handlePageChange = (newPage: number) => {
+    setSearchParams((prev) => {
+      const next = new URLSearchParams(prev);
+      next.set("page", String(newPage));
+      return next;
+    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const currentSortLabel =
+    SORT_OPTIONS.find((o) => o.value === sort)?.label ?? "Most recent";
 
   return (
     <div className="flex-1 container py-10 px-16">
@@ -135,7 +89,7 @@ const QuestionsPage = () => {
 
           <div className="mb-4">
             <JobServiceCombobox
-              value={selectedService}
+              value={serviceSlug ?? ""}
               onChange={handleServiceChange}
               placeholder="All categories"
               triggerClassName="bg-background w-full"
@@ -144,84 +98,158 @@ const QuestionsPage = () => {
 
           <div className="flex items-center justify-between my-4">
             <p className="text-md font-medium flex items-center gap-1.5">
-              <MessageSquare className="w-4 h-4" /> 60,676 questions
+              <MessageSquare className="w-4 h-4" />
+              {isLoading ? "Loading…" : `${total.toLocaleString()} question${total !== 1 ? "s" : ""}`}
             </p>
             <button
               className="text-sm text-muted-foreground flex items-center gap-1 hover:text-foreground transition-colors"
               onClick={() => setSortModalOpen(true)}
             >
-              <Filter className="w-4 h-4" /> Sort by ▾
+              <Filter className="w-4 h-4" /> {currentSortLabel} ▾
             </button>
           </div>
 
-          <div className="space-y-4">
-            {questions.map((q, i) => (
-              <Link
-                key={i}
-                to="#"
-                className="block border rounded-lg p-5 hover:border-primary/20 transition-colors"
-              >
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <p className="text-sm text-highlight font-medium mb-1">
-                      {q.category}
-                    </p>
-                    <h3 className="font-bold text-lg">{q.title}</h3>
-                    <p className="text-sm text-muted-foreground my-0.5">
-                      {q.author} · {q.date}
-                    </p>
-                    <p className="text-sm text-muted-foreground my-2 line-clamp-2">
-                      {q.preview}
-                    </p>
-                    {q.preview.length > 100 && (
-                      <span className="text-sm text-primary font-medium">
-                        Read more
-                      </span>
-                    )}
-                    <div className="flex items-center gap-4 mt-3 text-xs text-muted-foreground">
-                      <span className="flex items-center gap-1">
-                        <MessageSquare className="w-3.5 h-3.5" /> {q.answers}{" "}
-                        answer{q.answers !== 1 ? "s" : ""}
-                      </span>
-                    </div>
-                  </div>
-                  <ChevronRight className="w-5 h-5 text-muted-foreground ml-4 mt-1 flex-shrink-0" />
+          {/* Loading skeletons */}
+          {isLoading && (
+            <div className="space-y-4">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <div key={i} className="border rounded-lg p-5 space-y-2">
+                  <Skeleton className="h-4 w-32" />
+                  <Skeleton className="h-5 w-3/4" />
+                  <Skeleton className="h-3 w-48" />
+                  <Skeleton className="h-8 w-full" />
                 </div>
-              </Link>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
+
+          {/* Error state */}
+          {error && !isLoading && (
+            <div className="text-center py-12 border rounded-lg">
+              <p className="text-muted-foreground mb-3">Failed to load questions.</p>
+              <Button variant="outline" onClick={() => window.location.reload()}>
+                Try again
+              </Button>
+            </div>
+          )}
+
+          {/* Empty state */}
+          {!isLoading && !error && questions.length === 0 && (
+            <div className="text-center py-12 border rounded-lg">
+              <MessageSquare className="mx-auto h-10 w-10 text-muted-foreground mb-3" />
+              <p className="font-medium mb-1">No questions found</p>
+              <p className="text-sm text-muted-foreground mb-4">
+                Be the first to ask a question
+                {serviceSlug ? " in this category" : ""}.
+              </p>
+              <Button onClick={() => setAskModalOpen(true)}>
+                Ask a question
+              </Button>
+            </div>
+          )}
+
+          {/* Questions list */}
+          {!isLoading && !error && questions.length > 0 && (
+            <div className="space-y-4">
+              {questions.map((q) => (
+                <Link
+                  key={q.id}
+                  to={`/questions/${q.id}`}
+                  className="block border rounded-lg p-5 hover:border-primary/20 transition-colors"
+                >
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      {q.serviceSlug && (
+                        <p className="text-sm text-highlight font-medium mb-1 capitalize">
+                          {q.serviceSlug.replace(/-/g, " ")}
+                        </p>
+                      )}
+                      <h3 className="font-bold text-lg">{q.title}</h3>
+                      <p className="text-sm text-muted-foreground my-0.5">
+                        {q.authorName}
+                      </p>
+                      <p className="text-sm text-muted-foreground my-2 line-clamp-2">
+                        {q.body}
+                      </p>
+                      {q.body.length > 100 && (
+                        <span className="text-sm text-primary font-medium">
+                          Read more
+                        </span>
+                      )}
+                      <div className="flex items-center gap-4 mt-3 text-xs text-muted-foreground">
+                        <span className="flex items-center gap-1">
+                          <MessageSquare className="w-3.5 h-3.5" />{" "}
+                          {q.answerCount} answer{q.answerCount !== 1 ? "s" : ""}
+                        </span>
+                        {q.hasBestAnswer && (
+                          <span className="text-highlight font-medium">
+                            ★ Best answer
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    <ChevronRight className="w-5 h-5 text-muted-foreground ml-4 mt-1 flex-shrink-0" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
 
           {/* Pagination */}
-          <div className="mt-8">
-            <Pagination>
-              <PaginationContent>
-                <PaginationItem>
-                  <PaginationLink isActive>1</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink>2</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink>3</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink>4</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink>5</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationEllipsis />
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink>6068</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationNext href="#" />
-                </PaginationItem>
-              </PaginationContent>
-            </Pagination>
-          </div>
+          {!isLoading && totalPages > 1 && (
+            <div className="mt-8">
+              <Pagination>
+                <PaginationContent>
+                  {page > 1 && (
+                    <PaginationItem>
+                      <PaginationPrevious
+                        href="#"
+                        onClick={(e) => { e.preventDefault(); handlePageChange(page - 1); }}
+                      />
+                    </PaginationItem>
+                  )}
+                  {Array.from({ length: Math.min(5, totalPages) }).map((_, i) => {
+                    const pageNum = i + 1;
+                    return (
+                      <PaginationItem key={pageNum}>
+                        <PaginationLink
+                          href="#"
+                          isActive={pageNum === page}
+                          onClick={(e) => { e.preventDefault(); handlePageChange(pageNum); }}
+                        >
+                          {pageNum}
+                        </PaginationLink>
+                      </PaginationItem>
+                    );
+                  })}
+                  {totalPages > 5 && (
+                    <>
+                      <PaginationItem>
+                        <PaginationEllipsis />
+                      </PaginationItem>
+                      <PaginationItem>
+                        <PaginationLink
+                          href="#"
+                          isActive={page === totalPages}
+                          onClick={(e) => { e.preventDefault(); handlePageChange(totalPages); }}
+                        >
+                          {totalPages}
+                        </PaginationLink>
+                      </PaginationItem>
+                    </>
+                  )}
+                  {page < totalPages && (
+                    <PaginationItem>
+                      <PaginationNext
+                        href="#"
+                        onClick={(e) => { e.preventDefault(); handlePageChange(page + 1); }}
+                      />
+                    </PaginationItem>
+                  )}
+                </PaginationContent>
+              </Pagination>
+            </div>
+          )}
         </div>
 
         {/* Sidebar */}
@@ -243,8 +271,8 @@ const QuestionsPage = () => {
             </p>
             <Link
               to={
-                selectedService
-                  ? `/post-job?service=${selectedService}`
+                serviceSlug
+                  ? `/post-job?service=${serviceSlug}`
                   : "/post-job"
               }
             >
@@ -268,7 +296,7 @@ const QuestionsPage = () => {
       <AskQuestionModal
         open={askModalOpen}
         onOpenChange={setAskModalOpen}
-        initialService={selectedService}
+        initialService={serviceSlug ?? ""}
       />
     </div>
   );

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
@@ -15,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { SkeletonCard } from "@/components/shared/SkeletonCard";
+import { ReviewForm } from "@/components/shared/ReviewForm";
 import JobsStatusBadge from "@/components/shared/JobsStatusBadge";
 import { useJob, useUpdateJobStatus } from "@/api/jobs";
 import { useToast } from "@/hooks/use-toast";
@@ -67,6 +69,7 @@ const HomeownerJobDetail = () => {
 
   const { data: job, isLoading, error, refetch } = useJob(jobId!);
   const updateStatusMutation = useUpdateJobStatus();
+  const [reviewDone, setReviewDone] = useState(false);
 
   const responses = job?.responses ?? [];
   const interestedResponses = responses.filter((r) =>
@@ -377,6 +380,25 @@ const HomeownerJobDetail = () => {
           },
         )}
       </Tabs>
+
+      {/* Review form — shown once when job is COMPLETED */}
+      {job.status === "COMPLETED" && !reviewDone && (() => {
+        const hiredResponse = responses.find((r) => r.leadStatus === "HIRED");
+        if (!hiredResponse) return null;
+        return (
+          <div className="mt-6">
+            <ReviewForm
+              jobId={job.id}
+              tradespersonId={hiredResponse.tradesperson.id}
+              tradespersonName={
+                hiredResponse.tradesperson.companyName ??
+                hiredResponse.tradesperson.name
+              }
+              onSuccess={() => setReviewDone(true)}
+            />
+          </div>
+        );
+      })()}
     </div>
   );
 };
