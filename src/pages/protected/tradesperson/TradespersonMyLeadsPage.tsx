@@ -3,7 +3,13 @@ import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { SkeletonCard } from "@/components/shared/SkeletonCard";
 import { Search, MapPin, Clock, Wrench, AlertCircle } from "lucide-react";
 import { useLeads } from "@/api/leads";
@@ -38,9 +44,10 @@ const NewLeads = () => {
 
   // Client-side keyword filter on top of server results
   const leads = searchQuery.trim()
-    ? allLeads.filter((l) =>
-        l.job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        l.job.placeName?.toLowerCase().includes(searchQuery.toLowerCase()),
+    ? allLeads.filter(
+        (l) =>
+          l.job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          l.job.placeName?.toLowerCase().includes(searchQuery.toLowerCase()),
       )
     : allLeads;
 
@@ -48,24 +55,13 @@ const NewLeads = () => {
     <div className="min-h-screen bg-background">
       <Helmet>
         <title>My Leads — Builder Network</title>
-        <meta name="description" content="Browse and manage available leads near you on Builder Network." />
+        <meta
+          name="description"
+          content="Browse and manage available leads near you on Builder Network."
+        />
       </Helmet>
-      {/* Header Nav */}}
-      <div className="border-b px-6 py-3">
-        <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-highlight text-2xl font-bold">⑦</span>
-            <span className="text-xl font-bold">THE BUILDER NETWORK</span>
-          </div>
-          <nav className="flex items-center gap-6">
-            <button onClick={() => navigate("/tradesperson/my-leads")} className="text-base font-medium text-primary">New leads</button>
-            <button onClick={() => navigate("/tradesperson/contacts")} className="text-base text-muted-foreground hover:text-foreground">Contacts</button>
-            <button onClick={() => navigate("/tradesperson/profile")} className="text-base text-muted-foreground hover:text-foreground border rounded-full px-3 py-1">My account 👤</button>
-          </nav>
-        </div>
-      </div>
 
-      <div className="max-w-4xl mx-auto px-6 py-8">
+      <div className="container py-10">
         <h1 className="text-3xl font-bold mb-6">New leads</h1>
 
         {/* Search */}
@@ -94,14 +90,18 @@ const NewLeads = () => {
             <SelectContent>
               <SelectItem value="all">All services</SelectItem>
               {services.map((s) => (
-                <SelectItem key={s.slug} value={s.slug}>{s.name}</SelectItem>
+                <SelectItem key={s.slug} value={s.slug}>
+                  {s.name}
+                </SelectItem>
               ))}
             </SelectContent>
           </Select>
 
           <Select
             value={maxDistance !== undefined ? String(maxDistance) : "any"}
-            onValueChange={(v) => setMaxDistance(v === "any" ? undefined : Number(v))}
+            onValueChange={(v) =>
+              setMaxDistance(v === "any" ? undefined : Number(v))
+            }
           >
             <SelectTrigger className="w-44">
               <SelectValue placeholder="Any distance" />
@@ -160,7 +160,9 @@ const NewLeads = () => {
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-lg font-semibold text-highlight mb-2 truncate">{lead.job.title}</h3>
+                    <h3 className="text-lg font-semibold text-highlight mb-2 truncate">
+                      {lead.job.title}
+                    </h3>
                     <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
                       <span className="flex items-center gap-1">
                         <Wrench className="h-4 w-4" />
@@ -171,7 +173,9 @@ const NewLeads = () => {
                           <MapPin className="h-4 w-4" />
                           {lead.job.placeName}
                           {lead.distanceMiles !== undefined && (
-                            <span className="ml-0.5">({Math.round(lead.distanceMiles)} mi)</span>
+                            <span className="ml-0.5">
+                              ({Math.round(lead.distanceMiles)} mi)
+                            </span>
                           )}
                         </span>
                       )}
@@ -182,7 +186,9 @@ const NewLeads = () => {
                     </div>
                   </div>
                   <div className="text-right flex-shrink-0">
-                    <span className="text-sm font-medium text-foreground">{lead.creditCost} credits</span>
+                    <span className="text-sm font-medium text-foreground">
+                      {lead.creditCost} credits
+                    </span>
                   </div>
                 </div>
               </button>

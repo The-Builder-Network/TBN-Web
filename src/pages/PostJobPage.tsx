@@ -72,7 +72,7 @@ const PostJob = () => {
   }, [setSearchParams]);
 
   return (
-    <main className="flex-1 container py-10 px-16">
+    <main className="flex-1 container py-10">
       <Helmet>
         <title>Post a Job — Builder Network</title>
         <meta

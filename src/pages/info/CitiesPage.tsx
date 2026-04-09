@@ -8,7 +8,10 @@ const Cities = () => {
     <>
       <Helmet>
         <title>Cities We Cover — Builder Network</title>
-        <meta name="description" content="Builder Network operates across hundreds of UK cities. Find trusted tradespeople near you." />
+        <meta
+          name="description"
+          content="Builder Network operates across hundreds of UK cities. Find trusted tradespeople near you."
+        />
       </Helmet>
       <div className="flex-1 container py-16 md:py-16">
         <div className="mb-8">
@@ -24,7 +27,7 @@ const Cities = () => {
           {cities.map((city) => (
             <Link
               key={city.slug}
-              to="/tradespeople"
+              to="/trades"
               className="p-4 border rounded-lg hover:border-primary hover:bg-primary/5 transition-colors"
             >
               <h3 className="font-medium">{city.name}</h3>

@@ -24,7 +24,8 @@ const QuestionsPage = () => {
   const [askModalOpen, setAskModalOpen] = useState(false);
 
   const serviceSlug = searchParams.get("service") ?? undefined;
-  const sort = (searchParams.get("sort") as "createdAt" | "answerCount") ?? "createdAt";
+  const sort =
+    (searchParams.get("sort") as "createdAt" | "answerCount") ?? "createdAt";
   const page = Math.max(1, Number(searchParams.get("page")) || 1);
 
   const { data, isLoading, error } = useQuestions({
@@ -74,10 +75,13 @@ const QuestionsPage = () => {
     SORT_OPTIONS.find((o) => o.value === sort)?.label ?? "Most recent";
 
   return (
-    <div className="flex-1 container py-10 px-16">
+    <div className="flex-1 container py-10">
       <Helmet>
         <title>Ask a Tradesperson — Builder Network</title>
-        <meta name="description" content="Get expert home improvement advice from verified tradespeople." />
+        <meta
+          name="description"
+          content="Get expert home improvement advice from verified tradespeople."
+        />
       </Helmet>
       <h1 className="text-3xl font-bold mb-2">Ask a tradesperson</h1>
       <p className="text-md text-muted-foreground mb-6">
@@ -104,7 +108,9 @@ const QuestionsPage = () => {
           <div className="flex items-center justify-between my-4">
             <p className="text-md font-medium flex items-center gap-1.5">
               <MessageSquare className="w-4 h-4" />
-              {isLoading ? "Loading…" : `${total.toLocaleString()} question${total !== 1 ? "s" : ""}`}
+              {isLoading
+                ? "Loading…"
+                : `${total.toLocaleString()} question${total !== 1 ? "s" : ""}`}
             </p>
             <button
               className="text-sm text-muted-foreground flex items-center gap-1 hover:text-foreground transition-colors"
@@ -131,8 +137,13 @@ const QuestionsPage = () => {
           {/* Error state */}
           {error && !isLoading && (
             <div className="text-center py-12 border rounded-lg">
-              <p className="text-muted-foreground mb-3">Failed to load questions.</p>
-              <Button variant="outline" onClick={() => window.location.reload()}>
+              <p className="text-muted-foreground mb-3">
+                Failed to load questions.
+              </p>
+              <Button
+                variant="outline"
+                onClick={() => window.location.reload()}
+              >
                 Try again
               </Button>
             </div>
@@ -209,24 +220,32 @@ const QuestionsPage = () => {
                     <PaginationItem>
                       <PaginationPrevious
                         href="#"
-                        onClick={(e) => { e.preventDefault(); handlePageChange(page - 1); }}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handlePageChange(page - 1);
+                        }}
                       />
                     </PaginationItem>
                   )}
-                  {Array.from({ length: Math.min(5, totalPages) }).map((_, i) => {
-                    const pageNum = i + 1;
-                    return (
-                      <PaginationItem key={pageNum}>
-                        <PaginationLink
-                          href="#"
-                          isActive={pageNum === page}
-                          onClick={(e) => { e.preventDefault(); handlePageChange(pageNum); }}
-                        >
-                          {pageNum}
-                        </PaginationLink>
-                      </PaginationItem>
-                    );
-                  })}
+                  {Array.from({ length: Math.min(5, totalPages) }).map(
+                    (_, i) => {
+                      const pageNum = i + 1;
+                      return (
+                        <PaginationItem key={pageNum}>
+                          <PaginationLink
+                            href="#"
+                            isActive={pageNum === page}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handlePageChange(pageNum);
+                            }}
+                          >
+                            {pageNum}
+                          </PaginationLink>
+                        </PaginationItem>
+                      );
+                    },
+                  )}
                   {totalPages > 5 && (
                     <>
                       <PaginationItem>
@@ -236,7 +255,10 @@ const QuestionsPage = () => {
                         <PaginationLink
                           href="#"
                           isActive={page === totalPages}
-                          onClick={(e) => { e.preventDefault(); handlePageChange(totalPages); }}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handlePageChange(totalPages);
+                          }}
                         >
                           {totalPages}
                         </PaginationLink>
@@ -247,7 +269,10 @@ const QuestionsPage = () => {
                     <PaginationItem>
                       <PaginationNext
                         href="#"
-                        onClick={(e) => { e.preventDefault(); handlePageChange(page + 1); }}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handlePageChange(page + 1);
+                        }}
                       />
                     </PaginationItem>
                   )}
@@ -276,9 +301,7 @@ const QuestionsPage = () => {
             </p>
             <Link
               to={
-                serviceSlug
-                  ? `/post-job?service=${serviceSlug}`
-                  : "/post-job"
+                serviceSlug ? `/post-job?service=${serviceSlug}` : "/post-job"
               }
             >
               <Button
