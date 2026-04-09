@@ -51,6 +51,7 @@ const MyLeads = lazy(
   () => import("./pages/protected/tradesperson/TradespersonMyLeadsPage"),
 );
 const TradesNetwork = lazy(() => import("./pages/TradesnetworkPage"));
+const TradespersonJoinPage = lazy(() => import("./pages/TradespersonJoinPage"));
 const TradespersonPublicProfile = lazy(
   () => import("./pages/trades/TradespersonPublicProfilePage"),
 );
@@ -87,6 +88,7 @@ const App = () => (
                 <Route element={<PageLayout />}>
                   <Route path="/" element={<HomePage />} />
                   <Route path="/tradesnetwork" element={<TradesNetwork />} />
+                  <Route path="/join" element={<TradespersonJoinPage />} />
 
                   <Route path="/post-job" element={<PostJob />} />
 
