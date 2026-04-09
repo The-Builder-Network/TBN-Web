@@ -11,6 +11,7 @@ import type {
 
 interface GetQuestionsParams {
   serviceSlug?: string;
+  authorId?: string;
   page?: number;
   perPage?: number;
   sort?: "createdAt" | "answerCount";
@@ -68,8 +69,7 @@ export async function markBestAnswer(answerId: string): Promise<void> {
 
 export const questionKeys = {
   all: ["questions"] as const,
-  list: (params: GetQuestionsParams) =>
-    ["questions", "list", params] as const,
+  list: (params: GetQuestionsParams) => ["questions", "list", params] as const,
   detail: (id: string) => ["questions", "detail", id] as const,
 };
 
@@ -101,13 +101,8 @@ export function useCreateQuestion() {
 export function useCreateAnswer() {
   const qc = useQueryClient();
   return useMutation({
-    mutationFn: ({
-      questionId,
-      body,
-    }: {
-      questionId: string;
-      body: string;
-    }) => createAnswer(questionId, body),
+    mutationFn: ({ questionId, body }: { questionId: string; body: string }) =>
+      createAnswer(questionId, body),
     onSuccess: (_, { questionId }) => {
       qc.invalidateQueries({ queryKey: questionKeys.detail(questionId) });
       qc.invalidateQueries({ queryKey: questionKeys.all });
@@ -130,4 +125,3 @@ export function useMarkBestAnswer() {
     onSuccess: () => qc.invalidateQueries({ queryKey: questionKeys.all }),
   });
 }
-
