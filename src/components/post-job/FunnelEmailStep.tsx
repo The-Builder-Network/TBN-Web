@@ -125,7 +125,12 @@ const FunnelEmailStep = ({
 
       <div className="space-y-4">
         <div>
-          <label htmlFor="fe-email" className="text-sm font-medium block mb-1.5">Email</label>
+          <label
+            htmlFor="fe-email"
+            className="text-sm font-medium block mb-1.5"
+          >
+            Email
+          </label>
           <div className="relative">
             <Input
               id="fe-email"
@@ -145,7 +150,12 @@ const FunnelEmailStep = ({
         {/* Password field — shown when email belongs to an existing user */}
         {existingUser === true && (
           <div className="animate-in fade-in slide-in-from-top-2 duration-200">
-            <label htmlFor="fe-password" className="text-sm font-medium block mb-1.5">Password</label>
+            <label
+              htmlFor="fe-password"
+              className="text-sm font-medium block mb-1.5"
+            >
+              Password
+            </label>
             <div className="relative">
               <Input
                 id="fe-password"

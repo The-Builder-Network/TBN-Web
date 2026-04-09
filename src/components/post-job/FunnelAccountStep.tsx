@@ -101,7 +101,12 @@ const FunnelAccountStep = ({
       <form onSubmit={handleContinue} className="space-y-5">
         {/* Pre-filled email — read-only display */}
         <div>
-          <label htmlFor="fa-email" className="text-sm font-medium block mb-1.5">Email</label>
+          <label
+            htmlFor="fa-email"
+            className="text-sm font-medium block mb-1.5"
+          >
+            Email
+          </label>
           <Input
             id="fa-email"
             value={email}
