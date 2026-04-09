@@ -33,6 +33,9 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const HomeownerMyJobs = lazy(
   () => import("./pages/protected/homeowner/HomeownerMyJobsPage"),
 );
+const HomeownerJobDetail = lazy(
+  () => import("./pages/protected/homeowner/HomeownerJobDetailPage"),
+);
 const HomeownerProfile = lazy(
   () => import("./pages/protected/homeowner/HomeownerProfilePage"),
 );
@@ -132,10 +135,9 @@ const App = () => (
                     path="/homeowner/my-jobs"
                     element={<HomeownerMyJobs />}
                   />
-                  {/* TEMP: show new job response page instead of old job detail page */}
                   <Route
                     path="/homeowner/my-jobs/:jobId"
-                    element={<JobResponses />}
+                    element={<HomeownerJobDetail />}
                   />
                   <Route
                     path="/homeowner/my-jobs/:jobId/recommended"
