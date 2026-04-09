@@ -12,3 +12,7 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /homeowner/
+Disallow: /tradesperson/
+
+Sitemap: https://thebuildernetwork.co.uk/sitemap.xml
