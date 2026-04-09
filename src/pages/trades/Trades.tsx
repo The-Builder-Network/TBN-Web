@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 import { trades } from "@/constants/trades";
 import CTASection from "@/components/home/sections/CTASection";
+import { Helmet } from "react-helmet-async";
 
 const Trades = () => {
   return (
     <>
+      <Helmet>
+        <title>Browse Trades — Builder Network</title>
+        <meta name="description" content="Explore all trades on Builder Network. Find plumbers, electricians, roofers and more near you." />
+      </Helmet>
       <main className="flex-1">
         {/* Header Section */}
         <div className="bg-primary/5 py-12">

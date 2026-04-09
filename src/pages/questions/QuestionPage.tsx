@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { Star, ThumbsUp, MessageSquare, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -48,14 +49,16 @@ const QuestionDetail = () => {
       return;
     }
     likeMutation.mutate(answerId, {
-      onError: () => toast({ title: "Failed to update like", variant: "destructive" }),
+      onError: () =>
+        toast({ title: "Failed to update like", variant: "destructive" }),
     });
   };
 
   const handleMarkBest = (answerId: string) => {
     markBestMutation.mutate(answerId, {
       onSuccess: () => toast({ title: "Best answer marked!" }),
-      onError: () => toast({ title: "Failed to mark best answer", variant: "destructive" }),
+      onError: () =>
+        toast({ title: "Failed to mark best answer", variant: "destructive" }),
     });
   };
 
@@ -118,6 +121,21 @@ const QuestionDetail = () => {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
+      <Helmet>
+        <title>
+          {question
+            ? `${question.title} — Builder Network`
+            : "Question — Builder Network"}
+        </title>
+        <meta
+          name="description"
+          content={
+            question
+              ? `${question.title} — Read answers from verified tradespeople on Builder Network.`
+              : "Read expert home improvement advice from verified tradespeople."
+          }
+        />
+      </Helmet>
       <Link
         to="/questions"
         className="text-primary hover:underline inline-flex items-center gap-1"
@@ -156,7 +174,10 @@ const QuestionDetail = () => {
 
           {/* Answer form (tradesperson only) */}
           {showAnswerForm && (
-            <form onSubmit={handleSubmitAnswer} className="mb-8 space-y-3 border rounded-lg p-4">
+            <form
+              onSubmit={handleSubmitAnswer}
+              className="mb-8 space-y-3 border rounded-lg p-4"
+            >
               <p className="font-medium">Your Answer</p>
               <Textarea
                 rows={5}
@@ -168,16 +189,23 @@ const QuestionDetail = () => {
                 <Button
                   type="button"
                   variant="outline"
-                  onClick={() => { setShowAnswerForm(false); setAnswerBody(""); }}
+                  onClick={() => {
+                    setShowAnswerForm(false);
+                    setAnswerBody("");
+                  }}
                 >
                   Cancel
                 </Button>
                 <Button
                   type="submit"
-                  disabled={!answerBody.trim() || createAnswerMutation.isPending}
+                  disabled={
+                    !answerBody.trim() || createAnswerMutation.isPending
+                  }
                 >
                   {createAnswerMutation.isPending ? (
-                    <><Loader2 className="w-4 h-4 mr-1 animate-spin" /> Posting…</>
+                    <>
+                      <Loader2 className="w-4 h-4 mr-1 animate-spin" /> Posting…
+                    </>
                   ) : (
                     "Post answer"
                   )}
@@ -210,7 +238,10 @@ const QuestionDetail = () => {
                     <div className="flex-1">
                       <p className="font-semibold text-primary">
                         {a.authorUsername ? (
-                          <Link to={`/tradespeople/${a.authorUsername}`} className="hover:underline">
+                          <Link
+                            to={`/tradespeople/${a.authorUsername}`}
+                            className="hover:underline"
+                          >
                             {a.authorName}
                           </Link>
                         ) : (
@@ -235,7 +266,8 @@ const QuestionDetail = () => {
                   )}
                   <div className="flex items-center justify-between mt-3 flex-wrap gap-2">
                     <p className="text-sm text-muted-foreground">
-                      Answered {new Date(a.createdAt).toLocaleDateString("en-GB")}
+                      Answered{" "}
+                      {new Date(a.createdAt).toLocaleDateString("en-GB")}
                     </p>
                     <div className="flex items-center gap-2">
                       {isAuthor && !a.isBest && (

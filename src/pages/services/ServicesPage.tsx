@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 import { services } from "@/constants/services";
 import CTASection from "@/components/home/sections/CTASection";
+import { Helmet } from "react-helmet-async";
 
 const Services = () => {
   return (
     <>
+      <Helmet>
+        <title>Our Services — Builder Network</title>
+        <meta name="description" content="Browse all home improvement services offered through Builder Network, from plumbing to extensions." />
+      </Helmet>
       <main className="flex-1 container py-12">
         <h1 className="text-4xl font-bold mb-6">Our services</h1>
         <p className="text-lg text-muted-foreground mb-8">

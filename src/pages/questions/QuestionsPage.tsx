@@ -16,6 +16,7 @@ import {
   PaginationEllipsis,
 } from "@/components/ui/pagination";
 import { useQuestions } from "@/api/questions";
+import { Helmet } from "react-helmet-async";
 
 const QuestionsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -74,6 +75,10 @@ const QuestionsPage = () => {
 
   return (
     <div className="flex-1 container py-10 px-16">
+      <Helmet>
+        <title>Ask a Tradesperson — Builder Network</title>
+        <meta name="description" content="Get expert home improvement advice from verified tradespeople." />
+      </Helmet>
       <h1 className="text-3xl font-bold mb-2">Ask a tradesperson</h1>
       <p className="text-md text-muted-foreground mb-6">
         Get the latest advice about improving your home by asking our expert

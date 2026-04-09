@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useParams, Link } from "react-router-dom";
 import {
   Star,
@@ -95,7 +96,11 @@ const TradespersonPublicProfile = () => {
 
   return (
     <main className="flex-1">
-      {/* Cover Image */}
+      <Helmet>
+        <title>{tp.companyName || tp.name} — Builder Network</title>
+        <meta name="description" content={`View ${tp.companyName || tp.name}'s profile on Builder Network. ${tp.reviewCount} reviews, verified tradesperson.`} />
+      </Helmet>
+      {/* Cover Image */}}
       <div className="relative h-48 md:h-64 bg-gradient-to-br from-primary to-primary/80">
         {tp.coverImageUrl && (
           <img

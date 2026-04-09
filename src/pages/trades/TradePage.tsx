@@ -1,4 +1,5 @@
 import { useParams, Navigate, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import { trades } from "@/constants/trades";
 import { services } from "@/constants/services";
@@ -42,7 +43,11 @@ const TradePage = () => {
 
   return (
     <main className="flex-1">
-      {/* Breadcrumb */}
+      <Helmet>
+        <title>{trade.name} in the UK — Builder Network</title>
+        <meta name="description" content={`Find trusted ${trade.name.toLowerCase()} near you. Compare quotes, read reviews and hire with confidence on Builder Network.`} />
+      </Helmet>
+      {/* Breadcrumb */
       <PageBreadcrumb
         items={[
           { label: "Trades", href: "/trades" },
