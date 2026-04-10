@@ -989,35 +989,17 @@ const BalanceTab = () => {
 
       {/* Auto top-up */}
       <div className="border rounded-xl p-5 mb-6">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between">
           <div>
             <p className="font-semibold">Auto top-up</p>
             <p className="text-sm text-muted-foreground">
               Automatically buy more credits when your balance runs low.
             </p>
           </div>
-          <Switch
-            checked={autoTopupEnabled}
-            onCheckedChange={handleAutoTopupToggle}
-            disabled={savingAutoTopup}
-          />
+          <span className="text-xs font-medium bg-muted text-muted-foreground px-2 py-1 rounded-full">
+            Coming soon
+          </span>
         </div>
-        {autoTopupEnabled && (
-          <div className="pt-3 border-t space-y-2 text-sm text-muted-foreground">
-            <p>
-              Top-up pack:{" "}
-              <span className="font-medium text-foreground">
-                {balanceInfo?.topupAmount ?? "—"} credits
-              </span>
-            </p>
-            <p>
-              Trigger when balance below:{" "}
-              <span className="font-medium text-foreground">
-                {balanceInfo?.topupThreshold ?? "—"} credits
-              </span>
-            </p>
-          </div>
-        )}
       </div>
 
       {/* Credit pack info */}
@@ -1247,7 +1229,7 @@ const TradesProfile = () => {
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
       <Helmet>
-        <title>{displayName} — My Profile — Builder Network</title>
+        <title>{displayName} — My Profile | The Builder Network</title>
         <meta
           name="description"
           content="Manage your tradesperson profile, services, work area, reviews and account settings on Builder Network."

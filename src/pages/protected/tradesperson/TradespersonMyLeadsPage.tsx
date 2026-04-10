@@ -54,7 +54,7 @@ const NewLeads = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>My Leads — Builder Network</title>
+        <title>My Leads | The Builder Network</title>
         <meta
           name="description"
           content="Browse and manage available leads near you on Builder Network."

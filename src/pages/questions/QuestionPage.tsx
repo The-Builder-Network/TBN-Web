@@ -45,7 +45,7 @@ const QuestionDetail = () => {
 
   const handleLike = (answerId: string) => {
     if (!user) {
-      toast({ title: "Sign in to like answers", variant: "destructive" });
+      toast({ title: "Log in to like answers", variant: "destructive" });
       return;
     }
     likeMutation.mutate(answerId, {
@@ -82,7 +82,11 @@ const QuestionDetail = () => {
   // Loading state
   if (isLoading) {
     return (
-      <div className="max-w-5xl mx-auto px-4 py-8">
+      <div
+        className="max-w-5xl mx-auto px-4 py-8"
+        aria-busy="true"
+        aria-label="Loading question"
+      >
         <Skeleton className="h-4 w-24 mb-6" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="md:col-span-2 space-y-4">
@@ -135,13 +139,30 @@ const QuestionDetail = () => {
               : "Read expert home improvement advice from verified tradespeople."
           }
         />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:title"
+          content={
+            question
+              ? `${question.title} — Builder Network`
+              : "Question — Builder Network"
+          }
+        />
+        <meta
+          property="og:description"
+          content={
+            question
+              ? `${question.title} — Read answers from verified tradespeople on Builder Network.`
+              : "Read expert home improvement advice from verified tradespeople."
+          }
+        />
       </Helmet>
-      <Link
-        to="/questions"
+      <button
+        onClick={() => navigate(-1)}
         className="text-primary hover:underline inline-flex items-center gap-1"
       >
         &lsaquo; Back
-      </Link>
+      </button>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4">
         <div className="md:col-span-2">
@@ -239,7 +260,7 @@ const QuestionDetail = () => {
                       <p className="font-semibold text-primary">
                         {a.authorUsername ? (
                           <Link
-                            to={`/tradespeople/${a.authorUsername}`}
+                            to={`/tradesperson/${a.authorUsername}`}
                             className="hover:underline"
                           >
                             {a.authorName}

@@ -10,19 +10,26 @@ import { Helmet } from "react-helmet-async";
 
 const TradesPersonContactsPage = () => {
   const navigate = useNavigate();
-  const [selectedConversationId, setSelectedConversationId] = useState<string | null>(null);
+  const [selectedConversationId, setSelectedConversationId] = useState<
+    string | null
+  >(null);
 
   const { data, isLoading, isError } = useConversations();
   const conversations = data?.conversations ?? [];
 
-  const selectedConversation = conversations.find((c) => c.id === selectedConversationId);
+  const selectedConversation = conversations.find(
+    (c) => c.id === selectedConversationId,
+  );
   const otherPartyName = selectedConversation?.otherParty.name ?? "";
 
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Contacts & Messages — Builder Network</title>
-        <meta name="description" content="Message homeowners and manage your contacts on Builder Network." />
+        <title>Contacts & Messages | The Builder Network</title>
+        <meta
+          name="description"
+          content="Message homeowners and manage your contacts on Builder Network."
+        />
       </Helmet>
       <div className="max-w-5xl mx-auto px-4 py-8">
         <div className="flex items-center gap-3 mb-6">

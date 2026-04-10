@@ -136,7 +136,7 @@ const LeadDetail = () => {
   return (
     <div className="container py-10 max-w-3xl">
       <Helmet>
-        <title>{lead.job.title} — Lead Detail — Builder Network</title>
+        <title>{lead.job.title} — Lead Detail | The Builder Network</title>
         <meta
           name="description"
           content={`Lead details for: ${lead.job.title}. Express interest and contact the homeowner.`}
