@@ -1,6 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { api } from "./client";
-import type { PaginatedResponse, JobSummary, JobDetail, SortOrder } from "./types";
+import type {
+  PaginatedResponse,
+  JobSummary,
+  JobDetail,
+  SortOrder,
+} from "./types";
 
 // ── API functions ─────────────────────────────────────────────
 
@@ -22,7 +27,9 @@ interface CreateJobResponse {
   createdAt: string;
 }
 
-export async function createJob(data: CreateJobData): Promise<CreateJobResponse> {
+export async function createJob(
+  data: CreateJobData,
+): Promise<CreateJobResponse> {
   const formData = new FormData();
   formData.append("title", data.title);
   formData.append("description", data.description || data.title);
@@ -114,8 +121,13 @@ export function useCreateJob() {
 export function useUpdateJobStatus() {
   const qc = useQueryClient();
   return useMutation({
-    mutationFn: ({ id, status }: { id: string; status: "CANCELLED" | "CLOSED" }) =>
-      updateJobStatus(id, status),
+    mutationFn: ({
+      id,
+      status,
+    }: {
+      id: string;
+      status: "CANCELLED" | "CLOSED";
+    }) => updateJobStatus(id, status),
     onSuccess: (_data, { id }) => {
       void qc.invalidateQueries({ queryKey: jobKeys.detail(id) });
       void qc.invalidateQueries({ queryKey: jobKeys.all });
@@ -126,12 +138,16 @@ export function useUpdateJobStatus() {
 export function useCompleteJob() {
   const qc = useQueryClient();
   return useMutation({
-    mutationFn: ({ id, tradespersonId }: { id: string; tradespersonId: string }) =>
-      completeJob(id, tradespersonId),
+    mutationFn: ({
+      id,
+      tradespersonId,
+    }: {
+      id: string;
+      tradespersonId: string;
+    }) => completeJob(id, tradespersonId),
     onSuccess: (_data, { id }) => {
       void qc.invalidateQueries({ queryKey: jobKeys.detail(id) });
       void qc.invalidateQueries({ queryKey: jobKeys.all });
     },
   });
 }
-

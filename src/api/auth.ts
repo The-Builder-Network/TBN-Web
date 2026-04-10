@@ -44,14 +44,24 @@ export function mapApiUser(apiUser: ApiUser): User {
 
 // ── API calls ─────────────────────────────────────────────────
 
-export async function loginApi(data: LoginPayload): Promise<{ user: User; accessToken: string; refreshToken: string }> {
-  const res = await api.post<{ user: ApiUser } & AuthTokens>("/auth/login", data);
+export async function loginApi(
+  data: LoginPayload,
+): Promise<{ user: User; accessToken: string; refreshToken: string }> {
+  const res = await api.post<{ user: ApiUser } & AuthTokens>(
+    "/auth/login",
+    data,
+  );
   setTokens(res.data.accessToken, res.data.refreshToken);
   return { ...res.data, user: mapApiUser(res.data.user) };
 }
 
-export async function registerApi(data: RegisterPayload): Promise<{ user: User; accessToken: string; refreshToken: string }> {
-  const res = await api.post<{ user: ApiUser } & AuthTokens>("/auth/register", data);
+export async function registerApi(
+  data: RegisterPayload,
+): Promise<{ user: User; accessToken: string; refreshToken: string }> {
+  const res = await api.post<{ user: ApiUser } & AuthTokens>(
+    "/auth/register",
+    data,
+  );
   setTokens(res.data.accessToken, res.data.refreshToken);
   return { ...res.data, user: mapApiUser(res.data.user) };
 }
@@ -65,8 +75,12 @@ export async function logoutApi(): Promise<void> {
   clearTokens();
 }
 
-export async function checkPhoneApi(phone: string): Promise<{ exists: boolean }> {
-  const res = await api.post<{ exists: boolean }>("/auth/check-phone", { phone });
+export async function checkPhoneApi(
+  phone: string,
+): Promise<{ exists: boolean }> {
+  const res = await api.post<{ exists: boolean }>("/auth/check-phone", {
+    phone,
+  });
   return res.data;
 }
 
@@ -74,7 +88,10 @@ export async function forgotPasswordApi(email: string): Promise<void> {
   await api.post("/auth/forgot-password", { email });
 }
 
-export async function resetPasswordApi(token: string, newPassword: string): Promise<void> {
+export async function resetPasswordApi(
+  token: string,
+  newPassword: string,
+): Promise<void> {
   await api.post("/auth/reset-password", { token, newPassword });
 }
 
@@ -136,12 +153,16 @@ export function useForgotPassword() {
 
 export function useResetPassword() {
   return useMutation({
-    mutationFn: ({ token, newPassword }: { token: string; newPassword: string }) =>
-      resetPasswordApi(token, newPassword),
+    mutationFn: ({
+      token,
+      newPassword,
+    }: {
+      token: string;
+      newPassword: string;
+    }) => resetPasswordApi(token, newPassword),
   });
 }
 
 export function useVerifyEmail() {
   return useMutation({ mutationFn: verifyEmailApi });
 }
-
