@@ -61,6 +61,8 @@ import {
   useCreateMessageTemplate,
   useDeleteMessageTemplate,
   useUploadIdDocument,
+  useUploadAvatar,
+  useDeleteAvatar,
 } from "@/api/users";
 import { useReviews } from "@/api/reviews";
 import {
@@ -68,6 +70,7 @@ import {
   usePaymentHistory,
   useUpdateAutoTopup,
 } from "@/api/payments";
+import { Skeleton } from "boneyard-js/react";
 import { useLeadsCount } from "@/api/leads";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
@@ -242,7 +245,10 @@ const CompanyDescriptionTab = () => {
               >
                 Discard
               </Button>
-              <Button onClick={handleSave} disabled={bio.trim().length < 50 || updateMutation.isPending}>
+              <Button
+                onClick={handleSave}
+                disabled={bio.trim().length < 50 || updateMutation.isPending}
+              >
                 {updateMutation.isPending ? "Saving…" : "Save"}
               </Button>
             </div>
@@ -332,35 +338,35 @@ const ReviewsTab = () => {
           Reviews ({profile?.reviewCount ?? 0})
         </h3>
 
-        {isLoading && <p className="text-muted-foreground">Loading reviews…</p>}
+        <Skeleton name="reviews-list" loading={isLoading}>
+          {reviews.length === 0 && (
+            <p className="text-muted-foreground">No reviews yet.</p>
+          )}
 
-        {!isLoading && reviews.length === 0 && (
-          <p className="text-muted-foreground">No reviews yet.</p>
-        )}
-
-        <div className="space-y-4">
-          {reviews.map((review) => (
-            <ReviewCard
-              key={review.id}
-              id={review.id}
-              reviewerName={review.authorName}
-              reviewerAvatar={review.authorAvatar}
-              rating={review.rating}
-              comment={review.comment}
-              jobTitle={review.jobTitle}
-              createdAt={review.createdAt}
-              reply={
-                review.reply
-                  ? {
-                      text: review.reply.body,
-                      createdAt: review.reply.createdAt,
-                    }
-                  : undefined
-              }
-              canReply
-            />
-          ))}
-        </div>
+          <div className="space-y-4">
+            {reviews.map((review) => (
+              <ReviewCard
+                key={review.id}
+                id={review.id}
+                reviewerName={review.authorName}
+                reviewerAvatar={review.authorAvatar}
+                rating={review.rating}
+                comment={review.comment}
+                jobTitle={review.jobTitle}
+                createdAt={review.createdAt}
+                reply={
+                  review.reply
+                    ? {
+                        text: review.reply.body,
+                        createdAt: review.reply.createdAt,
+                      }
+                    : undefined
+                }
+                canReply
+              />
+            ))}
+          </div>
+        </Skeleton>
       </div>
     </div>
   );
@@ -378,24 +384,29 @@ const PortfolioTab = () => {
   const portfolioItems = profile?.portfolioItems ?? [];
 
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    upload(
-      { file },
-      {
-        onSuccess: () => toast({ title: "Photo uploaded" }),
-        onError: () =>
-          toast({ title: "Upload failed", variant: "destructive" }),
-      },
+    const files = Array.from(e.target.files ?? []);
+    if (!files.length) return;
+    files.forEach((file) =>
+      upload(
+        { file },
+        {
+          onSuccess: () => toast({ title: "Portfolio Updated" }),
+          onError: () =>
+            toast({ title: "Upload failed", variant: "destructive" }),
+        },
+      ),
     );
     e.target.value = "";
   }
 
   function handleDelete(id: string) {
     deleteItem(id, {
-      onSuccess: () => toast({ title: "Photo removed" }),
+      onSuccess: () => toast({ title: "Portfolio item removed" }),
       onError: () =>
-        toast({ title: "Failed to remove photo", variant: "destructive" }),
+        toast({
+          title: "Failed to remove portfolio item",
+          variant: "destructive",
+        }),
     });
   }
 
@@ -408,6 +419,7 @@ const PortfolioTab = () => {
           ref={fileInputRef}
           type="file"
           accept="image/jpeg,image/png"
+          multiple
           className="hidden"
           onChange={handleFileChange}
         />
@@ -426,16 +438,16 @@ const PortfolioTab = () => {
       </div>
 
       {portfolioItems.length > 0 && (
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="columns-2 md:columns-3 gap-4">
           {portfolioItems.map((item) => (
             <div
               key={item.id}
-              className="group relative aspect-[4/3] rounded-lg overflow-hidden border"
+              className="group relative rounded-lg overflow-hidden border mb-4 break-inside-avoid"
             >
               <img
                 src={item.imageUrl}
                 alt={item.title ?? "Portfolio item"}
-                className="w-full h-full object-cover"
+                className="w-full h-auto block"
               />
               <button
                 onClick={() => handleDelete(item.id)}
@@ -566,27 +578,112 @@ const ContactDetailsTab = () => {
 
 // ── ManageAccountTab ───────────────────────────────────────────
 
-const ManageAccountTab = () => (
-  <div>
-    <h2 className="text-2xl font-bold mb-6">Manage account</h2>
-    <div className="space-y-4">
-      <div className="border rounded-lg p-6">
-        <h3 className="font-semibold mb-1">Change password</h3>
-        <p className="text-sm text-muted-foreground mb-4">
-          Update your password to keep your account secure.
-        </p>
-        <Button variant="outline" size="sm">Change password</Button>
+const ManageAccountTab = () => {
+  const { user } = useAuth();
+  const { mutate: uploadAvatar, isPending: uploading } = useUploadAvatar();
+  const { mutate: removeAvatar, isPending: removing } = useDeleteAvatar();
+  const { toast } = useToast();
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    uploadAvatar(file, {
+      onSuccess: () => toast({ title: "Profile photo updated" }),
+      onError: () => toast({ title: "Upload failed", variant: "destructive" }),
+    });
+    e.target.value = "";
+  }
+
+  function handleRemoveAvatar() {
+    removeAvatar(undefined, {
+      onSuccess: () => toast({ title: "Profile photo removed" }),
+      onError: () =>
+        toast({ title: "Failed to remove photo", variant: "destructive" }),
+    });
+  }
+
+  return (
+    <div>
+      <h2 className="text-2xl font-bold mb-6">Manage account</h2>
+
+      {/* Avatar / profile photo */}
+      <div className="border rounded-lg p-6 mb-4">
+        <h3 className="font-semibold mb-4">Profile photo</h3>
+        <div className="flex items-center gap-5">
+          <div className="relative w-20 h-20 rounded-full overflow-hidden border bg-secondary flex items-center justify-center shrink-0">
+            {user?.avatarUrl ? (
+              <img
+                src={user.avatarUrl}
+                alt="Your avatar"
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <span className="text-2xl font-bold text-muted-foreground">
+                {user?.name?.charAt(0)?.toUpperCase() ?? "U"}
+              </span>
+            )}
+          </div>
+          <div className="space-y-2">
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+              className="hidden"
+              onChange={handleFileChange}
+            />
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => fileInputRef.current?.click()}
+              disabled={uploading || removing}
+              className="gap-2"
+            >
+              <Upload className="h-4 w-4" />
+              {uploading ? "Uploading…" : "Upload photo"}
+            </Button>
+            {user?.avatarUrl && (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={handleRemoveAvatar}
+                disabled={uploading || removing}
+                className="gap-2 text-destructive hover:text-destructive"
+              >
+                <Trash2 className="h-4 w-4" />
+                {removing ? "Removing…" : "Remove photo"}
+              </Button>
+            )}
+            <p className="text-xs text-muted-foreground">
+              JPEG, PNG or WebP. Max size: 5 MB
+            </p>
+          </div>
+        </div>
       </div>
-      <div className="border rounded-lg p-6">
-        <h3 className="font-semibold mb-1">Delete account</h3>
-        <p className="text-sm text-muted-foreground mb-4">
-          Permanently delete your account and all associated data.
-        </p>
-        <Button variant="destructive" size="sm">Delete account</Button>
+
+      <div className="space-y-4">
+        <div className="border rounded-lg p-6">
+          <h3 className="font-semibold mb-1">Change password</h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            Update your password to keep your account secure.
+          </p>
+          <Button variant="outline" size="sm">
+            Change password
+          </Button>
+        </div>
+        <div className="border rounded-lg p-6">
+          <h3 className="font-semibold mb-1">Delete account</h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            Permanently delete your account and all associated data.
+          </p>
+          <Button variant="destructive" size="sm">
+            Delete account
+          </Button>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 // ── SavedLeadsTab ──────────────────────────────────────────────
 
@@ -700,8 +797,15 @@ const WorkAreaTab = () => {
             step={5}
           />
         </div>
-        <div className="rounded-lg overflow-hidden border mb-5" style={{ height: 280 }}>
-          <TravelRadiusMap radius={distance} center={mapCenter} postcode={postcode} />
+        <div
+          className="rounded-lg overflow-hidden border mb-5"
+          style={{ height: 280 }}
+        >
+          <TravelRadiusMap
+            radius={distance}
+            center={mapCenter}
+            postcode={postcode}
+          />
         </div>
       </div>
 
@@ -998,9 +1102,7 @@ const BalanceTab = () => {
             Available credits
           </p>
         </div>
-        {isLoading ? (
-          <div className="h-10 w-24 rounded animate-pulse bg-muted" />
-        ) : (
+        <Skeleton name="balance-display" loading={isLoading}>
           <p className="text-4xl font-bold flex items-baseline gap-2">
             <Coins className="h-7 w-7 text-amber-500" />
             {balance}
@@ -1008,7 +1110,7 @@ const BalanceTab = () => {
               credits
             </span>
           </p>
-        )}
+        </Skeleton>
         <Button
           className="mt-4 gap-2"
           onClick={() => setShowPurchaseModal(true)}
@@ -1122,95 +1224,91 @@ const PaymentsTab = () => {
     <div>
       <h2 className="text-2xl font-bold mb-6">Payment history</h2>
 
-      {isLoading ? (
-        <div className="space-y-3">
-          {[...Array(5)].map((_, i) => (
-            <div key={i} className="h-16 rounded-lg animate-pulse bg-muted" />
-          ))}
-        </div>
-      ) : payments.length === 0 ? (
-        <div className="text-center py-12">
-          <History className="h-12 w-12 text-muted-foreground/30 mx-auto mb-3" />
-          <p className="font-semibold mb-1">No payment history yet</p>
-          <p className="text-sm text-muted-foreground">
-            Your purchases will appear here.
-          </p>
-        </div>
-      ) : (
-        <div className="space-y-2">
-          {payments.map((payment) => (
-            <div
-              key={payment.id}
-              className="border rounded-lg p-4 flex items-center gap-3"
-            >
-              <div className="shrink-0">
-                {PAYMENT_TYPE_ICONS[payment.type] ?? (
-                  <TrendingDown className="h-4 w-4" />
+      <Skeleton name="payments-history" loading={isLoading}>
+        {payments.length === 0 ? (
+          <div className="text-center py-12">
+            <History className="h-12 w-12 text-muted-foreground/30 mx-auto mb-3" />
+            <p className="font-semibold mb-1">No payment history yet</p>
+            <p className="text-sm text-muted-foreground">
+              Your purchases will appear here.
+            </p>
+          </div>
+        ) : (
+          <div className="space-y-2">
+            {payments.map((payment) => (
+              <div
+                key={payment.id}
+                className="border rounded-lg p-4 flex items-center gap-3"
+              >
+                <div className="shrink-0">
+                  {PAYMENT_TYPE_ICONS[payment.type] ?? (
+                    <TrendingDown className="h-4 w-4" />
+                  )}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="font-medium text-sm truncate">
+                    {payment.description ??
+                      payment.type.replace(/_/g, " ").toLowerCase()}
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    {formatDate(payment.createdAt)}
+                  </p>
+                </div>
+                {payment.credits !== null && payment.credits !== undefined && (
+                  <div className="text-sm font-semibold shrink-0">
+                    <span
+                      className={
+                        payment.credits > 0
+                          ? "text-green-600"
+                          : "text-destructive"
+                      }
+                    >
+                      {payment.credits > 0 ? "+" : ""}
+                      {payment.credits} credits
+                    </span>
+                  </div>
                 )}
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="font-medium text-sm truncate">
-                  {payment.description ??
-                    payment.type.replace(/_/g, " ").toLowerCase()}
-                </p>
-                <p className="text-xs text-muted-foreground">
-                  {formatDate(payment.createdAt)}
-                </p>
-              </div>
-              {payment.credits !== null && payment.credits !== undefined && (
-                <div className="text-sm font-semibold shrink-0">
+                <div className="text-sm font-semibold shrink-0 text-right">
+                  <p>{formatAmount(payment.amountPence)}</p>
                   <span
-                    className={
-                      payment.credits > 0
-                        ? "text-green-600"
-                        : "text-destructive"
-                    }
+                    className={`text-xs px-1.5 py-0.5 rounded font-medium ${
+                      PAYMENT_STATUS_COLORS[payment.status] ??
+                      "text-muted-foreground bg-muted"
+                    }`}
                   >
-                    {payment.credits > 0 ? "+" : ""}
-                    {payment.credits} credits
+                    {payment.status.toLowerCase()}
                   </span>
                 </div>
-              )}
-              <div className="text-sm font-semibold shrink-0 text-right">
-                <p>{formatAmount(payment.amountPence)}</p>
-                <span
-                  className={`text-xs px-1.5 py-0.5 rounded font-medium ${
-                    PAYMENT_STATUS_COLORS[payment.status] ??
-                    "text-muted-foreground bg-muted"
-                  }`}
-                >
-                  {payment.status.toLowerCase()}
-                </span>
               </div>
-            </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
 
-      {/* Pagination */}
-      {totalPages > 1 && (
-        <div className="flex items-center justify-center gap-3 mt-6">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => setPage((p) => Math.max(1, p - 1))}
-            disabled={page === 1 || isLoading}
-          >
-            Previous
-          </Button>
-          <span className="text-sm text-muted-foreground">
-            Page {page} of {totalPages}
-          </span>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-            disabled={page === totalPages || isLoading}
-          >
-            Next
-          </Button>
-        </div>
-      )}
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-center gap-3 mt-6">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setPage((p) => Math.max(1, p - 1))}
+              disabled={page === 1 || isLoading}
+            >
+              Previous
+            </Button>
+            <span className="text-sm text-muted-foreground">
+              Page {page} of {totalPages}
+            </span>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+              disabled={page === totalPages || isLoading}
+            >
+              Next
+            </Button>
+          </div>
+        )}
+      </Skeleton>
     </div>
   );
 };
@@ -1272,8 +1370,16 @@ const TradesProfile = () => {
         {/* Sidebar */}
         <div className="overflow-y-auto">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center font-bold">
-              {displayName.charAt(0).toUpperCase()}
+            <div className="w-10 h-10 rounded-full bg-secondary overflow-hidden flex items-center justify-center font-bold shrink-0">
+              {user?.avatarUrl ? (
+                <img
+                  src={user.avatarUrl}
+                  alt={displayName}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                displayName.charAt(0).toUpperCase()
+              )}
             </div>
             <span className="font-semibold text-lg truncate">
               {displayName}

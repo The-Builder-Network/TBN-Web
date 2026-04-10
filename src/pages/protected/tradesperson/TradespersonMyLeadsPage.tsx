@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { SkeletonCard } from "@/components/shared/SkeletonCard";
+import { Skeleton } from "boneyard-js/react";
 import { Search, MapPin, Clock, Wrench, AlertCircle } from "lucide-react";
 import { useLeads } from "@/api/leads";
 import { services } from "@/constants/services";
@@ -117,84 +117,78 @@ const NewLeads = () => {
         </div>
 
         {/* Loading */}
-        {isLoading && (
-          <div className="space-y-3">
-            <SkeletonCard lines={3} />
-            <SkeletonCard lines={3} />
-            <SkeletonCard lines={3} />
-          </div>
-        )}
+        <Skeleton name="leads-list" loading={isLoading}>
+          {/* Error */}
+          {!isLoading && error && (
+            <div className="border rounded-lg p-12 text-center">
+              <AlertCircle className="mx-auto h-10 w-10 text-destructive mb-3" />
+              <p className="font-semibold mb-2">Failed to load leads</p>
+              <Button variant="outline" onClick={() => void refetch()}>
+                Try again
+              </Button>
+            </div>
+          )}
 
-        {/* Error */}
-        {!isLoading && error && (
-          <div className="border rounded-lg p-12 text-center">
-            <AlertCircle className="mx-auto h-10 w-10 text-destructive mb-3" />
-            <p className="font-semibold mb-2">Failed to load leads</p>
-            <Button variant="outline" onClick={() => void refetch()}>
-              Try again
-            </Button>
-          </div>
-        )}
+          {/* Empty */}
+          {!isLoading && !error && leads.length === 0 && (
+            <div className="border rounded-lg p-12 text-center">
+              <Search className="mx-auto h-12 w-12 text-muted-foreground mb-3" />
+              <p className="font-semibold mb-1">No leads found</p>
+              <p className="text-sm text-muted-foreground">
+                {serviceFilter || maxDistance
+                  ? "Try adjusting your filters."
+                  : "There are no available leads matching your profile right now. Check back soon."}
+              </p>
+            </div>
+          )}
 
-        {/* Empty */}
-        {!isLoading && !error && leads.length === 0 && (
-          <div className="border rounded-lg p-12 text-center">
-            <Search className="mx-auto h-12 w-12 text-muted-foreground mb-3" />
-            <p className="font-semibold mb-1">No leads found</p>
-            <p className="text-sm text-muted-foreground">
-              {serviceFilter || maxDistance
-                ? "Try adjusting your filters."
-                : "There are no available leads matching your profile right now. Check back soon."}
-            </p>
-          </div>
-        )}
-
-        {/* Leads list */}
-        {!isLoading && !error && leads.length > 0 && (
-          <div className="space-y-3">
-            {leads.map((lead: LeadSummary) => (
-              <button
-                key={lead.id}
-                className="w-full text-left border-l-4 border-l-highlight/60 bg-card rounded-lg p-5 hover:shadow-sm transition-shadow cursor-pointer"
-                onClick={() => navigate(`/tradesperson/my-leads/${lead.id}`)}
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-lg font-semibold text-highlight mb-2 truncate">
-                      {lead.job.title}
-                    </h3>
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-                      <span className="flex items-center gap-1">
-                        <Wrench className="h-4 w-4" />
-                        {lead.job.serviceSlug.replace(/-/g, " ")}
-                      </span>
-                      {lead.job.placeName && (
+          {/* Leads list */}
+          {!isLoading && !error && leads.length > 0 && (
+            <div className="space-y-3">
+              {leads.map((lead: LeadSummary) => (
+                <button
+                  key={lead.id}
+                  className="w-full text-left border-l-4 border-l-highlight/60 bg-card rounded-lg p-5 hover:shadow-sm transition-shadow cursor-pointer"
+                  onClick={() => navigate(`/tradesperson/my-leads/${lead.id}`)}
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg font-semibold text-highlight mb-2 truncate">
+                        {lead.job.title}
+                      </h3>
+                      <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
                         <span className="flex items-center gap-1">
-                          <MapPin className="h-4 w-4" />
-                          {lead.job.placeName}
-                          {lead.distanceMiles !== undefined && (
-                            <span className="ml-0.5">
-                              ({Math.round(lead.distanceMiles)} mi)
-                            </span>
-                          )}
+                          <Wrench className="h-4 w-4" />
+                          {lead.job.serviceSlug.replace(/-/g, " ")}
                         </span>
-                      )}
-                      <span className="flex items-center gap-1">
-                        <Clock className="h-4 w-4" />
-                        {formatTimeAgo(lead.createdAt)}
+                        {lead.job.placeName && (
+                          <span className="flex items-center gap-1">
+                            <MapPin className="h-4 w-4" />
+                            {lead.job.placeName}
+                            {lead.distanceMiles !== undefined && (
+                              <span className="ml-0.5">
+                                ({Math.round(lead.distanceMiles)} mi)
+                              </span>
+                            )}
+                          </span>
+                        )}
+                        <span className="flex items-center gap-1">
+                          <Clock className="h-4 w-4" />
+                          {formatTimeAgo(lead.createdAt)}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="text-right flex-shrink-0">
+                      <span className="text-sm font-medium text-foreground">
+                        {lead.creditCost} credits
                       </span>
                     </div>
                   </div>
-                  <div className="text-right flex-shrink-0">
-                    <span className="text-sm font-medium text-foreground">
-                      {lead.creditCost} credits
-                    </span>
-                  </div>
-                </div>
-              </button>
-            ))}
-          </div>
-        )}
+                </button>
+              ))}
+            </div>
+          )}
+        </Skeleton>
       </div>
     </div>
   );
