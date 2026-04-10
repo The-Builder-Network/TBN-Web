@@ -93,6 +93,8 @@ const TradespersonHero = () => {
               </h1>
 
               <div className="bg-card w-fit border rounded-xl shadow-sm p-6 md:p-8">
+               
+
                 <form className="space-y-4" onSubmit={handleSubmit}>
                   <div className="flex flex-col sm:flex-row items-stretch sm:items-start justify-between gap-3">
                     <div className="flex-1">

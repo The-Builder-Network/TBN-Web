@@ -3,7 +3,7 @@ import { Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "boneyard-js/react";
 import { MessageBubble } from "./MessageBubble";
 import { useMessages, useSendMessage } from "@/api/messaging";
 import { useAuth } from "@/hooks/useAuth";
@@ -65,36 +65,23 @@ export function ChatWindow({
 
       {/* Messages */}
       <ScrollArea className="flex-1 px-4 py-3">
-        {isLoading ? (
-          <div
-            className="space-y-3"
-            aria-busy="true"
-            aria-label="Loading messages"
-          >
-            {[1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className={`flex ${i % 2 === 0 ? "justify-end" : "justify-start"}`}
-              >
-                <Skeleton className="h-10 w-48 rounded-2xl" />
-              </div>
-            ))}
-          </div>
-        ) : (data?.data ?? []).length === 0 ? (
-          <p className="text-center text-muted-foreground text-sm mt-8">
-            No messages yet. Say hello!
-          </p>
-        ) : (
-          (data?.data ?? []).map((msg) => (
-            <MessageBubble
-              key={msg.id}
-              body={msg.body}
-              isOwn={msg.senderId === user?.id}
-              createdAt={msg.createdAt}
-              readAt={msg.readAt}
-            />
-          ))
-        )}
+        <Skeleton name="chat-messages" loading={isLoading}>
+          {(data?.data ?? []).length === 0 ? (
+            <p className="text-center text-muted-foreground text-sm mt-8">
+              No messages yet. Say hello!
+            </p>
+          ) : (
+            (data?.data ?? []).map((msg) => (
+              <MessageBubble
+                key={msg.id}
+                body={msg.body}
+                isOwn={msg.senderId === user?.id}
+                createdAt={msg.createdAt}
+                readAt={msg.readAt}
+              />
+            ))
+          )}
+        </Skeleton>
 
         {/* Typing indicator */}
         {peerTyping && (

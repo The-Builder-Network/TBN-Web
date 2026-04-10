@@ -6,7 +6,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "boneyard-js/react";
 import { Bell } from "lucide-react";
 import { NotificationListItem } from "./NotificationItem";
 import {
@@ -71,38 +71,24 @@ export function NotificationBell() {
 
         {/* Notification list */}
         <ScrollArea className="max-h-[380px]">
-          {isLoading ? (
-            <div
-              className="px-4 py-3 space-y-3"
-              aria-busy="true"
-              aria-label="Loading notifications"
-            >
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <Skeleton className="h-8 w-8 rounded-full" />
-                  <div className="space-y-1 flex-1">
-                    <Skeleton className="h-4 w-4/5" />
-                    <Skeleton className="h-3 w-2/5" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : notifications.length === 0 ? (
-            <div className="flex flex-col items-center justify-center py-10 text-center px-4">
-              <Bell className="h-8 w-8 text-muted-foreground mb-2 opacity-40" />
-              <p className="text-sm text-muted-foreground">
-                No notifications yet
-              </p>
-            </div>
-          ) : (
-            notifications.map((n) => (
-              <NotificationListItem
-                key={n.id}
-                notification={n}
-                onRead={handleRead}
-              />
-            ))
-          )}
+          <Skeleton name="notification-bell-list" loading={isLoading}>
+            {notifications.length === 0 ? (
+              <div className="flex flex-col items-center justify-center py-10 text-center px-4">
+                <Bell className="h-8 w-8 text-muted-foreground mb-2 opacity-40" />
+                <p className="text-sm text-muted-foreground">
+                  No notifications yet
+                </p>
+              </div>
+            ) : (
+              notifications.map((n) => (
+                <NotificationListItem
+                  key={n.id}
+                  notification={n}
+                  onRead={handleRead}
+                />
+              ))
+            )}
+          </Skeleton>
         </ScrollArea>
 
         {/* Footer */}
