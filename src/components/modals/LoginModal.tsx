@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -36,6 +36,7 @@ const LoginModal = ({ open, onOpenChange }: LoginModalProps) => {
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const { toast } = useToast();
   const { mutate: login, isPending } = useLogin();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -46,9 +47,14 @@ const LoginModal = ({ open, onOpenChange }: LoginModalProps) => {
 
   const onSubmit = (data: LoginFormData) => {
     login(data, {
-      onSuccess: () => {
+      onSuccess: (result) => {
         reset();
         onOpenChange(false);
+        if (result.user.role === "tradesperson") {
+          navigate("/tradesperson/my-leads", { replace: true });
+        } else {
+          navigate("/homeowner/my-jobs", { replace: true });
+        }
       },
       onError: (err: unknown) => {
         const message =

@@ -66,7 +66,11 @@ export function ChatWindow({
       {/* Messages */}
       <ScrollArea className="flex-1 px-4 py-3">
         {isLoading ? (
-          <div className="space-y-3">
+          <div
+            className="space-y-3"
+            aria-busy="true"
+            aria-label="Loading messages"
+          >
             {[1, 2, 3].map((i) => (
               <div
                 key={i}

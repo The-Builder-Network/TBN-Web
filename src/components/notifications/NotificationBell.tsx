@@ -72,7 +72,11 @@ export function NotificationBell() {
         {/* Notification list */}
         <ScrollArea className="max-h-[380px]">
           {isLoading ? (
-            <div className="px-4 py-3 space-y-3">
+            <div
+              className="px-4 py-3 space-y-3"
+              aria-busy="true"
+              aria-label="Loading notifications"
+            >
               {[1, 2, 3].map((i) => (
                 <div key={i} className="flex items-start gap-3">
                   <Skeleton className="h-8 w-8 rounded-full" />
@@ -86,7 +90,9 @@ export function NotificationBell() {
           ) : notifications.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-10 text-center px-4">
               <Bell className="h-8 w-8 text-muted-foreground mb-2 opacity-40" />
-              <p className="text-sm text-muted-foreground">No notifications yet</p>
+              <p className="text-sm text-muted-foreground">
+                No notifications yet
+              </p>
             </div>
           ) : (
             notifications.map((n) => (
