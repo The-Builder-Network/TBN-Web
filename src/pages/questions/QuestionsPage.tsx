@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import { ChevronRight, MessageSquare, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -16,6 +16,7 @@ import {
   PaginationEllipsis,
 } from "@/components/ui/pagination";
 import { useQuestions } from "@/api/questions";
+import { useAuth } from "@/hooks/useAuth";
 import { Helmet } from "react-helmet-async";
 
 const SORT_OPTIONS = [
@@ -27,6 +28,8 @@ const QuestionsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [sortModalOpen, setSortModalOpen] = useState(false);
   const [askModalOpen, setAskModalOpen] = useState(false);
+  const navigate = useNavigate();
+  const { isTradesperson, isAuthenticated } = useAuth();
 
   const serviceSlug = searchParams.get("service") ?? undefined;
   const sort =
@@ -105,8 +108,9 @@ const QuestionsPage = () => {
             <JobServiceCombobox
               value={serviceSlug ?? ""}
               onChange={handleServiceChange}
-              placeholder="All categories"
+              placeholder="All services"
               triggerClassName="bg-background w-full"
+              showAllOption
             />
           </div>
 
@@ -184,6 +188,9 @@ const QuestionsPage = () => {
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
+                      <p className="text-xs text-muted-foreground mb-0.5">
+                        #{q.questionNumber}
+                      </p>
                       {q.serviceSlug && (
                         <p className="text-sm text-highlight font-medium mb-1 capitalize">
                           {q.serviceSlug.replace(/-/g, " ")}
@@ -211,6 +218,16 @@ const QuestionsPage = () => {
                             ★ Best answer
                           </span>
                         )}
+                        <span>
+                          {new Date(q.createdAt).toLocaleString("en-GB", {
+                            day: "numeric",
+                            month: "short",
+                            year: "numeric",
+                            hour: "2-digit",
+                            minute: "2-digit",
+                            hour12: false,
+                          })}
+                        </span>
                       </div>
                     </div>
                     <ChevronRight className="w-5 h-5 text-muted-foreground ml-4 mt-1 flex-shrink-0" />
@@ -293,34 +310,96 @@ const QuestionsPage = () => {
 
         {/* Sidebar */}
         <div className="space-y-4">
-          <div className="border rounded-lg p-5 bg-secondary/30">
-            <p className="font-bold text-lg mb-2">Need some tips or advice?</p>
-            <Button
-              className="w-full mt-2"
-              onClick={() => setAskModalOpen(true)}
-            >
-              Ask a question
-            </Button>
-          </div>
-          <div className="border rounded-lg p-5">
-            <p className="font-bold text-lg mb-2">Ready to hire?</p>
-            <p className="text-sm text-muted-foreground mb-4">
-              Post your job in minutes, browse real reviews and choose who to
-              speak to.
-            </p>
-            <Link
-              to={
-                serviceSlug ? `/post-job?service=${serviceSlug}` : "/post-job"
-              }
-            >
-              <Button
-                variant="outline"
-                className="w-full hover:bg-secondary transition-colors font-medium border-primary text-primary hover:text-primary"
-              >
-                Post a job
-              </Button>
-            </Link>
-          </div>
+          {isTradesperson ? (
+            <>
+              <div className="border rounded-lg p-5 bg-secondary/30">
+                <p className="font-bold text-lg mb-2">Your leads</p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  View and manage all the leads you've received from homeowners.
+                </p>
+                <Button
+                  className="w-full"
+                  onClick={() => navigate("/tradesperson/my-leads")}
+                >
+                  View my leads
+                </Button>
+              </div>
+              <div className="border rounded-lg p-5">
+                <p className="font-bold text-lg mb-2">Answer questions</p>
+                <p className="text-sm text-muted-foreground">
+                  Share your expertise by answering homeowner questions and grow
+                  your reputation.
+                </p>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="border rounded-lg p-5 bg-secondary/30">
+                <p className="font-bold text-lg mb-2">
+                  Need some tips or advice?
+                </p>
+                <Button
+                  className="w-full mt-2"
+                  onClick={() => setAskModalOpen(true)}
+                >
+                  Ask a question
+                </Button>
+              </div>
+              {isAuthenticated && (
+                <div className="border rounded-lg p-5">
+                  <p className="font-bold text-lg mb-2">Your questions</p>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    View and manage all the questions you have asked.
+                  </p>
+                  <Button
+                    variant="outline"
+                    className="w-full"
+                    onClick={() => navigate("/homeowner/my-questions")}
+                  >
+                    View your questions
+                  </Button>
+                </div>
+              )}
+              <div className="border rounded-lg p-5">
+                <p className="font-bold text-lg mb-2">Ready to hire?</p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Post your job in minutes, browse real reviews and choose who
+                  to speak to.
+                </p>
+                {!isAuthenticated ? (
+                  <Link
+                    to={
+                      serviceSlug
+                        ? `/post-job?service=${serviceSlug}`
+                        : "/post-job"
+                    }
+                  >
+                    <Button
+                      variant="outline"
+                      className="w-full hover:bg-secondary transition-colors font-medium border-primary text-primary hover:text-primary"
+                    >
+                      Post a job
+                    </Button>
+                  </Link>
+                ) : (
+                  <Link
+                    to={
+                      serviceSlug
+                        ? `/post-job?service=${serviceSlug}`
+                        : "/post-job"
+                    }
+                  >
+                    <Button
+                      variant="outline"
+                      className="w-full hover:bg-secondary transition-colors font-medium border-primary text-primary hover:text-primary"
+                    >
+                      Post a job
+                    </Button>
+                  </Link>
+                )}
+              </div>
+            </>
+          )}
         </div>
       </div>
 
