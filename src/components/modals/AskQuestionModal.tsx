@@ -145,7 +145,7 @@ const AskQuestionModal = ({
                 placeholder="E.g. How do I fix a leaking radiator?"
               />
               <p className="text-xs text-muted-foreground mt-1.5">
-                Characters remaining: {MAX_TITLE - title.length}
+                Characters remaining: {MAX_TITLE - title.length}  
               </p>
             </div>
 

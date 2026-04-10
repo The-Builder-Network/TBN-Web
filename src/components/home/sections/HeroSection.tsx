@@ -59,8 +59,10 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="pattern">
-      <div className="container py-12 md:py-24 mt-2">
+    <section className="pt-24 bg-background overflow-hidden pattern" style={{
+      height: "calc(100vh - 4rem)", // Full viewport height minus header
+    }}>
+      <div className="container">
         <div className="grid lg:grid-cols-5 gap-12 items-center">
           {/* Left Content */}
           <div className="text-primary-foreground col-span-3">
@@ -74,7 +76,7 @@ const HeroSection = () => {
             </h1>
 
             {/* Search Form */}
-            <div className="mb-6 relative max-w-lg">
+            <div className="mb-1 relative max-w-lg">
               <p className="text-3xl font-semibold mb-4">What is your job?</p>
               <div className="flex flex-col sm:flex-row w-full items-stretch sm:items-center gap-0">
                 <div className="flex-1">

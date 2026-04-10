@@ -40,9 +40,9 @@ const Header = () => {
 
   return (
     <>
-      {/* Top Banner — only for unauthenticated users or homeowners */}
-      {!isTradespersonPage && !isTradesperson && (
-        <div className="bg-primary/10 text-primary text-sm py-1 text-center">
+      {/* Top Banner — only for unauthenticated users */}
+      {!isTradespersonPage && !isAuthenticated && (
+        <div className="bg-primary/10 text-primary text-xs py-0.5 text-center">
           <span className="font-medium">
             Are you a tradesperson looking for leads?{" "}
           </span>
@@ -71,7 +71,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-2">
             {/* ── Not logged in ── */}
             {!isAuthenticated && (
               <>
@@ -152,6 +152,11 @@ const Header = () => {
                       label: "My leads",
                       icon: Briefcase,
                       onClick: () => navigate("/tradesperson/my-leads"),
+                    },
+                    {
+                      label: "Q&A",
+                      icon: MessageSquare,
+                      onClick: () => navigate("/questions"),
                     },
                   ]}
                 />
@@ -268,6 +273,13 @@ const Header = () => {
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     My leads
+                  </Link>
+                  <Link
+                    to="/questions"
+                    className="block px-4 py-3 text-sm font-medium hover:bg-muted rounded-md"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Q&amp;A
                   </Link>
                   <Link
                     to="/tradesperson/profile"
