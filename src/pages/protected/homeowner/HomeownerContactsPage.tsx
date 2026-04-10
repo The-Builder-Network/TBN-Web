@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MessageCircle, FolderOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "boneyard-js/react";
 import { useNavigate } from "react-router-dom";
 import { ConversationListItem } from "@/components/messaging/ConversationListItem";
 import { ChatWindow } from "@/components/messaging/ChatWindow";
@@ -40,56 +40,42 @@ const HomeownerContactsPage = () => {
         <div className="border rounded-lg overflow-hidden flex h-[calc(100vh-200px)] min-h-[500px]">
           {/* Left panel — conversation list */}
           <div className="w-full md:w-80 shrink-0 border-r flex flex-col overflow-hidden">
-            {isLoading ? (
-              <div
-                className="p-4 space-y-3"
-                aria-busy="true"
-                aria-label="Loading conversations"
-              >
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <Skeleton className="h-10 w-10 rounded-full" />
-                    <div className="flex-1 space-y-2">
-                      <Skeleton className="h-4 w-32" />
-                      <Skeleton className="h-3 w-full" />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ) : isError ? (
-              <div className="p-6 text-center text-muted-foreground text-sm">
-                Could not load conversations.
-              </div>
-            ) : conversations.length === 0 ? (
-              <div className="flex flex-col items-center justify-center p-8 text-center flex-1">
-                <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mb-4">
-                  <FolderOpen className="h-8 w-8 text-muted-foreground" />
+            <Skeleton name="conversations-list" loading={isLoading}>
+              {isError ? (
+                <div className="p-6 text-center text-muted-foreground text-sm">
+                  Could not load conversations.
                 </div>
-                <p className="font-medium mb-1">No messages yet</p>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Conversations appear here when tradespeople express interest
-                  in your jobs.
-                </p>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={() => navigate("/homeowner/my-jobs")}
-                >
-                  View my jobs
-                </Button>
-              </div>
-            ) : (
-              <div className="overflow-y-auto flex-1">
-                {conversations.map((conv) => (
-                  <ConversationListItem
-                    key={conv.id}
-                    conversation={conv}
-                    isActive={conv.id === selectedConversationId}
-                    onClick={() => setSelectedConversationId(conv.id)}
-                  />
-                ))}
-              </div>
-            )}
+              ) : conversations.length === 0 ? (
+                <div className="flex flex-col items-center justify-center p-8 text-center flex-1">
+                  <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mb-4">
+                    <FolderOpen className="h-8 w-8 text-muted-foreground" />
+                  </div>
+                  <p className="font-medium mb-1">No messages yet</p>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Conversations appear here when tradespeople express interest
+                    in your jobs.
+                  </p>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => navigate("/homeowner/my-jobs")}
+                  >
+                    View my jobs
+                  </Button>
+                </div>
+              ) : (
+                <div className="overflow-y-auto flex-1">
+                  {conversations.map((conv) => (
+                    <ConversationListItem
+                      key={conv.id}
+                      conversation={conv}
+                      isActive={conv.id === selectedConversationId}
+                      onClick={() => setSelectedConversationId(conv.id)}
+                    />
+                  ))}
+                </div>
+              )}
+            </Skeleton>
           </div>
 
           {/* Right panel — chat window */}

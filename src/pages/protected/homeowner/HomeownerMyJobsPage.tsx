@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/dialog";
 import AskQuestionModal from "@/components/modals/AskQuestionModal";
 import JobsStatusBadge from "@/components/shared/JobsStatusBadge";
-import { SkeletonCard } from "@/components/shared/SkeletonCard";
+import { Skeleton } from "boneyard-js/react";
 import { useJobs } from "@/api/jobs";
 import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
@@ -60,106 +60,100 @@ const MyJobs = () => {
           </Button>
         </div>
 
-        {isLoading && (
-          <div className="space-y-4">
-            <SkeletonCard />
-            <SkeletonCard />
-            <SkeletonCard />
-          </div>
-        )}
+        <Skeleton name="my-jobs-list" loading={isLoading}>
+          {error && (
+            <div className="text-center py-12 border rounded-lg">
+              <AlertCircle className="mx-auto h-10 w-10 text-destructive mb-3" />
+              <p className="font-semibold">Failed to load jobs</p>
+              <p className="text-sm text-muted-foreground mb-4">
+                Something went wrong. Please try again.
+              </p>
+              <Button variant="outline" onClick={() => void refetch()}>
+                Retry
+              </Button>
+            </div>
+          )}
 
-        {error && (
-          <div className="text-center py-12 border rounded-lg">
-            <AlertCircle className="mx-auto h-10 w-10 text-destructive mb-3" />
-            <p className="font-semibold">Failed to load jobs</p>
-            <p className="text-sm text-muted-foreground mb-4">
-              Something went wrong. Please try again.
-            </p>
-            <Button variant="outline" onClick={() => void refetch()}>
-              Retry
-            </Button>
-          </div>
-        )}
+          {!error && jobs.length === 0 && (
+            <div className="text-center py-16 border rounded-lg">
+              <Briefcase className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
+              <h3 className="text-lg font-semibold mb-2">No jobs posted yet</h3>
+              <p className="text-muted-foreground mb-6">
+                Post your first job and get matched with verified tradespeople
+                near you.
+              </p>
+              <Button asChild>
+                <Link to="/post-job">Post a job</Link>
+              </Button>
+            </div>
+          )}
 
-        {!isLoading && !error && jobs.length === 0 && (
-          <div className="text-center py-16 border rounded-lg">
-            <Briefcase className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
-            <h3 className="text-lg font-semibold mb-2">No jobs posted yet</h3>
-            <p className="text-muted-foreground mb-6">
-              Post your first job and get matched with verified tradespeople
-              near you.
-            </p>
-            <Button asChild>
-              <Link to="/post-job">Post a job</Link>
-            </Button>
-          </div>
-        )}
-
-        {!isLoading &&
-          jobs.map((job) => (
-            <Link
-              key={job.id}
-              to={`/homeowner/my-jobs/${job.id}`}
-              className="block border rounded-lg p-5 hover:border-primary/40"
-            >
-              <div className="flex items-start justify-between">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1">
-                    <h4 className="font-semibold text-muted-foreground text-md">
-                      #{job.jobNumber}
-                    </h4>
-                    <JobsStatusBadge status={job.status.toLowerCase()} />
-                  </div>
-                  <h3 className="font-semibold text-xl">{job.title}</h3>
-                  <p className="text-muted-foreground text-sm my-2">
-                    Posted on{" "}
-                    {new Date(job.createdAt).toLocaleString("en-GB", {
-                      day: "numeric",
-                      month: "short",
-                      year: "numeric",
-                      hour: "2-digit",
-                      minute: "2-digit",
-                      hour12: false,
-                    })}
-                    {job.placeName ? ` · ${job.placeName}` : ""}
-                  </p>
-
-                  {job.status === "CLOSED" || job.status === "CANCELLED" ? (
-                    <p className="text-muted-foreground">
-                      Job {job.status.toLowerCase()}
+          {!error &&
+            jobs.map((job) => (
+              <Link
+                key={job.id}
+                to={`/homeowner/my-jobs/${job.id}`}
+                className="block border rounded-lg p-5 hover:border-primary/40"
+              >
+                <div className="flex items-start justify-between">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <h4 className="font-semibold text-muted-foreground text-md">
+                        #{job.jobNumber}
+                      </h4>
+                      <JobsStatusBadge status={job.status.toLowerCase()} />
+                    </div>
+                    <h3 className="font-semibold text-xl">{job.title}</h3>
+                    <p className="text-muted-foreground text-sm my-2">
+                      Posted on{" "}
+                      {new Date(job.createdAt).toLocaleString("en-GB", {
+                        day: "numeric",
+                        month: "short",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: false,
+                      })}
+                      {job.placeName ? ` · ${job.placeName}` : ""}
                     </p>
-                  ) : (
-                    <>
-                      {job.interestedCount > 0 && (
-                        <div className="flex gap-6 my-4">
-                          <div className="border rounded-lg px-6 py-3 flex-1">
-                            <p className="text-2xl font-bold">
-                              {job.interestedCount}
-                            </p>
-                            <p className="text-sm text-muted-foreground">
-                              Interested
-                            </p>
-                            <p className="text-sm text-muted-foreground">
-                              Waiting for your decision
-                            </p>
-                          </div>
-                        </div>
-                      )}
 
-                      {job.interestedCount === 0 && (
-                        <p className="text-muted-foreground text-sm">
-                          Suitable local tradespeople have been alerted about
-                          your job. As soon as one is interested we will let you
-                          know.
-                        </p>
-                      )}
-                    </>
-                  )}
+                    {job.status === "CLOSED" || job.status === "CANCELLED" ? (
+                      <p className="text-muted-foreground">
+                        Job {job.status.toLowerCase()}
+                      </p>
+                    ) : (
+                      <>
+                        {job.interestedCount > 0 && (
+                          <div className="flex gap-6 my-4">
+                            <div className="border rounded-lg px-6 py-3 flex-1">
+                              <p className="text-2xl font-bold">
+                                {job.interestedCount}
+                              </p>
+                              <p className="text-sm text-muted-foreground">
+                                Interested
+                              </p>
+                              <p className="text-sm text-muted-foreground">
+                                Waiting for your decision
+                              </p>
+                            </div>
+                          </div>
+                        )}
+
+                        {job.interestedCount === 0 && (
+                          <p className="text-muted-foreground text-sm">
+                            Suitable local tradespeople have been alerted about
+                            your job. As soon as one is interested we will let
+                            you know.
+                          </p>
+                        )}
+                      </>
+                    )}
+                  </div>
+                  <ChevronRight className="w-5 h-5 text-muted-foreground ml-4 mt-1 flex-shrink-0" />
                 </div>
-                <ChevronRight className="w-5 h-5 text-muted-foreground ml-4 mt-1 flex-shrink-0" />
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
+        </Skeleton>
       </div>
 
       {/* Ask a tradesperson section */}
