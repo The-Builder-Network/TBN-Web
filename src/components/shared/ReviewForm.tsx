@@ -73,7 +73,11 @@ export function ReviewForm({
           </p>
         </div>
 
-        <Button onClick={handleSubmit} disabled={!isValid || isPending} className="w-full">
+        <Button
+          onClick={handleSubmit}
+          disabled={!isValid || isPending}
+          className="w-full"
+        >
           {isPending ? "Submitting…" : "Submit review"}
         </Button>
       </CardContent>

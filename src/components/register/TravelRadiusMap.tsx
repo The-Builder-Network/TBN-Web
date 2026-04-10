@@ -67,7 +67,14 @@ const TravelRadiusMap = ({ radius, center, postcode }) => {
     mapInstanceRef.current.fitBounds(bounds, { padding: [20, 20] });
   }, [radius]);
 
-  return <div ref={mapRef} className="w-full h-full" />;
+  return (
+    <div
+      ref={mapRef}
+      className="w-full h-full"
+      role="application"
+      aria-label={`Travel radius map for ${postcode}, ${radius} mile radius`}
+    />
+  );
 };
 
 export default TravelRadiusMap;

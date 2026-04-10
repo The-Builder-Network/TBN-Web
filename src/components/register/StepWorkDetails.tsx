@@ -1,6 +1,6 @@
 import { useState, useMemo, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Search, X, ChevronUp, ChevronDown } from "lucide-react";
+import { Search, X, ChevronUp, ChevronDown, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -9,6 +9,8 @@ import TravelRadiusMap from "./TravelRadiusMap";
 import PostcodeInput from "@/components/shared/PostcodeInput";
 import { trades } from "@/constants/trades";
 import { useLeadsCount } from "@/api/leads";
+import { useUpdateMyProfile } from "@/api/users";
+import { useToast } from "@/hooks/use-toast";
 
 // All trade names deduplicated and sorted
 const ALL_TRADES = Array.from(
@@ -98,6 +100,8 @@ const StepWorkDetails = ({
 
   // Live leads count
   const { data: leadsCount = 0 } = useLeadsCount(postcode, travelRadius);
+  const { mutate: updateProfile, isPending: isSaving } = useUpdateMyProfile();
+  const { toast } = useToast();
 
   const userName = data.firstName
     ? `${data.firstName} ${data.lastName || ""}`.trim().toUpperCase()
@@ -145,7 +149,25 @@ const StepWorkDetails = ({
       workAddress,
       postcode,
     });
-    onNext();
+    updateProfile(
+      {
+        professions: selectedProfessions,
+        workRadiusMiles: travelRadius,
+        businessType,
+        postcode,
+        companyName: tradingName || companyName || undefined,
+      },
+      {
+        onSuccess: () => onNext(),
+        onError: () => {
+          toast({
+            title: "Error",
+            description: "Failed to save work details. Please try again.",
+            variant: "destructive",
+          });
+        },
+      },
+    );
   };
 
   // ── About ──────────────────────────────────────────────────
@@ -556,10 +578,14 @@ const StepWorkDetails = ({
           </Button>
           <Button
             type="submit"
-            disabled={!isBusinessDetailsValid()}
+            disabled={!isBusinessDetailsValid() || isSaving}
             className="h-11 px-6"
           >
-            Continue
+            {isSaving ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              "Continue"
+            )}
           </Button>
         </div>
       </form>
