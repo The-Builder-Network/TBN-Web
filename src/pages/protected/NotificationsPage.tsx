@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import { Bell, CheckCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "boneyard-js/react";
 import {
   useNotifications,
   useMarkRead,
@@ -90,31 +90,24 @@ export default function NotificationsPage() {
         </div>
 
         <div className="border rounded-lg overflow-hidden">
-          {isLoading ? (
-            <div className="divide-y">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <div key={i} className="px-4 py-3 space-y-1.5">
-                  <Skeleton className="h-4 w-2/3" />
-                  <Skeleton className="h-3 w-1/3" />
-                </div>
-              ))}
-            </div>
-          ) : notifications.length === 0 ? (
-            <div className="py-16 text-center text-muted-foreground">
-              <Bell className="h-10 w-10 mx-auto mb-3 opacity-30" />
-              <p>No notifications yet</p>
-            </div>
-          ) : (
-            <div>
-              {notifications.map((n) => (
-                <NotificationRow
-                  key={n.id}
-                  notification={n}
-                  onRead={(id) => markRead.mutate(id)}
-                />
-              ))}
-            </div>
-          )}
+          <Skeleton name="notifications-list" loading={isLoading}>
+            {notifications.length === 0 ? (
+              <div className="py-16 text-center text-muted-foreground">
+                <Bell className="h-10 w-10 mx-auto mb-3 opacity-30" />
+                <p>No notifications yet</p>
+              </div>
+            ) : (
+              <div>
+                {notifications.map((n) => (
+                  <NotificationRow
+                    key={n.id}
+                    notification={n}
+                    onRead={(id) => markRead.mutate(id)}
+                  />
+                ))}
+              </div>
+            )}
+          </Skeleton>
         </div>
 
         {totalPages > 1 && (

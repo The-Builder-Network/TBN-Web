@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { CheckCircle, Loader2 } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Skeleton } from "boneyard-js/react";
 import { useBalance } from "@/api/payments";
 
 const PaymentSuccessPage = () => {
@@ -23,20 +24,19 @@ const PaymentSuccessPage = () => {
               Your credits have been added to your account.
             </p>
 
-            {isLoading ? (
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <Loader2 className="h-4 w-4 animate-spin" />
-                <span>Loading balance...</span>
-              </div>
-            ) : balance !== undefined ? (
-              <div className="bg-muted rounded-lg px-6 py-3 text-center">
-                <p className="text-sm text-muted-foreground">Current balance</p>
-                <p className="text-3xl font-bold text-primary">
-                  {balance.balance}
-                </p>
-                <p className="text-sm text-muted-foreground">credits</p>
-              </div>
-            ) : null}
+            <Skeleton name="payment-balance" loading={isLoading}>
+              {balance !== undefined && (
+                <div className="bg-muted rounded-lg px-6 py-3 text-center">
+                  <p className="text-sm text-muted-foreground">
+                    Current balance
+                  </p>
+                  <p className="text-3xl font-bold text-primary">
+                    {balance.balance}
+                  </p>
+                  <p className="text-sm text-muted-foreground">credits</p>
+                </div>
+              )}
+            </Skeleton>
 
             <Button asChild className="mt-2 w-full">
               <Link to="/tradesperson/profile?tab=balance">

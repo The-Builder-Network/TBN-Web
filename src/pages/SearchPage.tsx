@@ -11,7 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "boneyard-js/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { useSearchTradespeople } from "@/api/search";
@@ -145,144 +145,125 @@ const SearchPage = () => {
         </form>
 
         {/* Results */}
-        {showSkeleton && hasActiveSearch ? (
-          <div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-            aria-busy="true"
-            aria-label="Loading results"
-          >
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="border rounded-lg p-5 space-y-3">
-                <div className="flex items-center gap-3">
-                  <Skeleton className="h-12 w-12 rounded-full" />
-                  <div className="space-y-1.5 flex-1">
-                    <Skeleton className="h-4 w-3/4" />
-                    <Skeleton className="h-3 w-1/2" />
-                  </div>
-                </div>
-                <Skeleton className="h-3 w-full" />
-                <Skeleton className="h-3 w-5/6" />
-                <div className="flex gap-2 flex-wrap">
-                  <Skeleton className="h-5 w-16 rounded-full" />
-                  <Skeleton className="h-5 w-20 rounded-full" />
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : hasActiveSearch && results.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-20 text-center">
-            <Search className="h-12 w-12 text-muted-foreground mb-4" />
-            <h2 className="text-xl font-semibold mb-2">
-              No tradespeople found matching your criteria
-            </h2>
-            <p className="text-muted-foreground mb-6">
-              Try adjusting your search or broadening your filters.
-            </p>
-            <Button variant="outline" onClick={handleClear}>
-              Clear filters
-            </Button>
-          </div>
-        ) : hasActiveSearch ? (
-          <>
-            <p className="text-sm text-muted-foreground mb-4">
-              {data?.meta.total ?? results.length} result
-              {(data?.meta.total ?? results.length) !== 1 ? "s" : ""} found
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {results.map((tp) => (
-                <Link
-                  key={tp.userId}
-                  to={`/tradesperson/${tp.username}`}
-                  className="border rounded-lg p-5 hover:border-primary/50 hover:shadow-sm transition-all flex flex-col gap-3"
-                >
-                  {/* Header row */}
-                  <div className="flex items-start gap-3">
-                    <Avatar className="h-12 w-12 shrink-0">
-                      <AvatarImage src={tp.avatarUrl ?? undefined} />
-                      <AvatarFallback className="text-sm font-semibold">
-                        {tp.name
-                          .split(" ")
-                          .map((n) => n[0])
-                          .join("")
-                          .toUpperCase()
-                          .slice(0, 2)}
-                      </AvatarFallback>
-                    </Avatar>
-                    <div className="min-w-0">
-                      <p className="font-semibold text-base leading-tight truncate">
-                        {tp.name}
-                      </p>
-                      {tp.companyName && (
-                        <p className="text-sm text-muted-foreground truncate">
-                          {tp.companyName}
-                        </p>
-                      )}
-                      {tp.postcode && (
-                        <p className="text-xs text-muted-foreground flex items-center gap-1 mt-0.5">
-                          <MapPin className="h-3 w-3" />
-                          {tp.postcode}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Rating */}
-                  {tp.reviewCount > 0 && (
-                    <div className="flex items-center gap-1.5">
-                      <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      <span className="text-sm font-medium">
-                        {tp.avgRating.toFixed(1)}
-                      </span>
-                      <span className="text-xs text-muted-foreground">
-                        ({tp.reviewCount} review
-                        {tp.reviewCount !== 1 ? "s" : ""})
-                      </span>
-                    </div>
-                  )}
-
-                  {/* Bio */}
-                  {tp.bio && (
-                    <p className="text-sm text-muted-foreground line-clamp-2">
-                      {tp.bio}
-                    </p>
-                  )}
-
-                  {/* Services */}
-                  {tp.services.length > 0 && (
-                    <div className="flex flex-wrap gap-1.5 mt-auto">
-                      {tp.services.slice(0, 3).map((svc) => (
-                        <Badge
-                          key={svc}
-                          variant="secondary"
-                          className="text-xs"
-                        >
-                          {svc}
-                        </Badge>
-                      ))}
-                      {tp.services.length > 3 && (
-                        <Badge variant="outline" className="text-xs">
-                          +{tp.services.length - 3} more
-                        </Badge>
-                      )}
-                    </div>
-                  )}
-                </Link>
-              ))}
+        <Skeleton
+          name="search-results"
+          loading={showSkeleton && hasActiveSearch}
+        >
+          {!showSkeleton && hasActiveSearch && results.length === 0 ? (
+            <div className="flex flex-col items-center justify-center py-20 text-center">
+              <Search className="h-12 w-12 text-muted-foreground mb-4" />
+              <h2 className="text-xl font-semibold mb-2">
+                No tradespeople found matching your criteria
+              </h2>
+              <p className="text-muted-foreground mb-6">
+                Try adjusting your search or broadening your filters.
+              </p>
+              <Button variant="outline" onClick={handleClear}>
+                Clear filters
+              </Button>
             </div>
-          </>
-        ) : (
-          /* Initial state — no search yet */
-          <div className="flex flex-col items-center justify-center py-20 text-center">
-            <Search className="h-12 w-12 text-muted-foreground mb-4" />
-            <h2 className="text-xl font-semibold mb-2">
-              Search for tradespeople
-            </h2>
-            <p className="text-muted-foreground">
-              Enter a trade, service, or postcode above to find verified
-              tradespeople near you.
-            </p>
-          </div>
-        )}
+          ) : hasActiveSearch ? (
+            <>
+              <p className="text-sm text-muted-foreground mb-4">
+                {data?.meta.total ?? results.length} result
+                {(data?.meta.total ?? results.length) !== 1 ? "s" : ""} found
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {results.map((tp) => (
+                  <Link
+                    key={tp.userId}
+                    to={`/tradesperson/${tp.username}`}
+                    className="border rounded-lg p-5 hover:border-primary/50 hover:shadow-sm transition-all flex flex-col gap-3"
+                  >
+                    {/* Header row */}
+                    <div className="flex items-start gap-3">
+                      <Avatar className="h-12 w-12 shrink-0">
+                        <AvatarImage src={tp.avatarUrl ?? undefined} />
+                        <AvatarFallback className="text-sm font-semibold">
+                          {tp.name
+                            .split(" ")
+                            .map((n) => n[0])
+                            .join("")
+                            .toUpperCase()
+                            .slice(0, 2)}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div className="min-w-0">
+                        <p className="font-semibold text-base leading-tight truncate">
+                          {tp.name}
+                        </p>
+                        {tp.companyName && (
+                          <p className="text-sm text-muted-foreground truncate">
+                            {tp.companyName}
+                          </p>
+                        )}
+                        {tp.postcode && (
+                          <p className="text-xs text-muted-foreground flex items-center gap-1 mt-0.5">
+                            <MapPin className="h-3 w-3" />
+                            {tp.postcode}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Rating */}
+                    {tp.reviewCount > 0 && (
+                      <div className="flex items-center gap-1.5">
+                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                        <span className="text-sm font-medium">
+                          {tp.avgRating.toFixed(1)}
+                        </span>
+                        <span className="text-xs text-muted-foreground">
+                          ({tp.reviewCount} review
+                          {tp.reviewCount !== 1 ? "s" : ""})
+                        </span>
+                      </div>
+                    )}
+
+                    {/* Bio */}
+                    {tp.bio && (
+                      <p className="text-sm text-muted-foreground line-clamp-2">
+                        {tp.bio}
+                      </p>
+                    )}
+
+                    {/* Services */}
+                    {tp.services.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5 mt-auto">
+                        {tp.services.slice(0, 3).map((svc) => (
+                          <Badge
+                            key={svc}
+                            variant="secondary"
+                            className="text-xs"
+                          >
+                            {svc}
+                          </Badge>
+                        ))}
+                        {tp.services.length > 3 && (
+                          <Badge variant="outline" className="text-xs">
+                            +{tp.services.length - 3} more
+                          </Badge>
+                        )}
+                      </div>
+                    )}
+                  </Link>
+                ))}
+              </div>
+            </>
+          ) : (
+            /* Initial state — no search yet */
+            <div className="flex flex-col items-center justify-center py-20 text-center">
+              <Search className="h-12 w-12 text-muted-foreground mb-4" />
+              <h2 className="text-xl font-semibold mb-2">
+                Search for tradespeople
+              </h2>
+              <p className="text-muted-foreground">
+                Enter a trade, service, or postcode above to find verified
+                tradespeople near you.
+              </p>
+            </div>
+          )}
+        </Skeleton>
       </div>
     </>
   );
