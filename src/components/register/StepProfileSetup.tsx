@@ -98,7 +98,7 @@ const StepProfileSetup = ({ data, onUpdate, onComplete, onBack }) => {
           Back
         </Button>
         <Button
-          disabled={description.trim().length < 20 || isPending}
+          disabled={description.trim().length < 50 || isPending}
           onClick={handleSubmit}
           className="h-12 px-6 text-base"
         >

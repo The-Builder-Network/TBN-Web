@@ -188,11 +188,7 @@ const FunnelAccountStep = ({
             setErrors((p) => ({ ...p, phone: "" }));
           }}
           required
-          error={
-            isCheckingPhone
-              ? undefined
-              : errors.phone
-          }
+          error={isCheckingPhone ? undefined : errors.phone}
         />
         {isCheckingPhone && (
           <p className="text-xs text-muted-foreground -mt-4 flex items-center gap-1">

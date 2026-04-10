@@ -31,7 +31,7 @@ export function CreditBalance({ className }: CreditBalanceProps) {
       )}
     >
       <Coins className={cn("h-3.5 w-3.5", isLow ? "text-destructive" : "text-amber-500")} />
-      <span>{balance} credit{balance !== 1 ? "s" : ""}</span>
+      {balance}
     </Link>
   );
 }
