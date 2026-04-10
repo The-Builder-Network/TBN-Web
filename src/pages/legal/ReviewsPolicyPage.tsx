@@ -5,10 +5,13 @@ const ReviewsPolicy = () => {
   return (
     <>
       <Helmet>
-        <title>Reviews Policy — Builder Network</title>
-        <meta name="description" content="Our reviews policy ensures all reviews on Builder Network are genuine, fair, and transparent." />
+        <title>Reviews Policy | The Builder Network</title>
+        <meta
+          name="description"
+          content="Our reviews policy ensures all reviews on Builder Network are genuine, fair, and transparent."
+        />
       </Helmet>
-      <div className="flex-1 container py-16 md:py-16">
+      <div className="container max-w-4xl py-16">
         <div className="prose prose-slate">
           <h1 className="text-4xl font-bold mb-8">Reviews Policy</h1>
 

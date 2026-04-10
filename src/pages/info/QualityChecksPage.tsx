@@ -9,8 +9,11 @@ const QualityChecks = () => {
   return (
     <main className="flex-1">
       <Helmet>
-        <title>Quality Checks — Builder Network</title>
-        <meta name="description" content="See how Builder Network verifies tradespeople through rigorous quality checks and background screening." />
+        <title>Quality Checks | The Builder Network</title>
+        <meta
+          name="description"
+          content="See how Builder Network verifies tradespeople through rigorous quality checks and background screening."
+        />
       </Helmet>
       {/* Hero Section */}
       <div className="py-6">

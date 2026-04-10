@@ -14,8 +14,11 @@ const HowItWorks = () => {
   return (
     <main className="flex-1">
       <Helmet>
-        <title>How It Works — Builder Network</title>
-        <meta name="description" content="Learn how Builder Network connects homeowners with verified tradespeople in three simple steps." />
+        <title>How It Works | The Builder Network</title>
+        <meta
+          name="description"
+          content="Learn how Builder Network connects homeowners with verified tradespeople in three simple steps."
+        />
       </Helmet>
       {/* Hero Section */}
       <section className="bg-muted py-16">
@@ -35,7 +38,7 @@ const HowItWorks = () => {
       <section className="py-16">
         <div className="container">
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <a href="/post-job" className="text-center group cursor-pointer">
+            <Link to="/post-job" className="text-center group cursor-pointer">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4 group-hover:bg-primary/20 transition-colors">
                 <FileText className="h-8 w-8 text-primary" />
               </div>
@@ -47,10 +50,10 @@ const HowItWorks = () => {
                 Builder Network, we'll let you know which tradespeople are
                 interested.
               </p>
-            </a>
+            </Link>
 
-            <a
-              href="/tradespeople"
+            <Link
+              to="/tradesnetwork"
               className="text-center group cursor-pointer"
             >
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4 group-hover:bg-primary/20 transition-colors">
@@ -64,9 +67,9 @@ const HowItWorks = () => {
                 relevant tradespeople, who can then express interest in your
                 job.
               </p>
-            </a>
+            </Link>
 
-            <a href="/post-job" className="text-center group cursor-pointer">
+            <Link to="/post-job" className="text-center group cursor-pointer">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4 group-hover:bg-primary/20 transition-colors">
                 <Users className="h-8 w-8 text-primary" />
               </div>
@@ -77,7 +80,7 @@ const HowItWorks = () => {
                 Choose from local tradespeople interested in your job. Contact
                 details are shared only when you say so.
               </p>
-            </a>
+            </Link>
           </div>
 
           <div className="text-center">

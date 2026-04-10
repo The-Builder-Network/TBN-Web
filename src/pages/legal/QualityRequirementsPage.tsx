@@ -7,8 +7,11 @@ const QualityRequirements = () => {
   return (
     <>
       <Helmet>
-        <title>Quality Requirements — Builder Network</title>
-        <meta name="description" content="Builder Network quality standards and requirements for all registered tradespeople." />
+        <title>Quality Requirements | The Builder Network</title>
+        <meta
+          name="description"
+          content="Builder Network quality standards and requirements for all registered tradespeople."
+        />
       </Helmet>
       <main className="flex-1">
         {/* Hero Section */}
