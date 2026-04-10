@@ -24,7 +24,7 @@ const HomeownerMyQuestionsPage = () => {
   return (
     <div className="container py-10">
       <Helmet>
-        <title>My Questions — Builder Network</title>
+        <title>My Questions | The Builder Network</title>
         <meta
           name="description"
           content="View and manage the questions you have asked on Builder Network."
@@ -36,7 +36,7 @@ const HomeownerMyQuestionsPage = () => {
         <Button onClick={() => setShowAskModal(true)}>Ask a question</Button>
       </div>
 
-      {/* Loading */}
+      {/* Loading */} 
       {isLoading && (
         <div className="space-y-4">
           <SkeletonCard />

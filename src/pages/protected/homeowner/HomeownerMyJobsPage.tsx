@@ -44,13 +44,21 @@ const MyJobs = () => {
   const jobs = data?.data ?? [];
 
   return (
-    <div className="container py-10 grid grid-cols-8 gap-x-12">
+    <div className="container py-10 grid grid-cols-1 lg:grid-cols-8 gap-x-12">
       <Helmet>
-        <title>My Jobs — Builder Network</title>
-        <meta name="description" content="Manage your posted jobs, track quotes and hire trusted tradespeople." />
+        <title>My Jobs | The Builder Network</title>
+        <meta
+          name="description"
+          content="Manage your posted jobs, track quotes and hire trusted tradespeople."
+        />
       </Helmet>
-      <div className="space-y-4 col-span-5">
-        <h1 className="text-3xl font-bold mb-8">My jobs</h1>
+      <div className="space-y-4 lg:col-span-5">
+        <div className="flex items-center justify-between mb-8">
+          <h1 className="text-3xl font-bold">My jobs</h1>
+          <Button asChild size="sm">
+            <Link to="/post-job">Post a job</Link>
+          </Button>
+        </div>
 
         {isLoading && (
           <div className="space-y-4">
@@ -98,7 +106,7 @@ const MyJobs = () => {
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
                     <h4 className="font-semibold text-muted-foreground text-md">
-                      #{job.id.slice(0, 8)}
+                      #{job.jobNumber}
                     </h4>
                     <JobsStatusBadge status={job.status.toLowerCase()} />
                   </div>
@@ -152,7 +160,7 @@ const MyJobs = () => {
       </div>
 
       {/* Ask a tradesperson section */}
-      <div className="col-span-3">
+      <div className="lg:col-span-3">
         <h2 className="text-2xl font-bold mb-8 underline decoration-highlight underline-offset-8 decoration-4">
           Ask a tradesperson
         </h2>

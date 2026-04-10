@@ -61,7 +61,7 @@ const HomeownerProfilePage = () => {
   return (
     <div className="container py-10">
       <Helmet>
-        <title>My Profile — Builder Network</title>
+        <title>My Profile | The Builder Network</title>
         <meta
           name="description"
           content="Manage your Builder Network homeowner profile and account settings."

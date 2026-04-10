@@ -16,6 +16,14 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog";
 import { SkeletonCard } from "@/components/shared/SkeletonCard";
 import { ReviewForm } from "@/components/shared/ReviewForm";
 import JobsStatusBadge from "@/components/shared/JobsStatusBadge";
@@ -72,6 +80,7 @@ const HomeownerJobDetail = () => {
   const { data: job, isLoading, error, refetch } = useJob(jobId!);
   const updateStatusMutation = useUpdateJobStatus();
   const [reviewDone, setReviewDone] = useState(false);
+  const [cancelDialogOpen, setCancelDialogOpen] = useState(false);
 
   const responses = job?.responses ?? [];
   const interestedResponses = responses.filter((r) =>
@@ -83,15 +92,21 @@ const HomeownerJobDetail = () => {
   const quotedResponses = responses.filter((r) => !!r.quote);
 
   function handleCancel() {
+    setCancelDialogOpen(true);
+  }
+
+  function confirmCancel() {
     if (!jobId) return;
     updateStatusMutation.mutate(
       { id: jobId, status: "CANCELLED" },
       {
         onSuccess: () => {
+          setCancelDialogOpen(false);
           toast({ title: "Job cancelled" });
           void refetch();
         },
         onError: () => {
+          setCancelDialogOpen(false);
           toast({
             title: "Could not cancel job",
             variant: "destructive",
@@ -149,7 +164,7 @@ const HomeownerJobDetail = () => {
   return (
     <div className="container py-10 max-w-4xl">
       <Helmet>
-        <title>{job.title} — My Jobs — Builder Network</title>
+        <title>{job.title} — My Jobs | The Builder Network</title>
         <meta
           name="description"
           content={`View details, quotes and status for your job: ${job.title}`}
@@ -168,7 +183,7 @@ const HomeownerJobDetail = () => {
           <div className="flex-1">
             <div className="flex items-center gap-2 mb-2">
               <span className="text-sm text-muted-foreground font-medium">
-                #{job.id.slice(0, 8)}
+                #{job.jobNumber}
               </span>
               <JobsStatusBadge status={job.status.toLowerCase()} />
             </div>
@@ -318,7 +333,7 @@ const HomeownerJobDetail = () => {
                             {response.tradesperson.username && (
                               <Button variant="outline" size="sm" asChild>
                                 <Link
-                                  to={`/tradespeople/${response.tradesperson.username}`}
+                                  to={`/tradesperson/${response.tradesperson.username}`}
                                 >
                                   View profile
                                 </Link>
@@ -405,6 +420,37 @@ const HomeownerJobDetail = () => {
             </div>
           );
         })()}
+
+      {/* ── Cancel confirmation dialog ── */}
+      <Dialog open={cancelDialogOpen} onOpenChange={setCancelDialogOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Cancel job</DialogTitle>
+            <DialogDescription>
+              Are you sure you want to cancel job{" "}
+              <span className="font-semibold">#{job?.jobNumber}</span>
+              {job?.title ? ` — ${job.title}` : ""}? This action cannot be
+              undone. Tradespeople who expressed interest will be notified.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="gap-2 sm:gap-0">
+            <Button
+              variant="outline"
+              onClick={() => setCancelDialogOpen(false)}
+              disabled={updateStatusMutation.isPending}
+            >
+              Keep job
+            </Button>
+            <Button
+              variant="destructive"
+              onClick={confirmCancel}
+              disabled={updateStatusMutation.isPending}
+            >
+              {updateStatusMutation.isPending ? "Cancelling…" : "Cancel job"}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
