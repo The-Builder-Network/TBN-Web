@@ -8,8 +8,11 @@ const About = () => {
   return (
     <main className="flex-1">
       <Helmet>
-        <title>About Us — Builder Network</title>
-        <meta name="description" content="Learn about Builder Network, our mission, and the team connecting UK homeowners with trusted tradespeople." />
+        <title>About Us | The Builder Network</title>
+        <meta
+          name="description"
+          content="Learn about Builder Network, our mission, and the team connecting UK homeowners with trusted tradespeople."
+        />
       </Helmet>
       {/* Hero Section */}
       <section className="container py-8">

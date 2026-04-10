@@ -74,7 +74,7 @@ const TradespersonJoinPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Join Builder Network — Create your trade account</title>
+        <title>Join The Builder Network — Create your trade account</title>
       </Helmet>
 
       {/* Header */}

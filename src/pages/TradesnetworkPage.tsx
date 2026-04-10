@@ -9,7 +9,7 @@ const TradesNetwork = () => {
   return (
     <>
       <Helmet>
-        <title>Join Builder Network — Get local trade work</title>
+        <title>Join The Builder Network — Get local trade work</title>
         <meta
           name="description"
           content="Find local trade jobs posted by homeowners. Join thousands of verified tradespeople on Builder Network."

@@ -7,8 +7,11 @@ const BecomeAPartner = () => {
   return (
     <>
       <Helmet>
-        <title>Become a Partner — Builder Network</title>
-        <meta name="description" content="Join Builder Network as a partner and grow your business connecting with homeowners." />
+        <title>Become a Partner | The Builder Network</title>
+        <meta
+          name="description"
+          content="Join Builder Network as a partner and grow your business connecting with homeowners."
+        />
       </Helmet>
       <div className="flex-1 container py-16 md:py-16">
         <h1 className="text-5xl font-bold mb-2">Become a partner</h1>

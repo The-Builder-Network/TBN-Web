@@ -7,7 +7,7 @@ const Cities = () => {
   return (
     <>
       <Helmet>
-        <title>Cities We Cover — Builder Network</title>
+        <title>Cities We Cover | The Builder Network</title>
         <meta
           name="description"
           content="Builder Network operates across hundreds of UK cities. Find trusted tradespeople near you."
