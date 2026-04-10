@@ -7,8 +7,11 @@ const Trades = () => {
   return (
     <>
       <Helmet>
-        <title>Browse Trades — Builder Network</title>
-        <meta name="description" content="Explore all trades on Builder Network. Find plumbers, electricians, roofers and more near you." />
+        <title>Browse Trades | The Builder Network</title>
+        <meta
+          name="description"
+          content="Explore all trades on Builder Network. Find plumbers, electricians, roofers and more near you."
+        />
       </Helmet>
       <main className="flex-1">
         {/* Header Section */}

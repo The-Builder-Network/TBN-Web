@@ -18,6 +18,11 @@ import {
 import { useQuestions } from "@/api/questions";
 import { Helmet } from "react-helmet-async";
 
+const SORT_OPTIONS = [
+  { value: "createdAt", label: "Most recent" },
+  { value: "answerCount", label: "Most answered" },
+] as const;
+
 const QuestionsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [sortModalOpen, setSortModalOpen] = useState(false);
@@ -77,7 +82,7 @@ const QuestionsPage = () => {
   return (
     <div className="flex-1 container py-10">
       <Helmet>
-        <title>Ask a Tradesperson — Builder Network</title>
+        <title>Ask a Tradesperson | The Builder Network</title>
         <meta
           name="description"
           content="Get expert home improvement advice from verified tradespeople."
@@ -122,7 +127,11 @@ const QuestionsPage = () => {
 
           {/* Loading skeletons */}
           {isLoading && (
-            <div className="space-y-4">
+            <div
+              className="space-y-4"
+              aria-busy="true"
+              aria-label="Loading questions"
+            >
               {Array.from({ length: 5 }).map((_, i) => (
                 <div key={i} className="border rounded-lg p-5 space-y-2">
                   <Skeleton className="h-4 w-32" />

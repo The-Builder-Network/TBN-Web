@@ -7,8 +7,11 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>Our Services — Builder Network</title>
-        <meta name="description" content="Browse all home improvement services offered through Builder Network, from plumbing to extensions." />
+        <title>Our Services | The Builder Network</title>
+        <meta
+          name="description"
+          content="Browse all home improvement services offered through Builder Network, from plumbing to extensions."
+        />
       </Helmet>
       <main className="flex-1 container py-12">
         <h1 className="text-4xl font-bold mb-6">Our services</h1>

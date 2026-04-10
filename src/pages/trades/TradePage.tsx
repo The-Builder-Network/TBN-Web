@@ -44,9 +44,18 @@ const TradePage = () => {
   return (
     <main className="flex-1">
       <Helmet>
-        <title>{trade.name} in the UK — Builder Network</title>
+        <title>{trade.name} in the UK | The Builder Network</title>
         <meta
           name="description"
+          content={`Find trusted ${trade.name.toLowerCase()} near you. Compare quotes, read reviews and hire with confidence on Builder Network.`}
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content={`${trade.name} in the UK | The Builder Network`}
+        />
+        <meta
+          property="og:description"
           content={`Find trusted ${trade.name.toLowerCase()} near you. Compare quotes, read reviews and hire with confidence on Builder Network.`}
         />
       </Helmet>

@@ -34,9 +34,18 @@ const ServicePage = () => {
   return (
     <>
       <Helmet>
-        <title>{service.name} — Builder Network</title>
+        <title>{service.name} | The Builder Network</title>
         <meta
           name="description"
+          content={`Find trusted ${service.name.toLowerCase()} professionals near you. Post a job free and get matched with verified tradespeople on Builder Network.`}
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content={`${service.name} | The Builder Network`}
+        />
+        <meta
+          property="og:description"
           content={`Find trusted ${service.name.toLowerCase()} professionals near you. Post a job free and get matched with verified tradespeople on Builder Network.`}
         />
       </Helmet>
