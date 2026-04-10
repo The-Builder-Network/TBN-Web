@@ -29,24 +29,51 @@ export function StarRating({
 
   const displayed = hovered ?? rating;
 
+  const handleKeyDown = (e: React.KeyboardEvent, star: number) => {
+    if (!interactive) return;
+    if (e.key === "ArrowRight" || e.key === "ArrowUp") {
+      e.preventDefault();
+      onChange?.(Math.min(star + 1, maxStars));
+    } else if (e.key === "ArrowLeft" || e.key === "ArrowDown") {
+      e.preventDefault();
+      onChange?.(Math.max(star - 1, 1));
+    } else if (e.key === " " || e.key === "Enter") {
+      e.preventDefault();
+      onChange?.(star);
+    }
+  };
+
   return (
     <div className="flex items-center gap-1">
       <div
         className={cn("flex gap-0.5", interactive && "cursor-pointer")}
+        role={interactive ? "radiogroup" : undefined}
+        aria-label={interactive ? "Rating" : undefined}
         onMouseLeave={() => interactive && setHovered(null)}
       >
         {Array.from({ length: maxStars }, (_, i) => i + 1).map((star) => (
           <Star
             key={star}
+            role={interactive ? "radio" : undefined}
+            aria-checked={interactive ? star === rating : undefined}
+            aria-label={
+              interactive ? `${star} star${star !== 1 ? "s" : ""}` : undefined
+            }
+            tabIndex={
+              interactive ? (star === (rating || 1) ? 0 : -1) : undefined
+            }
             className={cn(
               sizeMap[size],
               "transition-colors",
+              interactive &&
+                "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm",
               star <= displayed
                 ? "fill-star text-star"
                 : "fill-muted text-muted-foreground",
             )}
             onMouseEnter={() => interactive && setHovered(star)}
             onClick={() => interactive && onChange?.(star)}
+            onKeyDown={(e) => handleKeyDown(e, star)}
           />
         ))}
       </div>

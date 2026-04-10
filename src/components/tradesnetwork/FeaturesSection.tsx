@@ -12,8 +12,8 @@ const TradespersonFeatures = () => {
               There's lots of demand for good tradespeople but finding exactly
               the work you want when you want it isn't always easy.{" "}
               <br className="hidden md:block" />
-              Home Pro Connect is the reliable solution, ensuring you get leads
-              that are right for you.
+              The Builder Network is the reliable solution, ensuring you get
+              leads that are right for you.
             </p>
           </div>
           <div className="flex flex-col gap-8 col-span-3">
