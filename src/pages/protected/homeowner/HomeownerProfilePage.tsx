@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import {
   User,
   Bell,
@@ -8,13 +8,15 @@ import {
   Mail,
   Phone,
   Loader2,
+  Upload,
+  Trash2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Helmet } from "react-helmet-async";
 import { useAuth } from "@/hooks/useAuth";
 import { useMutation } from "@tanstack/react-query";
-import { updateUser } from "@/api/users";
+import { updateUser, useUploadAvatar, useDeleteAvatar } from "@/api/users";
 import { useToast } from "@/hooks/use-toast";
 
 const HomeownerProfilePage = () => {
@@ -26,6 +28,28 @@ const HomeownerProfilePage = () => {
   const [name, setName] = useState(user?.name ?? "");
   const [phone, setPhone] = useState("");
   const [isEditing, setIsEditing] = useState(false);
+  const avatarInputRef = useRef<HTMLInputElement>(null);
+  const { mutate: uploadAvatar, isPending: uploadingAvatar } =
+    useUploadAvatar();
+  const { mutate: removeAvatar, isPending: removingAvatar } = useDeleteAvatar();
+
+  function handleAvatarChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    uploadAvatar(file, {
+      onSuccess: () => toast({ title: "Profile photo updated" }),
+      onError: () => toast({ title: "Upload failed", variant: "destructive" }),
+    });
+    e.target.value = "";
+  }
+
+  function handleRemoveAvatar() {
+    removeAvatar(undefined, {
+      onSuccess: () => toast({ title: "Profile photo removed" }),
+      onError: () =>
+        toast({ title: "Failed to remove photo", variant: "destructive" }),
+    });
+  }
 
   const updateMutation = useMutation({
     mutationFn: updateUser,
@@ -72,13 +96,55 @@ const HomeownerProfilePage = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Sidebar */}
         <div>
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">
-              {user?.name?.charAt(0)?.toUpperCase() ?? "U"}
+          {/* Avatar */}
+          <div className="flex flex-col items-center gap-3 mb-6">
+            <div className="relative w-20 h-20 rounded-full overflow-hidden border bg-primary/10 flex items-center justify-center">
+              {user?.avatarUrl ? (
+                <img
+                  src={user.avatarUrl}
+                  alt={user?.name ?? "Avatar"}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <span className="text-2xl font-bold text-primary">
+                  {user?.name?.charAt(0)?.toUpperCase() ?? "U"}
+                </span>
+              )}
             </div>
             <span className="font-semibold text-lg">
               {user?.name ?? "User"}
             </span>
+            <div className="flex gap-2">
+              <input
+                ref={avatarInputRef}
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+                className="hidden"
+                onChange={handleAvatarChange}
+              />
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => avatarInputRef.current?.click()}
+                disabled={uploadingAvatar || removingAvatar}
+                className="gap-1 text-xs h-7 px-2"
+              >
+                <Upload className="w-3 h-3" />
+                {uploadingAvatar ? "Uploading…" : "Upload photo"}
+              </Button>
+              {user?.avatarUrl && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleRemoveAvatar}
+                  disabled={uploadingAvatar || removingAvatar}
+                  className="gap-1 text-xs h-7 px-2 text-destructive hover:text-destructive"
+                >
+                  <Trash2 className="w-3 h-3" />
+                  {removingAvatar ? "Removing…" : "Remove"}
+                </Button>
+              )}
+            </div>
           </div>
 
           <nav className="space-y-1">
