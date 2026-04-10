@@ -8,6 +8,8 @@ export interface User {
   name: string;
   /** URL-safe username for tradesperson public profile (/tradesperson/<username>) */
   username?: string;
+  /** CloudFront CDN URL of the user's avatar, or null if not set */
+  avatarUrl?: string | null;
 }
 
 export interface AuthContextValue {
