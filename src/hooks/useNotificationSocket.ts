@@ -13,16 +13,24 @@ export function useNotificationSocket() {
 
   useEffect(() => {
     const socket = getNotifSocket();
-    if (!socket.connected) return;
 
     const onNotification = () => {
       void qc.invalidateQueries({ queryKey: notificationKeys.all });
       void qc.invalidateQueries({ queryKey: notificationKeys.unreadCount });
     };
 
-    socket.on("notification", onNotification);
+    const setup = () => {
+      socket.on("notification", onNotification);
+    };
+
+    if (socket.connected) {
+      setup();
+    } else {
+      socket.once("connect", setup);
+    }
 
     return () => {
+      socket.off("connect", setup);
       socket.off("notification", onNotification);
     };
   }, [qc]);

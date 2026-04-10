@@ -18,31 +18,34 @@ export function useChatSocket(conversationId: string | undefined) {
     if (!conversationId) return;
 
     const socket = getChatSocket();
-    if (!socket.connected) return;
 
-    // Join the conversation room
-    socket.emit("join_conversation", { conversationId });
-
-    const onNewMessage = (msg: MessageItem) => {
-      // Invalidate the messages query so it refetches with the new message
+    const onNewMessage = (_msg: MessageItem) => {
       void qc.invalidateQueries({
         queryKey: messagingKeys.messages(conversationId),
       });
-      // Also refresh conversation list (last message, unread count)
       void qc.invalidateQueries({ queryKey: messagingKeys.conversations });
     };
 
     const onTyping = (_data: { userId: string }) => {
       setPeerTyping(true);
-      // Auto-clear after 2s
       const id = setTimeout(() => setPeerTyping(false), 2000);
       return () => clearTimeout(id);
     };
 
-    socket.on("new_message", onNewMessage);
-    socket.on("typing", onTyping);
+    const setup = () => {
+      socket.emit("join_conversation", { conversationId });
+      socket.on("new_message", onNewMessage);
+      socket.on("typing", onTyping);
+    };
+
+    if (socket.connected) {
+      setup();
+    } else {
+      socket.once("connect", setup);
+    }
 
     return () => {
+      socket.off("connect", setup);
       socket.off("new_message", onNewMessage);
       socket.off("typing", onTyping);
     };
