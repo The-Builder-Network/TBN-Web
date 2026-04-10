@@ -4,7 +4,9 @@ import type { PublicProfile, OwnTradespersonProfile } from "./types";
 
 // ── API functions ───────────────────────────────────────────
 
-export async function getPublicProfile(username: string): Promise<PublicProfile> {
+export async function getPublicProfile(
+  username: string,
+): Promise<PublicProfile> {
   const res = await api.get<PublicProfile>(`/users/${username}`);
   return res.data;
 }
@@ -23,13 +25,21 @@ export async function updateMyProfile(
     workRadiusMiles: number;
     guarantee: boolean;
     responseTime: string;
+    professions: string[];
+    businessType: string;
   }>,
 ): Promise<OwnTradespersonProfile> {
-  const res = await api.patch<OwnTradespersonProfile>("/users/me/profile", data);
+  const res = await api.patch<OwnTradespersonProfile>(
+    "/users/me/profile",
+    data,
+  );
   return res.data;
 }
 
-export async function updateUser(data: { name?: string; phone?: string }): Promise<void> {
+export async function updateUser(data: {
+  name?: string;
+  phone?: string;
+}): Promise<void> {
   await api.patch("/users/me", data);
 }
 
@@ -50,7 +60,10 @@ export async function uploadIdDocument(file: File): Promise<void> {
   });
 }
 
-export async function addService(data: { serviceSlug: string; tradeSlug?: string }): Promise<void> {
+export async function addService(data: {
+  serviceSlug: string;
+  tradeSlug?: string;
+}): Promise<void> {
   await api.post("/users/me/services", data);
 }
 
@@ -58,7 +71,10 @@ export async function removeService(id: string): Promise<void> {
   await api.delete(`/users/me/services/${id}`);
 }
 
-export async function addQualification(data: { name: string; year?: number }): Promise<void> {
+export async function addQualification(data: {
+  name: string;
+  year?: number;
+}): Promise<void> {
   await api.post("/users/me/qualifications", data);
 }
 
@@ -84,7 +100,10 @@ export async function deletePortfolioItem(id: string): Promise<void> {
   await api.delete(`/users/me/portfolio/${id}`);
 }
 
-export async function createMessageTemplate(data: { name: string; body: string }): Promise<void> {
+export async function createMessageTemplate(data: {
+  name: string;
+  body: string;
+}): Promise<void> {
   await api.post("/users/me/message-templates", data);
 }
 
@@ -158,7 +177,8 @@ export function useAddService() {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: addService,
-    onSuccess: () => void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
+    onSuccess: () =>
+      void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
   });
 }
 
@@ -166,7 +186,8 @@ export function useRemoveService() {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: removeService,
-    onSuccess: () => void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
+    onSuccess: () =>
+      void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
   });
 }
 
@@ -174,7 +195,8 @@ export function useAddQualification() {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: addQualification,
-    onSuccess: () => void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
+    onSuccess: () =>
+      void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
   });
 }
 
@@ -182,7 +204,8 @@ export function useRemoveQualification() {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: removeQualification,
-    onSuccess: () => void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
+    onSuccess: () =>
+      void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
   });
 }
 
@@ -198,7 +221,8 @@ export function useUploadPortfolio() {
       title?: string;
       category?: string;
     }) => uploadPortfolioItem(file, title, category),
-    onSuccess: () => void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
+    onSuccess: () =>
+      void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
   });
 }
 
@@ -206,7 +230,8 @@ export function useDeletePortfolioItem() {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: deletePortfolioItem,
-    onSuccess: () => void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
+    onSuccess: () =>
+      void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
   });
 }
 
@@ -214,16 +239,23 @@ export function useCreateMessageTemplate() {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: createMessageTemplate,
-    onSuccess: () => void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
+    onSuccess: () =>
+      void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
   });
 }
 
 export function useUpdateMessageTemplate() {
   const qc = useQueryClient();
   return useMutation({
-    mutationFn: ({ id, data }: { id: string; data: { name?: string; body?: string } }) =>
-      updateMessageTemplate(id, data),
-    onSuccess: () => void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
+    mutationFn: ({
+      id,
+      data,
+    }: {
+      id: string;
+      data: { name?: string; body?: string };
+    }) => updateMessageTemplate(id, data),
+    onSuccess: () =>
+      void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
   });
 }
 
@@ -231,6 +263,7 @@ export function useDeleteMessageTemplate() {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: deleteMessageTemplate,
-    onSuccess: () => void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
+    onSuccess: () =>
+      void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
   });
 }

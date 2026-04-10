@@ -64,6 +64,7 @@ export interface AuthUser {
 // ── Job ───────────────────────────────────────────────────────
 export interface JobSummary {
   id: string;
+  jobNumber: number;
   title: string;
   status: JobStatus;
   serviceSlug: string;
@@ -75,6 +76,7 @@ export interface JobSummary {
 
 export interface JobDetail {
   id: string;
+  jobNumber: number;
   title: string;
   description: string;
   status: JobStatus;

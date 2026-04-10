@@ -65,6 +65,11 @@ export async function logoutApi(): Promise<void> {
   clearTokens();
 }
 
+export async function checkPhoneApi(phone: string): Promise<{ exists: boolean }> {
+  const res = await api.post<{ exists: boolean }>("/auth/check-phone", { phone });
+  return res.data;
+}
+
 export async function forgotPasswordApi(email: string): Promise<void> {
   await api.post("/auth/forgot-password", { email });
 }

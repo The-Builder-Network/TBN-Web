@@ -16,6 +16,7 @@ interface CreateJobData {
 
 interface CreateJobResponse {
   id: string;
+  jobNumber: number;
   status: string;
   matchedCount: number;
   createdAt: string;
