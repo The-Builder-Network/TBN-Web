@@ -45,7 +45,7 @@ function timeAgo(iso: string) {
 // ── Loading skeleton ──────────────────────────────────────────
 
 const ProfileSkeleton = () => (
-  <main className="flex-1">
+  <main className="flex-1" aria-busy="true" aria-label="Loading profile">
     <div className="h-48 md:h-64 bg-muted" />
     <div className="container relative -mt-20 pb-8">
       <div className="bg-card rounded-xl border shadow-lg p-6 md:p-8">
@@ -97,11 +97,21 @@ const TradespersonPublicProfile = () => {
   return (
     <main className="flex-1">
       <Helmet>
-        <title>{tp.companyName || tp.name} — Builder Network</title>
+        <title>{tp.companyName || tp.name} | The Builder Network</title>
         <meta
           name="description"
           content={`View ${tp.companyName || tp.name}'s profile on Builder Network. ${tp.reviewCount} reviews, verified tradesperson.`}
         />
+        <meta property="og:type" content="profile" />
+        <meta
+          property="og:title"
+          content={`${tp.companyName || tp.name} | The Builder Network`}
+        />
+        <meta
+          property="og:description"
+          content={`View ${tp.companyName || tp.name}'s profile on Builder Network. ${tp.reviewCount} reviews, verified tradesperson.`}
+        />
+        {tp.avatarUrl && <meta property="og:image" content={tp.avatarUrl} />}
       </Helmet>
       {/* Cover Image */}
       <div className="relative h-48 md:h-64 bg-gradient-to-br from-primary to-primary/80">
