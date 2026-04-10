@@ -23,6 +23,8 @@ interface JobServiceComboboxProps {
   placeholder?: string;
   /** Height class for the trigger button, e.g. "h-12" or "h-14" */
   triggerClassName?: string;
+  /** When true, prepend an "All Services" option that clears the selection */
+  showAllOption?: boolean;
 }
 
 /**
@@ -34,6 +36,7 @@ const JobServiceCombobox = ({
   onChange,
   placeholder = "Select a service...",
   triggerClassName = "h-12 text-base",
+  showAllOption = false,
 }: JobServiceComboboxProps) => {
   const [open, setOpen] = useState(false);
 
@@ -68,6 +71,23 @@ const JobServiceCombobox = ({
           <CommandList>
             <CommandEmpty>No service found.</CommandEmpty>
             <CommandGroup>
+              {showAllOption && (
+                <CommandItem
+                  value="All Services"
+                  onSelect={() => {
+                    onChange("");
+                    setOpen(false);
+                  }}
+                >
+                  <Check
+                    className={cn(
+                      "mr-2 h-4 w-4",
+                      value === "" ? "opacity-100" : "opacity-0",
+                    )}
+                  />
+                  All Services
+                </CommandItem>
+              )}
               {services.map((service) => (
                 <CommandItem
                   key={service.slug}

@@ -77,7 +77,12 @@ const TradespersonHero = () => {
 
   return (
     <>
-      <section className="py-16 md:py-20 bg-background overflow-hidden pattern">
+      <section
+        className="pt-20 bg-background overflow-hidden pattern"
+        style={{
+          height: "calc(100vh - 4rem)", // Full viewport height minus header
+        }}
+      >
         <div className="container">
           <div className="grid lg:grid-cols-5 gap-12 lg:gap-12 items-center">
             {/* Left Column: Text and Form */}
@@ -88,10 +93,6 @@ const TradespersonHero = () => {
               </h1>
 
               <div className="bg-card w-fit border rounded-xl shadow-sm p-6 md:p-8">
-                <h2 className="text-2xl font-bold mb-6">
-                  View local trade work
-                </h2>
-
                 <form className="space-y-4" onSubmit={handleSubmit}>
                   <div className="flex flex-col sm:flex-row items-stretch sm:items-start justify-between gap-3">
                     <div className="flex-1">
