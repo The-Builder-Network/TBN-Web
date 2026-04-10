@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Loader2 } from "lucide-react";
-import { useRegister } from "@/api/auth";
+import { useRegister, checkPhoneApi } from "@/api/auth";
 import { useToast } from "@/hooks/use-toast";
 import PasswordField from "@/components/shared/PasswordField";
 import UKPhoneField from "@/components/shared/UKPhoneField";
@@ -30,8 +30,45 @@ const FunnelAccountStep = ({
   const [password, setPassword] = useState("");
   const [marketing, setMarketing] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [phoneExists, setPhoneExists] = useState<boolean>(false);
+  const [isCheckingPhone, setIsCheckingPhone] = useState(false);
+  const phoneDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { mutate: register, isPending } = useRegister();
   const { toast } = useToast();
+
+  // Debounced phone existence check
+  useEffect(() => {
+    setPhoneExists(false);
+    setErrors((p) => ({ ...p, phone: "" }));
+
+    if (!isValidUKLocal(phone)) return;
+
+    const fullPhone = "+44" + phone.replace(/\s/g, "");
+
+    if (phoneDebounceRef.current) clearTimeout(phoneDebounceRef.current);
+    phoneDebounceRef.current = setTimeout(async () => {
+      setIsCheckingPhone(true);
+      try {
+        const res = await checkPhoneApi(fullPhone);
+        if (res.exists) {
+          setPhoneExists(true);
+          setErrors((p) => ({
+            ...p,
+            phone: "This phone number is already registered. Please log in.",
+          }));
+        }
+      } catch {
+        // silently ignore network errors
+      } finally {
+        setIsCheckingPhone(false);
+      }
+    }, 600);
+
+    return () => {
+      if (phoneDebounceRef.current) clearTimeout(phoneDebounceRef.current);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phone]);
 
   const validate = () => {
     const e: Record<string, string> = {};
@@ -40,9 +77,14 @@ const FunnelAccountStep = ({
     }
     if (!isValidUKLocal(phone)) {
       e.phone = "Enter a valid UK phone number";
+    } else if (phoneExists) {
+      e.phone = "This phone number is already registered. Please log in.";
     }
     if (password.length < 8) {
       e.password = "Password must be at least 8 characters";
+    }
+    if (!marketing) {
+      e.marketing = "Please accept marketing communications to continue.";
     }
     setErrors(e);
     return Object.keys(e).length === 0;
@@ -51,7 +93,10 @@ const FunnelAccountStep = ({
   const isFormValid =
     name.trim().length > 0 &&
     phone.replace(/\s/g, "").length >= 10 &&
-    password.length >= 8;
+    password.length >= 8 &&
+    marketing &&
+    !phoneExists &&
+    !isCheckingPhone;
 
   const handleContinue = (e: React.FormEvent) => {
     e.preventDefault();
@@ -139,11 +184,21 @@ const FunnelAccountStep = ({
           value={phone}
           onChange={(v) => {
             setPhone(v);
+            setPhoneExists(false);
             setErrors((p) => ({ ...p, phone: "" }));
           }}
           required
-          error={errors.phone}
+          error={
+            isCheckingPhone
+              ? undefined
+              : errors.phone
+          }
         />
+        {isCheckingPhone && (
+          <p className="text-xs text-muted-foreground -mt-4 flex items-center gap-1">
+            <Loader2 className="h-3 w-3 animate-spin" /> Checking…
+          </p>
+        )}
 
         <PasswordField
           value={password}

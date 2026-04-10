@@ -1,7 +1,9 @@
 import { useState, useRef } from "react";
+import { useMutation } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
-import { Upload, FileText, X, ChevronLeft } from "lucide-react";
+import { Upload, FileText, X, ChevronLeft, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { addQualification } from "@/api/users";
 
 type SubStep =
   | "intro"
@@ -78,6 +80,10 @@ const StepSafetyQuality = ({
   );
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const { mutate: createQualification, isPending: isSavingQual } = useMutation({
+    mutationFn: (name: string) => addQualification({ name }),
+  });
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
@@ -297,17 +303,33 @@ const StepSafetyQuality = ({
         </p>
 
         <Button
-          disabled={uploadedFiles.length === 0}
+          disabled={uploadedFiles.length === 0 || isSavingQual}
           onClick={() => {
-            onUpdate({
-              strongestSkill: selectedSkill,
-              qualificationUploaded: true,
+            createQualification(selectedSkill, {
+              onSuccess: () => {
+                onUpdate({
+                  strongestSkill: selectedSkill,
+                  qualificationUploaded: true,
+                });
+                setSubStep("pending");
+              },
+              onError: () => {
+                toast({
+                  title: "Error",
+                  description:
+                    "Failed to save qualification. Please try again.",
+                  variant: "destructive",
+                });
+              },
             });
-            setSubStep("pending");
           }}
           className="h-12 px-6 text-base"
         >
-          Submit
+          {isSavingQual ? (
+            <Loader2 className="h-4 w-4 animate-spin" />
+          ) : (
+            "Submit"
+          )}
         </Button>
       </div>
     );

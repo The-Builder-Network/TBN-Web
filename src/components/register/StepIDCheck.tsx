@@ -1,7 +1,17 @@
 import { useState, useRef } from "react";
+import { useMutation } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
-import { Shield, FileText, CreditCard, Car, Upload, X } from "lucide-react";
+import {
+  Shield,
+  FileText,
+  CreditCard,
+  Car,
+  Upload,
+  X,
+  Loader2,
+} from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { uploadIdDocument } from "@/api/users";
 
 type SubStep = "intro" | "select-id" | "review";
 
@@ -31,6 +41,10 @@ const StepIDCheck = ({
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  const { mutate: uploadId, isPending: isUploading } = useMutation({
+    mutationFn: (file: File) => uploadIdDocument(file),
+  });
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -47,8 +61,24 @@ const StepIDCheck = ({
   };
 
   const handleSubmit = () => {
-    onUpdate({ idType: selectedIdType, idUploaded: !!uploadedFile });
-    onNext();
+    if (!uploadedFile) {
+      onUpdate({ idType: selectedIdType, idUploaded: false });
+      onNext();
+      return;
+    }
+    uploadId(uploadedFile, {
+      onSuccess: () => {
+        onUpdate({ idType: selectedIdType, idUploaded: true });
+        onNext();
+      },
+      onError: () => {
+        toast({
+          title: "Upload failed",
+          description: "Failed to upload ID document. Please try again.",
+          variant: "destructive",
+        });
+      },
+    });
   };
 
   // Intro
@@ -238,8 +268,16 @@ const StepIDCheck = ({
         >
           Back
         </Button>
-        <Button onClick={handleSubmit} className="h-12 px-6 text-base">
-          Submit
+        <Button
+          onClick={handleSubmit}
+          disabled={isUploading}
+          className="h-12 px-6 text-base"
+        >
+          {isUploading ? (
+            <Loader2 className="h-4 w-4 animate-spin" />
+          ) : (
+            "Submit"
+          )}
         </Button>
       </div>
     </div>
