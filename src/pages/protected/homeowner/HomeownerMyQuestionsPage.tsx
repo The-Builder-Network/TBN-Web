@@ -33,7 +33,9 @@ const HomeownerMyQuestionsPage = () => {
 
       <div className="flex items-center justify-between mb-8">
         <h1 className="text-3xl font-bold">My questions</h1>
-        <Button onClick={() => setShowAskModal(true)}>Ask a question</Button>
+        {questions.length > 0 && (
+          <Button onClick={() => setShowAskModal(true)}>Ask a question</Button>
+        )}
       </div>
 
       {/* Loading */} 
@@ -84,6 +86,14 @@ const HomeownerMyQuestionsPage = () => {
               to={`/questions/${q.id}`}
               className="block border rounded-lg p-5 hover:shadow-sm transition-shadow"
             >
+              <p className="text-xs text-muted-foreground mb-0.5">
+                #{q.questionNumber}
+              </p>
+              {q.serviceSlug && (
+                <p className="text-sm text-primary font-medium mb-1 capitalize">
+                  {q.serviceSlug.replace(/-/g, " ")}
+                </p>
+              )}
               <h3 className="font-semibold text-lg mb-1">{q.title}</h3>
               <p className="text-muted-foreground text-sm line-clamp-2 mb-3">
                 {q.body}
@@ -92,13 +102,22 @@ const HomeownerMyQuestionsPage = () => {
                 <span className="flex items-center gap-1">
                   <MessageSquare className="h-4 w-4" />
                   {q.answerCount} {q.answerCount === 1 ? "answer" : "answers"}
+                  {q.hasBestAnswer && 
+                    <span className="ml-1 text-xs text-highlight font-medium">
+                   Best Answer
+                    </span>
+                  }
                 </span>
-                {q.hasBestAnswer && (
-                  <span className="text-green-600 font-medium">
-                    Best answer chosen
-                  </span>
-                )}
-                <span>{new Date(q.createdAt).toLocaleDateString()}</span>
+                <span>
+                  {new Date(q.createdAt).toLocaleString("en-GB", {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    hour12: false,
+                  })}
+                </span>
               </div>
             </Link>
           ))}

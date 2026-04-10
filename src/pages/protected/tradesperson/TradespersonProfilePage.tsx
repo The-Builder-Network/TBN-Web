@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { Helmet } from "react-helmet-async";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
-import { Switch } from "@/components/ui/switch";
 import {
   Dialog,
   DialogContent,
@@ -13,13 +12,9 @@ import {
 } from "@/components/ui/dialog";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
+import PostcodeInput from "@/components/shared/PostcodeInput";
+import TravelRadiusMap from "@/components/register/TravelRadiusMap";
 import {
   User,
   Star,
@@ -73,6 +68,7 @@ import {
   usePaymentHistory,
   useUpdateAutoTopup,
 } from "@/api/payments";
+import { useLeadsCount } from "@/api/leads";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
 import { ReviewCard } from "@/components/shared/ReviewCard";
@@ -233,7 +229,7 @@ const CompanyDescriptionTab = () => {
               value={bio}
               onChange={(e) => setBio(e.target.value)}
               rows={6}
-              placeholder="Describe your company and experience…"
+              placeholder="Describe your company or experience…"
               maxLength={2000}
             />
             <div className="flex gap-2">
@@ -246,7 +242,7 @@ const CompanyDescriptionTab = () => {
               >
                 Discard
               </Button>
-              <Button onClick={handleSave} disabled={updateMutation.isPending}>
+              <Button onClick={handleSave} disabled={bio.trim().length < 50 || updateMutation.isPending}>
                 {updateMutation.isPending ? "Saving…" : "Save"}
               </Button>
             </div>
@@ -573,64 +569,82 @@ const ContactDetailsTab = () => {
 const ManageAccountTab = () => (
   <div>
     <h2 className="text-2xl font-bold mb-6">Manage account</h2>
-    <div className="border rounded-lg p-4 flex items-center justify-between bg-muted/30">
-      <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center">
-          <Settings className="w-5 h-5 text-muted-foreground" />
-        </div>
-        <div>
-          <p className="font-bold">Verify account to access</p>
-          <p className="text-sm text-muted-foreground">
-            To access your information, please authenticate your account.
-          </p>
-        </div>
+    <div className="space-y-4">
+      <div className="border rounded-lg p-6">
+        <h3 className="font-semibold mb-1">Change password</h3>
+        <p className="text-sm text-muted-foreground mb-4">
+          Update your password to keep your account secure.
+        </p>
+        <Button variant="outline" size="sm">Change password</Button>
       </div>
-      <Button>Verify account</Button>
+      <div className="border rounded-lg p-6">
+        <h3 className="font-semibold mb-1">Delete account</h3>
+        <p className="text-sm text-muted-foreground mb-4">
+          Permanently delete your account and all associated data.
+        </p>
+        <Button variant="destructive" size="sm">Delete account</Button>
+      </div>
     </div>
   </div>
 );
 
 // ── SavedLeadsTab ──────────────────────────────────────────────
 
-const SavedLeadsTab = () => (
-  <div>
-    <h2 className="text-2xl font-bold mb-6">Saved leads</h2>
-    <div className="text-center py-12">
-      <FolderOpen className="h-16 w-16 text-muted-foreground/30 mx-auto mb-4" />
-      <h3 className="text-xl font-bold mb-2">
-        You don&apos;t have any saved leads
-      </h3>
-      <p className="text-muted-foreground mb-6">
-        Save a lead to access it later
-      </p>
-      <Button className="bg-primary text-primary-foreground">
-        Your next lead is just around the corner
-      </Button>
+const SavedLeadsTab = () => {
+  const navigate = useNavigate();
+  return (
+    <div>
+      <h2 className="text-2xl font-bold mb-6">Saved leads</h2>
+      <div className="text-center py-12">
+        <FolderOpen className="h-16 w-16 text-muted-foreground/30 mx-auto mb-4" />
+        <h3 className="text-xl font-bold mb-2">
+          You don&apos;t have any saved leads
+        </h3>
+        <p className="text-muted-foreground mb-6">
+          Save a lead to access it later
+        </p>
+        <Button onClick={() => navigate("/tradesperson/my-leads")}>
+          Your next lead is just around the corner
+        </Button>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 // ── WorkAreaTab ────────────────────────────────────────────────
 
 const WorkAreaTab = () => {
   const { data: profile } = useMyProfile();
   const [postcode, setPostcode] = useState(profile?.postcode ?? "");
-  const [distance, setDistance] = useState(
-    String(profile?.workRadiusMiles ?? 10),
-  );
+  const [postcodeValid, setPostcodeValid] = useState(false);
+  const [distance, setDistance] = useState(profile?.workRadiusMiles ?? 10);
+  const [mapCenter, setMapCenter] = useState<[number, number]>([51.505, -0.09]);
   const updateMutation = useUpdateMyProfile();
+  const { data: leadsCount = 0 } = useLeadsCount(postcode, distance);
   const { toast } = useToast();
 
   useEffect(() => {
     if (profile) {
       setPostcode(profile.postcode ?? "");
-      setDistance(String(profile.workRadiusMiles ?? 10));
+      setDistance(profile.workRadiusMiles ?? 10);
     }
   }, [profile]);
 
+  useEffect(() => {
+    const pc = postcode.trim();
+    if (!pc || !postcodeValid) return;
+    fetch(`https://api.postcodes.io/postcodes/${pc.replace(/\s+/g, "")}`)
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.result)
+          setMapCenter([data.result.latitude, data.result.longitude]);
+      })
+      .catch(() => {});
+  }, [postcode, postcodeValid]);
+
   function handleSave() {
     updateMutation.mutate(
-      { postcode, workRadiusMiles: Number(distance) },
+      { postcode, workRadiusMiles: distance },
       {
         onSuccess: () => toast({ title: "Work area updated" }),
         onError: () =>
@@ -650,30 +664,44 @@ const WorkAreaTab = () => {
         receive relevant leads.
       </p>
 
-      <div className="space-y-4 mb-6">
-        <div>
-          <Label className="text-base font-semibold">Current postcode</Label>
-          <Input
+      <div className="mb-6">
+        <Label className="text-base font-semibold">Current postcode</Label>
+        <div className="mt-2">
+          <PostcodeInput
             value={postcode}
-            onChange={(e) => setPostcode(e.target.value.toUpperCase())}
-            className="mt-2 text-base"
-            placeholder="e.g. SW1A 1AA"
+            onChange={setPostcode}
+            onValidationChange={setPostcodeValid}
           />
         </div>
-        <div>
-          <Label className="text-base font-semibold">Distance area</Label>
-          <Select value={distance} onValueChange={setDistance}>
-            <SelectTrigger className="mt-2 text-base">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {[5, 10, 15, 20, 25, 30, 50, 75, 100].map((d) => (
-                <SelectItem key={d} value={String(d)}>
-                  {d} miles
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+      </div>
+
+      {postcodeValid && (
+        <div className="inline-block bg-primary/10 text-primary text-sm font-medium px-3 py-1.5 rounded-full mb-5">
+          {leadsCount} leads in your work area
+        </div>
+      )}
+
+      <div className="mb-6">
+        <p className="text-sm font-semibold mb-8">
+          Travel distance from {postcode || "your postcode"}
+        </p>
+        <div className="relative mb-5">
+          <div
+            className="absolute -top-7 text-xs font-semibold bg-primary text-primary-foreground px-2 py-0.5 rounded"
+            style={{ left: `calc(${((distance - 5) / 95) * 100}% - 20px)` }}
+          >
+            {distance} miles
+          </div>
+          <Slider
+            value={[distance]}
+            onValueChange={(v) => setDistance(v[0])}
+            min={5}
+            max={100}
+            step={5}
+          />
+        </div>
+        <div className="rounded-lg overflow-hidden border mb-5" style={{ height: 280 }}>
+          <TravelRadiusMap radius={distance} center={mapCenter} postcode={postcode} />
         </div>
       </div>
 
@@ -682,12 +710,15 @@ const WorkAreaTab = () => {
           variant="outline"
           onClick={() => {
             setPostcode(profile?.postcode ?? "");
-            setDistance(String(profile?.workRadiusMiles ?? 10));
+            setDistance(profile?.workRadiusMiles ?? 10);
           }}
         >
           Discard
         </Button>
-        <Button onClick={handleSave} disabled={updateMutation.isPending}>
+        <Button
+          onClick={handleSave}
+          disabled={!postcodeValid || updateMutation.isPending}
+        >
           {updateMutation.isPending ? "Saving…" : "Save"}
         </Button>
       </div>
@@ -1227,7 +1258,7 @@ const TradesProfile = () => {
   const displayName = profile?.companyName ?? user?.name ?? "My Profile";
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8">
+    <div className="container py-10 flex-1 flex flex-col min-h-0">
       <Helmet>
         <title>{displayName} — My Profile | The Builder Network</title>
         <meta
@@ -1237,9 +1268,9 @@ const TradesProfile = () => {
       </Helmet>
       <h1 className="text-4xl font-bold mb-6">Profile</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-8 flex-1 min-h-0 overflow-hidden">
         {/* Sidebar */}
-        <div>
+        <div className="overflow-y-auto">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center font-bold">
               {displayName.charAt(0).toUpperCase()}
@@ -1310,7 +1341,7 @@ const TradesProfile = () => {
         </div>
 
         {/* Content */}
-        <div>
+        <div className="overflow-y-auto pb-10">
           {TAB_CONTENT[activeTab] ?? <PlaceholderTab title="Page not found" />}
         </div>
       </div>
