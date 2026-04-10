@@ -112,11 +112,14 @@ const MyJobs = () => {
                   </div>
                   <h3 className="font-semibold text-xl">{job.title}</h3>
                   <p className="text-muted-foreground text-sm my-2">
-                    Posted{" "}
-                    {new Date(job.createdAt).toLocaleDateString("en-GB", {
+                    Posted on{" "}
+                    {new Date(job.createdAt).toLocaleString("en-GB", {
                       day: "numeric",
                       month: "short",
                       year: "numeric",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                      hour12: false,
                     })}
                     {job.placeName ? ` · ${job.placeName}` : ""}
                   </p>

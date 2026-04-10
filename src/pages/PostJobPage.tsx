@@ -1,11 +1,13 @@
 import { useState, useEffect, useCallback } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import JobServiceSelector from "@/components/post-job/JobServiceSelector";
 import JobFunnel from "@/components/post-job/JobFunnel";
 import { loadQuestionTree } from "@/helpers/QuestionTreeHelper";
 import { services } from "@/constants/services";
 import type { QuestionNode } from "@/types/post-job";
+import { useAuth } from "@/hooks/useAuth";
+import { toast } from "@/hooks/use-toast";
 
 const PostJob = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -13,6 +15,24 @@ const PostJob = () => {
   const [rootNode, setRootNode] = useState<QuestionNode | null>(null);
   const [serviceName, setServiceName] = useState("");
   const [initialPostcode, setInitialPostcode] = useState("");
+  const navigate = useNavigate();
+  const { isTradesperson } = useAuth();
+
+  // Block tradesperson from accessing this page
+  useEffect(() => {
+    if (isTradesperson) {
+      toast({
+        title: "Tradesperson account",
+        description:
+          "Tradesperson accounts cannot post jobs. Please sign in as a homeowner.",
+        variant: "destructive",
+      });
+      navigate("/", { replace: true });
+    }
+  }, [isTradesperson, navigate]);
+
+  // Don't render the page content for tradespersons — prevents flash before redirect
+  if (isTradesperson) return null;
 
   // Handle URL ?service=slug and ?postcode= params on mount
   useEffect(() => {
