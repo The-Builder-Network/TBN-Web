@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import { ChevronRight, MessageSquare, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "boneyard-js/react";
 import JobServiceCombobox from "@/components/shared/JobServiceCombobox";
 import SortOptionsModal from "@/components/modals/SortOptionsModal";
 import AskQuestionModal from "@/components/modals/AskQuestionModal";
@@ -117,9 +117,7 @@ const QuestionsPage = () => {
           <div className="flex items-center justify-between my-4">
             <p className="text-md font-medium flex items-center gap-1.5">
               <MessageSquare className="w-4 h-4" />
-              {isLoading
-                ? "Loading…"
-                : `${total.toLocaleString()} question${total !== 1 ? "s" : ""}`}
+              {`${total.toLocaleString()} question${total !== 1 ? "s" : ""}`}
             </p>
             <button
               className="text-sm text-muted-foreground flex items-center gap-1 hover:text-foreground transition-colors"
@@ -129,183 +127,168 @@ const QuestionsPage = () => {
             </button>
           </div>
 
-          {/* Loading skeletons */}
-          {isLoading && (
-            <div
-              className="space-y-4"
-              aria-busy="true"
-              aria-label="Loading questions"
-            >
-              {Array.from({ length: 5 }).map((_, i) => (
-                <div key={i} className="border rounded-lg p-5 space-y-2">
-                  <Skeleton className="h-4 w-32" />
-                  <Skeleton className="h-5 w-3/4" />
-                  <Skeleton className="h-3 w-48" />
-                  <Skeleton className="h-8 w-full" />
-                </div>
-              ))}
-            </div>
-          )}
-
-          {/* Error state */}
-          {error && !isLoading && (
-            <div className="text-center py-12 border rounded-lg">
-              <p className="text-muted-foreground mb-3">
-                Failed to load questions.
-              </p>
-              <Button
-                variant="outline"
-                onClick={() => window.location.reload()}
-              >
-                Try again
-              </Button>
-            </div>
-          )}
-
-          {/* Empty state */}
-          {!isLoading && !error && questions.length === 0 && (
-            <div className="text-center py-12 border rounded-lg">
-              <MessageSquare className="mx-auto h-10 w-10 text-muted-foreground mb-3" />
-              <p className="font-medium mb-1">No questions found</p>
-              <p className="text-sm text-muted-foreground mb-4">
-                Be the first to ask a question
-                {serviceSlug ? " in this category" : ""}.
-              </p>
-              <Button onClick={() => setAskModalOpen(true)}>
-                Ask a question
-              </Button>
-            </div>
-          )}
-
-          {/* Questions list */}
-          {!isLoading && !error && questions.length > 0 && (
-            <div className="space-y-4">
-              {questions.map((q) => (
-                <Link
-                  key={q.id}
-                  to={`/questions/${q.id}`}
-                  className="block border rounded-lg p-5 hover:border-primary/20 transition-colors"
+          <Skeleton name="questions-list" loading={isLoading}>
+            {/* Error state */}
+            {error && (
+              <div className="text-center py-12 border rounded-lg">
+                <p className="text-muted-foreground mb-3">
+                  Failed to load questions.
+                </p>
+                <Button
+                  variant="outline"
+                  onClick={() => window.location.reload()}
                 >
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <p className="text-xs text-muted-foreground mb-0.5">
-                        #{q.questionNumber}
-                      </p>
-                      {q.serviceSlug && (
-                        <p className="text-sm text-highlight font-medium mb-1 capitalize">
-                          {q.serviceSlug.replace(/-/g, " ")}
+                  Try again
+                </Button>
+              </div>
+            )}
+
+            {/* Empty state */}
+            {!error && questions.length === 0 && (
+              <div className="text-center py-12 border rounded-lg">
+                <MessageSquare className="mx-auto h-10 w-10 text-muted-foreground mb-3" />
+                <p className="font-medium mb-1">No questions found</p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Be the first to ask a question
+                  {serviceSlug ? " in this category" : ""}.
+                </p>
+                <Button onClick={() => setAskModalOpen(true)}>
+                  Ask a question
+                </Button>
+              </div>
+            )}
+
+            {/* Questions list */}
+            {!error && questions.length > 0 && (
+              <div className="space-y-4">
+                {questions.map((q) => (
+                  <Link
+                    key={q.id}
+                    to={`/questions/${q.id}`}
+                    className="block border rounded-lg p-5 hover:border-primary/20 transition-colors"
+                  >
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <p className="text-xs text-muted-foreground mb-0.5">
+                          #{q.questionNumber}
                         </p>
-                      )}
-                      <h3 className="font-bold text-lg">{q.title}</h3>
-                      <p className="text-sm text-muted-foreground my-0.5">
-                        {q.authorName}
-                      </p>
-                      <p className="text-sm text-muted-foreground my-2 line-clamp-2">
-                        {q.body}
-                      </p>
-                      {q.body.length > 100 && (
-                        <span className="text-sm text-primary font-medium">
-                          Read more
-                        </span>
-                      )}
-                      <div className="flex items-center gap-4 mt-3 text-xs text-muted-foreground">
-                        <span className="flex items-center gap-1">
-                          <MessageSquare className="w-3.5 h-3.5" />{" "}
-                          {q.answerCount} answer{q.answerCount !== 1 ? "s" : ""}
-                        </span>
-                        {q.hasBestAnswer && (
-                          <span className="text-highlight font-medium">
-                            ★ Best answer
+                        {q.serviceSlug && (
+                          <p className="text-sm text-highlight font-medium mb-1 capitalize">
+                            {q.serviceSlug.replace(/-/g, " ")}
+                          </p>
+                        )}
+                        <h3 className="font-bold text-lg">{q.title}</h3>
+                        <p className="text-sm text-muted-foreground my-0.5">
+                          {q.authorName}
+                        </p>
+                        <p className="text-sm text-muted-foreground my-2 line-clamp-2">
+                          {q.body}
+                        </p>
+                        {q.body.length > 100 && (
+                          <span className="text-sm text-primary font-medium">
+                            Read more
                           </span>
                         )}
-                        <span>
-                          {new Date(q.createdAt).toLocaleString("en-GB", {
-                            day: "numeric",
-                            month: "short",
-                            year: "numeric",
-                            hour: "2-digit",
-                            minute: "2-digit",
-                            hour12: false,
-                          })}
-                        </span>
+                        <div className="flex items-center gap-4 mt-3 text-xs text-muted-foreground">
+                          <span className="flex items-center gap-1">
+                            <MessageSquare className="w-3.5 h-3.5" />{" "}
+                            {q.answerCount} answer
+                            {q.answerCount !== 1 ? "s" : ""}
+                          </span>
+                          {q.hasBestAnswer && (
+                            <span className="text-highlight font-medium">
+                              ★ Best answer
+                            </span>
+                          )}
+                          <span>
+                            {new Date(q.createdAt).toLocaleString("en-GB", {
+                              day: "numeric",
+                              month: "short",
+                              year: "numeric",
+                              hour: "2-digit",
+                              minute: "2-digit",
+                              hour12: false,
+                            })}
+                          </span>
+                        </div>
                       </div>
+                      <ChevronRight className="w-5 h-5 text-muted-foreground ml-4 mt-1 flex-shrink-0" />
                     </div>
-                    <ChevronRight className="w-5 h-5 text-muted-foreground ml-4 mt-1 flex-shrink-0" />
-                  </div>
-                </Link>
-              ))}
-            </div>
-          )}
+                  </Link>
+                ))}
+              </div>
+            )}
 
-          {/* Pagination */}
-          {!isLoading && totalPages > 1 && (
-            <div className="mt-8">
-              <Pagination>
-                <PaginationContent>
-                  {page > 1 && (
-                    <PaginationItem>
-                      <PaginationPrevious
-                        href="#"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handlePageChange(page - 1);
-                        }}
-                      />
-                    </PaginationItem>
-                  )}
-                  {Array.from({ length: Math.min(5, totalPages) }).map(
-                    (_, i) => {
-                      const pageNum = i + 1;
-                      return (
-                        <PaginationItem key={pageNum}>
-                          <PaginationLink
-                            href="#"
-                            isActive={pageNum === page}
-                            onClick={(e) => {
-                              e.preventDefault();
-                              handlePageChange(pageNum);
-                            }}
-                          >
-                            {pageNum}
-                          </PaginationLink>
-                        </PaginationItem>
-                      );
-                    },
-                  )}
-                  {totalPages > 5 && (
-                    <>
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="mt-8">
+                <Pagination>
+                  <PaginationContent>
+                    {page > 1 && (
                       <PaginationItem>
-                        <PaginationEllipsis />
-                      </PaginationItem>
-                      <PaginationItem>
-                        <PaginationLink
+                        <PaginationPrevious
                           href="#"
-                          isActive={page === totalPages}
                           onClick={(e) => {
                             e.preventDefault();
-                            handlePageChange(totalPages);
+                            handlePageChange(page - 1);
                           }}
-                        >
-                          {totalPages}
-                        </PaginationLink>
+                        />
                       </PaginationItem>
-                    </>
-                  )}
-                  {page < totalPages && (
-                    <PaginationItem>
-                      <PaginationNext
-                        href="#"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handlePageChange(page + 1);
-                        }}
-                      />
-                    </PaginationItem>
-                  )}
-                </PaginationContent>
-              </Pagination>
-            </div>
-          )}
+                    )}
+                    {Array.from({ length: Math.min(5, totalPages) }).map(
+                      (_, i) => {
+                        const pageNum = i + 1;
+                        return (
+                          <PaginationItem key={pageNum}>
+                            <PaginationLink
+                              href="#"
+                              isActive={pageNum === page}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                handlePageChange(pageNum);
+                              }}
+                            >
+                              {pageNum}
+                            </PaginationLink>
+                          </PaginationItem>
+                        );
+                      },
+                    )}
+                    {totalPages > 5 && (
+                      <>
+                        <PaginationItem>
+                          <PaginationEllipsis />
+                        </PaginationItem>
+                        <PaginationItem>
+                          <PaginationLink
+                            href="#"
+                            isActive={page === totalPages}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handlePageChange(totalPages);
+                            }}
+                          >
+                            {totalPages}
+                          </PaginationLink>
+                        </PaginationItem>
+                      </>
+                    )}
+                    {page < totalPages && (
+                      <PaginationItem>
+                        <PaginationNext
+                          href="#"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handlePageChange(page + 1);
+                          }}
+                        />
+                      </PaginationItem>
+                    )}
+                  </PaginationContent>
+                </Pagination>
+              </div>
+            )}
+          </Skeleton>
         </div>
 
         {/* Sidebar */}
