@@ -74,13 +74,13 @@ const PostJob = () => {
   return (
     <main className="flex-1 container py-10">
       <Helmet>
-        <title>Post a Job — Builder Network</title>
+        <title>Post a Job | The Builder Network</title>
         <meta
           name="description"
           content="Describe your job and get matched with verified tradespeople near you. Free to post."
         />
       </Helmet>
-      <div className="w-1/2">
+      <div className="w-full max-w-2xl mx-auto px-4">
         {rootNode && selectedSlug ? (
           <JobFunnel
             key={selectedSlug}
