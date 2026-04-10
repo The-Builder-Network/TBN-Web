@@ -22,10 +22,13 @@ const DownloadAppSection = () => {
             </p>
 
             <div className="flex flex-wrap gap-6 mb-4">
+              {/* TODO: Replace with real app store URLs when app launches */}
               <a
                 href="#"
-                className="transition-transform hover:scale-105"
-                aria-label="Get it on Google Play"
+                aria-disabled="true"
+                onClick={(e) => e.preventDefault()}
+                className="transition-transform hover:scale-105 opacity-75 cursor-not-allowed"
+                aria-label="Get it on Google Play (coming soon)"
               >
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
@@ -35,8 +38,10 @@ const DownloadAppSection = () => {
               </a>
               <a
                 href="#"
-                className="transition-transform hover:scale-105"
-                aria-label="Download on the App Store"
+                aria-disabled="true"
+                onClick={(e) => e.preventDefault()}
+                className="transition-transform hover:scale-105 opacity-75 cursor-not-allowed"
+                aria-label="Download on the App Store (coming soon)"
               >
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
@@ -119,6 +124,5 @@ const DownloadAppSection = () => {
     </section>
   );
 };
-
 
 export default DownloadAppSection;

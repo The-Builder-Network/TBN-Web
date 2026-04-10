@@ -3,8 +3,8 @@ import { useAuth } from "@/hooks/useAuth";
 import type { UserRole } from "@/types/auth";
 
 interface ProtectedRouteProps {
-  /** Which role is allowed to access these routes */
-  allowedRole: UserRole;
+  /** Which role is allowed. Omit to allow any authenticated user. */
+  allowedRole?: UserRole;
   /** Where to redirect unauthenticated users (default: "/") */
   redirectTo?: string;
 }
@@ -40,7 +40,7 @@ const ProtectedRoute = ({
   }
 
   // Logged in but wrong role → redirect to their correct dashboard
-  if (user?.role !== allowedRole) {
+  if (allowedRole && user?.role !== allowedRole) {
     const fallback =
       user?.role === "homeowner" ? "/homeowner" : "/tradesperson";
     return <Navigate to={fallback} replace />;

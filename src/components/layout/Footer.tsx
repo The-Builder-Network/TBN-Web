@@ -132,7 +132,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    to="/cities"
+                    to="/search"
                     className="hover:text-foreground hover:underline transition-colors underline"
                   >
                     Cities
@@ -162,97 +162,97 @@ const Footer = () => {
             </h4>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-sm text-muted-foreground">
               <Link
-                to="/cities"
+                to="/search?city=london"
                 className="hover:text-foreground hover:underline transition-colors underline"
               >
                 London
               </Link>
               <Link
-                to="/cities"
+                to="/search?city=manchester"
                 className="hover:text-foreground hover:underline transition-colors underline"
               >
                 Manchester
               </Link>
               <Link
-                to="/cities"
+                to="/search?city=birmingham"
                 className="hover:text-foreground hover:underline transition-colors underline"
               >
                 Birmingham
               </Link>
               <Link
-                to="/cities"
+                to="/search?city=leeds"
                 className="hover:text-foreground hover:underline transition-colors underline"
               >
                 Leeds
               </Link>
               <Link
-                to="/cities"
+                to="/search?city=glasgow"
                 className="hover:text-foreground hover:underline transition-colors underline"
               >
                 Glasgow
               </Link>
               <Link
-                to="/cities"
+                to="/search?city=bristol"
                 className="hover:text-foreground hover:underline transition-colors underline"
               >
                 Bristol
               </Link>
               <Link
-                to="/cities"
+                to="/search?city=liverpool"
                 className="hover:text-foreground hover:underline transition-colors underline"
               >
                 Liverpool
               </Link>
               <Link
-                to="/cities"
+                to="/search?city=sheffield"
                 className="hover:text-foreground hover:underline transition-colors underline"
               >
                 Sheffield
               </Link>
               <Link
-                to="/cities"
+                to="/search?city=edinburgh"
                 className="hover:text-foreground hover:underline transition-colors underline"
               >
                 Edinburgh
               </Link>
               <Link
-                to="/cities"
+                to="/search?city=cardiff"
                 className="hover:text-foreground hover:underline transition-colors underline"
               >
                 Cardiff
               </Link>
               <Link
-                to="/cities"
+                to="/search?city=newcastle"
                 className="hover:text-foreground hover:underline transition-colors underline"
               >
                 Newcastle
               </Link>
               <Link
-                to="/cities"
+                to="/search?city=leicester"
                 className="hover:text-foreground hover:underline transition-colors underline"
               >
                 Leicester
               </Link>
               <Link
-                to="/cities"
+                to="/search?city=nottingham"
                 className="hover:text-foreground hover:underline transition-colors underline"
               >
                 Nottingham
               </Link>
               <Link
-                to="/cities"
+                to="/search?city=southampton"
                 className="hover:text-foreground hover:underline transition-colors underline"
               >
                 Southampton
               </Link>
               <Link
-                to="/cities"
+                to="/search?city=cambridge"
                 className="hover:text-foreground hover:underline transition-colors underline"
               >
                 Cambridge
               </Link>
               <Link
-                to="/cities"
+                to="/search"
                 className="hover:text-foreground hover:underline transition-colors underline"
               >
                 More cities »
@@ -308,11 +308,13 @@ const Footer = () => {
               </div>
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                 <div className="flex gap-4">
+                  {/* TODO: Replace with real social media URLs */}
                   <a
                     href="https://facebook.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="transition-colors"
+                    aria-label="The Builder Network on Facebook"
                   >
                     <Facebook className="h-5 w-5" />
                   </a>
@@ -321,6 +323,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="transition-colors"
+                    aria-label="The Builder Network on YouTube"
                   >
                     <Youtube className="h-5 w-5" />
                   </a>
@@ -329,6 +332,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="transition-colors"
+                    aria-label="The Builder Network on X (Twitter)"
                   >
                     <Twitter className="h-5 w-5" />
                   </a>

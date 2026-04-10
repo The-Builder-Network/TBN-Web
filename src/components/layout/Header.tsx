@@ -126,12 +126,12 @@ const Header = () => {
                 <AccountDropdown
                   name={user?.name ?? ""}
                   onLogout={handleLogout}
-                  onProfile={() => navigate("/profile")}
+                  onProfile={() => navigate("/homeowner")}
                   extraItems={[
                     {
                       label: "Ask a tradesperson",
                       icon: MessageSquare,
-                      onClick: () => navigate("/ask"),
+                      onClick: () => navigate("/questions"),
                     },
                   ]}
                 />
@@ -146,7 +146,7 @@ const Header = () => {
                 <AccountDropdown
                   name={user?.name ?? ""}
                   onLogout={handleLogout}
-                  onProfile={() => navigate("/profile")}
+                  onProfile={() => navigate("/tradesperson/profile")}
                   extraItems={[
                     {
                       label: "My leads",
@@ -242,7 +242,7 @@ const Header = () => {
                     My jobs
                   </Link>
                   <Link
-                    to="/profile"
+                    to="/homeowner"
                     className="block px-4 py-3 text-sm font-medium hover:bg-muted rounded-md"
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -270,7 +270,7 @@ const Header = () => {
                     My leads
                   </Link>
                   <Link
-                    to="/profile"
+                    to="/tradesperson/profile"
                     className="block px-4 py-3 text-sm font-medium hover:bg-muted rounded-md"
                     onClick={() => setMobileMenuOpen(false)}
                   >
