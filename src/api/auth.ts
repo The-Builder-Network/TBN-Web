@@ -39,6 +39,7 @@ export function mapApiUser(apiUser: ApiUser): User {
     email: apiUser.email,
     role: apiUser.role.toLowerCase() as User["role"],
     name: apiUser.name,
+    avatarUrl: apiUser.avatarUrl,
   };
 }
 

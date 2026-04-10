@@ -52,6 +52,10 @@ export async function uploadAvatar(file: File): Promise<{ avatarUrl: string }> {
   return res.data;
 }
 
+export async function deleteAvatar(): Promise<void> {
+  await api.delete("/users/me/avatar");
+}
+
 export async function uploadIdDocument(file: File): Promise<void> {
   const fd = new FormData();
   fd.append("document", file);
@@ -156,6 +160,17 @@ export function useUploadAvatar() {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: uploadAvatar,
+    onSuccess: () => {
+      void qc.invalidateQueries({ queryKey: ["auth", "me"] });
+      void qc.invalidateQueries({ queryKey: userKeys.myProfile });
+    },
+  });
+}
+
+export function useDeleteAvatar() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: deleteAvatar,
     onSuccess: () => {
       void qc.invalidateQueries({ queryKey: ["auth", "me"] });
       void qc.invalidateQueries({ queryKey: userKeys.myProfile });
