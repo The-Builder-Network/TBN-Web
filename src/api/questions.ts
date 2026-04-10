@@ -65,6 +65,18 @@ export async function markBestAnswer(answerId: string): Promise<void> {
   await api.patch(`/answers/${answerId}/best`);
 }
 
+export async function updateAnswer(
+  answerId: string,
+  body: string,
+): Promise<{ id: string }> {
+  const res = await api.patch<{ id: string }>(`/answers/${answerId}`, { body });
+  return res.data;
+}
+
+export async function deleteAnswer(answerId: string): Promise<void> {
+  await api.delete(`/answers/${answerId}`);
+}
+
 // ── Query keys ──────────────────────────────────────────────
 
 export const questionKeys = {
@@ -114,6 +126,23 @@ export function useToggleAnswerLike() {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: toggleAnswerLike,
+    onSuccess: () => qc.invalidateQueries({ queryKey: questionKeys.all }),
+  });
+}
+
+export function useUpdateAnswer() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: ({ answerId, body }: { answerId: string; body: string }) =>
+      updateAnswer(answerId, body),
+    onSuccess: () => qc.invalidateQueries({ queryKey: questionKeys.all }),
+  });
+}
+
+export function useDeleteAnswer() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: ({ answerId }: { answerId: string }) => deleteAnswer(answerId),
     onSuccess: () => qc.invalidateQueries({ queryKey: questionKeys.all }),
   });
 }

@@ -85,7 +85,12 @@ export interface JobDetail {
   postcode: string;
   placeName?: string;
   answersJson: Record<string, unknown>;
-  attachments: Array<{ id: string; fileUrl: string; fileName: string; mimeType: string }>;
+  attachments: Array<{
+    id: string;
+    fileUrl: string;
+    fileName: string;
+    mimeType: string;
+  }>;
   createdAt: string;
   responses?: JobResponse[];
 }
@@ -203,6 +208,7 @@ export interface ReviewItem {
 // ── Question & Answer ──────────────────────────────────────────
 export interface QuestionSummary {
   id: string;
+  questionNumber: number;
   title: string;
   body: string;
   serviceSlug?: string;
@@ -214,6 +220,7 @@ export interface QuestionSummary {
 
 export interface AnswerItem {
   id: string;
+  authorId: string;
   authorName: string;
   authorAvatar?: string;
   authorUsername?: string;
@@ -227,6 +234,8 @@ export interface AnswerItem {
 
 export interface QuestionDetail {
   id: string;
+  questionNumber: number;
+  authorId: string;
   title: string;
   body: string;
   serviceSlug?: string;
