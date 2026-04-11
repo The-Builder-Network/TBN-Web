@@ -3,17 +3,17 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Loader2 } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import JobServiceCombobox from "@/components/shared/JobServiceCombobox";
 import PostcodeInput from "@/components/shared/PostcodeInput";
 import { api } from "@/api/client";
 import { useAuth } from "@/hooks/useAuth";
 import LoginModal from "@/components/modals/LoginModal";
+import TradeSignupModal from "@/components/modals/TradeSignupModal";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const TradespersonHero = () => {
-  const navigate = useNavigate();
   const { isAuthenticated, logout } = useAuth();
   const [selectedTrade, setSelectedTrade] = useState("");
   const [postcode, setPostcode] = useState("");
@@ -23,6 +23,7 @@ const TradespersonHero = () => {
   const [isCheckingEmail, setIsCheckingEmail] = useState(false);
   const [emailExists, setEmailExists] = useState(false);
   const [loginModalOpen, setLoginModalOpen] = useState(false);
+  const [signupModalOpen, setSignupModalOpen] = useState(false);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const emailValid = EMAIL_REGEX.test(email);
@@ -67,12 +68,7 @@ const TradespersonHero = () => {
     if (isAuthenticated) {
       await logout();
     }
-    const params = new URLSearchParams({
-      trade: selectedTrade,
-      postcode,
-      email,
-    });
-    navigate(`/join?${params.toString()}`);
+    setSignupModalOpen(true);
   };
 
   return (
@@ -93,8 +89,6 @@ const TradespersonHero = () => {
               </h1>
 
               <div className="bg-card w-fit border rounded-xl shadow-sm p-6 md:p-8">
-               
-
                 <form className="space-y-4" onSubmit={handleSubmit}>
                   <div className="flex flex-col sm:flex-row items-stretch sm:items-start justify-between gap-3">
                     <div className="flex-1">
@@ -212,6 +206,13 @@ const TradespersonHero = () => {
         </div>
       </section>
       <LoginModal open={loginModalOpen} onOpenChange={setLoginModalOpen} />
+      <TradeSignupModal
+        open={signupModalOpen}
+        onOpenChange={setSignupModalOpen}
+        email={email}
+        postcode={postcode}
+        trade={selectedTrade}
+      />
     </>
   );
 };
