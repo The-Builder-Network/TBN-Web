@@ -9,18 +9,29 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 
+interface SortOption {
+  value: string;
+  label: string;
+}
+
 interface SortOptionsModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onApply: (sort: string) => void;
+  options: SortOption[];
+  currentValue?: string;
 }
 
 const SortOptionsModal = ({
   open,
   onOpenChange,
   onApply,
+  options,
+  currentValue,
 }: SortOptionsModalProps) => {
-  const [selected, setSelected] = useState("most-recent");
+  const [selected, setSelected] = useState(
+    currentValue ?? options[0]?.value ?? "",
+  );
 
   const handleApply = () => {
     onApply(selected);
@@ -40,42 +51,17 @@ const SortOptionsModal = ({
             onValueChange={setSelected}
             className="gap-4"
           >
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="most-liked" id="most-liked" />
-              <Label
-                htmlFor="most-liked"
-                className="font-normal text-base cursor-pointer flex-1"
-              >
-                Most liked
-              </Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="most-recent" id="most-recent" />
-              <Label
-                htmlFor="most-recent"
-                className="font-normal text-base cursor-pointer flex-1"
-              >
-                Most recent
-              </Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="most-answered" id="most-answered" />
-              <Label
-                htmlFor="most-answered"
-                className="font-normal text-base cursor-pointer flex-1"
-              >
-                Most answered
-              </Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="fewest-answers" id="fewest-answers" />
-              <Label
-                htmlFor="fewest-answers"
-                className="font-normal text-base cursor-pointer flex-1"
-              >
-                Fewest answers
-              </Label>
-            </div>
+            {options.map((opt) => (
+              <div key={opt.value} className="flex items-center space-x-2">
+                <RadioGroupItem value={opt.value} id={opt.value} />
+                <Label
+                  htmlFor={opt.value}
+                  className="font-normal text-base cursor-pointer flex-1"
+                >
+                  {opt.label}
+                </Label>
+              </div>
+            ))}
           </RadioGroup>
         </div>
 
