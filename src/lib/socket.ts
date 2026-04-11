@@ -2,7 +2,7 @@ import { io, Socket } from "socket.io-client";
 import { getAccessToken } from "@/api/client";
 
 // Derive server origin from the API URL (strip /api/v1 path)
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api/v1";
+const API_URL = import.meta.env.VITE_API_URL;
 const SERVER_ORIGIN = API_URL.replace(/\/api\/v\d+\/?$/, "");
 
 let chatSocket: Socket | null = null;

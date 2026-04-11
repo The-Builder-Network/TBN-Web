@@ -3,7 +3,7 @@ import axios from "axios";
 import { api } from "./client";
 import type { PaginatedResponse, LeadSummary, LeadDetail, SortOrder } from "./types";
 
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:3000/api/v1";
+const API_BASE = import.meta.env.VITE_API_URL
 
 // ── Public: count available leads near a postcode ────────────
 
