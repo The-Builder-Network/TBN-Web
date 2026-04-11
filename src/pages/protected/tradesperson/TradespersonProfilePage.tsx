@@ -7,6 +7,8 @@ import { Input } from "@/components/ui/input";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -380,6 +382,7 @@ const PortfolioTab = () => {
   const { mutate: deleteItem } = useDeletePortfolioItem();
   const { toast } = useToast();
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [deleteTarget, setDeleteTarget] = useState<string | null>(null);
 
   const portfolioItems = profile?.portfolioItems ?? [];
 
@@ -399,14 +402,20 @@ const PortfolioTab = () => {
     e.target.value = "";
   }
 
-  function handleDelete(id: string) {
-    deleteItem(id, {
-      onSuccess: () => toast({ title: "Portfolio item removed" }),
-      onError: () =>
+  function confirmDelete() {
+    if (!deleteTarget) return;
+    deleteItem(deleteTarget, {
+      onSuccess: () => {
+        toast({ title: "Portfolio item removed" });
+        setDeleteTarget(null);
+      },
+      onError: () => {
         toast({
           title: "Failed to remove portfolio item",
           variant: "destructive",
-        }),
+        });
+        setDeleteTarget(null);
+      },
     });
   }
 
@@ -450,7 +459,7 @@ const PortfolioTab = () => {
                 className="w-full h-auto block"
               />
               <button
-                onClick={() => handleDelete(item.id)}
+                onClick={() => setDeleteTarget(item.id)}
                 className="absolute top-2 right-2 bg-destructive text-destructive-foreground rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity"
                 aria-label="Delete photo"
               >
@@ -465,6 +474,32 @@ const PortfolioTab = () => {
           ))}
         </div>
       )}
+
+      {/* Delete confirmation dialog */}
+      <Dialog
+        open={!!deleteTarget}
+        onOpenChange={(open) => {
+          if (!open) setDeleteTarget(null);
+        }}
+      >
+        <DialogContent className="sm:max-w-sm">
+          <DialogHeader>
+            <DialogTitle>Remove photo</DialogTitle>
+            <DialogDescription>
+              Are you sure you want to remove this photo from your portfolio?
+              This cannot be undone.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="gap-2 sm:gap-0">
+            <Button variant="outline" onClick={() => setDeleteTarget(null)}>
+              Cancel
+            </Button>
+            <Button variant="destructive" onClick={confirmDelete}>
+              Remove
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
@@ -1349,11 +1384,26 @@ const TradesProfile = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { user, logout } = useAuth();
   const { data: profile } = useMyProfile();
+  const { mutate: uploadAvatar, isPending: uploadingAvatar } =
+    useUploadAvatar();
+  const { mutate: removeAvatar } = useDeleteAvatar();
+  const { toast } = useToast();
+  const sidebarAvatarRef = useRef<HTMLInputElement>(null);
   const activeTab = searchParams.get("tab") || "company-description";
 
   const setTab = (tab: string) => setSearchParams({ tab });
 
   const displayName = profile?.companyName ?? user?.name ?? "My Profile";
+
+  function handleSidebarAvatarChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    uploadAvatar(file, {
+      onSuccess: () => toast({ title: "Profile photo updated" }),
+      onError: () => toast({ title: "Upload failed", variant: "destructive" }),
+    });
+    e.target.value = "";
+  }
 
   return (
     <div className="container py-10 flex-1 flex flex-col min-h-0">
@@ -1369,8 +1419,11 @@ const TradesProfile = () => {
       <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-8 flex-1 min-h-0 overflow-hidden">
         {/* Sidebar */}
         <div className="overflow-y-auto">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 rounded-full bg-secondary overflow-hidden flex items-center justify-center font-bold shrink-0">
+          <div className="flex flex-col items-center gap-2 mb-3">
+            <div
+              className="relative group w-16 h-16 rounded-full bg-secondary overflow-hidden flex items-center justify-center font-bold shrink-0 cursor-pointer"
+              onClick={() => sidebarAvatarRef.current?.click()}
+            >
               {user?.avatarUrl ? (
                 <img
                   src={user.avatarUrl}
@@ -1378,12 +1431,44 @@ const TradesProfile = () => {
                   className="w-full h-full object-cover"
                 />
               ) : (
-                displayName.charAt(0).toUpperCase()
+                <span className="text-2xl">
+                  {displayName.charAt(0).toUpperCase()}
+                </span>
+              )}
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <Upload className="h-5 w-5 text-white" />
+              </div>
+            </div>
+            <input
+              ref={sidebarAvatarRef}
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+              className="hidden"
+              onChange={handleSidebarAvatarChange}
+            />
+            <div className="text-center">
+              <span className="font-semibold text-base truncate block">
+                {displayName}
+              </span>
+              {profile?.username && (
+                <span className="text-xs text-muted-foreground">
+                  @{profile.username}
+                </span>
               )}
             </div>
-            <span className="font-semibold text-lg truncate">
-              {displayName}
-            </span>
+            {user?.avatarUrl && (
+              <button
+                onClick={() =>
+                  removeAvatar(undefined, {
+                    onSuccess: () => toast({ title: "Photo removed" }),
+                  })
+                }
+                disabled={uploadingAvatar}
+                className="text-xs text-destructive hover:underline"
+              >
+                Remove photo
+              </button>
+            )}
           </div>
 
           <button

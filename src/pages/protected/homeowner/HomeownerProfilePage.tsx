@@ -114,6 +114,11 @@ const HomeownerProfilePage = () => {
             <span className="font-semibold text-lg">
               {user?.name ?? "User"}
             </span>
+            {user?.username && (
+              <span className="text-sm text-muted-foreground">
+                @{user.username}
+              </span>
+            )}
             <div className="flex gap-2">
               <input
                 ref={avatarInputRef}
