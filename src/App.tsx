@@ -70,7 +70,6 @@ const MyLeads = lazy(
   () => import("./pages/protected/tradesperson/TradespersonMyLeadsPage"),
 );
 const TradesNetwork = lazy(() => import("./pages/TradesnetworkPage"));
-const TradespersonJoinPage = lazy(() => import("./pages/TradespersonJoinPage"));
 const TradespersonPublicProfile = lazy(
   () => import("./pages/trades/TradespersonPublicProfilePage"),
 );
@@ -99,16 +98,6 @@ const App = () => (
             <ErrorBoundary name="app root">
               <Suspense fallback={<PageFallback />}>
                 <Routes>
-                  {/* ── Full-page wizard (no global Header/Footer) ── */}
-                  <Route
-                    path="/join"
-                    element={
-                      <ErrorBoundary name="join page">
-                        <TradespersonJoinPage />
-                      </ErrorBoundary>
-                    }
-                  />
-
                   {/* ── Public pages (with shared Header + Footer layout) ── */}
                   <Route element={<PageLayout />}>
                     <Route
