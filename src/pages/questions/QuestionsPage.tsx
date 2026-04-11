@@ -19,10 +19,27 @@ import { useQuestions } from "@/api/questions";
 import { useAuth } from "@/hooks/useAuth";
 import { Helmet } from "react-helmet-async";
 
+// Each option carries a composite key used in the URL param
 const SORT_OPTIONS = [
-  { value: "createdAt", label: "Most recent" },
-  { value: "answerCount", label: "Most answered" },
-] as const;
+  {
+    value: "recent",
+    label: "Most recent",
+    sort: "createdAt" as const,
+    order: "desc" as const,
+  },
+  {
+    value: "answered",
+    label: "Most answered",
+    sort: "answerCount" as const,
+    order: "desc" as const,
+  },
+  {
+    value: "fewest",
+    label: "Fewest answers",
+    sort: "answerCount" as const,
+    order: "asc" as const,
+  },
+];
 
 const QuestionsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -32,14 +49,16 @@ const QuestionsPage = () => {
   const { isTradesperson, isAuthenticated } = useAuth();
 
   const serviceSlug = searchParams.get("service") ?? undefined;
-  const sort =
-    (searchParams.get("sort") as "createdAt" | "answerCount") ?? "createdAt";
+  const sortKey = searchParams.get("sort") ?? "recent";
   const page = Math.max(1, Number(searchParams.get("page")) || 1);
+
+  const activeSort =
+    SORT_OPTIONS.find((o) => o.value === sortKey) ?? SORT_OPTIONS[0];
 
   const { data, isLoading, error } = useQuestions({
     serviceSlug,
-    sort,
-    order: "desc",
+    sort: activeSort.sort,
+    order: activeSort.order,
     page,
     perPage: 20,
   });
@@ -61,10 +80,10 @@ const QuestionsPage = () => {
     });
   };
 
-  const handleSortApply = (newSort: string) => {
+  const handleSortApply = (newSortKey: string) => {
     setSearchParams((prev) => {
       const next = new URLSearchParams(prev);
-      next.set("sort", newSort);
+      next.set("sort", newSortKey);
       next.delete("page");
       return next;
     });
@@ -79,8 +98,7 @@ const QuestionsPage = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const currentSortLabel =
-    SORT_OPTIONS.find((o) => o.value === sort)?.label ?? "Most recent";
+  const currentSortLabel = activeSort.label;
 
   return (
     <div className="flex-1 container py-10">
@@ -164,7 +182,7 @@ const QuestionsPage = () => {
                 {questions.map((q) => (
                   <Link
                     key={q.id}
-                    to={`/questions/${q.id}`}
+                    to={`/questions/${q.questionNumber}`}
                     className="block border rounded-lg p-5 hover:border-primary/20 transition-colors"
                   >
                     <div className="flex items-start justify-between">
@@ -390,6 +408,8 @@ const QuestionsPage = () => {
         open={sortModalOpen}
         onOpenChange={setSortModalOpen}
         onApply={handleSortApply}
+        options={SORT_OPTIONS}
+        currentValue={sortKey}
       />
 
       <AskQuestionModal

@@ -4,6 +4,7 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
 import {
   Dialog,
   DialogContent,
@@ -15,8 +16,15 @@ import {
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import PostcodeInput from "@/components/shared/PostcodeInput";
 import TravelRadiusMap from "@/components/register/TravelRadiusMap";
+import UKPhoneField from "@/components/shared/UKPhoneField";
+import { isValidUKLocal } from "@/helpers/ukPhoneHelper";
 import {
   User,
   Star,
@@ -27,12 +35,8 @@ import {
   MapPin,
   Wrench,
   MessageSquare,
-  Bell,
   CreditCard,
   Receipt,
-  Crown,
-  HelpCircle,
-  Gift,
   LogOut,
   ChevronRight,
   Info,
@@ -40,18 +44,18 @@ import {
   Edit,
   Search,
   FolderOpen,
-  Zap,
   Trash2,
   Plus,
   CheckCircle,
-  XCircle,
-  AlertTriangle,
   Coins,
   Wallet,
   History,
   TrendingDown,
   TrendingUp,
   RefreshCw,
+  Shield,
+  ShieldAlert,
+  FileBadge,
 } from "lucide-react";
 import {
   useMyProfile,
@@ -62,9 +66,11 @@ import {
   useDeletePortfolioItem,
   useCreateMessageTemplate,
   useDeleteMessageTemplate,
-  useUploadIdDocument,
   useUploadAvatar,
   useDeleteAvatar,
+  useUploadDocument,
+  useDeleteDocument,
+  useUpdateUser,
 } from "@/api/users";
 import { useReviews } from "@/api/reviews";
 import {
@@ -78,112 +84,116 @@ import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
 import { ReviewCard } from "@/components/shared/ReviewCard";
 import { PurchaseCreditsModal } from "@/components/payments/PurchaseCreditsModal";
+import { computeProfileCompletion } from "@/hooks/useProfileCompletion";
+import { services as SERVICE_LIST } from "@/constants/services";
 
 // ── Constants ──────────────────────────────────────────────────
 
+const MIN_SERVICES = 5;
+
 const TABS = [
   {
-    id: "company-description",
-    label: "Company description",
+    id: "company-details",
+    label: "Company details",
     icon: FileText,
     section: "profile",
+    completionId: ["company-name", "bio"],
   },
-  { id: "reviews", label: "Reviews", icon: Star, section: "profile" },
-  { id: "portfolio", label: "Portfolio", icon: Image, section: "profile" },
+  {
+    id: "reviews",
+    label: "Reviews",
+    icon: Star,
+    section: "profile",
+    completionId: [] as string[],
+  },
+  {
+    id: "portfolio",
+    label: "Portfolio",
+    icon: Image,
+    section: "profile",
+    completionId: ["portfolio"],
+  },
   {
     id: "contact-details",
     label: "Contact details",
-    icon: FileText,
+    icon: User,
     section: "account",
-    badge: "ID required",
-    badgeColor: "text-destructive",
+    completionId: [] as string[],
   },
   {
     id: "manage-account",
     label: "Manage account",
     icon: Settings,
     section: "account",
+    completionId: [] as string[],
   },
   {
     id: "saved-leads",
     label: "Saved leads",
     icon: BookmarkIcon,
     section: "account",
+    completionId: [] as string[],
   },
-  { id: "work-area", label: "Work area", icon: MapPin, section: "lead" },
-  { id: "services", label: "Services", icon: Wrench, section: "lead" },
+  {
+    id: "my-documents",
+    label: "My documents",
+    icon: FileBadge,
+    section: "account",
+    completionId: ["documents"],
+  },
+  {
+    id: "work-area",
+    label: "Work area",
+    icon: MapPin,
+    section: "lead",
+    completionId: ["work-area"],
+  },
+  {
+    id: "services",
+    label: "Services",
+    icon: Wrench,
+    section: "lead",
+    completionId: ["services"],
+  },
   {
     id: "my-message-templates",
     label: "My message templates",
     icon: MessageSquare,
     section: "lead",
+    completionId: [] as string[],
   },
-  { id: "notifications", label: "Notifications", icon: Bell, section: "lead" },
   {
-    id: "sponsored-placement",
-    label: "Sponsored placement",
-    icon: Zap,
-    section: "premium",
-    badgeText: "New",
-  },
-  { id: "balance", label: "Balance", icon: CreditCard, section: "payments" },
-  { id: "payments", label: "Payments", icon: Receipt, section: "payments" },
-  {
-    id: "subscription",
-    label: "Subscription",
-    icon: Crown,
+    id: "balance",
+    label: "Balance",
+    icon: CreditCard,
     section: "payments",
+    completionId: [] as string[],
   },
   {
-    id: "support-centre",
-    label: "Support centre",
-    icon: HelpCircle,
-    section: "support",
+    id: "payments",
+    label: "Payments",
+    icon: Receipt,
+    section: "payments",
+    completionId: [] as string[],
   },
-  { id: "trade-perks", label: "Trade Perks", icon: Gift, section: "discover" },
 ];
 
 const SECTIONS = [
   { id: "profile", label: null },
   { id: "account", label: "Account" },
   { id: "lead", label: "Lead Settings" },
-  { id: "premium", label: "Premium features" },
   { id: "payments", label: "Payments" },
-  { id: "support", label: "Support" },
-  { id: "discover", label: "Discover" },
 ];
 
-const PROFESSIONS = [
-  "Moving company",
-  "Cleaning company",
-  "Architectural Designer",
-  "Architectural Technician",
-  "Painter & Decorator",
-  "Bathroom Fitter",
-  "Repointing Specialist",
-  "Heating Engineer",
-  "Conservatory Installer",
-  "Conversions Specialist",
-  "Damp Proofing Specialist",
-  "Decking Specialist",
-  "Joiner",
-  "Carpenter",
-  "Driveways Installer",
-  "Tarmac Specialist",
-  "Electrician",
-  "Extension Builder",
-  "Fascias & Soffits Specialist",
-  "Guttering Installer",
-  "Bricklayer",
-  "Plumber",
-  "Roofer",
-  "Tiler",
-];
+// Look up a service's display name by its slug
+const getServiceName = (slug: string) =>
+  SERVICE_LIST.find((s) => s.slug === slug)?.name ?? slug;
 
-// ── CompanyDescriptionTab ──────────────────────────────────────
+// ── CompanyDetailsTab ──────────────────────────────────────────
 
-const CompanyDescriptionTab = () => {
+const CompanyDetailsTab = () => {
   const { data: profile } = useMyProfile();
+  const [companyName, setCompanyName] = useState(profile?.companyName ?? "");
   const [bio, setBio] = useState(profile?.bio ?? "");
   const [editing, setEditing] = useState(false);
   const [guarantee, setGuarantee] = useState(profile?.guarantee ? "yes" : "no");
@@ -192,35 +202,43 @@ const CompanyDescriptionTab = () => {
 
   useEffect(() => {
     if (profile) {
+      setCompanyName(profile.companyName ?? "");
       setBio(profile.bio ?? "");
       setGuarantee(profile.guarantee ? "yes" : "no");
     }
   }, [profile]);
 
+  const savedCompanyName = profile?.companyName ?? "";
+  const savedBio = profile?.bio ?? "";
+  const isDirty = companyName !== savedCompanyName || bio !== savedBio;
+
   function handleSave() {
     updateMutation.mutate(
-      { bio, guarantee: guarantee === "yes" },
+      { companyName: companyName.trim() || undefined, bio },
       {
         onSuccess: () => {
-          toast({ title: "Profile updated" });
+          toast({ title: "Company details updated" });
           setEditing(false);
         },
         onError: () =>
-          toast({ title: "Failed to update profile", variant: "destructive" }),
+          toast({ title: "Failed to update details", variant: "destructive" }),
       },
     );
   }
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-6">Company description</h2>
+      <h2 className="text-2xl font-bold mb-2">Company details</h2>
+      <p className="text-muted-foreground text-sm mb-6">
+        Help homeowners understand who you are and what you do.
+      </p>
 
       <div className="mb-6">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between mb-3">
           <h3 className="text-lg font-bold">About your company</h3>
           {!editing && (
             <button
-              className="flex items-center gap-1 text-muted-foreground hover:text-foreground"
+              className="flex items-center gap-1 text-muted-foreground hover:text-foreground text-sm"
               onClick={() => setEditing(true)}
             >
               <Edit className="h-4 w-4" /> Edit
@@ -229,19 +247,45 @@ const CompanyDescriptionTab = () => {
         </div>
 
         {editing ? (
-          <div className="space-y-3">
-            <Textarea
-              value={bio}
-              onChange={(e) => setBio(e.target.value)}
-              rows={6}
-              placeholder="Describe your company or experience…"
-              maxLength={2000}
-            />
+          <div className="space-y-4">
+            <div className="space-y-1.5">
+              <Label>
+                Company name{" "}
+                <span className="text-xs text-muted-foreground">
+                  (+10% profile)
+                </span>
+              </Label>
+              <Input
+                value={companyName}
+                onChange={(e) => setCompanyName(e.target.value)}
+                placeholder="e.g. Smith Plumbing Ltd"
+                maxLength={100}
+              />
+            </div>
+            <div className="space-y-1.5">
+              <Label>
+                Company description{" "}
+                <span className="text-xs text-muted-foreground">
+                  (+10% profile, min 50 chars)
+                </span>
+              </Label>
+              <Textarea
+                value={bio}
+                onChange={(e) => setBio(e.target.value)}
+                rows={6}
+                placeholder="Describe your company, experience and why homeowners should choose you…"
+                maxLength={2000}
+              />
+              <p className="text-xs text-muted-foreground text-right">
+                {bio.length}/2000
+              </p>
+            </div>
             <div className="flex gap-2">
               <Button
                 variant="outline"
                 onClick={() => {
-                  setBio(profile?.bio ?? "");
+                  setCompanyName(savedCompanyName);
+                  setBio(savedBio);
                   setEditing(false);
                 }}
               >
@@ -249,21 +293,42 @@ const CompanyDescriptionTab = () => {
               </Button>
               <Button
                 onClick={handleSave}
-                disabled={bio.trim().length < 50 || updateMutation.isPending}
+                disabled={!isDirty || updateMutation.isPending}
               >
                 {updateMutation.isPending ? "Saving…" : "Save"}
               </Button>
             </div>
           </div>
         ) : (
-          <p className="text-muted-foreground whitespace-pre-line">
-            {bio || "No description yet. Click Edit to add one."}
-          </p>
+          <div className="space-y-3">
+            <div>
+              <p className="text-xs text-muted-foreground uppercase font-semibold tracking-wide mb-1">
+                Company name
+              </p>
+              <p className="text-base">
+                {companyName || (
+                  <span className="text-muted-foreground italic">
+                    Not set — click Edit to add
+                  </span>
+                )}
+              </p>
+            </div>
+            <div>
+              <p className="text-xs text-muted-foreground uppercase font-semibold tracking-wide mb-1">
+                Description
+              </p>
+              <p className="text-muted-foreground whitespace-pre-line">
+                {bio || (
+                  <span className="italic">Not set — click Edit to add</span>
+                )}
+              </p>
+            </div>
+          </div>
         )}
       </div>
 
       <div className="mb-6">
-        <h3 className="text-lg font-bold mb-2">Guarantee</h3>
+        <h3 className="text-lg font-bold mb-2">Work guarantee</h3>
         <p className="text-muted-foreground mb-1">
           Increase your chances of getting hired by offering a guarantee.
         </p>
@@ -419,9 +484,19 @@ const PortfolioTab = () => {
     });
   }
 
+  const hasMinImages = portfolioItems.length >= 5;
+
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-6">Portfolio</h2>
+      <h2 className="text-2xl font-bold mb-2">Portfolio</h2>
+      <p className="text-muted-foreground text-sm mb-6">
+        Add at least 5 images to showcase your work to homeowners.{" "}
+        {!hasMinImages && (
+          <span className="text-amber-600 font-medium">
+            {5 - portfolioItems.length} more needed for +15% profile completion.
+          </span>
+        )}
+      </p>
 
       <div className="border-2 border-dashed rounded-lg p-8 text-center mb-6">
         <input
@@ -439,10 +514,10 @@ const PortfolioTab = () => {
           disabled={uploading}
         >
           <Upload className="h-4 w-4" />
-          {uploading ? "Uploading…" : "Upload file(s)"}
+          {uploading ? "Uploading…" : "Upload photo(s)"}
         </Button>
         <p className="text-sm text-muted-foreground mt-3">
-          JPEG, PNG. Max size: 15MB
+          JPEG, PNG · Max 15 MB per file
         </p>
       </div>
 
@@ -508,105 +583,94 @@ const PortfolioTab = () => {
 
 const ContactDetailsTab = () => {
   const { data: profile } = useMyProfile();
-  const { mutate: uploadId, isPending } = useUploadIdDocument();
+  const { mutate: updateUser, isPending: saving } = useUpdateUser();
   const { toast } = useToast();
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const status = profile?.verificationStatus;
+  const storedPhone = profile?.phone ?? "";
+  const localPhone = storedPhone.startsWith("+44")
+    ? storedPhone.slice(3).trim()
+    : storedPhone;
 
-  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    uploadId(file, {
-      onSuccess: () =>
-        toast({ title: "ID document uploaded. We'll review it shortly." }),
-      onError: () => toast({ title: "Upload failed", variant: "destructive" }),
-    });
-    e.target.value = "";
+  const [phone, setPhone] = useState(localPhone);
+  const [confirmPhone, setConfirmPhone] = useState(localPhone);
+  const [phoneError, setPhoneError] = useState("");
+  const [confirmError, setConfirmError] = useState("");
+
+  useEffect(() => {
+    const lp = (profile?.phone ?? "").startsWith("+44")
+      ? (profile?.phone ?? "").slice(3).trim()
+      : (profile?.phone ?? "");
+    setPhone(lp);
+    setConfirmPhone(lp);
+  }, [profile?.phone]);
+
+  const savedLocal = localPhone;
+  const isDirty = phone !== savedLocal || confirmPhone !== savedLocal;
+
+  function handleSavePhone() {
+    setPhoneError("");
+    setConfirmError("");
+    if (!isValidUKLocal(phone)) {
+      setPhoneError("Enter a valid UK phone number");
+      return;
+    }
+    if (phone !== confirmPhone) {
+      setConfirmError("Phone numbers do not match");
+      return;
+    }
+    updateUser(
+      { phone: `+44${phone.replace(/\s/g, "")}` },
+      {
+        onSuccess: () => toast({ title: "Phone number updated" }),
+        onError: () =>
+          toast({ title: "Failed to update phone", variant: "destructive" }),
+      },
+    );
   }
 
   return (
     <div>
       <h2 className="text-2xl font-bold mb-6">Contact details</h2>
 
-      {status === "APPROVED" ? (
-        <div className="border rounded-lg p-4 flex items-center gap-3 bg-green-50 border-green-200">
-          <CheckCircle className="h-6 w-6 text-green-600 shrink-0" />
-          <div>
-            <p className="font-bold text-green-800">Identity verified</p>
-            <p className="text-sm text-green-700">
-              Your account has been verified.
-            </p>
-          </div>
-        </div>
-      ) : status === "PENDING" ? (
-        <div className="border rounded-lg p-4 flex items-center gap-3 bg-amber-50 border-amber-200">
-          <AlertTriangle className="h-6 w-6 text-amber-600 shrink-0" />
-          <div>
-            <p className="font-bold text-amber-800">Verification pending</p>
-            <p className="text-sm text-amber-700">
-              We are reviewing your submitted documents.
-            </p>
-          </div>
-        </div>
-      ) : status === "REJECTED" ? (
-        <div className="space-y-4">
-          <div className="border rounded-lg p-4 flex items-center gap-3 bg-red-50 border-red-200">
-            <XCircle className="h-6 w-6 text-red-600 shrink-0" />
-            <div>
-              <p className="font-bold text-red-800">Verification rejected</p>
-              <p className="text-sm text-red-700">
-                Please upload a valid ID document.
-              </p>
-            </div>
-          </div>
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept="image/jpeg,image/png,.pdf"
-            className="hidden"
-            onChange={handleFileChange}
+      <div className="mb-6">
+        <Label className="text-base font-semibold block mb-2">
+          Email address
+        </Label>
+        <Input
+          value={profile?.email ?? ""}
+          readOnly
+          className="bg-muted cursor-not-allowed"
+        />
+        <p className="text-xs text-muted-foreground mt-1">
+          Email cannot be changed here.
+        </p>
+      </div>
+
+      <div className="mb-6">
+        <UKPhoneField
+          label="Phone number"
+          required
+          value={phone}
+          onChange={setPhone}
+          error={phoneError}
+        />
+        <div className="mt-3">
+          <UKPhoneField
+            label="Confirm phone number"
+            required
+            value={confirmPhone}
+            onChange={setConfirmPhone}
+            error={confirmError}
           />
-          <Button
-            onClick={() => fileInputRef.current?.click()}
-            disabled={isPending}
-          >
-            <Upload className="mr-2 h-4 w-4" />
-            {isPending ? "Uploading…" : "Re-upload ID document"}
-          </Button>
         </div>
-      ) : (
-        <div className="space-y-4">
-          <div className="border rounded-lg p-4 flex items-center justify-between bg-muted/30">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center">
-                <Settings className="w-5 h-5 text-muted-foreground" />
-              </div>
-              <div>
-                <p className="font-bold">Verify your identity</p>
-                <p className="text-sm text-muted-foreground">
-                  Upload a government-issued photo ID (passport, driving
-                  licence).
-                </p>
-              </div>
-            </div>
-          </div>
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept="image/jpeg,image/png,.pdf"
-            className="hidden"
-            onChange={handleFileChange}
-          />
-          <Button
-            onClick={() => fileInputRef.current?.click()}
-            disabled={isPending}
-          >
-            <Upload className="mr-2 h-4 w-4" />
-            {isPending ? "Uploading…" : "Upload ID document"}
-          </Button>
-        </div>
-      )}
+        <Button
+          className="mt-4"
+          onClick={handleSavePhone}
+          disabled={!isDirty || saving}
+        >
+          {saving ? "Saving…" : "Update phone number"}
+        </Button>
+      </div>
     </div>
   );
 };
@@ -745,11 +809,13 @@ const SavedLeadsTab = () => {
 
 // ── WorkAreaTab ────────────────────────────────────────────────
 
-const WorkAreaTab = () => {
+const WorkAreaTab = ({ initialPostcode }: { initialPostcode?: string }) => {
   const { data: profile } = useMyProfile();
-  const [postcode, setPostcode] = useState(profile?.postcode ?? "");
+  const [postcode, setPostcode] = useState(
+    profile?.postcode ?? initialPostcode ?? "",
+  );
   const [postcodeValid, setPostcodeValid] = useState(false);
-  const [distance, setDistance] = useState(profile?.workRadiusMiles ?? 10);
+  const [distance, setDistance] = useState(profile?.workRadiusMiles ?? 0);
   const [mapCenter, setMapCenter] = useState<[number, number]>([51.505, -0.09]);
   const updateMutation = useUpdateMyProfile();
   const { data: leadsCount = 0 } = useLeadsCount(postcode, distance);
@@ -757,9 +823,10 @@ const WorkAreaTab = () => {
 
   useEffect(() => {
     if (profile) {
-      setPostcode(profile.postcode ?? "");
-      setDistance(profile.workRadiusMiles ?? 10);
+      setPostcode(profile.postcode ?? initialPostcode ?? "");
+      setDistance(profile.workRadiusMiles ?? 0);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [profile]);
 
   useEffect(() => {
@@ -773,6 +840,11 @@ const WorkAreaTab = () => {
       })
       .catch(() => {});
   }, [postcode, postcodeValid]);
+
+  const savedPostcode = profile?.postcode ?? "";
+  const savedDistance = profile?.workRadiusMiles ?? 0;
+  const isDirty = postcode !== savedPostcode || distance !== savedDistance;
+  const canSave = postcodeValid && distance > 0 && isDirty;
 
   function handleSave() {
     updateMutation.mutate(
@@ -791,13 +863,18 @@ const WorkAreaTab = () => {
   return (
     <div>
       <h2 className="text-2xl font-bold mb-2">Work area</h2>
-      <p className="text-primary mb-6">
-        This is the area you are prepared to travel for work and ensures you
-        receive relevant leads.
+      <p className="text-primary mb-1">
+        This is the area you are prepared to travel for work.
       </p>
+      {!savedPostcode && (
+        <p className="text-amber-600 text-sm mb-4">
+          Set your postcode and travel distance to start receiving leads. +10%
+          profile completion.
+        </p>
+      )}
 
       <div className="mb-6">
-        <Label className="text-base font-semibold">Current postcode</Label>
+        <Label className="text-base font-semibold">Your postcode</Label>
         <div className="mt-2">
           <PostcodeInput
             value={postcode}
@@ -807,7 +884,7 @@ const WorkAreaTab = () => {
         </div>
       </div>
 
-      {postcodeValid && (
+      {postcodeValid && distance > 0 && (
         <div className="inline-block bg-primary/10 text-primary text-sm font-medium px-3 py-1.5 rounded-full mb-5">
           {leadsCount} leads in your work area
         </div>
@@ -816,14 +893,23 @@ const WorkAreaTab = () => {
       <div className="mb-6">
         <p className="text-sm font-semibold mb-8">
           Travel distance from {postcode || "your postcode"}
+          {distance === 0 && (
+            <span className="text-amber-600 ml-2 font-normal">
+              — drag the slider to set
+            </span>
+          )}
         </p>
         <div className="relative mb-5">
-          <div
-            className="absolute -top-7 text-xs font-semibold bg-primary text-primary-foreground px-2 py-0.5 rounded"
-            style={{ left: `calc(${((distance - 5) / 95) * 100}% - 20px)` }}
-          >
-            {distance} miles
-          </div>
+          {distance > 0 && (
+            <div
+              className="absolute -top-7 text-xs font-semibold bg-primary text-primary-foreground px-2 py-0.5 rounded"
+              style={{
+                left: `calc(${((distance - 5) / 95) * 100}% - 20px)`,
+              }}
+            >
+              {distance} miles
+            </div>
+          )}
           <Slider
             value={[distance]}
             onValueChange={(v) => setDistance(v[0])}
@@ -832,31 +918,24 @@ const WorkAreaTab = () => {
             step={5}
           />
         </div>
-        <div
-          className="rounded-lg overflow-hidden border mb-5"
-          style={{ height: 280 }}
-        >
-          <TravelRadiusMap
-            radius={distance}
-            center={mapCenter}
-            postcode={postcode}
-          />
-        </div>
+        {postcodeValid && distance > 0 && (
+          <div
+            className="rounded-lg overflow-hidden border mb-5"
+            style={{ height: 280 }}
+          >
+            <TravelRadiusMap
+              radius={distance}
+              center={mapCenter}
+              postcode={postcode}
+            />
+          </div>
+        )}
       </div>
 
       <div className="flex gap-3">
         <Button
-          variant="outline"
-          onClick={() => {
-            setPostcode(profile?.postcode ?? "");
-            setDistance(profile?.workRadiusMiles ?? 10);
-          }}
-        >
-          Discard
-        </Button>
-        <Button
           onClick={handleSave}
-          disabled={!postcodeValid || updateMutation.isPending}
+          disabled={!canSave || updateMutation.isPending}
         >
           {updateMutation.isPending ? "Saving…" : "Save"}
         </Button>
@@ -876,8 +955,10 @@ const ServicesTab = () => {
   const [searchProfession, setSearchProfession] = useState("");
 
   const currentSlugs = (profile?.services ?? []).map((s) => s.serviceSlug);
-  const filtered = PROFESSIONS.filter((p) =>
-    p.toLowerCase().includes(searchProfession.toLowerCase()),
+  const serviceCount = currentSlugs.length;
+  const canRemove = serviceCount > MIN_SERVICES;
+  const filtered = SERVICE_LIST.filter((s) =>
+    s.name.toLowerCase().includes(searchProfession.toLowerCase()),
   );
 
   function handleAdd(serviceSlug: string) {
@@ -885,7 +966,7 @@ const ServicesTab = () => {
       { serviceSlug },
       {
         onSuccess: () => {
-          toast({ title: `${serviceSlug} added` });
+          toast({ title: `${getServiceName(serviceSlug)} added` });
           setShowAddDialog(false);
         },
         onError: () =>
@@ -895,6 +976,13 @@ const ServicesTab = () => {
   }
 
   function handleRemove(id: string) {
+    if (!canRemove) {
+      toast({
+        title: "Minimum 5 services required",
+        description: "You need at least 5 services on your profile.",
+      });
+      return;
+    }
     removeService(id, {
       onError: () =>
         toast({ title: "Failed to remove service", variant: "destructive" }),
@@ -903,41 +991,69 @@ const ServicesTab = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-6">Services</h2>
+      <h2 className="text-2xl font-bold mb-2">Services</h2>
+      <p className="text-muted-foreground text-sm mb-6">
+        Add at least 5 services to appear in search results and receive leads.{" "}
+        {serviceCount < MIN_SERVICES && (
+          <span className="text-amber-600 font-medium">
+            {MIN_SERVICES - serviceCount} more needed for +15% profile
+            completion.
+          </span>
+        )}
+      </p>
 
       <div className="border-l-4 border-primary bg-primary/5 rounded-r-lg p-4 mb-6">
         <p className="font-bold">Expand your offering</p>
         <p className="text-sm text-muted-foreground">
-          See more leads by adding additional services to your account.
+          More services = more leads.
         </p>
         <button
           onClick={() => setShowAddDialog(true)}
           className="text-primary font-medium flex items-center gap-1 mt-2 text-sm hover:underline"
         >
-          Choose services <ChevronRight className="h-4 w-4" />
+          Add services <ChevronRight className="h-4 w-4" />
         </button>
       </div>
 
-      {(profile?.services ?? []).map((s) => (
-        <div
-          key={s.id}
-          className="flex items-center justify-between py-4 border-b"
-        >
-          <div>
-            <p className="font-bold text-base">{s.serviceSlug}</p>
-            {s.tradeSlug && (
-              <p className="text-sm text-muted-foreground">{s.tradeSlug}</p>
-            )}
-          </div>
-          <button
-            onClick={() => handleRemove(s.id)}
-            className="text-destructive hover:text-destructive/80"
-            aria-label="Remove service"
+      {(profile?.services ?? []).length === 0 ? (
+        <p className="text-muted-foreground text-sm">
+          No services yet. Click &ldquo;Add services&rdquo; above.
+        </p>
+      ) : (
+        (profile?.services ?? []).map((s) => (
+          <div
+            key={s.id}
+            className="flex items-center justify-between py-4 border-b"
           >
-            <Trash2 className="h-4 w-4" />
-          </button>
-        </div>
-      ))}
+            <div>
+              <p className="font-bold text-base">
+                {getServiceName(s.serviceSlug)}
+              </p>
+              <p className="text-xs text-muted-foreground">{s.serviceSlug}</p>
+            </div>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button
+                  onClick={() => handleRemove(s.id)}
+                  className={`${
+                    canRemove
+                      ? "text-destructive hover:text-destructive/80"
+                      : "text-muted-foreground/40 cursor-not-allowed"
+                  }`}
+                  aria-label="Remove service"
+                >
+                  <Trash2 className="h-4 w-4" />
+                </button>
+              </TooltipTrigger>
+              {!canRemove && (
+                <TooltipContent>
+                  Minimum {MIN_SERVICES} services required
+                </TooltipContent>
+              )}
+            </Tooltip>
+          </div>
+        ))
+      )}
 
       <Dialog open={showAddDialog} onOpenChange={setShowAddDialog}>
         <DialogContent className="max-w-md max-h-[80vh] flex flex-col">
@@ -954,16 +1070,16 @@ const ServicesTab = () => {
             />
           </div>
           <div className="overflow-y-auto flex-1 space-y-0">
-            {filtered.map((p) => {
-              const alreadyAdded = currentSlugs.includes(p);
+            {filtered.map((svc) => {
+              const alreadyAdded = currentSlugs.includes(svc.slug);
               return (
                 <button
-                  key={p}
+                  key={svc.slug}
                   disabled={alreadyAdded || adding}
                   className="w-full flex items-center justify-between py-3 px-2 border-b hover:bg-muted/50 text-left disabled:opacity-50"
-                  onClick={() => !alreadyAdded && handleAdd(p)}
+                  onClick={() => !alreadyAdded && handleAdd(svc.slug)}
                 >
-                  <span className="text-primary text-base">{p}</span>
+                  <span className="text-primary text-base">{svc.name}</span>
                   {alreadyAdded ? (
                     <CheckCircle className="h-4 w-4 text-green-500" />
                   ) : (
@@ -973,6 +1089,154 @@ const ServicesTab = () => {
               );
             })}
           </div>
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
+};
+
+// ── MyDocumentsTab ─────────────────────────────────────────────
+
+const MyDocumentsTab = () => {
+  const { data: profile } = useMyProfile();
+  const { mutate: upload, isPending: uploading } = useUploadDocument();
+  const { mutate: deleteDoc } = useDeleteDocument();
+  const { toast } = useToast();
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [deleteTarget, setDeleteTarget] = useState<string | null>(null);
+
+  const documents = profile?.documents ?? [];
+  const hasDoc = documents.length >= 1;
+
+  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const files = Array.from(e.target.files ?? []);
+    if (!files.length) return;
+    files.forEach((file) =>
+      upload(file, {
+        onSuccess: () => toast({ title: "Document uploaded" }),
+        onError: () =>
+          toast({ title: "Upload failed", variant: "destructive" }),
+      }),
+    );
+    e.target.value = "";
+  }
+
+  function confirmDelete() {
+    if (!deleteTarget) return;
+    deleteDoc(deleteTarget, {
+      onSuccess: () => {
+        toast({ title: "Document removed" });
+        setDeleteTarget(null);
+      },
+      onError: () => {
+        toast({ title: "Failed to remove document", variant: "destructive" });
+        setDeleteTarget(null);
+      },
+    });
+  }
+
+  return (
+    <div>
+      <h2 className="text-2xl font-bold mb-2">My documents</h2>
+      <p className="text-muted-foreground text-sm mb-6">
+        Upload proof of qualifications, insurance, or certifications. This
+        completes your profile (+30%).{" "}
+        {!hasDoc && (
+          <span className="text-amber-600 font-medium">
+            Upload at least one document to reach 100%.
+          </span>
+        )}
+      </p>
+
+      <div className="border-2 border-dashed rounded-lg p-8 text-center mb-6">
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/jpeg,image/png,image/webp,application/pdf"
+          multiple
+          className="hidden"
+          onChange={handleFileChange}
+        />
+        <Button
+          variant="outline"
+          className="gap-2 text-base"
+          onClick={() => fileInputRef.current?.click()}
+          disabled={uploading}
+        >
+          <Upload className="h-4 w-4" />
+          {uploading ? "Uploading…" : "Upload document(s)"}
+        </Button>
+        <p className="text-sm text-muted-foreground mt-3">
+          JPEG, PNG, PDF · Max 20 MB per file
+        </p>
+      </div>
+
+      {documents.length === 0 ? (
+        <p className="text-center text-muted-foreground py-8">
+          No documents uploaded yet.
+        </p>
+      ) : (
+        <div className="space-y-3">
+          {documents.map((doc) => (
+            <div
+              key={doc.id}
+              className="flex items-center gap-3 border rounded-lg p-4"
+            >
+              <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0">
+                {doc.mimeType === "application/pdf" ? (
+                  <FileText className="h-5 w-5 text-muted-foreground" />
+                ) : (
+                  <Image className="h-5 w-5 text-muted-foreground" />
+                )}
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="font-medium text-sm truncate">{doc.fileName}</p>
+                <p className="text-xs text-muted-foreground">
+                  {new Date(doc.createdAt).toLocaleDateString("en-GB")}
+                </p>
+              </div>
+              <a
+                href={doc.fileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary text-sm hover:underline shrink-0"
+              >
+                View
+              </a>
+              <button
+                onClick={() => setDeleteTarget(doc.id)}
+                className="text-muted-foreground hover:text-destructive shrink-0"
+                aria-label="Delete document"
+              >
+                <Trash2 className="h-4 w-4" />
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
+
+      <Dialog
+        open={!!deleteTarget}
+        onOpenChange={(open) => {
+          if (!open) setDeleteTarget(null);
+        }}
+      >
+        <DialogContent className="sm:max-w-sm">
+          <DialogHeader>
+            <DialogTitle>Remove document</DialogTitle>
+            <DialogDescription>
+              Are you sure you want to remove this document? This cannot be
+              undone.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="gap-2 sm:gap-0">
+            <Button variant="outline" onClick={() => setDeleteTarget(null)}>
+              Cancel
+            </Button>
+            <Button variant="destructive" onClick={confirmDelete}>
+              Remove
+            </Button>
+          </DialogFooter>
         </DialogContent>
       </Dialog>
     </div>
@@ -1348,36 +1612,6 @@ const PaymentsTab = () => {
   );
 };
 
-// ── PlaceholderTab ─────────────────────────────────────────────
-
-const PlaceholderTab = ({ title }: { title: string }) => (
-  <div>
-    <h2 className="text-2xl font-bold mb-6">{title}</h2>
-    <p className="text-muted-foreground">Coming soon.</p>
-  </div>
-);
-
-// ── Tab content map ────────────────────────────────────────────
-
-const TAB_CONTENT: Record<string, React.ReactNode> = {
-  "company-description": <CompanyDescriptionTab />,
-  reviews: <ReviewsTab />,
-  portfolio: <PortfolioTab />,
-  "contact-details": <ContactDetailsTab />,
-  "manage-account": <ManageAccountTab />,
-  "saved-leads": <SavedLeadsTab />,
-  "work-area": <WorkAreaTab />,
-  services: <ServicesTab />,
-  "my-message-templates": <MessageTemplatesTab />,
-  notifications: <PlaceholderTab title="Notifications" />,
-  "sponsored-placement": <PlaceholderTab title="Sponsored placement" />,
-  balance: <BalanceTab />,
-  payments: <PaymentsTab />,
-  subscription: <PlaceholderTab title="Subscription" />,
-  "support-centre": <PlaceholderTab title="Support centre" />,
-  "trade-perks": <PlaceholderTab title="Trade Perks" />,
-};
-
 // ── Main component ─────────────────────────────────────────────
 
 const TradesProfile = () => {
@@ -1389,11 +1623,18 @@ const TradesProfile = () => {
   const { mutate: removeAvatar } = useDeleteAvatar();
   const { toast } = useToast();
   const sidebarAvatarRef = useRef<HTMLInputElement>(null);
-  const activeTab = searchParams.get("tab") || "company-description";
 
-  const setTab = (tab: string) => setSearchParams({ tab });
+  const activeTab = searchParams.get("tab") || "company-details";
+  const initialPostcode = searchParams.get("postcode") ?? undefined;
+
+  const setTab = (tab: string) => {
+    setSearchParams({ tab });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const displayName = profile?.companyName ?? user?.name ?? "My Profile";
+  const completion = computeProfileCompletion(profile);
+  const isVerified = profile?.verificationStatus === "APPROVED";
 
   function handleSidebarAvatarChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
@@ -1405,13 +1646,49 @@ const TradesProfile = () => {
     e.target.value = "";
   }
 
+  function renderTab() {
+    switch (activeTab) {
+      case "company-details":
+        return <CompanyDetailsTab />;
+      case "reviews":
+        return <ReviewsTab />;
+      case "portfolio":
+        return <PortfolioTab />;
+      case "contact-details":
+        return <ContactDetailsTab />;
+      case "manage-account":
+        return <ManageAccountTab />;
+      case "saved-leads":
+        return <SavedLeadsTab />;
+      case "work-area":
+        return <WorkAreaTab initialPostcode={initialPostcode} />;
+      case "services":
+        return <ServicesTab />;
+      case "my-message-templates":
+        return <MessageTemplatesTab />;
+      case "my-documents":
+        return <MyDocumentsTab />;
+      case "balance":
+        return <BalanceTab />;
+      case "payments":
+        return <PaymentsTab />;
+      default:
+        return (
+          <div>
+            <h2 className="text-2xl font-bold mb-6">Page not found</h2>
+            <p className="text-muted-foreground">Coming soon.</p>
+          </div>
+        );
+    }
+  }
+
   return (
     <div className="container py-10 flex-1 flex flex-col min-h-0">
       <Helmet>
         <title>{displayName} — My Profile | The Builder Network</title>
         <meta
           name="description"
-          content="Manage your tradesperson profile, services, work area, reviews and account settings on Builder Network."
+          content="Manage your tradesperson profile, services, work area, reviews and account settings."
         />
       </Helmet>
       <h1 className="text-4xl font-bold mb-6">Profile</h1>
@@ -1419,25 +1696,49 @@ const TradesProfile = () => {
       <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-8 flex-1 min-h-0 overflow-hidden">
         {/* Sidebar */}
         <div className="overflow-y-auto">
-          <div className="flex flex-col items-center gap-2 mb-3">
-            <div
-              className="relative group w-16 h-16 rounded-full bg-secondary overflow-hidden flex items-center justify-center font-bold shrink-0 cursor-pointer"
-              onClick={() => sidebarAvatarRef.current?.click()}
-            >
-              {user?.avatarUrl ? (
-                <img
-                  src={user.avatarUrl}
-                  alt={displayName}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <span className="text-2xl">
-                  {displayName.charAt(0).toUpperCase()}
-                </span>
-              )}
-              <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <Upload className="h-5 w-5 text-white" />
+          {/* Avatar section */}
+          <div className="flex flex-col items-center gap-2 mb-4">
+            <div className="relative">
+              <div
+                className="relative group w-16 h-16 rounded-full bg-secondary overflow-hidden flex items-center justify-center font-bold shrink-0 cursor-pointer"
+                onClick={() => sidebarAvatarRef.current?.click()}
+              >
+                {user?.avatarUrl ? (
+                  <img
+                    src={user.avatarUrl}
+                    alt={displayName}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <span className="text-2xl">
+                    {displayName.charAt(0).toUpperCase()}
+                  </span>
+                )}
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Upload className="h-5 w-5 text-white" />
+                </div>
               </div>
+              {/* Verification icon on avatar */}
+              {!isVerified && (
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <div className="absolute -bottom-1 -right-1 rounded-full bg-background p-0.5">
+                      <ShieldAlert className="h-4 w-4 text-amber-500" />
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent>Profile unverified</TooltipContent>
+                </Tooltip>
+              )}
+              {isVerified && (
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <div className="absolute -bottom-1 -right-1 rounded-full bg-background p-0.5">
+                      <Shield className="h-4 w-4 text-green-500" />
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent>Verified</TooltipContent>
+                </Tooltip>
+              )}
             </div>
             <input
               ref={sidebarAvatarRef}
@@ -1456,6 +1757,47 @@ const TradesProfile = () => {
                 </span>
               )}
             </div>
+
+            {/* Unverified badge */}
+            {!isVerified && (
+              <Badge
+                variant="outline"
+                className="text-amber-600 border-amber-300 bg-amber-50 text-xs"
+              >
+                <ShieldAlert className="h-3 w-3 mr-1" /> Unverified
+              </Badge>
+            )}
+
+            {/* Profile completion bar */}
+            {completion.percentage < 100 && (
+              <button
+                onClick={() => {
+                  const first = completion.steps.find((s) => !s.done);
+                  if (first) setTab(first.tab);
+                }}
+                className="w-full"
+              >
+                <div className="border rounded-lg px-3 py-2 text-center hover:bg-muted/50 transition-colors cursor-pointer">
+                  <p className={`text-sm font-bold ${completion.colorClass}`}>
+                    {completion.percentage}% complete
+                  </p>
+                  <div className="w-full bg-muted rounded-full h-1.5 mt-1">
+                    <div
+                      className={`h-1.5 rounded-full transition-all ${
+                        completion.percentage >= 40
+                          ? "bg-amber-500"
+                          : "bg-destructive"
+                      }`}
+                      style={{ width: `${completion.percentage}%` }}
+                    />
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Tap to continue setup
+                  </p>
+                </div>
+              </button>
+            )}
+
             {user?.avatarUrl && (
               <button
                 onClick={() =>
@@ -1471,15 +1813,8 @@ const TradesProfile = () => {
             )}
           </div>
 
-          <button
-            onClick={() => setTab("company-description")}
-            className="flex items-center gap-2 text-primary font-medium text-sm mb-1 w-full text-left px-2 py-1.5"
-          >
-            <Edit className="h-4 w-4" /> Complete registration
-            <span className="ml-auto w-2 h-2 rounded-full bg-destructive" />
-          </button>
-
-          <nav className="space-y-1 mt-4">
+          {/* Nav */}
+          <nav className="space-y-1 mt-2">
             {SECTIONS.map((section) => {
               const sectionTabs = TABS.filter((t) => t.section === section.id);
               return (
@@ -1489,35 +1824,36 @@ const TradesProfile = () => {
                       {section.label}
                     </p>
                   )}
-                  {sectionTabs.map((tab) => (
-                    <button
-                      key={tab.id}
-                      onClick={() => setTab(tab.id)}
-                      className={`flex items-center gap-2 w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
-                        activeTab === tab.id
-                          ? "bg-primary/10 text-primary font-medium"
-                          : "text-foreground hover:bg-muted"
-                      }`}
-                    >
-                      <tab.icon className="h-4 w-4" />
-                      {tab.label}
-                      {tab.badge && (
-                        <span
-                          className={`text-xs ml-auto ${tab.badgeColor || "text-muted-foreground"}`}
-                        >
-                          {tab.badge}
-                        </span>
-                      )}
-                      {tab.badgeText && (
-                        <span className="text-xs ml-auto text-primary font-medium">
-                          {tab.badgeText}
-                        </span>
-                      )}
-                    </button>
-                  ))}
-                  {section.id !== "discover" && (
-                    <div className="border-t my-2" />
-                  )}
+                  {sectionTabs.map((tab) => {
+                    const pendingPoints =
+                      completion.percentage < 100
+                        ? completion.steps
+                            .filter(
+                              (s) => !s.done && tab.completionId.includes(s.id),
+                            )
+                            .reduce((acc, s) => acc + s.points, 0)
+                        : 0;
+                    return (
+                      <button
+                        key={tab.id}
+                        onClick={() => setTab(tab.id)}
+                        className={`flex items-center gap-2 w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
+                          activeTab === tab.id
+                            ? "bg-primary/10 text-primary font-medium"
+                            : "text-foreground hover:bg-muted"
+                        }`}
+                      >
+                        <tab.icon className="h-4 w-4 shrink-0" />
+                        <span className="flex-1 truncate">{tab.label}</span>
+                        {pendingPoints > 0 && (
+                          <span className="text-xs text-amber-600 font-semibold shrink-0">
+                            +{pendingPoints}%
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
+                  <div className="border-t my-2" />
                 </div>
               );
             })}
@@ -1525,16 +1861,14 @@ const TradesProfile = () => {
 
           <button
             onClick={() => void logout()}
-            className="flex items-center gap-2 text-destructive text-sm px-3 py-2 mt-4 hover:underline"
+            className="flex items-center gap-2 text-destructive text-sm px-3 py-2 mt-2 hover:underline"
           >
             <LogOut className="h-4 w-4" /> Log out
           </button>
         </div>
 
         {/* Content */}
-        <div className="overflow-y-auto pb-10">
-          {TAB_CONTENT[activeTab] ?? <PlaceholderTab title="Page not found" />}
-        </div>
+        <div className="overflow-y-auto pb-10">{renderTab()}</div>
       </div>
     </div>
   );
