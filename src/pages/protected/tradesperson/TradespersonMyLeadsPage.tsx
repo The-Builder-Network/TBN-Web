@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
@@ -11,8 +11,16 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Skeleton } from "boneyard-js/react";
-import { Search, MapPin, Clock, Wrench, AlertCircle } from "lucide-react";
+import {
+  Search,
+  MapPin,
+  Clock,
+  Wrench,
+  AlertCircle,
+  RefreshCw,
+} from "lucide-react";
 import { useLeads } from "@/api/leads";
+import { useRefreshLeads } from "@/api/users";
 import { services } from "@/constants/services";
 import type { LeadSummary } from "@/api/types";
 
@@ -40,6 +48,14 @@ const NewLeads = () => {
     order: "desc",
   });
 
+  const { mutate: refreshLeads, isPending: isRefreshing } = useRefreshLeads();
+
+  // On first mount, backfill any existing jobs that match this tradesperson's profile
+  useEffect(() => {
+    refreshLeads();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const allLeads = data?.data ?? [];
 
   // Client-side keyword filter on top of server results
@@ -62,7 +78,20 @@ const NewLeads = () => {
       </Helmet>
 
       <div className="container py-10">
-        <h1 className="text-3xl font-bold mb-6">New leads</h1>
+        <div className="flex items-center justify-between mb-6">
+          <h1 className="text-3xl font-bold">New leads</h1>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => refreshLeads()}
+            disabled={isRefreshing}
+          >
+            <RefreshCw
+              className={`h-4 w-4 mr-2 ${isRefreshing ? "animate-spin" : ""}`}
+            />
+            Refresh
+          </Button>
+        </div>
 
         {/* Search */}
         <div className="flex gap-3 mb-4">
@@ -134,11 +163,34 @@ const NewLeads = () => {
             <div className="border rounded-lg p-12 text-center">
               <Search className="mx-auto h-12 w-12 text-muted-foreground mb-3" />
               <p className="font-semibold mb-1">No leads found</p>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-muted-foreground mb-4">
                 {serviceFilter || maxDistance
                   ? "Try adjusting your filters."
-                  : "There are no available leads matching your profile right now. Check back soon."}
+                  : "Make sure you've added your services and saved your work area on your profile, then click Refresh."}
               </p>
+              {!serviceFilter && !maxDistance && (
+                <div className="flex gap-3 justify-center">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() =>
+                      navigate("/tradesperson/profile?tab=services")
+                    }
+                  >
+                    Add services
+                  </Button>
+                  <Button
+                    size="sm"
+                    onClick={() => refreshLeads()}
+                    disabled={isRefreshing}
+                  >
+                    <RefreshCw
+                      className={`h-4 w-4 mr-2 ${isRefreshing ? "animate-spin" : ""}`}
+                    />
+                    Refresh leads
+                  </Button>
+                </div>
+              )}
             </div>
           )}
 

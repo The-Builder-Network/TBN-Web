@@ -75,7 +75,7 @@ const HomeownerMyQuestionsPage = () => {
             {questions.map((q) => (
               <Link
                 key={q.id}
-                to={`/questions/${q.id}`}
+                to={`/questions/${q.questionNumber}`}
                 className="block border rounded-lg p-5 hover:shadow-sm transition-shadow"
               >
                 <p className="text-xs text-muted-foreground mb-0.5">
