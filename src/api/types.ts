@@ -133,6 +133,7 @@ export interface LeadSummary {
   creditCost: number;
   distanceMiles?: number;
   createdAt: string;
+  expiresAt?: string;
 }
 
 export interface LeadDetail extends LeadSummary {
@@ -328,6 +329,10 @@ export interface OwnTradespersonProfile {
   avgRating: number;
   reviewCount: number;
   completedJobs: number;
+  /** Phone from the User record (not TradespersonProfile) */
+  phone?: string | null;
+  /** Email from the User record */
+  email?: string | null;
   services: Array<{ id: string; serviceSlug: string; tradeSlug?: string }>;
   qualifications: Array<{
     id: string;
@@ -349,6 +354,13 @@ export interface OwnTradespersonProfile {
     expiresAt?: string;
   };
   messageTemplates: Array<{ id: string; name: string; body: string }>;
+  documents: Array<{
+    id: string;
+    fileUrl: string;
+    fileName: string;
+    mimeType: string;
+    createdAt: string;
+  }>;
 }
 
 // ── Search ─────────────────────────────────────────────────────

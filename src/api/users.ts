@@ -282,3 +282,56 @@ export function useDeleteMessageTemplate() {
       void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
   });
 }
+
+// ── Documents ───────────────────────────────────────────────
+
+export async function uploadDocument(file: File): Promise<void> {
+  const fd = new FormData();
+  fd.append("document", file);
+  await api.post("/users/me/documents", fd, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+}
+
+export async function deleteDocument(id: string): Promise<void> {
+  await api.delete(`/users/me/documents/${id}`);
+}
+
+export function useUploadDocument() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (file: File) => uploadDocument(file),
+    onSuccess: () =>
+      void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
+  });
+}
+
+export function useDeleteDocument() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: deleteDocument,
+    onSuccess: () =>
+      void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
+  });
+}
+
+// ── Update user phone ────────────────────────────────────────
+
+export function useUpdateUser() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: updateUser,
+    onSuccess: () =>
+      void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
+  });
+}
+
+// ── Refresh leads (backfill for existing jobs) ───────────────
+
+export function useRefreshLeads() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: () => api.post("/users/me/leads/refresh"),
+    onSuccess: () => void qc.invalidateQueries({ queryKey: ["leads"] }),
+  });
+}
