@@ -19,7 +19,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
-import { Skeleton } from "boneyard-js/react";
 import { usePublicProfile } from "@/api/users";
 
 // ── Helpers ───────────────────────────────────────────────────
@@ -46,15 +45,15 @@ function timeAgo(iso: string) {
 
 const ProfileSkeleton = () => (
   <main className="flex-1" aria-busy="true" aria-label="Loading profile">
-    <div className="h-48 md:h-64 bg-muted" />
+    <div className="h-48 md:h-64 bg-muted animate-pulse" />
     <div className="container relative -mt-20 pb-8">
       <div className="bg-card rounded-xl border shadow-lg p-6 md:p-8">
-        <div className="flex flex-col md:flex-row gap-6">
-          <Skeleton className="w-32 h-32 md:w-40 md:h-40 rounded-2xl shrink-0" />
+        <div className="flex flex-col md:flex-row gap-6 animate-pulse">
+          <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl bg-muted shrink-0" />
           <div className="flex-1 space-y-3">
-            <Skeleton className="h-8 w-64" />
-            <Skeleton className="h-4 w-48" />
-            <Skeleton className="h-4 w-32" />
+            <div className="h-8 w-64 bg-muted rounded" />
+            <div className="h-4 w-48 bg-muted rounded" />
+            <div className="h-4 w-32 bg-muted rounded" />
           </div>
         </div>
       </div>
@@ -65,11 +64,14 @@ const ProfileSkeleton = () => (
 // ── Component ─────────────────────────────────────────────────
 
 const TradespersonPublicProfile = () => {
-  const { username } = useParams<{ username: string }>();
-  const { data: tp, isLoading, error } = usePublicProfile(username ?? "");
+  const { username: rawUsername } = useParams<{ username: string }>();
+  const username = rawUsername?.replace(/^@/, "") ?? "";
+  const { data: tp, isLoading, error } = usePublicProfile(username);
   const [, setSelectedPortfolioIndex] = useState(0);
 
-  if (!isLoading && (error || !tp)) {
+  if (isLoading) return <ProfileSkeleton />;
+
+  if (error || !tp) {
     return (
       <main className="flex-1 container py-16 max-w-2xl text-center">
         <AlertCircle className="mx-auto h-12 w-12 text-destructive mb-4" />
@@ -87,14 +89,14 @@ const TradespersonPublicProfile = () => {
     );
   }
 
-  const totalRatings = tp
-    ? Object.values(tp.ratingBreakdown).reduce((a, b) => a + b, 0)
-    : 0;
+  const totalRatings = Object.values(tp.ratingBreakdown).reduce(
+    (a, b) => a + b,
+    0,
+  );
 
   return (
-    <Skeleton name="tradesperson-public-profile" loading={isLoading}>
-      <main className="flex-1">
-        <Helmet>
+    <main className="flex-1">
+      <Helmet>
           <title>{tp.companyName || tp.name} | The Builder Network</title>
           <meta
             name="description"
@@ -582,8 +584,7 @@ const TradespersonPublicProfile = () => {
             </div>
           </div>
         </div>
-      </main>
-    </Skeleton>
+    </main>
   );
 };
 

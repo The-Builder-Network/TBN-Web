@@ -151,7 +151,7 @@ const QuestionDetail = () => {
 
   return (
     <Skeleton name="question-detail" loading={isLoading}>
-      <div className="max-w-5xl mx-auto px-4 py-8">
+      <div className="container px-16 py-8">
         <Helmet>
           <title>
             {question
@@ -464,12 +464,12 @@ const QuestionDetail = () => {
                             className={`flex items-center gap-1.5 border rounded-lg px-3 py-1.5 text-sm font-medium transition-colors disabled:opacity-50 ${
                               a.likedByMe
                                 ? "bg-primary text-primary-foreground border-primary"
-                                : isOwnAnswer
+                                : isOwnAnswer 
                                   ? "cursor-not-allowed opacity-40"
                                   : "hover:bg-secondary"
                             }`}
                           >
-                            <ThumbsUp className="w-3.5 h-3.5" /> Like{" "}
+                            <ThumbsUp className="w-3.5 h-3.5" /> {a.likedByMe ? "Liked" : "Like"}{" "}
                             <span
                               className={`px-1.5 py-0.5 rounded text-sm ${a.likedByMe ? "bg-primary-foreground/20" : "bg-secondary"}`}
                             >
