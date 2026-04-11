@@ -12,6 +12,8 @@ import {
   XCircle,
   Users,
   BadgeCheck,
+  Image,
+  FileText,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -214,6 +216,47 @@ const HomeownerJobDetail = () => {
           <p className="mt-4 text-muted-foreground">{job.description}</p>
         )}
       </div>
+
+      {/* ── Job Photos ── */}
+      {job.attachments && job.attachments.length > 0 && (
+        <div className="border rounded-lg p-6 mb-6">
+          <h2 className="font-semibold flex items-center gap-2 mb-4">
+            <Image className="h-4 w-4" />
+            Photos ({job.attachments.length})
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+            {job.attachments.map((att) => {
+              const isImage = att.mimeType?.startsWith("image/");
+              return isImage ? (
+                <a
+                  key={att.id}
+                  href={att.fileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block aspect-square rounded-lg overflow-hidden border hover:border-primary/50 transition-colors"
+                >
+                  <img
+                    src={att.fileUrl}
+                    alt={att.fileName}
+                    className="w-full h-full object-cover"
+                  />
+                </a>
+              ) : (
+                <a
+                  key={att.id}
+                  href={att.fileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 p-3 border rounded-lg hover:border-primary/50 transition-colors text-sm"
+                >
+                  <FileText className="h-4 w-4 shrink-0 text-muted-foreground" />
+                  <span className="truncate">{att.fileName}</span>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* ── Responses Tabs ── */}
       <Tabs defaultValue="all">

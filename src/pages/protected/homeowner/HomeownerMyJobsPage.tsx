@@ -92,7 +92,7 @@ const MyJobs = () => {
             jobs.map((job) => (
               <Link
                 key={job.id}
-                to={`/homeowner/my-jobs/${job.id}`}
+                to={`/homeowner/my-jobs/${job.jobNumber}`}
                 className="block border rounded-lg p-5 hover:border-primary/40"
               >
                 <div className="flex items-start justify-between">
