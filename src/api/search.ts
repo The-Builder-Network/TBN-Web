@@ -16,6 +16,8 @@ export interface TradespersonSearchResult {
   avgRating: number;
   reviewCount: number;
   completedJobs: number;
+  verified: boolean;
+  guarantee: boolean;
   services: string[];
 }
 
@@ -24,6 +26,7 @@ interface SearchTradespeopleParams {
   serviceSlug?: string;
   postcode?: string;
   radiusMiles?: number;
+  guarantee?: boolean;
   page?: number;
   perPage?: number;
   sort?: "rating" | "reviewCount" | "completedJobs";
@@ -55,6 +58,6 @@ export function useSearchTradespeople(params: SearchTradespeopleParams = {}) {
   return useQuery({
     queryKey: searchKeys.tradespeople(params),
     queryFn: () => searchTradespeople(params),
-    enabled: !!(params.query || params.serviceSlug || params.postcode),
+    enabled: true,
   });
 }

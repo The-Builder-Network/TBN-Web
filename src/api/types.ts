@@ -55,7 +55,7 @@ export interface AuthUser {
   email: string;
   role: UserRole;
   name: string;
-  username?: string;
+  username: string | null;
   avatarUrl?: string;
   emailVerified: boolean;
   createdAt: string;
@@ -290,6 +290,7 @@ export interface PublicProfile {
   lastActive?: string;
   responseTime?: string;
   verified: boolean;
+  guarantee: boolean;
   avgRating: number;
   reviewCount: number;
   completedJobs: number;
