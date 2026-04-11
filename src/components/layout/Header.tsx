@@ -21,6 +21,7 @@ import {
 import LoginModal from "@/components/modals/LoginModal";
 import { CreditBalance } from "@/components/shared/CreditBalance";
 import { NotificationBell } from "@/components/notifications/NotificationBell";
+import { ProfileCompletionBadge } from "@/components/shared/ProfileCompletionBadge";
 import { useAuth } from "@/hooks/useAuth";
 
 const Header = () => {
@@ -141,6 +142,7 @@ const Header = () => {
             {/* ── Tradesperson ── */}
             {isAuthenticated && isTradesperson && (
               <>
+                <ProfileCompletionBadge />
                 <CreditBalance />
                 <NotificationBell />
                 <AccountDropdown
