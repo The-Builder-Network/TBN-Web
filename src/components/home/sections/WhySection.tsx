@@ -1,79 +1,75 @@
-import { ArrowRightCircle, Star } from "lucide-react";
 import { Link } from "react-router-dom";
+import { ArrowRight, Headset, ListChecks, ShieldCheck, Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const benefits = [
+  {
+    icon: ShieldCheck,
+    title: "Verified professionals",
+    description: "We help you connect with genuine, reliable tradespeople.",
+  },
+  {
+    icon: Star,
+    title: "Real customer feedback",
+    description: "Read reviews from homeowners like you.",
+  },
+  {
+    icon: ListChecks,
+    title: "Easy comparison",
+    description: "Compare profiles, services and quotes in one place.",
+  },
+  {
+    icon: Headset,
+    title: "Support when you need it",
+    description: "Our team is here to help if you need assistance.",
+  },
+];
 
 const WhySection = () => {
   return (
-    <section className="py-16 md:py-24 bg-background">
-      <div className="container">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Why
-            <span className="mx-2 underline underline-offset-4 decoration-primary decoration-8">
-              The Builder Network
-            </span>{" "}
-            is the reliable way
+    <section className="bg-primary/[0.04] py-16 md:py-24">
+      <div className="container grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
+        <div className="reveal lg:col-span-5">
+          <span className="block h-1 w-10 rounded-full bg-primary" aria-hidden />
+          <h2 className="mt-5 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            Why homeowners choose The Builder Network
           </h2>
-          <p className="text-base text-muted-foreground max-w-3xl mx-auto">
-            Big or small - post your home or garden job on The Builder Network
-            and get matched with verified tradespeople who'll get it done.
+          <p className="mt-4 text-muted-foreground md:text-lg">
+            A simpler, safer way to find the right professional for your home
+            project.
           </p>
-        </div>
-
-        <div className="grid md:grid-cols-5 gap-12 lg:gap-12 items-center">
-          {/* Left side - Benefits */}
-          <div className="space-y-12 col-span-3">
-            <div className="border-l-4 border-primary pl-6">
-              <h3 className="text-2xl font-semibold text-foreground mb-3">
-                Get matched with available tradespeople
-              </h3>
-              <p className="text-muted-foreground">
-                Post your job for free and receive responses from tradespeople
-                eager to take it on.
-              </p>
-            </div>
-
-            <div className="border-l-4 border-primary pl-6">
-              <h3 className="text-2xl font-semibold text-foreground mb-3">
-                Choose who you want to connect with
-              </h3>
-              <p className="text-muted-foreground">
-                Read customer reviews, view tradespeople profiles, and browse
-                pictures from previous jobs before deciding who to chat with —
-                then make an informed decision on whom to hire.
-              </p>
-            </div>
-
-            <div className="border-l-4 border-primary pl-6">
-              <h3 className="text-2xl font-semibold text-foreground mb-3">
-                Hire with confidence
-              </h3>
-              <p className="text-muted-foreground mb-3">
-                All tradespeople on The Builder Network undergo checks at
-                registration - such as ID documents, company details,
-                certifications for regulated jobs and skill assessments -
-                allowing you to hire with confidence.
-              </p>
-              <Link
-                to="/quality-checks"
-                className="text-green-600 hover:underline inline-flex items-center gap-1"
-              >
-                <ArrowRightCircle className="h-5 w-5 mr-1" /> More info about
-                our checks here
-              </Link>
-            </div>
-          </div>
-
-          {/* Right side - Image */}
-          <div className="relative col-span-2">
-            <div className="aspect-square rounded-lg overflow-hidden bg-muted">
-              <img
-                src="/images/why_section_img_1.png"
-                alt="Tradespeople profiles on mobile"
-                className="w-full h-full object-cover"
-              />
-            </div>
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+            <Button asChild size="xl">
+              <Link to="/about">Learn more about us</Link>
+            </Button>
+            <Link
+              to="/quality-checks"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+            >
+              How we check tradespeople
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
           </div>
         </div>
+
+        <ul className="grid gap-4 sm:grid-cols-2 lg:col-span-7">
+          {benefits.map(({ icon: Icon, title, description }) => (
+            <li
+              key={title}
+              className="reveal flex gap-4 rounded-xl border bg-card p-6 shadow-card"
+            >
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <Icon className="h-5 w-5" aria-hidden />
+              </span>
+              <div>
+                <h3 className="font-semibold text-foreground">{title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                  {description}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
