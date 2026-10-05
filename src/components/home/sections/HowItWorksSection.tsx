@@ -1,62 +1,90 @@
 import { Link } from "react-router-dom";
-import { ClipboardList, Users, MessageSquare, ThumbsUp } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import {
+  ArrowRight,
+  ClipboardList,
+  Scale,
+  ThumbsUp,
+  Users,
+} from "lucide-react";
 
 const steps = [
   {
     icon: ClipboardList,
-    title: "Post your job",
-    description: "Tell us what you need done. It takes just a few minutes.",
-    step: 1,
+    title: "Tell us about your project",
+    description: "Share what you need, your location and any useful details.",
   },
   {
     icon: Users,
-    title: "Get matched",
-    description: "We'll match you with up to 3 interested tradespeople.",
-    step: 2,
+    title: "Hear from local professionals",
+    description:
+      "Relevant tradespeople can review your request and get in touch.",
   },
   {
-    icon: MessageSquare,
-    title: "Compare quotes",
-    description: "Chat with tradespeople, compare quotes and profiles.",
-    step: 3,
+    icon: Scale,
+    title: "Compare your options",
+    description: "View profiles, experience, reviews and quotes.",
   },
   {
     icon: ThumbsUp,
-    title: "Hire with confidence",
-    description: "Choose a tradesperson and get your job done.",
-    step: 4,
+    title: "Choose the right professional",
+    description:
+      "Chat directly and hire the professional that suits your needs.",
   },
 ];
 
 const HowItWorksSection = () => {
   return (
-    <section className="py-20 bg-muted/50">
+    <section className="bg-background pb-16 pt-14 md:pb-24 md:pt-20">
       <div className="container">
-        <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-16 text-center">
-          How to find the right tradesperson
-        </h2>
-
-        <div className="grid md:grid-cols-4 gap-8">
-          {steps.map((step) => (
-            <div key={step.step} className="text-center">
-              <div className="inline-flex items-center justify-center w-32 h-32 p-10 rounded-full bg-primary text-primary-foreground mb-4">
-                <step.icon className="h-20 w-20" />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">
-                {step.title}
-              </h3>
-              <p className="text-md text-muted-foreground">
-                {step.description}
-              </p>
-            </div>
-          ))}
+        <div className="reveal mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            How The Builder Network Works
+          </h2>
+          <p className="mt-3 text-muted-foreground md:text-lg">
+            Get from idea to completed project in four simple steps.
+          </p>
         </div>
 
-        <div className="text-center mt-12">
-          <Button asChild size="lg" variant="outline">
-            <Link to="/how-it-works">See How it works</Link>
-          </Button>
+        <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {steps.map(({ icon: Icon, title, description }, i) => (
+            <li
+              key={title}
+              className="reveal relative rounded-xl border bg-card p-6 shadow-card transition-shadow hover:shadow-card-hover"
+            >
+              <div className="flex items-center justify-between">
+                <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <Icon className="h-5 w-5" aria-hidden />
+                </span>
+                <span className="text-sm font-semibold tabular-nums text-muted-foreground/60">
+                  0{i + 1}
+                </span>
+              </div>
+              <h3 className="mt-5 text-lg font-semibold text-foreground">
+                {title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {description}
+              </p>
+              {i < steps.length - 1 && (
+                <span
+                  className="absolute -right-[1.375rem] top-1/2 z-10 hidden h-5 w-5 -translate-y-1/2 items-center justify-center rounded-full border bg-background text-primary lg:flex"
+                  aria-hidden
+                >
+                  <ArrowRight className="h-3 w-3" />
+                </span>
+              )}
+            </li>
+          ))}
+        </ol>
+
+        <div className="mt-10 text-center">
+          <Link
+            to="/how-it-works"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+          >
+            See how it works
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </Link>
         </div>
       </div>
     </section>
