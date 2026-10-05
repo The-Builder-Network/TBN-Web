@@ -1,348 +1,183 @@
 import { Link } from "react-router-dom";
 import { Facebook, Youtube, Twitter } from "lucide-react";
-import PostJobStrip from "@/components/shared/PostJobStrip";
 import { trades } from "@/constants/trades";
+
+const linkGroups = [
+  {
+    title: "Homeowners",
+    links: [
+      { label: "Post a job", to: "/post-job" },
+      { label: "How it works", to: "/how-it-works" },
+      { label: "Find trades", to: "/trades" },
+      { label: "Quality checks", to: "/quality-checks" },
+    ],
+  },
+  {
+    title: "Tradespeople",
+    links: [
+      { label: "Register as tradesperson", to: "/tradesnetwork" },
+      { label: "Quality requirements", to: "/quality-requirements" },
+      { label: "Reviews policy", to: "/reviews-policy" },
+    ],
+  },
+  {
+    title: "Company info",
+    links: [
+      { label: "About us", to: "/about" },
+      { label: "Become a partner", to: "/become-a-partner" },
+      { label: "Services", to: "/services" },
+    ],
+  },
+  {
+    title: "Helpful resources",
+    links: [
+      { label: "Trades", to: "/trades" },
+      { label: "Cities", to: "/search" },
+    ],
+  },
+];
+
+const cityLinks = [
+  "London",
+  "Manchester",
+  "Birmingham",
+  "Leeds",
+  "Glasgow",
+  "Bristol",
+  "Liverpool",
+  "Sheffield",
+  "Edinburgh",
+  "Cardiff",
+  "Newcastle",
+  "Leicester",
+  "Nottingham",
+  "Southampton",
+  "Cambridge",
+].map((name) => ({ label: name, to: `/search?city=${name.toLowerCase()}` }));
+
+const professionLinks = trades
+  .slice(0, 17)
+  .map((t) => ({ label: t.name, to: `/${t.serviceSlug}/${t.slug}` }));
+
+// TODO: Replace with real social media URLs
+const socials = [
+  { href: "https://facebook.com", label: "Facebook", icon: Facebook },
+  { href: "https://youtube.com", label: "YouTube", icon: Youtube },
+  { href: "https://twitter.com", label: "X (Twitter)", icon: Twitter },
+];
+
+const linkClass =
+  "text-muted-foreground transition-colors hover:text-primary hover:underline underline-offset-4";
+
+const LinkGrid = ({
+  title,
+  links,
+  more,
+}: {
+  title: string;
+  links: { label: string; to: string }[];
+  more: { label: string; to: string };
+}) => (
+  <div>
+    <h4 className="mb-4 text-sm font-semibold text-foreground">{title}</h4>
+    <ul className="grid grid-cols-2 gap-x-4 gap-y-2.5 text-sm sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+      {[...links, more].map((l) => (
+        <li key={l.to + l.label}>
+          <Link to={l.to} className={linkClass}>
+            {l.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 
 const Footer = () => {
   return (
-    <>
-      <footer className="border-t bg-background">
-        <div className="container py-12">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
-            {/* Brand */}
+    <footer className="border-t bg-background">
+      <div className="container py-12 md:py-16">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-6">
+          <div className="col-span-2">
+            <Link
+              to="/"
+              className="inline-block transition-opacity hover:opacity-80"
+            >
+              <img
+                src="/images/logo-black.png"
+                alt="The Builder Network"
+                className="h-10"
+              />
+            </Link>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
+              Connecting homeowners with trusted local tradespeople for
+              building, repair and home improvement work.
+            </p>
+          </div>
 
-            {/* Homeowners */}
-            <div>
-              <h4 className="font-semibold text-foreground mb-4">Homeowners</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>
-                  <Link
-                    to="/post-job"
-                    className="hover:text-foreground hover:underline transition-colors underline"
-                  >
-                    Post a job
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/how-it-works"
-                    className="hover:text-foreground hover:underline transition-colors underline"
-                  >
-                    How it works
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/trades"
-                    className="hover:text-foreground hover:underline transition-colors underline"
-                  >
-                    Find trades
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/quality-checks"
-                    className="hover:text-foreground hover:underline transition-colors underline"
-                  >
-                    Quality checks
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Tradespeople */}
-            <div>
-              <h4 className="font-semibold text-foreground mb-4">
-                Tradespeople
+          {linkGroups.map((group) => (
+            <div key={group.title}>
+              <h4 className="mb-4 text-sm font-semibold text-foreground">
+                {group.title}
               </h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>
-                  <Link
-                    to="/tradesnetwork"
-                    className="hover:text-foreground hover:underline transition-colors underline"
-                  >
-                    Register as tradesperson
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/quality-requirements"
-                    className="hover:text-foreground hover:underline transition-colors underline"
-                  >
-                    Quality requirements
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/reviews-policy"
-                    className="hover:text-foreground hover:underline transition-colors underline"
-                  >
-                    Reviews policy
-                  </Link>
-                </li>
+              <ul className="space-y-2.5 text-sm">
+                {group.links.map((l) => (
+                  <li key={l.label}>
+                    <Link to={l.to} className={linkClass}>
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
+          ))}
+        </div>
+      </div>
 
-            {/* Company info */}
-            <div>
-              <h4 className="font-semibold text-foreground mb-4">
-                Company info
-              </h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>
-                  <Link
-                    to="/about"
-                    className="hover:text-foreground hover:underline transition-colors underline"
-                  >
-                    About us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/become-a-partner"
-                    className="hover:text-foreground hover:underline transition-colors underline"
-                  >
-                    Become a partner
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/services"
-                    className="hover:text-foreground hover:underline transition-colors underline"
-                  >
-                    Services
-                  </Link>
-                </li>
-              </ul>
-            </div>
+      <div className="border-t bg-primary/[0.04]">
+        <div className="container space-y-10 py-10">
+          <LinkGrid
+            title="Find tradespeople in your area"
+            links={cityLinks}
+            more={{ label: "More cities »", to: "/search" }}
+          />
+          <LinkGrid
+            title="Our tradespeople's professions"
+            links={professionLinks}
+            more={{ label: "More trades »", to: "/trades" }}
+          />
+        </div>
+      </div>
 
-            {/* Helpful resources */}
-            <div>
-              <h4 className="font-semibold text-foreground mb-4">
-                Helpful resources
-              </h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>
-                  <Link
-                    to="/trades"
-                    className="hover:text-foreground hover:underline transition-colors underline"
-                  >
-                    Trades
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/search"
-                    className="hover:text-foreground hover:underline transition-colors underline"
-                  >
-                    Cities
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <Link
-                to="/"
-                className="flex items-center gap-2 mb-4 hover:opacity-80 transition-opacity"
+      <div className="bg-primary text-primary-foreground">
+        <div className="container flex flex-col items-center justify-between gap-4 py-5 text-sm md:flex-row">
+          <p className="text-primary-foreground/90">
+            © 2026 The Builder Network. All rights reserved.
+          </p>
+          <div className="flex gap-6">
+            <Link to="/privacy" className="hover:underline underline-offset-4">
+              Privacy
+            </Link>
+            <Link to="/terms" className="hover:underline underline-offset-4">
+              Terms and conditions
+            </Link>
+          </div>
+          <div className="flex gap-4">
+            {socials.map(({ href, label, icon: Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-opacity hover:opacity-80"
+                aria-label={`The Builder Network on ${label}`}
               >
-                <img
-                  src="/images/logo-black.png"
-                  alt="The Builder Network"
-                  className="w-full"
-                />
-              </Link>
-            </div>
+                <Icon className="h-5 w-5" />
+              </a>
+            ))}
           </div>
         </div>
-        {/* Find tradespeople in your area */}
-        <div className="border-t  bg-primary/5">
-          <div className="container py-8">
-            <h4 className="font-semibold text-foreground mb-4">
-              Find tradespeople in your area
-            </h4>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-sm text-muted-foreground">
-              <Link
-                to="/search?city=london"
-                className="hover:text-foreground hover:underline transition-colors underline"
-              >
-                London
-              </Link>
-              <Link
-                to="/search?city=manchester"
-                className="hover:text-foreground hover:underline transition-colors underline"
-              >
-                Manchester
-              </Link>
-              <Link
-                to="/search?city=birmingham"
-                className="hover:text-foreground hover:underline transition-colors underline"
-              >
-                Birmingham
-              </Link>
-              <Link
-                to="/search?city=leeds"
-                className="hover:text-foreground hover:underline transition-colors underline"
-              >
-                Leeds
-              </Link>
-              <Link
-                to="/search?city=glasgow"
-                className="hover:text-foreground hover:underline transition-colors underline"
-              >
-                Glasgow
-              </Link>
-              <Link
-                to="/search?city=bristol"
-                className="hover:text-foreground hover:underline transition-colors underline"
-              >
-                Bristol
-              </Link>
-              <Link
-                to="/search?city=liverpool"
-                className="hover:text-foreground hover:underline transition-colors underline"
-              >
-                Liverpool
-              </Link>
-              <Link
-                to="/search?city=sheffield"
-                className="hover:text-foreground hover:underline transition-colors underline"
-              >
-                Sheffield
-              </Link>
-              <Link
-                to="/search?city=edinburgh"
-                className="hover:text-foreground hover:underline transition-colors underline"
-              >
-                Edinburgh
-              </Link>
-              <Link
-                to="/search?city=cardiff"
-                className="hover:text-foreground hover:underline transition-colors underline"
-              >
-                Cardiff
-              </Link>
-              <Link
-                to="/search?city=newcastle"
-                className="hover:text-foreground hover:underline transition-colors underline"
-              >
-                Newcastle
-              </Link>
-              <Link
-                to="/search?city=leicester"
-                className="hover:text-foreground hover:underline transition-colors underline"
-              >
-                Leicester
-              </Link>
-              <Link
-                to="/search?city=nottingham"
-                className="hover:text-foreground hover:underline transition-colors underline"
-              >
-                Nottingham
-              </Link>
-              <Link
-                to="/search?city=southampton"
-                className="hover:text-foreground hover:underline transition-colors underline"
-              >
-                Southampton
-              </Link>
-              <Link
-                to="/search?city=cambridge"
-                className="hover:text-foreground hover:underline transition-colors underline"
-              >
-                Cambridge
-              </Link>
-              <Link
-                to="/search"
-                className="hover:text-foreground hover:underline transition-colors underline"
-              >
-                More cities »
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Tradespeople professions */}
-        <div className="border-t  bg-primary/10">
-          <div className="container py-8">
-            <h4 className="font-semibold text-foreground mb-4">
-              Our tradespeople's professions
-            </h4>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-sm text-muted-foreground">
-              {trades.slice(0, 17).map((trade) => (
-                <Link
-                  key={trade.slug}
-                  to={`/${trade.serviceSlug}/${trade.slug}`}
-                  className="hover:text-foreground hover:underline transition-colors underline"
-                >
-                  {trade.name}
-                </Link>
-              ))}
-              <Link
-                to="/trades"
-                className="hover:text-foreground hover:underline transition-colors underline"
-              >
-                More trades »
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom bar */}
-        <div className="border-t bg-primary text-primary-foreground">
-          <div className="container py-6">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm ">
-              <p>© 2026 The Builder Network. All rights reserved.</p>
-              <div className="flex gap-6">
-                <Link
-                  to="/privacy"
-                  className="hover:underline transition-colors underline"
-                >
-                  Privacy
-                </Link>
-                <Link
-                  to="/terms"
-                  className="hover:underline transition-colors underline"
-                >
-                  Terms and conditions
-                </Link>
-              </div>
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                <div className="flex gap-4">
-                  {/* TODO: Replace with real social media URLs */}
-                  <a
-                    href="https://facebook.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="transition-colors"
-                    aria-label="The Builder Network on Facebook"
-                  >
-                    <Facebook className="h-5 w-5" />
-                  </a>
-                  <a
-                    href="https://youtube.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="transition-colors"
-                    aria-label="The Builder Network on YouTube"
-                  >
-                    <Youtube className="h-5 w-5" />
-                  </a>
-                  <a
-                    href="https://twitter.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="transition-colors"
-                    aria-label="The Builder Network on X (Twitter)"
-                  >
-                    <Twitter className="h-5 w-5" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </>
+      </div>
+    </footer>
   );
 };
 

@@ -24,6 +24,9 @@ import { NotificationBell } from "@/components/notifications/NotificationBell";
 import { ProfileCompletionBadge } from "@/components/shared/ProfileCompletionBadge";
 import { useAuth } from "@/hooks/useAuth";
 
+const ctaClass =
+  "border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground";
+
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [loginModalOpen, setLoginModalOpen] = useState(false);
@@ -56,8 +59,8 @@ const Header = () => {
         </div>
       )}
 
-      <header className="sticky top-0 z-50 w-full border-b py-3 bg-background">
-        <div className="container flex h-12 items-center justify-between">
+      <header className="sticky top-0 z-50 w-full border-b bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+        <div className="container flex h-16 items-center justify-between">
           {/* Logo */}
           <Link
             to="/"
@@ -67,43 +70,37 @@ const Header = () => {
             <img
               src="/images/logo-black.png"
               alt="The Builder Network"
-              className="h-12 mb-0.5"
+              className="h-10"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-4">
+          <nav className="hidden md:flex items-center gap-6">
             {/* ── Not logged in ── */}
             {!isAuthenticated && (
               <>
                 {!isTradespersonPage && (
                   <Link
                     to="/post-job"
-                    className="text-base font-medium text-foreground hover:text-primary transition-colors"
+                    className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
                   >
                     Post a job
                   </Link>
                 )}
                 <button
                   onClick={() => setLoginModalOpen(true)}
-                  className="text-base font-medium text-foreground hover:text-primary transition-colors"
+                  className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
                 >
                   Log in
                 </button>
                 {isTradespersonPage ? (
-                  <Link to="/">
-                    <Button variant="outline" size="sm">
-                      <span className="text-base">I'm a customer</span>
-                    </Button>
-                  </Link>
+                  <Button asChild variant="outline" size="sm" className={ctaClass}>
+                    <Link to="/">I'm a customer</Link>
+                  </Button>
                 ) : (
-                  <Link to="/tradesnetwork">
-                    <Button variant="outline" size="sm">
-                      <span className="text-base">
-                        Sign up as a tradesperson
-                      </span>
-                    </Button>
-                  </Link>
+                  <Button asChild variant="outline" size="sm" className={ctaClass}>
+                    <Link to="/tradesnetwork">Sign up as a tradesperson</Link>
+                  </Button>
                 )}
               </>
             )}
@@ -113,13 +110,13 @@ const Header = () => {
               <>
                 <Link
                   to="/post-job"
-                  className="text-base font-medium text-foreground hover:text-primary transition-colors"
+                  className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
                 >
                   Post a job
                 </Link>
                 <Link
                   to="/homeowner/my-jobs"
-                  className="text-base font-medium text-foreground hover:text-primary transition-colors"
+                  className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
                 >
                   My jobs
                 </Link>
@@ -168,8 +165,10 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden -mr-2 p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? (
               <X className="h-6 w-6" />
@@ -205,28 +204,20 @@ const Header = () => {
                   </button>
                   <div className="px-4 pt-2">
                     {isTradespersonPage ? (
-                      <Link to="/" onClick={() => setMobileMenuOpen(false)}>
-                        <Button
-                          variant="outline"
-                          size={"xl"}
-                          className="w-full"
-                        >
+                      <Button asChild variant="outline" size="xl" className={`w-full ${ctaClass}`}>
+                        <Link to="/" onClick={() => setMobileMenuOpen(false)}>
                           I'm a customer
-                        </Button>
-                      </Link>
+                        </Link>
+                      </Button>
                     ) : (
-                      <Link
-                        to="/tradesnetwork"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        <Button
-                          variant="outline"
-                          size={"xl"}
-                          className="w-full"
+                      <Button asChild variant="outline" size="xl" className={`w-full ${ctaClass}`}>
+                        <Link
+                          to="/tradesnetwork"
+                          onClick={() => setMobileMenuOpen(false)}
                         >
                           Sign up as a tradesperson
-                        </Button>
-                      </Link>
+                        </Link>
+                      </Button>
                     )}
                   </div>
                 </>
