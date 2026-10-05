@@ -1,141 +1,201 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { useState, type FormEvent } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { MapPin, Search, ShieldCheck, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import JobServiceCombobox from "@/components/shared/JobServiceCombobox";
+import { StarRating } from "@/components/shared/StarRating";
+import { useFeaturedReviews } from "@/api/reviews";
+import { trades } from "@/constants/trades";
+
+const HERO_IMAGE = "/images/new-images/hero-home.webp";
+
+const popularSearches = [
+  { label: "Plumber", slug: "plumber" },
+  { label: "Electrician", slug: "electrician" },
+  { label: "Painter", slug: "painter-decorator" },
+  { label: "Builder", slug: "builder" },
+  { label: "Cleaner", slug: "cleaner" },
+].flatMap(({ label, slug }) => {
+  const trade = trades.find((t) => t.slug === slug);
+  return trade ? [{ label, service: trade.serviceSlug }] : [];
+});
+
+const trustPoints = [
+  { icon: ShieldCheck, label: "Trusted professionals" },
+  { icon: Star, label: "Real customer reviews" },
+  { icon: MapPin, label: "Local to your area" },
+];
+
+/** Builds the existing post-job URL (PostJobPage reads ?service and ?postcode). */
+function postJobUrl(service: string, postcode: string) {
+  const params = new URLSearchParams();
+  if (service) params.set("service", service);
+  if (postcode.trim()) params.set("postcode", postcode.trim());
+  const qs = params.toString();
+  return qs ? `/post-job?${qs}` : "/post-job";
+}
 
 const HeroSection = () => {
   const [selectedService, setSelectedService] = useState("");
+  const [postcode, setPostcode] = useState("");
   const navigate = useNavigate();
 
-  const [displayText, setDisplayText] = useState("");
-  const [wordIndex, setWordIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    const words = [
-      "tradesperson.",
-      "builder.",
-      "plumber.",
-      "roofer.",
-      "carpenter.",
-      "gardener.",
-      "painter.",
-      "bricklayer.",
-    ];
-
-    const currentWord = words[wordIndex];
-    const typingSpeed = isDeleting ? 50 : 100;
-    const pauseTime = 2000; // Pause at end of word
-
-    const timeout = setTimeout(() => {
-      if (!isDeleting) {
-        // Typing
-        if (displayText.length < currentWord.length) {
-          setDisplayText(currentWord.substring(0, displayText.length + 1));
-        } else {
-          // Finished typing, pause then start deleting
-          setTimeout(() => setIsDeleting(true), pauseTime);
-        }
-      } else {
-        // Deleting
-        if (displayText.length > 0) {
-          setDisplayText(currentWord.substring(0, displayText.length - 1));
-        } else {
-          // Finished deleting, move to next word
-          setIsDeleting(false);
-          setWordIndex((prev) => (prev + 1) % words.length);
-        }
-      }
-    }, typingSpeed);
-
-    return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, wordIndex]);
-
-  const handleSubmit = () => {
-    if (selectedService) {
-      navigate(`/post-job?service=${encodeURIComponent(selectedService)}`);
-    }
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    navigate(postJobUrl(selectedService, postcode));
   };
 
   return (
-    <section className="pt-24 bg-background overflow-hidden pattern" style={{
-      height: "calc(100vh - 4rem)", // Full viewport height minus header
-    }}>
-      <div className="container">
-        <div className="grid lg:grid-cols-5 gap-12 items-center">
-          {/* Left Content */}
-          <div className="text-primary-foreground col-span-3">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight w-full mb-20">
-              The reliable way <br />
-              to hire a{" "}
-              <span className="inline-block min-w-[280px] md:min-w-[320px] lg:min-w-[380px]">
-                {displayText}
-                <span className="animate-pulse">|</span>
-              </span>
-            </h1>
+    <section className="relative overflow-hidden bg-background">
+      {/* Desktop image layer */}
+      <div className="absolute inset-y-0 right-0 hidden w-[56%] lg:block">
+        <img
+          src={HERO_IMAGE}
+          alt="Smiling tradesperson standing outside a family home"
+          className="h-full w-full object-cover object-[72%_center]"
+          fetchPriority="high"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/30 to-transparent" />
+      </div>
 
-            {/* Search Form */}
-            <div className="mb-1 relative max-w-lg">
-              <p className="text-3xl font-semibold mb-4">What is your job?</p>
-              <div className="flex flex-col sm:flex-row w-full items-stretch sm:items-center gap-0">
-                <div className="flex-1">
-                  <JobServiceCombobox
-                    value={selectedService}
-                    onChange={setSelectedService}
-                    placeholder="Cleaning Services"
-                    triggerClassName="h-14 text-lg px-4 text-foreground hover:bg-white/90 rounded-r-none border-r-0"
-                  />
-                </div>
-                <Button
-                  onClick={handleSubmit}
-                  disabled={!selectedService}
-                  className="h-14 rounded-l-none px-6 disabled:opacity-90 border-2 border-white bg-primary/95 hover:bg-primary/90"
-                >
-                  <ArrowRight className="h-24 w-24" />
-                </Button>
-              </div>
-            </div>
+      <div className="container relative grid items-center gap-10 py-10 md:py-14 lg:min-h-[640px] lg:grid-cols-12 lg:py-20">
+        <div className="lg:col-span-7 xl:col-span-6">
+          <h1 className="text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl xl:text-6xl">
+            Get your home <br className="hidden sm:inline" />
+            project done
+            <span className="block text-primary">with confidence</span>
+          </h1>
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            Connect with trusted local professionals for building, repair and
+            home improvement work.
+          </p>
 
-            {/* Trust Badge */}
-            <div className="flex items-center gap-2 text-sm text-primary-foreground/80">
-              <span className="font-medium">Excellent</span>
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-5 h-5 bg-emerald-500 flex items-center justify-center"
-                  >
-                    <svg
-                      className="w-3 h-3 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  </div>
-                ))}
-              </div>
-              <span className="text-primary-foreground/60">Trustpilot</span>
+          <form
+            onSubmit={handleSubmit}
+            className="mt-8 flex max-w-2xl flex-col gap-2 rounded-xl border bg-card p-2 shadow-lg shadow-foreground/5 sm:flex-row sm:items-center"
+            role="search"
+          >
+            <div className="relative min-w-0 flex-1">
+              <Search
+                className="pointer-events-none absolute left-3 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-muted-foreground"
+                aria-hidden
+              />
+              <JobServiceCombobox
+                value={selectedService}
+                onChange={setSelectedService}
+                placeholder="What service do you need?"
+                triggerClassName="h-12 border-0 pl-9 text-base font-normal shadow-none"
+              />
             </div>
+            <div className="hidden h-8 w-px bg-border sm:block" aria-hidden />
+            <div className="relative sm:w-48">
+              <MapPin
+                className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
+                aria-hidden
+              />
+              <Input
+                value={postcode}
+                onChange={(e) => setPostcode(e.target.value.toUpperCase())}
+                placeholder="Enter your postcode"
+                aria-label="Your postcode"
+                autoComplete="postal-code"
+                className="h-12 border-0 pl-9 text-base shadow-none focus-visible:ring-0 focus-visible:ring-offset-0"
+              />
+            </div>
+            <Button type="submit" size="xl" className="px-6">
+              <Search aria-hidden />
+              Search
+            </Button>
+          </form>
+
+          <div className="mt-4 flex flex-wrap items-center gap-2 text-sm">
+            <span className="mr-1 text-muted-foreground">Popular:</span>
+            {popularSearches.map(({ label, service }) => (
+              <Link
+                key={service}
+                to={postJobUrl(service, postcode)}
+                className="rounded-full border bg-card px-3 py-1 font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
+              >
+                {label}
+              </Link>
+            ))}
           </div>
 
-          {/* Right Content - Placeholder for image */}
-          <div className="hidden lg:block col-span-2 relative rounded-2xl overflow-hidden shadow-2xl">
-            <div className="aspect-[4/3] bg-primary-foreground/10 rounded-2xl flex items-center justify-center">
-              <img src="/images/hero_section_img_1.jpg" alt="Hero" />
-              <div className="absolute top-12 left-12 bg-highlight text-black px-4 py-2 rounded-md font-bold shadow-lg flex items-center gap-2">
-                <span>Gwatwa ★ 4.8/5</span>
-              </div>
+          <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-foreground">
+            {trustPoints.map(({ icon: Icon, label }) => (
+              <li key={label} className="flex items-center gap-2">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <Icon className="h-3.5 w-3.5" aria-hidden />
+                </span>
+                {label}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-              {/* Green Bounding Box Effect */}
-              <div className="absolute top-12 left-12 right-12 bottom-12 border-2 border-highlight pointer-events-none rounded-lg"></div>
-            </div>
-          </div>
+        {/* Mobile / tablet image with inline card */}
+        <div className="lg:hidden">
+          <img
+            src={HERO_IMAGE}
+            alt=""
+            className="aspect-[16/10] w-full rounded-2xl object-cover object-[78%_center] sm:aspect-[2/1]"
+          />
+          <HeroTrustCard className="-mt-10 ml-4 mr-4 sm:ml-6 sm:max-w-sm" />
+        </div>
+
+        {/* Desktop floating card, over the image */}
+        <div className="hidden self-end lg:col-span-5 lg:flex lg:justify-end xl:col-span-6">
+          <HeroTrustCard className="max-w-xs" />
         </div>
       </div>
     </section>
   );
 };
+
+/** Shows a real review when one exists; otherwise a factual trust statement. */
+function HeroTrustCard({ className = "" }: { className?: string }) {
+  const [review] = useFeaturedReviews(3);
+
+  return (
+    <div
+      className={`relative rounded-xl border bg-card/95 p-5 shadow-xl shadow-foreground/10 backdrop-blur ${className}`}
+    >
+      {review ? (
+        <>
+          {review.rating > 0 && <StarRating rating={review.rating} size="sm" />}
+          <p className="mt-2 line-clamp-3 text-sm font-medium leading-relaxed text-foreground">
+            “{review.comment}”
+          </p>
+          <p className="mt-3 text-xs text-muted-foreground">
+            {review.authorName}
+            {review.jobTitle ? ` · ${review.jobTitle}` : ""}
+          </p>
+        </>
+      ) : (
+        <div className="flex gap-3">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <ShieldCheck className="h-5 w-5" aria-hidden />
+          </span>
+          <div>
+            <p className="text-sm font-semibold text-foreground">
+              Every tradesperson is checked
+            </p>
+            <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+              ID, company details and certifications are reviewed at
+              registration.{" "}
+              <Link
+                to="/quality-checks"
+                className="font-medium text-primary hover:underline"
+              >
+                Our checks
+              </Link>
+            </p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default HeroSection;
