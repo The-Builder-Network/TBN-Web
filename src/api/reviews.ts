@@ -1,5 +1,11 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import {
+  useMutation,
+  useQueries,
+  useQuery,
+  useQueryClient,
+} from "@tanstack/react-query";
 import { api } from "./client";
+import { useSearchTradespeople, type TradespersonSearchResult } from "./search";
 import type { PaginatedResponse, ReviewItem } from "./types";
 
 // ── API functions ───────────────────────────────────────────
@@ -43,6 +49,36 @@ export function useReviews(tradespersonId: string, page = 1) {
     queryKey: [...reviewKeys.forTradesperson(tradespersonId), page],
     queryFn: () => getReviews(tradespersonId, page),
     enabled: !!tradespersonId,
+  });
+}
+
+export interface FeaturedReview extends ReviewItem {
+  tradesperson: TradespersonSearchResult;
+}
+
+/**
+ * Latest real review from each of the most-reviewed verified tradespeople.
+ * There is no platform-wide reviews endpoint, so this composes the public
+ * search + per-tradesperson reviews endpoints. Empty while loading or on error.
+ */
+export function useFeaturedReviews(limit = 3): FeaturedReview[] {
+  const { data: pros } = useSearchTradespeople({
+    sort: "reviewCount",
+    order: "desc",
+    perPage: limit,
+  });
+  const reviewed = (pros?.data ?? []).filter((p) => p.reviewCount > 0);
+
+  const results = useQueries({
+    queries: reviewed.map((p) => ({
+      queryKey: [...reviewKeys.forTradesperson(p.userId), 1],
+      queryFn: () => getReviews(p.userId),
+    })),
+  });
+
+  return reviewed.flatMap((tradesperson, i) => {
+    const review = results[i]?.data?.data[0];
+    return review?.comment ? [{ ...review, tradesperson }] : [];
   });
 }
 
