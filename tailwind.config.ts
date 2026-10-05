@@ -11,7 +11,9 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "4rem",
+      // md/lg steps live in index.css: per-breakpoint padding here would need
+      // matching container.screens, which would change max-widths site-wide
+      padding: "1rem",
       screens: {
         "2xl": "1400px",
       },
