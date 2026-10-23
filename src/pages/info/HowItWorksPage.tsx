@@ -1,14 +1,109 @@
-import {
-  FileText,
-  MessageCircle,
-  Users,
-  CheckCircle,
-  Star,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import CTASection from "@/components/home/sections/CTASection";
 import { Helmet } from "react-helmet-async";
+import { Button } from "@/components/ui/button";
+import CTASection from "@/components/home/sections/CTASection";
+import { CardGrid, PageHero, Section } from "@/components/shared/ContentBlocks";
+
+const steps = [
+  {
+    title: "Tell Us About Your Project",
+    description: (
+      <>
+        <p>
+          Start by selecting the type of work you need and sharing the
+          important details.
+        </p>
+        <p>
+          Whether it's an urgent repair, planned renovation or larger building
+          project, a clear description helps tradespeople understand your
+          requirements.
+        </p>
+        <p>Include your location, preferred timing and any useful photographs.</p>
+      </>
+    ),
+  },
+  {
+    title: "Explore Interested Professionals",
+    description: (
+      <>
+        <p>
+          Your project information helps connect your enquiry with tradespeople
+          offering relevant services.
+        </p>
+        <p>
+          You can explore the professionals who respond, learn about their
+          experience and consider which may be the right fit.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "Discuss the Work and Make Your Choice",
+    description: (
+      <>
+        <p>
+          Speak with professionals about the scope of work, expected costs,
+          availability and your priorities.
+        </p>
+        <p>
+          Review the information provided and decide who you would like to work
+          with. The final hiring decision remains yours.
+        </p>
+      </>
+    ),
+  },
+];
+
+const reasons = [
+  {
+    title: "Find Services Relevant to Your Project",
+    description:
+      "Explore a wide selection of trades and identify the professionals best suited to your requirements.",
+  },
+  {
+    title: "Compare Your Options",
+    description:
+      "Consider professional experience, service information and available customer feedback before making a decision.",
+  },
+  {
+    title: "Keep Your Project Organised",
+    description:
+      "Begin with a clear job description so you can have more focused conversations about your needs.",
+  },
+  {
+    title: "Make Decisions at Your Own Pace",
+    description:
+      "Discuss details with interested professionals and choose an arrangement that works for you.",
+  },
+];
+
+const journey = [
+  {
+    title: "Share the Important Details",
+    description:
+      "Accurate descriptions make it easier for professionals to understand what the work involves.",
+  },
+  {
+    title: "Discuss Scope and Pricing",
+    description:
+      "Explain your expectations, request quotations and clarify what is included before agreeing to proceed.",
+  },
+  {
+    title: "Agree on Your Project Plan",
+    description:
+      "Confirm the work to be completed, materials, estimated timescales, access requirements and payment arrangements.",
+  },
+  {
+    title: "Get Your Project Underway",
+    description:
+      "Once you've selected a tradesperson and agreed on the details, work can begin according to your arrangements.",
+  },
+  {
+    title: "Share Your Experience",
+    description:
+      "After the project, use any available feedback features to describe your experience and help other homeowners make informed decisions.",
+  },
+];
 
 const HowItWorks = () => {
   return (
@@ -17,271 +112,69 @@ const HowItWorks = () => {
         <title>How It Works | The Builder Network</title>
         <meta
           name="description"
-          content="Learn how Builder Network connects homeowners with verified tradespeople in three simple steps."
+          content="How The Builder Network works: tell us about your project, explore interested local professionals, then discuss the work and make your choice."
         />
       </Helmet>
-      {/* Hero Section */}
-      <section className="bg-muted py-16">
-        <div className="container">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            How It works
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-3xl">
-            Posting a job on The Builder Network is simple and free. Just tell
-            us what you need, and our clever match-making process will help you
-            choose the right person for your job with confidence.
-          </p>
-        </div>
-      </section>
 
-      {/* Steps Section */}
-      <section className="py-16">
-        <div className="container">
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <Link to="/post-job" className="text-center group cursor-pointer">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4 group-hover:bg-primary/20 transition-colors">
-                <FileText className="h-8 w-8 text-primary" />
+      <PageHero
+        eyebrow="How The Builder Network Works"
+        title="A Simpler Way to Find Help for Your Home"
+      >
+        <p>
+          Finding a suitable tradesperson should feel straightforward, not
+          complicated. The Builder Network helps you move from a project idea
+          to a conversation with relevant local professionals.
+        </p>
+      </PageHero>
+
+      <Section eyebrow="Three Steps to Get Started" title="From idea to conversation">
+        <CardGrid items={steps} numbered className="lg:grid-cols-3" />
+        <Button asChild size="xl" className="mt-10">
+          <Link to="/post-job">Get Started</Link>
+        </Button>
+      </Section>
+
+      <Section
+        eyebrow="Why Homeowners Choose The Builder Network"
+        title="Designed around your project"
+        tinted
+      >
+        <CardGrid items={reasons} className="lg:grid-cols-4" />
+      </Section>
+
+      <Section
+        eyebrow="From Enquiry to Completed Project"
+        title="What happens next"
+      >
+        <ol className="max-w-3xl">
+          {journey.map(({ title, description }, i) => (
+            <li key={title} className="relative flex gap-5 pb-8 last:pb-0">
+              {i < journey.length - 1 && (
+                <span
+                  className="absolute left-[1.125rem] top-10 h-[calc(100%-2.5rem)] w-px bg-border"
+                  aria-hidden
+                />
+              )}
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
+                {i + 1}
+              </span>
+              <div className="pt-1.5">
+                <h3 className="font-semibold text-foreground">{title}</h3>
+                <p className="mt-1 leading-relaxed text-muted-foreground">
+                  {description}
+                </p>
               </div>
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                Post a job
-              </h3>
-              <p className="text-muted-foreground">
-                Post your job in a few simple steps. Once your job is on The
-                Builder Network, we'll let you know which tradespeople are
-                interested.
-              </p>
-            </Link>
+            </li>
+          ))}
+        </ol>
+      </Section>
 
-            <Link
-              to="/tradesnetwork"
-              className="text-center group cursor-pointer"
-            >
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4 group-hover:bg-primary/20 transition-colors">
-                <MessageCircle className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                See who's interested
-              </h3>
-              <p className="text-muted-foreground">
-                After you post a job, our matching system identifies and alerts
-                relevant tradespeople, who can then express interest in your
-                job.
-              </p>
-            </Link>
-
-            <Link to="/post-job" className="text-center group cursor-pointer">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4 group-hover:bg-primary/20 transition-colors">
-                <Users className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                Start chats with tradespeople
-              </h3>
-              <p className="text-muted-foreground">
-                Choose from local tradespeople interested in your job. Contact
-                details are shared only when you say so.
-              </p>
-            </Link>
-          </div>
-
-          <div className="text-center">
-            <Link to="/post-job">
-              <Button size="lg">Get started</Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section className="py-20 bg-muted">
-        <div className="container">
-          <h2 className="text-4xl font-bold text-center mb-14">
-            Why The Builder Network is the reliable way
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-background p-6 rounded-lg border">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Users className="h-6 w-6 text-primary" />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-2">
-                    Get matched with available tradespeople
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    Our unique system finds the best tradespeople for your job
-                    from our extensive network of professionals.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-background p-6 rounded-lg border">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <MessageCircle className="h-6 w-6 text-primary" />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-2">
-                    Choose who you want to contact with confidence
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    Review profiles, work history, and customer feedback to make
-                    an informed decision before contacting anyone.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-background p-6 rounded-lg border">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <CheckCircle className="h-6 w-6 text-primary" />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-2">
-                    Hire with confidence
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    All tradespeople on our platform are verified with coverage
-                    checks, helping you choose a builder you can trust.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Process Details Section */}
-      <section className="py-16">
-        <div className="container">
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <FileText className="h-8 w-8 text-primary" />
-                <h3 className="text-2xl font-bold">View quotes</h3>
-              </div>
-              <p className="text-muted-foreground mb-4">
-                Interested tradespeople will send you a quote. You can review
-                them by reading their profiles, work history and reviews.
-              </p>
-              <div className="flex items-start gap-2 text-sm text-muted-foreground">
-                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                <span>Add pictures to your job post for accurate quotes.</span>
-              </div>
-            </div>
-            <div className="bg-muted rounded-lg overflow-hidden h-64 shadow-md">
-              <img
-                src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop"
-                alt="Reviewing quotes"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <div className="md:order-2">
-              <div className="flex items-center gap-3 mb-4">
-                <Star className="h-8 w-8 text-primary" />
-                <h3 className="text-2xl font-bold">Review pricing</h3>
-              </div>
-              <p className="text-muted-foreground mb-4">
-                To help you choose a builder within your budget, our
-                tradespeople usually provide an estimated cost based on the
-                amount of work and materials needed.
-              </p>
-            </div>
-            <div className="md:order-1 bg-muted rounded-lg overflow-hidden h-64 shadow-md">
-              <img
-                src="https://images.unsplash.com/photo-1554224155-98406894d891?q=80&w=2072&auto=format&fit=crop"
-                alt="Reviewing pricing"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <CheckCircle className="h-8 w-8 text-primary" />
-                <h3 className="text-2xl font-bold">Check reviews</h3>
-              </div>
-              <p className="text-muted-foreground mb-4">
-                Customers like you leave reviews for completed jobs. Check
-                reviews to find the best tradesperson.
-              </p>
-            </div>
-            <div className="bg-muted rounded-lg overflow-hidden h-64 shadow-md">
-              <img
-                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop"
-                alt="Checking reviews"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Getting Job Done Section */}
-      <section className="py-16 bg-muted">
-        <div className="container">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="bg-muted rounded-lg overflow-hidden h-64 shadow-md">
-              <img
-                src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2070&auto=format&fit=crop"
-                alt="Getting the job done"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <CheckCircle className="h-8 w-8 text-primary" />
-                <h3 className="text-2xl font-bold">Getting the job done</h3>
-              </div>
-              <p className="text-muted-foreground mb-4">
-                Once you've agreed on terms, pricing and timings, your
-                tradesperson will get to work.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Review Experience Section */}
-      <section className="py-16">
-        <div className="container">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <Star className="h-8 w-8 text-primary" />
-                <h3 className="text-2xl font-bold">Review your experience</h3>
-              </div>
-              <p className="text-muted-foreground mb-4">
-                After your job is complete, you can leave a review based on your
-                experience. Our review system ensures that tradespeople are
-                rewarded for good work and held accountable for any problems.
-              </p>
-            </div>
-            <div className="bg-muted rounded-lg overflow-hidden h-64 shadow-md">
-              <img
-                src="https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=2070&auto=format&fit=crop"
-                alt="Review your experience"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <CTASection title="Ready to hire with confidence?" />
+      <CTASection
+        title="Ready to Move Your Project Forward?"
+        description="From the first idea to the finished result, finding the right professional can make a real difference. Tell us what you need and start connecting with local professionals."
+        ctaText="Post a Project"
+        to="/post-job"
+      />
     </main>
   );
 };

@@ -1,186 +1,210 @@
-import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
-import TradespersonCTASection from "@/components/tradesnetwork/CTASection";
 import { Helmet } from "react-helmet-async";
+import { Button } from "@/components/ui/button";
+import TradespersonCTASection from "@/components/tradesnetwork/CTASection";
+import { PageHero, Prose, Section } from "@/components/shared/ContentBlocks";
+
+const CONTACT_EMAIL =
+  "mailto:info@thebuildernetwork.com?subject=Professional%20standards%20enquiry";
+
+interface Standard {
+  label: string;
+  title: string;
+  body: string[];
+  list?: string[];
+}
+
+const standards: Standard[] = [
+  {
+    label: "Put Respect First",
+    title: "Treat Every Customer Professionally",
+    body: [
+      "A successful working relationship begins with respect.",
+      "Tradespeople should communicate politely, respect customer property and maintain appropriate professional boundaries.",
+      "We expect professionals to:",
+    ],
+    list: [
+      "Treat customers fairly and courteously.",
+      "Respect agreed access arrangements.",
+      "Take reasonable care of the property.",
+      "Manage the work area responsibly.",
+      "Avoid threatening, discriminatory or abusive behaviour.",
+    ],
+  },
+  {
+    label: "Be Reliable and Accountable",
+    title: "Follow Through on Your Commitments",
+    body: [
+      "Customers organise their time and budgets around agreed appointments.",
+      "Tradespeople should make realistic commitments and keep customers informed if circumstances change.",
+      "This includes arriving at agreed times, providing updates where necessary and communicating promptly about delays.",
+    ],
+  },
+  {
+    label: "Make Pricing Easy to Understand",
+    title: "Clear Quotations Build Better Relationships",
+    body: [
+      "Customers should understand what they are agreeing to before work begins.",
+      "Written quotations should explain the proposed services, expected charges, relevant taxes and any important exclusions.",
+      "If unforeseen work or additional costs arise, discuss these with the customer before proceeding.",
+    ],
+  },
+  {
+    label: "Communicate Throughout the Project",
+    title: "Keep Customers Informed",
+    body: [
+      "Home improvement projects often involve questions, adjustments and decisions.",
+      "Good communication can prevent avoidable misunderstandings.",
+      "We encourage tradespeople to explain technical matters in accessible language, respond to reasonable customer questions and provide updates on significant developments.",
+    ],
+  },
+  {
+    label: "Work Within Your Expertise",
+    title: "Accept Projects You Are Qualified to Deliver",
+    body: [
+      "Trade professionals should only undertake work for which they possess the appropriate knowledge, experience, qualifications and legal permissions.",
+      "Where specialist authorisation is required, professionals must comply with the relevant UK regulations.",
+      "Work outside your capabilities should be referred to a suitable specialist.",
+    ],
+  },
+  {
+    label: "Prioritise Safety and Workmanship",
+    title: "Protect People, Property and the Quality of Your Work",
+    body: [
+      "Professional workmanship requires appropriate planning, suitable materials and responsible working methods.",
+      "Tradespeople must follow applicable health and safety requirements, building regulations and other legal obligations relevant to the work.",
+      "Concerns affecting safety or the integrity of the project should be addressed promptly.",
+    ],
+  },
+  {
+    label: "Be Honest About Your Business",
+    title: "Keep Your Professional Information Accurate",
+    body: [
+      "Trade professionals must represent their business and experience truthfully.",
+      "Profiles, portfolio images, qualifications and service descriptions should not create misleading impressions.",
+      "Important changes to business details or professional credentials should be reflected in the relevant account information.",
+    ],
+  },
+  {
+    label: "Handle Complaints Constructively",
+    title: "Work Towards Fair Solutions",
+    body: [
+      "Disagreements can sometimes occur even when both parties have good intentions.",
+      "We expect tradespeople to respond to reasonable concerns professionally, consider relevant evidence and make genuine efforts to resolve problems.",
+      "Threats, harassment or attempts to pressure customers into withdrawing legitimate complaints are unacceptable.",
+    ],
+  },
+  {
+    label: "Protect Customer Information",
+    title: "Respect Privacy and Confidentiality",
+    body: [
+      "Customer contact details, addresses, project information and other personal data must be handled responsibly.",
+      "Information obtained through the platform should only be used for legitimate and authorised purposes, in accordance with applicable privacy laws.",
+    ],
+  },
+  {
+    label: "Follow Platform Rules",
+    title: "Help Maintain a Responsible Professional Community",
+    body: [
+      "Tradespeople using The Builder Network must comply with the platform's applicable terms, professional requirements and published policies.",
+      "Serious or repeated concerns may lead to a review of account access, subject to the platform's established procedures.",
+    ],
+  },
+];
 
 const QualityRequirements = () => {
   return (
     <>
       <Helmet>
-        <title>Quality Requirements | The Builder Network</title>
+        <title>Professional Standards | The Builder Network</title>
         <meta
           name="description"
-          content="Builder Network quality standards and requirements for all registered tradespeople."
+          content="The Builder Network professional standards: the conduct we expect from tradespeople on respect, reliability, pricing, communication, safety and privacy."
         />
       </Helmet>
       <main className="flex-1">
-        {/* Hero Section */}
-        <div className="bg-primary/5 py-16">
-          <div className="container">
-            <div className="text-center">
-              <img
-                src="/images/quality-standard-hero.jpg"
-                alt="Quality Standard"
-                className="w-full rounded-lg mb-8 object-cover h-64"
-                onError={(e) => {
-                  e.currentTarget.style.display = "none";
-                }}
-              />
-              <h1 className="text-4xl font-bold mb-4">
-                The Builder Network Quality Standard
-              </h1>
-              <p className="text-lg text-muted-foreground">
-                Tradespeople who sign up to The Builder Network must adhere to
-                our quality standards.
+        <PageHero
+          eyebrow="The Builder Network Professional Standards"
+          title="Good Work Starts with Professional Responsibility"
+        >
+          <p>
+            The Builder Network aims to create a positive environment for
+            homeowners and trade professionals.
+          </p>
+          <p>
+            To support that goal, we expect participating tradespeople to
+            demonstrate responsible business practices, clear communication and
+            respect for customers.
+          </p>
+          <p>
+            These standards outline the conduct expected from professionals
+            using our platform.
+          </p>
+        </PageHero>
+
+        <div className="container py-14 md:py-20">
+          <ol className="grid gap-5 lg:grid-cols-2">
+            {standards.map(({ label, title, body, list }, i) => (
+              <li
+                key={label}
+                className="rounded-xl border bg-card p-6 shadow-card md:p-8"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
+                  {i + 1}. {label}
+                </p>
+                <h2 className="mt-2 text-lg font-semibold text-foreground md:text-xl">
+                  {title}
+                </h2>
+                <div className="mt-3 space-y-3 text-sm leading-relaxed text-muted-foreground">
+                  {body.map((p) => (
+                    <p key={p}>{p}</p>
+                  ))}
+                  {list && (
+                    <ul className="list-disc space-y-1 pl-5 marker:text-primary">
+                      {list.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <Section eyebrow="Our Shared Commitment" title="A stronger trade community" tinted>
+          <Prose>
+            <p>
+              The Builder Network exists to help create productive connections
+              between homeowners and skilled professionals.
+            </p>
+            <p>
+              By following clear professional standards, tradespeople contribute
+              to a better experience for customers and a stronger reputation for
+              the wider trade community.
+            </p>
+          </Prose>
+          <div className="mt-10 flex max-w-3xl flex-col gap-4 rounded-xl border bg-card p-6 sm:flex-row sm:items-center sm:justify-between md:p-8">
+            <div>
+              <h2 className="font-semibold text-foreground">
+                Questions About Our Standards?
+              </h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Contact The Builder Network for guidance on professional
+                expectations, platform policies or account-related concerns.
               </p>
             </div>
+            <Button asChild variant="outline" size="lg" className="shrink-0">
+              <a href={CONTACT_EMAIL}>Contact Our Team</a>
+            </Button>
           </div>
-        </div>
-
-        {/* Content Section */}
-        <div className="container py-12">
-          <div className="bg-primary/5 p-8 rounded-lg mb-12">
-            <h2 className="text-3xl font-bold mb-6">
-              The Builder Network House Rules
-            </h2>
-            <p className="text-lg mb-4">
-              The Builder Network community of tradespeople takes pride in their
-              work and in their relationships with our customers. We require all
-              tradespeople to agree to our House Rules to demonstrate their
-              commitment to service and quality.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {/* Rule 1 */}
-            <div className="border-l-4 border-highlight pl-6">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="text-3xl">🤝</div>
-                <div>
-                  <h3 className="text-lg font-bold mb-3">
-                    Always treat customers with respect
-                  </h3>
-                  <p className="text-sm mb-4">
-                    The Builder Network tradespeople must conduct themselves
-                    professionally, both online and in person. You must clean up
-                    the site after the job is complete. We value mutual respect
-                    and so remind both tradespeople and clients to communicate
-                    with each other respectfully. We absolutely do not tolerate
-                    any physical or verbal abuse.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Rule 2 */}
-            <div className="border-l-4 border-highlight pl-6">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="text-3xl">📅</div>
-                <div>
-                  <h3 className="text-lg font-bold mb-3">
-                    Always keep to the agreements and appointments you make with
-                    customers
-                  </h3>
-                  <p className="text-sm mb-4">Make sure:</p>
-                  <ul className="list-disc pl-6 space-y-2 mb-4 text-sm">
-                    <li>You show up to your appointments on time</li>
-                    <li>
-                      Your quote matches what you agreed with the customer
-                    </li>
-                    <li>
-                      You complete the work to the agreed schedule and to the
-                      best of your ability
-                    </li>
-                  </ul>
-                  <p className="text-sm">
-                    We understand that things happen, and sometimes appointments
-                    need to change. In these cases, we ask that you get in
-                    contact with the customer ahead of time to reschedule.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Rule 3 */}
-            <div className="border-l-4 border-highlight pl-6">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="text-3xl">💬</div>
-                <div>
-                  <h3 className="text-lg font-bold mb-3">
-                    Clearly communicate costs and timings
-                  </h3>
-                  <p className="text-sm mb-4">
-                    Your customers want clarity and certainty. They trust you as
-                    an expert. Be sure to clearly and quickly communicate any
-                    changes to the schedule of works and any additional costs.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Rule 4 */}
-            <div className="border-l-4 border-highlight pl-6">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="text-3xl">✍️</div>
-                <div>
-                  <h3 className="text-lg font-bold mb-3">
-                    Communicate clearly and professionally
-                  </h3>
-                  <p className="text-sm mb-4">
-                    When clients invest in their home, they expect a
-                    professional quote. All quotes must be written in plain
-                    English. Offers should be clear, understandable, realistic
-                    and include VAT along with the payment method. Don't message
-                    the fee you've paid to The Builder Network when creating the
-                    quote.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Rule 5 */}
-            <div className="border-l-4 border-highlight pl-6">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="text-3xl">⚡</div>
-                <div>
-                  <h3 className="text-lg font-bold mb-3">
-                    Deliver outstanding work and be proactive
-                  </h3>
-                  <p className="text-sm mb-4">
-                    The most important thing is carrying out quality work. Only
-                    take on leads you can complete, and never cancel jobs you
-                    have already started. Keep communicating with the customer
-                    and inform them of any problems. By doing this, you'll avoid
-                    possible complaints. Remember, you can always contact us for
-                    advice on how to resolve issues with customers.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Rule 6 */}
-            <div className="border-l-4 border-highlight pl-6">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="text-3xl">✅</div>
-                <div>
-                  <h3 className="text-lg font-bold mb-3">
-                    Accepting our Quality Standards
-                  </h3>
-                  <p className="text-sm mb-4">
-                    By signing up as a tradesperson and using our service, you
-                    accept and agree to these quality requirements. In the event
-                    of complaints, we will conduct an investigation that could
-                    result in the deletion of your The Builder Network account.
-                    If you have any questions, please reach out to us at
-                    info@thebuildernetwork.com.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </Section>
       </main>
-      <TradespersonCTASection title="Join for free and start getting the work you want" />
+      <TradespersonCTASection
+        title="Grow Your Business with The Builder Network"
+        description="Connect with homeowners looking for professional help and showcase the services your business provides. Introduce your business and explore opportunities within our professional network."
+        ctaText="Join as a Tradesperson"
+        to="/tradesnetwork"
+      />
     </>
   );
 };

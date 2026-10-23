@@ -1,8 +1,35 @@
-import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import StatsSection from "@/components/home/sections/StatsSection";
 import CTASection from "@/components/home/sections/CTASection";
-import { Helmet } from "react-helmet-async";
+import {
+  CardGrid,
+  PageHero,
+  Prose,
+  Section,
+} from "@/components/shared/ContentBlocks";
+
+const beliefs = [
+  {
+    title: "Making Home Improvements Easier",
+    description:
+      "From the first enquiry to the final finishing touches, we aim to simplify the journey of finding and hiring a tradesperson.",
+  },
+  {
+    title: "Helping Skills Get Recognised",
+    description:
+      "We want experienced professionals to have opportunities to demonstrate their capabilities, showcase their projects and build stronger customer relationships.",
+  },
+  {
+    title: "Creating More Confident Decisions",
+    description:
+      "Clear information, professional profiles and genuine customer experiences can help homeowners assess their options before hiring.",
+  },
+  {
+    title: "Supporting Local Businesses",
+    description:
+      "By connecting customers with professionals serving their area, we help independent tradespeople discover new opportunities within their communities.",
+  },
+];
 
 const About = () => {
   return (
@@ -11,92 +38,109 @@ const About = () => {
         <title>About Us | The Builder Network</title>
         <meta
           name="description"
-          content="Learn about Builder Network, our mission, and the team connecting UK homeowners with trusted tradespeople."
+          content="The Builder Network connects homeowners with local trade professionals — a simpler way to explore services, connect with interested tradespeople and make informed hiring decisions."
         />
       </Helmet>
-      {/* Hero Section */}
-      <section className="container py-8">
-        <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-          About us
-        </h1>
-      </section>
 
-      {/* Mission Section */}
-      <section className="pt-6 pb-16">
-        <div className="container">
-          <h2 className="text-3xl font-bold mb-8">Our mission</h2>
-          <h3 className="text-xl font-semibold mb-6">
-            We help homeowners choose great builders, and we help great builders
-            succeed
-          </h3>
+      <PageHero
+        eyebrow="About The Builder Network"
+        title="Connecting Homeowners with the Right People for the Job"
+      >
+        <p>
+          Every home improvement project deserves the right expertise. At The
+          Builder Network, we're building a simpler way for homeowners to
+          discover local trade professionals and move forward with their
+          projects.
+        </p>
+        <p>
+          Whether you're arranging a small repair, renovating a room or planning
+          major building work, our platform helps you explore relevant services,
+          connect with interested tradespeople and make informed hiring
+          decisions.
+        </p>
+      </PageHero>
 
-          <div className="space-y-6 text-muted-foreground">
+      <Section
+        eyebrow="Our Mission"
+        title="Better Connections. Better Home Projects."
+      >
+        <Prose>
+          <p>
+            Our mission is to bring homeowners and skilled tradespeople together
+            through a straightforward and dependable online experience.
+          </p>
+          <p>
+            We believe finding the right professional shouldn't involve endless
+            searches, unanswered enquiries or unnecessary uncertainty.
+            Homeowners should have a convenient way to explain what they need,
+            explore available professionals and decide who is best suited to
+            their project.
+          </p>
+          <p>
+            At the same time, hardworking tradespeople deserve meaningful
+            opportunities to grow their businesses and connect with customers
+            who need their expertise.
+          </p>
+          <p className="font-semibold text-foreground">
+            The Builder Network brings both sides together in one place.
+          </p>
+        </Prose>
+      </Section>
+
+      <Section eyebrow="What We Believe" title="What guides our work" tinted>
+        <CardGrid items={beliefs} className="lg:grid-cols-4" />
+      </Section>
+
+      <Section
+        eyebrow="Our Approach"
+        title="Built Around Real Home Improvement Needs"
+      >
+        <div className="grid gap-10 lg:grid-cols-2">
+          <Prose>
             <p>
-              There are plenty of tradespeople out there, but finding a good one
-              is like looking for a needle in a haystack. At The Builder
-              Network, we take the hassle out of finding the right tradesperson
-              with our unique matchmaking system. Once your job is posted, we
-              alert relevant tradespeople and those interested get in touch. You
-              see full work history and customer feedback comments, helping you
-              choose the best builder for your job.
+              Every property and every project is different. That's why The
+              Builder Network supports a broad selection of home maintenance,
+              renovation, repair and construction services.
             </p>
-
-            <blockquote className="border-l-4 border-highlight pl-4 italic my-8">
-              "It is difficult getting a builder and more difficult getting a
-              builder you like. The Builder Network helps with that process."
-            </blockquote>
-
-            <p className="font-semibold text-foreground">Geoff Cooper</p>
-            <p className="text-sm">Former CEO, Travis Perkins Group</p>
-
-            <p className="mt-8">
-              And if you think life is any easier for builders looking for work,
-              think again. Finding clients can seem like an impossible task and
-              traditional advertising and directories almost never work. The
-              trades need to focus on doing great work for their customers,
-              without having to worry about where the next job will come from.
-              The Builder Network's feedback system means that today's client
-              helps future tradespeople with tomorrow's work.
+            <p>
+              Homeowners can describe their projects, identify suitable trade
+              categories and explore professionals who are interested in the
+              work.
             </p>
+            <p>
+              Our goal is to make the process more organised, accessible and
+              convenient for everyone involved.
+            </p>
+          </Prose>
+          <div className="rounded-xl border bg-card p-6 shadow-card md:p-8">
+            <h3 className="text-xl font-semibold text-foreground">
+              Growing a Stronger Trade Community
+            </h3>
+            <div className="mt-4 space-y-4 leading-relaxed text-muted-foreground">
+              <p>
+                We're working towards a platform where homeowners can find the
+                support they need and trade businesses can build long-term
+                success through their expertise, professionalism and customer
+                relationships.
+              </p>
+              <p>
+                From everyday maintenance to ambitious renovations, we believe
+                every successful project starts with the right connection.
+              </p>
+            </div>
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* History Section */}
-      <section className="py-16 bg-muted">
-        <div className="container">
-          <h2 className="text-3xl font-bold mb-8">History</h2>
+      <StatsSection />
+      <div className="pb-14 md:pb-20" />
 
-          <div className="space-y-6 text-muted-foreground">
-            <p>
-              Ryan Netz, a stonemason and roofer working in Bristol, dreamed of
-              a better way to find work back in 2004 by giving consumers a way
-              to find local, reliable builders. He immediately began to make his
-              dream come true by setting up an office in his garage. After two
-              years, a few false starts and a bit of late nights, The Builder
-              Network was launched.
-            </p>
-
-            <p>
-              Since then, we've helped hundreds of thousands of homeowners
-              choose the right builder for their project, and we've ensured that
-              thousands of tradespeople all over the country have a steady
-              stream of work.
-            </p>
-
-            <p>
-              Inspired by Ryan's vision, we're still working hard to make sure
-              The Builder Network is the single best way for homeowners to
-              choose great builders and for great builders to succeed.
-            </p>
-          </div>
-        </div>
-      </section>
-      <div className="py-12">
-        <StatsSection />
-      </div>
-
-      <CTASection title="Find the right tradesperson for your project today" />
+      <CTASection
+        title="Your Project Starts Here"
+        description="Have a job that needs professional attention? Tell us what you're planning and take the first step towards finding the right tradesperson. Share your requirements and connect with local trade professionals."
+        ctaText="Post Your Project"
+        to="/post-job"
+      />
     </main>
   );
 };

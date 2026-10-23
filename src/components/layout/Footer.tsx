@@ -16,7 +16,7 @@ const linkGroups = [
     title: "Tradespeople",
     links: [
       { label: "Register as tradesperson", to: "/tradesnetwork" },
-      { label: "Quality requirements", to: "/quality-requirements" },
+      { label: "Professional standards", to: "/quality-requirements" },
       { label: "Reviews policy", to: "/reviews-policy" },
     ],
   },

@@ -179,16 +179,16 @@ function HeroTrustCard({ className = "" }: { className?: string }) {
           </span>
           <div>
             <p className="text-sm font-semibold text-foreground">
-              Every tradesperson is checked
+              Make an informed choice
             </p>
             <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-              ID, company details and certifications are reviewed at
-              registration.{" "}
+              Compare profiles, experience and customer feedback before you
+              hire.{" "}
               <Link
                 to="/quality-checks"
                 className="font-medium text-primary hover:underline"
               >
-                Our checks
+                Our quality checks
               </Link>
             </p>
           </div>

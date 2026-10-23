@@ -46,7 +46,7 @@ const WhySection = () => {
               to="/quality-checks"
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
             >
-              How we check tradespeople
+              Our quality checks
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
           </div>

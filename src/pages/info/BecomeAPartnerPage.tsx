@@ -1,7 +1,18 @@
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import TradespersonCTASection from "@/components/tradesnetwork/CTASection";
 import { Helmet } from "react-helmet-async";
+import { Button } from "@/components/ui/button";
+import TradespersonCTASection from "@/components/tradesnetwork/CTASection";
+import {
+  CheckList,
+  Eyebrow,
+  PageHero,
+  Prose,
+  Section,
+} from "@/components/shared/ContentBlocks";
+
+// No partner enquiry form exists yet; enquiries go to the address used in the Terms.
+const PARTNER_EMAIL =
+  "mailto:info@thebuildernetwork.com?subject=Partnership%20enquiry";
 
 const BecomeAPartner = () => {
   return (
@@ -10,122 +21,143 @@ const BecomeAPartner = () => {
         <title>Become a Partner | The Builder Network</title>
         <meta
           name="description"
-          content="Join Builder Network as a partner and grow your business connecting with homeowners."
+          content="Partner with The Builder Network — collaborations for retailers, e-commerce businesses, contractors and trade businesses in the property improvement sector."
         />
       </Helmet>
-      <div className="flex-1 container py-16 md:py-16">
-        <h1 className="text-5xl font-bold mb-2">Become a partner</h1>
-        <p className="text-muted-foreground mb-12">Updated on 09/01/2026</p>
 
-        <p className="text-lg mb-12">
-          Whether you are a large contractor or a retailer, partner with us to
-          expand your business.
+      <PageHero
+        eyebrow="Partner With The Builder Network"
+        title="New Opportunities Start with Better Connections"
+      >
+        <p>
+          The Builder Network brings together homeowners, trade professionals
+          and businesses involved in property improvement.
         </p>
+        <p>
+          We welcome partnership enquiries from retailers, service providers,
+          contracting businesses and organisations looking to connect customers
+          with relevant trade expertise.
+        </p>
+        <p>
+          Our approach is built around practical collaborations that add value
+          for customers and create opportunities for participating businesses.
+        </p>
+      </PageHero>
 
-        {/* For e-commerce section */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-6">For e-commerce</h2>
-          <h3 className="text-xl font-semibold mb-4">
-            Enhance your customer experience with seamless service integration
-          </h3>
-
-          <p className="text-lg mb-6">
-            Installation concerns can often hinder online sales.
-          </p>
-
-          <p className="text-lg mb-8">
-            Help your customers hire trusted, professional installers for their
-            purchases - at no cost to you or your customers.
-          </p>
-
-          <ul className="space-y-3 mb-8">
-            <li className="flex items-start">
-              <span className="text-primary mr-3">✓</span>
-              <span>
-                Increase conversion rates by removing installation worries.
-              </span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-3">✓</span>
-              <span>Proven successful, example use case</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-3">✓</span>
-              <span>
-                Fulfilled by our extensive network of qualified, vetted, and
-                reviewed professionals.
-              </span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-3">✓</span>
-              <span>Drive higher conversions and customer experience.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-3">✓</span>
-              <span>Zero cost, simple implementation, no liabilities.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-3">✓</span>
-              <span>High customer satisfaction (NPS score: 9.4/10).</span>
-            </li>
-          </ul>
-
-          <p className="text-lg font-semibold mb-4">
-            Interested in improving conversion and customer experience?
-          </p>
-
-          <Button asChild size="lg">
-            <Link to="/about">Discover our solution</Link>
-          </Button>
+      <Section
+        eyebrow="Partnerships for Retailers and E-commerce Businesses"
+        title="Make the Customer Journey Easier, Beyond the Purchase"
+      >
+        <div className="grid gap-10 lg:grid-cols-2">
+          <Prose>
+            <p>
+              Customers purchasing products for their homes may also need
+              professional help with installation, assembly or fitting.
+            </p>
+            <p>
+              The Builder Network can provide a route for those customers to
+              find tradespeople offering the services they need.
+            </p>
+            <p>
+              Whether your business sells kitchens, bathrooms, flooring, doors
+              or home improvement products, a trade-service partnership could
+              help you offer a more complete customer journey.
+            </p>
+          </Prose>
+          <div className="rounded-xl border bg-card p-6 shadow-card md:p-8">
+            <h3 className="text-lg font-semibold text-foreground">
+              Potential Partnership Benefits
+            </h3>
+            <CheckList
+              className="mt-5"
+              items={[
+                "Give customers a convenient path to finding installation professionals.",
+                "Complement your products with access to relevant trade services.",
+                "Create a more connected shopping and home improvement experience.",
+                "Explore integration options suited to your business.",
+                "Support customers who need specialist assistance after purchasing.",
+              ]}
+            />
+          </div>
         </div>
 
-        {/* For large contractors section */}
-        <div>
-          <h2 className="text-3xl font-bold mb-6">For large contractors</h2>
-          <h3 className="text-xl font-semibold mb-4">
-            Do you operate a multi-van trade business and want to expand?
-          </h3>
-
-          <p className="text-lg mb-8">
-            We would love to help you get the most out of our platform and add
-            real value for your business.
-          </p>
-
-          <ul className="space-y-3 mb-8">
-            <li className="flex items-start">
-              <span className="text-primary mr-3">✓</span>
-              <span>Access a steady stream of tailored leads.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-3">✓</span>
-              <span>Take on the jobs you want, when you want them.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-3">✓</span>
-              <span>
-                Only pay when both you and the homeowner agree to connect.
-              </span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-3">✓</span>
-              <span>No subscription fees or fixed costs.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-3">✓</span>
-              <span>Sign up for multiple services for free.</span>
-            </li>
-          </ul>
-
-          <p className="text-lg font-semibold mb-4">
-            Interested in growing your business with a reliable solution?
-          </p>
-
-          <Button asChild size="lg">
-            <Link to="/tradesnetwork">Get started</Link>
+        <div className="mt-10 flex flex-col gap-4 rounded-xl bg-primary/[0.04] p-6 md:flex-row md:items-center md:justify-between md:p-8">
+          <div className="max-w-2xl">
+            <h3 className="font-semibold text-foreground">
+              Explore a Retail Partnership
+            </h3>
+            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+              Tell us about your business and the services your customers
+              regularly require. Our team can discuss potential opportunities
+              for collaboration.
+            </p>
+          </div>
+          <Button asChild size="xl" className="shrink-0">
+            <a href={PARTNER_EMAIL}>Explore Partnership Opportunities</a>
           </Button>
         </div>
-      </div>
-      <TradespersonCTASection title="Join for free and start getting the work you want" />
+      </Section>
+
+      <Section
+        eyebrow="Partnerships for Contractors and Trade Businesses"
+        title="Build New Connections for Your Growing Business"
+        tinted
+      >
+        <div className="grid gap-10 lg:grid-cols-2">
+          <Prose>
+            <p>
+              Running a busy trade business involves more than completing
+              projects. You also need to find suitable opportunities, manage
+              enquiries and maintain a consistent workflow.
+            </p>
+            <p>
+              The Builder Network is designed to help contractors discover
+              homeowners looking for relevant services.
+            </p>
+            <p>
+              Whether you manage an established team or are expanding your
+              coverage area, joining our professional network could introduce
+              your business to new project enquiries.
+            </p>
+            <Button asChild variant="outline" size="lg" className="mt-2">
+              <Link to="/tradesnetwork">Join as a tradesperson</Link>
+            </Button>
+          </Prose>
+          <div className="rounded-xl border bg-card p-6 shadow-card md:p-8">
+            <h3 className="text-lg font-semibold text-foreground">
+              Why Work With Us?
+            </h3>
+            <CheckList
+              className="mt-5"
+              items={[
+                "Discover enquiries connected to your trade.",
+                "Explore opportunities within your preferred service areas.",
+                "Present your business and specialist capabilities.",
+                "Build visibility among homeowners planning projects.",
+                "Develop your business through new customer relationships.",
+              ]}
+            />
+          </div>
+        </div>
+      </Section>
+
+      <Section>
+        <div className="max-w-3xl">
+          <Eyebrow>Designed for Different Types of Partners</Eyebrow>
+          <p className="leading-relaxed text-muted-foreground">
+            We welcome enquiries from independent trade businesses, regional
+            contractors, home improvement retailers, installation providers and
+            organisations serving the property sector.
+          </p>
+        </div>
+      </Section>
+
+      <TradespersonCTASection
+        title="Let's Build Something Better Together"
+        description="Interested in working with The Builder Network? Share a few details about your organisation, your goals and the type of partnership you're exploring. Connect with our team to discuss business opportunities."
+        ctaText="Become a Partner"
+        to={PARTNER_EMAIL}
+      />
     </>
   );
 };
