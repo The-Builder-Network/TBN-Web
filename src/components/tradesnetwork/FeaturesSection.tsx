@@ -1,139 +1,77 @@
+import { Check } from "lucide-react";
+
+const IMG = "/images/new-images/";
+
+const points = [
+  {
+    title: "Leads that match your skills",
+    description: "Only see jobs in the trades you offer",
+  },
+  {
+    title: "Work where you want",
+    description: "Choose your area and how far you travel",
+  },
+  {
+    title: "You're in control",
+    description: "Join for free and respond when it suits you",
+  },
+  {
+    title: "Grow your reputation",
+    description: "Showcase your work and collect customer reviews",
+  },
+];
+
 const TradespersonFeatures = () => {
   return (
-    <section className="pb-16 md:pt-24 bg-background overflow-hidden">
+    <section className="bg-background py-16 md:py-24">
       <div className="container">
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-12 items-center">
-          {/* Content Column */}
-          <div className="col-span-5">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to find work the reliable way?
-            </h2>
-            <p className="text-base text-muted-foreground">
-              There's lots of demand for good tradespeople but finding exactly
-              the work you want when you want it isn't always easy.{" "}
-              <br className="hidden md:block" />
-              The Builder Network is the reliable solution, ensuring you get
-              leads that are right for you.
+        <div className="reveal grid items-center gap-12 overflow-hidden rounded-2xl bg-primary/[0.05] px-6 py-10 sm:px-10 lg:grid-cols-2 lg:gap-10 lg:px-14 lg:py-14">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
+              Why join The Builder Network
             </p>
-          </div>
-          <div className="flex flex-col gap-8 col-span-3">
-            <div className="grid sm:grid-cols-2 gap-x-8 gap-y-10">
-              <div className="space-y-3">
-                <div className="border-l-4 border-primary pl-4">
-                  <h3 className="text-xl font-bold">All the work you need</h3>
-                </div>
-                <ul className="space-y-2">
-                  {[
-                    "150,000 jobs posted every month",
-                    "Whatever your trade, only get leads that match your skills",
-                    "Choose your work location and only get leads where you want them",
-                  ].map((item, index) => (
-                    <li
-                      key={index}
-                      className="flex gap-3 text-base text-muted-foreground"
-                    >
-                      <div className="mt-2 min-w-1.5 min-h-1.5 w-1.5 h-1.5 rounded-full bg-foreground" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <h2 className="mt-3 text-3xl font-bold leading-tight tracking-tight text-foreground md:text-4xl">
+              Ready to find work
+              <br className="hidden sm:inline" /> the reliable way?
+            </h2>
 
-              <div className="space-y-3">
-                <div className="border-l-4 border-primary pl-4">
-                  <h3 className="text-xl font-bold">You're in control</h3>
-                </div>
-                <ul className="space-y-2">
-                  {[
-                    "Join for free with no commitment",
-                    "Respond to leads only when it suits you",
-                    "Express interest in as many jobs as you like for free. Only pay a fee when shortlisted",
-                  ].map((item, index) => (
-                    <li
-                      key={index}
-                      className="flex gap-3 text-base text-muted-foreground"
-                    >
-                      <div className="mt-2 min-w-1.5 min-h-1.5 w-1.5 h-1.5 rounded-full bg-foreground" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="space-y-3 sm:col-span-2 lg:col-span-2 xl:col-span-1">
-                <div className="border-l-4 border-primary pl-4">
-                  <h3 className="text-xl font-bold">Grow your reputation</h3>
-                </div>
-                <ul className="space-y-2">
-                  {[
-                    "Get a free profile to showcase your skills and experience",
-                    "Build trust with reviews from previous customers",
-                    "Boost your reputation and attract new clients",
-                  ].map((item, index) => (
-                    <li
-                      key={index}
-                      className="flex gap-3 text-base text-muted-foreground"
-                    >
-                      <div className="mt-2 min-w-1.5 min-h-1.5 w-1.5 h-1.5 rounded-full bg-foreground" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+            <ul className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2">
+              {points.map(({ title, description }) => (
+                <li key={title} className="flex gap-3">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                    <Check className="h-4 w-4" strokeWidth={3} aria-hidden />
+                  </span>
+                  <div>
+                    <h3 className="font-semibold text-foreground">{title}</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      {description}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Image Column */}
-          <div className="col-span-2">
-            <div className="relative w-full max-w-[550px] mx-auto lg:mx-0 lg:ml-auto">
-              <div className="aspect-[16/9] bg-slate-900 rounded-xl shadow-2xl flex items-center justify-center p-4 md:p-8 relative overflow-hidden">
-                {/* Laptop Screen Content Mock */}
-                <div className="bg-white w-full h-full rounded-lg shadow-inner p-3 md:p-4 overflow-hidden">
-                  <div className="w-full h-6 md:h-8 bg-slate-100 mb-3 md:mb-4 rounded flex items-center px-3 md:px-4 gap-2">
-                    <div className="w-2 md:w-3 h-2 md:h-3 rounded-full bg-red-400"></div>
-                    <div className="w-2 md:w-3 h-2 md:h-3 rounded-full bg-yellow-400"></div>
-                    <div className="w-2 md:w-3 h-2 md:h-3 rounded-full bg-green-400"></div>
-                  </div>
-                  <div className="grid grid-cols-4 gap-3 md:gap-4">
-                    <div className="col-span-1 bg-slate-50 h-48 md:h-64 rounded p-2 space-y-2">
-                      <div className="h-3 md:h-4 bg-slate-200 rounded w-3/4"></div>
-                      <div className="h-3 md:h-4 bg-slate-200 rounded w-1/2"></div>
-                    </div>
-                    <div className="col-span-3 space-y-3 md:space-y-4">
-                      {[1, 2, 3].map((i) => (
-                        <div
-                          key={i}
-                          className="h-20 md:h-24 bg-white border rounded p-3 md:p-4 shadow-sm"
-                        >
-                          <div className="h-3 md:h-4 bg-primary/20 rounded w-1/3 mb-2"></div>
-                          <div className="h-2 md:h-3 bg-slate-100 rounded w-full"></div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Phone Mockup Overlay */}
-                <div className="absolute -bottom-8 right-6 md:right-12 w-32 md:w-48 border-[6px] md:border-8 border-slate-900 rounded-[1.5rem] md:rounded-[2rem] bg-slate-900 shadow-2xl">
-                  <div className="bg-white rounded-[1rem] md:rounded-[1.5rem] overflow-hidden h-64 md:h-96 w-full flex flex-col">
-                    <div className="bg-slate-50 p-3 md:p-4 border-b">
-                      <div className="h-3 md:h-4 bg-slate-200 rounded w-1/2 mx-auto"></div>
-                    </div>
-                    <div className="p-3 md:p-4 space-y-2 md:space-y-3">
-                      {[1, 2, 3].map((i) => (
-                        <div
-                          key={i}
-                          className="h-16 md:h-20 bg-white border rounded-lg p-2 md:p-3 shadow-sm"
-                        >
-                          <div className="h-2 md:h-3 bg-primary/20 rounded w-2/3 mb-2"></div>
-                          <div className="h-1.5 md:h-2 bg-slate-100 rounded w-full"></div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* Overlapping photo collage; stacks into a simple row on small screens */}
+          <div className="relative mx-auto grid w-full max-w-lg grid-cols-2 gap-3 sm:h-[340px] sm:max-w-none sm:grid-cols-none sm:gap-0 lg:h-[360px]">
+            <img
+              src={`${IMG}collage-builders.webp`}
+              alt="Builders on a new-build housing site"
+              loading="lazy"
+              className="col-span-2 aspect-[16/9] w-full rounded-xl object-cover shadow-lg sm:absolute sm:left-0 sm:top-0 sm:aspect-auto sm:h-[58%] sm:w-[72%]"
+            />
+            <img
+              src={`${IMG}collage-plumber.webp`}
+              alt="Plumber fixing pipework under a kitchen sink"
+              loading="lazy"
+              className="aspect-[4/3] w-full rounded-xl object-cover shadow-lg ring-4 ring-background sm:absolute sm:bottom-0 sm:right-0 sm:aspect-auto sm:h-[58%] sm:w-[50%]"
+            />
+            <img
+              src={`${IMG}collage-gardener.webp`}
+              alt="Gardener trimming hedges"
+              loading="lazy"
+              className="aspect-[4/3] w-full rounded-xl object-cover shadow-lg ring-4 ring-background sm:absolute sm:bottom-[4%] sm:left-0 sm:aspect-auto sm:h-[36%] sm:w-[40%]"
+            />
           </div>
         </div>
       </div>

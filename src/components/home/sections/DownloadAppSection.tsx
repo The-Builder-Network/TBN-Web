@@ -14,6 +14,29 @@ const storeBadges = [
   { src: "/images/app-store.svg", label: "Download on the App Store", ratio: "" },
 ];
 
+/** "Coming soon" store badges, shared with the tradesperson app section. */
+export const StoreBadges = ({ className = "" }: { className?: string }) => (
+  <div className={className}>
+    <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+      Coming soon
+    </p>
+    <div className="mt-3 flex flex-wrap items-center gap-3">
+      {storeBadges.map(({ src, label, ratio }) => (
+        <a
+          key={label}
+          href="#"
+          aria-disabled="true"
+          onClick={(e) => e.preventDefault()}
+          className="cursor-not-allowed opacity-75"
+          aria-label={`${label} (coming soon)`}
+        >
+          <img src={src} alt={label} className={`h-11 w-auto ${ratio}`} />
+        </a>
+      ))}
+    </div>
+  </div>
+);
+
 const DownloadAppSection = () => {
   return (
     <section className="bg-background pb-16 pt-10 md:pb-24 md:pt-16">
@@ -43,23 +66,7 @@ const DownloadAppSection = () => {
               ))}
             </ul>
 
-            <p className="mt-8 text-xs font-medium uppercase tracking-wide text-muted-foreground">
-              Coming soon
-            </p>
-            <div className="mt-3 flex flex-wrap items-center gap-3">
-              {storeBadges.map(({ src, label, ratio }) => (
-                <a
-                  key={label}
-                  href="#"
-                  aria-disabled="true"
-                  onClick={(e) => e.preventDefault()}
-                  className="cursor-not-allowed opacity-75"
-                  aria-label={`${label} (coming soon)`}
-                >
-                  <img src={src} alt={label} className={`h-11 w-auto ${ratio}`} />
-                </a>
-              ))}
-            </div>
+            <StoreBadges className="mt-8" />
           </div>
 
           <div className="relative flex justify-center lg:order-1 lg:self-end lg:pt-12">
