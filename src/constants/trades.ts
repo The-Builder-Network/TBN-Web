@@ -26,7 +26,7 @@ export const trades: Trade[] = [
     serviceSlug: "central-heating",
     title: "Find professional boiler installation services near you",
     description:
-      "Looking for expert boiler installation? Get matched with certified boiler installation specialists who can install your new boiler safely and efficiently. Read reviews, compare quotes, and hire with confidence.",
+      "Planning to replace or upgrade your boiler? Discover heating specialists who work on new boiler installations and help homeowners select solutions appropriate for their properties.",
     details: [
       {
         sectionTitle: "Why choose a boiler installation specialist?",
@@ -60,7 +60,7 @@ export const trades: Trade[] = [
     serviceSlug: "central-heating",
     title: "Find reliable boiler repair services near you",
     description:
-      "Need your boiler repaired? Connect with Gas Safe registered boiler repair specialists who can diagnose and fix issues quickly. Post your job for free and get matched with local professionals.",
+      "When heating or hot water stops working properly, a boiler repair professional can investigate the cause and carry out suitable repairs.",
     details: [
       {
         sectionTitle: "Common boiler problems",
@@ -94,7 +94,7 @@ export const trades: Trade[] = [
     serviceSlug: "extensions",
     title: "Find experienced builders for your construction project",
     description:
-      "Looking for a reliable builder? Connect with experienced builders who can handle everything from small repairs to major construction projects. Read reviews, compare quotes, and hire the right builder for your needs.",
+      "Planning construction or renovation work? Find builders offering services ranging from general property improvements to more substantial residential projects.",
     details: [
       {
         sectionTitle: "What services do builders provide?",
@@ -128,7 +128,7 @@ export const trades: Trade[] = [
     serviceSlug: "security-systems",
     title: "Professional CCTV installation services near you",
     description:
-      "Need CCTV installed? Find experienced CCTV installers who can design and install security camera systems for your home or business. Get matched with local professionals today.",
+      "Explore camera installation services designed to support property monitoring and security.",
     details: [
       {
         sectionTitle: "CCTV installation services",
@@ -162,7 +162,7 @@ export const trades: Trade[] = [
     serviceSlug: "chimney-fireplace",
     title: "Find professional chimney sweep services near you",
     description:
-      "Keep your chimney safe and efficient with professional chimney sweep services. Get matched with experienced chimney sweeps who can clean, inspect, and maintain your chimney.",
+      "Arrange chimney sweeping and inspection services to support safer and more effective use of suitable fireplaces and heating appliances.",
     details: [
       {
         sectionTitle: "Why regular chimney sweeping is important",
@@ -196,7 +196,7 @@ export const trades: Trade[] = [
     serviceSlug: "cleaning-services",
     title: "Find reliable cleaning services near you",
     description:
-      "Need cleaning help? Connect with professional cleaners who can handle domestic cleaning, deep cleaning, end of tenancy cleaning, and more. Read reviews and hire with confidence.",
+      "Get help keeping your property presentable with domestic, deep-cleaning and moving-related cleaning services.",
     details: [
       {
         sectionTitle: "Types of cleaning services available",
@@ -230,7 +230,7 @@ export const trades: Trade[] = [
     serviceSlug: "conservatories",
     title: "Expert conservatory repair services near you",
     description:
-      "Need conservatory repairs? Find specialists who can fix leaking roofs, broken glass, damaged frames, and more. Get your conservatory back to perfect condition.",
+      "Restore comfort and usability to your conservatory with specialists dealing with leaks, glazing defects, damaged frames and general repairs.",
     details: [
       {
         sectionTitle: "Common conservatory repairs",
@@ -264,7 +264,7 @@ export const trades: Trade[] = [
     serviceSlug: "windows-door-fitting",
     title: "Professional double glazing repair services near you",
     description:
-      "Problems with your double glazing? Find specialists who can repair misted windows, broken seals, faulty handles, and more. Get expert repairs without replacing entire windows.",
+      "Address condensation between panes, worn seals or troublesome window fittings without automatically replacing the entire window.",
     details: [
       {
         sectionTitle: "Double glazing repair services",
@@ -298,7 +298,7 @@ export const trades: Trade[] = [
     serviceSlug: "electrical",
     title: "Find qualified electricians near you",
     description:
-      "Need electrical work done? Connect with Part P certified electricians who can handle all your electrical needs safely and professionally. From rewiring to installing new circuits, find the right electrician today.",
+      "Explore qualified electrical professionals for wiring, lighting, consumer unit work, testing and other residential electrical requirements.",
     details: [
       {
         sectionTitle: "Electrical services available",
@@ -332,7 +332,7 @@ export const trades: Trade[] = [
     serviceSlug: "gardening-landscaping",
     title: "Professional garden clearance services near you",
     description:
-      "Need your garden cleared? Find specialists who can remove garden waste, overgrown vegetation, old sheds, and more. Get your garden back in shape quickly and efficiently.",
+      "Reclaim neglected outdoor areas with services for clearing vegetation, unwanted garden materials and accumulated debris.",
     details: [
       {
         sectionTitle: "Garden clearance services",
@@ -366,7 +366,7 @@ export const trades: Trade[] = [
     serviceSlug: "fascias-soffits-guttering",
     title: "Professional gutter cleaning services near you",
     description:
-      "Keep your gutters clear and prevent water damage with professional gutter cleaning services. Find experienced specialists who can clean and maintain your guttering system.",
+      "Keep rainwater flowing away from your property by arranging the removal of leaves, sediment and other gutter blockages.",
     details: [
       {
         sectionTitle: "Why gutter cleaning is important",
@@ -400,7 +400,7 @@ export const trades: Trade[] = [
     serviceSlug: "fascias-soffits-guttering",
     title: "Expert gutter repair services near you",
     description:
-      "Problems with your gutters? Find specialists who can repair leaking gutters, replace damaged sections, and fix sagging guttering. Protect your property from water damage.",
+      "Find professionals who deal with damaged joints, loose brackets, leaks and other rainwater system problems.",
     details: [
       {
         sectionTitle: "Common gutter repairs",
@@ -434,7 +434,7 @@ export const trades: Trade[] = [
     serviceSlug: "handyman",
     title: "Find reliable handyman services near you",
     description:
-      "Need odd jobs done around the house? Connect with skilled handymen who can tackle a wide range of tasks from minor repairs to home improvements. Get matched with local professionals today.",
+      "For the smaller tasks that keep getting postponed, find multi-skilled professionals offering practical household maintenance and minor repairs.",
     details: [
       {
         sectionTitle: "Handyman services available",
@@ -468,7 +468,7 @@ export const trades: Trade[] = [
     serviceSlug: "moving-services",
     title: "Professional moving and removal services near you",
     description:
-      "Planning a move? Find reliable moving companies that can handle everything from packing to transport. Get quotes from local removal specialists and make your move stress-free.",
+      "Prepare for your next move with removal professionals who can help transport your belongings from one property to another.",
     details: [
       {
         sectionTitle: "Moving services available",
@@ -502,7 +502,7 @@ export const trades: Trade[] = [
     serviceSlug: "painting-decorating",
     title: "Find professional painters and decorators near you",
     description:
-      "Transform your home with professional painting and decorating services. Connect with skilled painters and decorators who deliver quality finishes for interior and exterior projects.",
+      "Refresh your property's appearance with professional painting, preparation and decorative finishing services.",
     details: [
       {
         sectionTitle: "Painting and decorating services",
@@ -536,7 +536,7 @@ export const trades: Trade[] = [
     serviceSlug: "plastering-rendering",
     title: "Professional plastering services near you",
     description:
-      "Need plastering work? Find skilled plasterers who can handle skimming, rendering, repairs, and new plaster installation. Get smooth, professional finishes for your walls and ceilings.",
+      "Prepare walls and ceilings for their final finish with experienced professionals offering skimming, plaster repair and related services.",
     details: [
       {
         sectionTitle: "Plastering services available",
@@ -570,7 +570,7 @@ export const trades: Trade[] = [
     serviceSlug: "plumbing",
     title: "Find qualified plumbers near you",
     description:
-      "Need plumbing services? Connect with qualified plumbers who can handle everything from leaky taps to bathroom installations. Get reliable plumbing solutions from experienced professionals.",
+      "From troublesome leaks to new plumbing fixtures, find specialists who can inspect, repair and improve domestic water and drainage systems.",
     details: [
       {
         sectionTitle: "Plumbing services available",
@@ -604,7 +604,7 @@ export const trades: Trade[] = [
     serviceSlug: "roofing",
     title: "Professional roof cleaning services near you",
     description:
-      "Keep your roof in top condition with professional cleaning services. Find specialists who can safely clean moss, algae, and debris from your roof, extending its lifespan.",
+      "Help maintain the appearance and condition of your roof through appropriate professional cleaning and moss removal services.",
     details: [
       {
         sectionTitle: "Roof cleaning services",
@@ -630,7 +630,7 @@ export const trades: Trade[] = [
       },
     ],
     imageUrl:
-      "https://images.unsplash.com/photo-1632778841148-afb6bffdee87?w=800&h=600&fit=crop",
+      "/images/new-images/Roofers.png",
   },
   {
     slug: "roof-repair-specialist",
@@ -638,7 +638,7 @@ export const trades: Trade[] = [
     serviceSlug: "roofing",
     title: "Expert roof repair services near you",
     description:
-      "Problems with your roof? Find specialists who can repair leaks, replace tiles, fix flashing, and handle all types of roof repairs. Protect your home from water damage.",
+      "Damaged tiles, leaks or deteriorating flashing? Connect with specialists who investigate roofing defects and recommend repairs.",
     details: [
       {
         sectionTitle: "Roof repair services",
@@ -664,7 +664,7 @@ export const trades: Trade[] = [
       },
     ],
     imageUrl:
-      "https://images.unsplash.com/photo-1604609377545-66d81f6ae5ae?w=800&h=600&fit=crop",
+      "/images/new-images/Roofers.png",
   },
   {
     slug: "wardrobe-fitter",
@@ -672,7 +672,7 @@ export const trades: Trade[] = [
     serviceSlug: "carpentry-joinery",
     title: "Professional wardrobe fitting services near you",
     description:
-      "Need wardrobes fitted? Find experienced fitters who can install built-in wardrobes, sliding door wardrobes, and flat-pack wardrobes. Get perfect storage solutions professionally installed.",
+      "Improve bedroom organisation with fitted wardrobe installation, including custom storage layouts and sliding-door systems.",
     details: [
       {
         sectionTitle: "Wardrobe fitting services",
@@ -706,7 +706,7 @@ export const trades: Trade[] = [
     serviceSlug: "cleaning-services",
     title: "Professional window cleaning services near you",
     description:
-      "Keep your windows sparkling clean with professional window cleaning services. Find reliable window cleaners offering regular or one-off cleans for homes and businesses.",
+      "Find cleaning professionals who help maintain clear glazing across accessible windows and other suitable glass surfaces.",
     details: [
       {
         sectionTitle: "Window cleaning services",
@@ -740,7 +740,7 @@ export const trades: Trade[] = [
     serviceSlug: "roofing",
     title: "Find professional roofers near you",
     description:
-      "Need roofing work done? Connect with experienced roofers who can handle repairs, replacements, and new roof installations. Get quality roofing services from trusted professionals.",
+      "Protect your home from the elements with roofing professionals offering installation, maintenance and repair services.",
     details: [
       {
         sectionTitle: "Roofing services available",
@@ -766,7 +766,7 @@ export const trades: Trade[] = [
       },
     ],
     imageUrl:
-      "https://images.unsplash.com/photo-1632778841148-afb6bffdee87?w=800&h=600&fit=crop",
+      "/images/new-images/Roofers.png",
   },
   {
     slug: "carpenter-joiner",
@@ -774,7 +774,7 @@ export const trades: Trade[] = [
     serviceSlug: "carpentry-joinery",
     title: "Find skilled carpenters and joiners near you",
     description:
-      "Need carpentry work? Connect with experienced carpenters and joiners who can handle everything from bespoke furniture to structural work. Get quality craftsmanship for your project.",
+      "Find woodworking professionals for structural timber work, doors, fitted furniture and detailed interior joinery.",
     details: [
       {
         sectionTitle: "Carpentry and joinery services",
@@ -800,7 +800,7 @@ export const trades: Trade[] = [
       },
     ],
     imageUrl:
-      "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&h=600&fit=crop",
+      "/images/new-images/Carpenters.png",
   },
   {
     slug: "landscaper",
@@ -808,7 +808,7 @@ export const trades: Trade[] = [
     serviceSlug: "gardening-landscaping",
     title: "Professional landscaping services near you",
     description:
-      "Transform your outdoor space with professional landscaping services. Find experienced landscapers who can design and create beautiful, functional gardens.",
+      "Reimagine your garden with professionals specialising in outdoor layouts, planting areas, hard landscaping and usable exterior spaces.",
     details: [
       {
         sectionTitle: "Landscaping services available",
@@ -842,7 +842,7 @@ export const trades: Trade[] = [
     serviceSlug: "bathroom-fitting",
     title: "Professional bathroom fitting services near you",
     description:
-      "Planning a new bathroom? Find experienced bathroom fitters who can handle complete installations from design to completion. Get your dream bathroom professionally fitted.",
+      "Turn your bathroom plans into a finished space with specialists who coordinate fittings, fixtures and installation work.",
     details: [
       {
         sectionTitle: "Bathroom fitting services",
@@ -876,7 +876,7 @@ export const trades: Trade[] = [
     serviceSlug: "bricklaying-repointing",
     title: "Find skilled bricklayers near you",
     description:
-      "Need bricklaying services? Connect with experienced bricklayers who can handle everything from garden walls to house extensions. Get quality brickwork from skilled professionals.",
+      "Whether you're building a garden wall or repairing existing brickwork, find professionals with the masonry skills your project requires.",
     details: [
       {
         sectionTitle: "Bricklaying services available",
@@ -902,7 +902,7 @@ export const trades: Trade[] = [
       },
     ],
     imageUrl:
-      "https://images.unsplash.com/photo-1590237294019-ca0dea0e1265?w=800&h=600&fit=crop",
+      "/images/new-images/Builders.png",
   },
   {
     slug: "gas-engineer",
@@ -910,7 +910,7 @@ export const trades: Trade[] = [
     serviceSlug: "gas-works",
     title: "Find Gas Safe registered engineers near you",
     description:
-      "Need gas work done? Connect with Gas Safe registered engineers who can handle boiler installations, repairs, servicing, and all gas appliance work safely and professionally.",
+      "Find Gas Safe registered engineers for gas appliance servicing, installations, safety checks and repairs within their registered scope of work.",
     details: [
       {
         sectionTitle: "Gas engineering services",
@@ -936,7 +936,7 @@ export const trades: Trade[] = [
       },
     ],
     imageUrl:
-      "https://images.unsplash.com/photo-1621905252472-128fc6df4e77?w=800&h=600&fit=crop",
+      "/images/new-images/Heating%20Engineers.png",
   },
   {
     slug: "carpet-fitter",
@@ -944,7 +944,7 @@ export const trades: Trade[] = [
     serviceSlug: "carpets-lino-flooring",
     title: "Professional carpet fitting services near you",
     description:
-      "Need new carpets fitted? Find experienced carpet fitters who can measure, supply, and install carpets to perfection. Get quality carpet fitting at competitive prices.",
+      "Give your rooms a comfortable new finish with specialists who measure, prepare and install fitted carpets.",
     details: [
       {
         sectionTitle: "Carpet fitting services",
@@ -978,7 +978,7 @@ export const trades: Trade[] = [
     serviceSlug: "kitchen-fitting",
     title: "Professional kitchen fitting services near you",
     description:
-      "Planning a new kitchen? Find experienced kitchen fitters who can handle complete installations from design to completion. Get your dream kitchen professionally fitted.",
+      "Planning a kitchen refresh or a complete replacement? Explore professionals experienced in cabinetry, worktops and kitchen installation.",
     details: [
       {
         sectionTitle: "Kitchen fitting services",
@@ -1012,7 +1012,7 @@ export const trades: Trade[] = [
     serviceSlug: "carpentry-joinery",
     title: "Find skilled cabinet makers near you",
     description:
-      "Need bespoke cabinets or furniture? Connect with experienced cabinet makers who can create custom storage solutions and furniture tailored to your space and style.",
+      "Create storage solutions that work around your space with specialists producing made-to-measure cabinetry and bespoke furniture.",
     details: [
       {
         sectionTitle: "Cabinet making services",
@@ -1046,7 +1046,7 @@ export const trades: Trade[] = [
     serviceSlug: "tiling",
     title: "Professional tiling services near you",
     description:
-      "Need tiling work done? Find experienced tilers who can tile bathrooms, kitchens, floors, and more. Get quality tiling with professional finishes.",
+      "Create neat, durable tiled surfaces in bathrooms, kitchens and other areas with skilled wall and floor tiling professionals.",
     details: [
       {
         sectionTitle: "Tiling services available",
@@ -1080,7 +1080,7 @@ export const trades: Trade[] = [
     serviceSlug: "windows-door-fitting",
     title: "Professional door fitting services near you",
     description:
-      "Need new doors fitted? Find experienced door fitters who can install internal doors, external doors, and fire doors professionally. Get smooth operation and perfect fit.",
+      "Find professionals for fitting and adjusting internal and external doors, including frames, hardware and replacement door sets.",
     details: [
       {
         sectionTitle: "Door fitting services",
@@ -1114,7 +1114,7 @@ export const trades: Trade[] = [
     serviceSlug: "windows-door-fitting",
     title: "Professional glazing services near you",
     description:
-      "Need glass work done? Find experienced glaziers who can repair or replace windows, fit double glazing, and handle all types of glass work professionally and safely.",
+      "For broken glass, replacement glazing or specialist glass fitting, find professionals offering residential glazing services.",
     details: [
       {
         sectionTitle: "Glazing services available",
@@ -1148,7 +1148,7 @@ export const trades: Trade[] = [
     serviceSlug: "chimney-fireplace",
     title: "Professional stove and fireplace installation near you",
     description:
-      "Want a wood burner or stove installed? Find qualified stove fitters who can install, service, and maintain stoves and fireplaces safely and professionally.",
+      "Bring warmth and character to your living space with help from professionals experienced in stove fitting, ventilation and installation requirements.",
     details: [
       {
         sectionTitle: "Stove fitting services",
@@ -1182,7 +1182,7 @@ export const trades: Trade[] = [
     serviceSlug: "windows-door-fitting",
     title: "Professional window fitting services near you",
     description:
-      "Need new windows installed? Find experienced window fitters who can install uPVC, aluminum, or timber windows professionally. Get energy-efficient windows expertly fitted.",
+      "Improve your property's appearance and comfort with window installation professionals offering a range of frame and glazing options.",
     details: [
       {
         sectionTitle: "Window fitting services",
@@ -1216,7 +1216,7 @@ export const trades: Trade[] = [
     serviceSlug: "tree-surgery",
     title: "Professional tree surgery services near you",
     description:
-      "Need tree work done? Find qualified tree surgeons who can safely prune, remove, and maintain trees. Get expert arboricultural services from experienced professionals.",
+      "Find arboricultural professionals for tree assessment, pruning, crown management and controlled tree removal.",
     details: [
       {
         sectionTitle: "Tree surgery services",
@@ -1250,7 +1250,7 @@ export const trades: Trade[] = [
     serviceSlug: "gardening-landscaping",
     title: "Find professional gardening services near you",
     description:
-      "Need help maintaining your garden? Connect with experienced gardeners who offer regular maintenance, landscaping, and garden care services. Keep your garden looking beautiful year-round.",
+      "Keep your outdoor areas looking cared for with help from gardeners providing routine upkeep and seasonal garden tasks.",
     details: [
       {
         sectionTitle: "Gardening services available",
@@ -1284,7 +1284,7 @@ export const trades: Trade[] = [
     serviceSlug: "locksmith",
     title: "Professional locksmith services near you",
     description:
-      "Locked out or need locks changed? Find experienced locksmiths offering emergency lockout services, lock fitting, and security upgrades. Fast, reliable locksmith services available.",
+      "Whether you're dealing with a faulty lock or improving home security, locate locksmiths providing repair, replacement and access services.",
     details: [
       {
         sectionTitle: "Locksmith services available",
@@ -1318,7 +1318,7 @@ export const trades: Trade[] = [
     serviceSlug: "architectural-services",
     title: "Professional architectural design services near you",
     description:
-      "Planning a building project? Find experienced architectural designers who can create plans, handle planning applications, and design your perfect space.",
+      "Bring your property ideas into focus with architectural design services for layouts, improvements, extensions and residential development plans.",
     details: [
       {
         sectionTitle: "Architectural design services",
@@ -1353,7 +1353,7 @@ export const trades: Trade[] = [
     serviceSlug: "groundwork-foundations",
     title: "Professional groundwork services near you",
     description:
-      "Need groundwork done? Find experienced groundworkers who can handle foundations, drainage, and site preparation for building projects. Get quality groundwork professionally completed.",
+      "Successful building projects start with sound groundwork. Explore professionals working on site preparation, drainage, excavations and foundations.",
     details: [
       {
         sectionTitle: "Groundwork services available",
@@ -1379,7 +1379,7 @@ export const trades: Trade[] = [
       },
     ],
     imageUrl:
-      "https://images.unsplash.com/photo-1590237294019-ca0dea0e1265?w=800&h=600&fit=crop",
+      "/images/new-images/Builders.png",
   },
   {
     slug: "stonemason",
@@ -1387,7 +1387,7 @@ export const trades: Trade[] = [
     serviceSlug: "stonemasonry",
     title: "Find skilled stonemasons near you",
     description:
-      "Need stonework done? Connect with experienced stonemasons who can handle stone walls, restoration, paving, and specialist stone work. Get traditional craftsmanship for lasting results.",
+      "Discover skilled stoneworkers for natural stone features, masonry repairs, traditional restoration and custom stone installations.",
     details: [
       {
         sectionTitle: "Stonemasonry services",
@@ -1413,7 +1413,7 @@ export const trades: Trade[] = [
       },
     ],
     imageUrl:
-      "https://images.unsplash.com/photo-1590237294019-ca0dea0e1265?w=800&h=600&fit=crop",
+      "/images/new-images/Builders.png",
   },
   {
     slug: "heating-engineer",
@@ -1421,7 +1421,7 @@ export const trades: Trade[] = [
     serviceSlug: "central-heating",
     title: "Professional heating engineer services near you",
     description:
-      "Need heating system work? Find qualified heating engineers who can install, repair, and maintain all types of heating systems. Keep your home warm and efficient.",
+      "From radiator problems to central heating upgrades, connect with professionals experienced in keeping residential heating systems operating effectively.",
     details: [
       {
         sectionTitle: "Heating engineer services",
@@ -1448,7 +1448,7 @@ export const trades: Trade[] = [
       },
     ],
     imageUrl:
-      "https://images.unsplash.com/photo-1621905252472-128fc6df4e77?w=800&h=600&fit=crop",
+      "/images/new-images/Heating%20Engineers.png",
   },
   {
     slug: "insulation-company",
@@ -1456,7 +1456,7 @@ export const trades: Trade[] = [
     serviceSlug: "insulation",
     title: "Professional insulation services near you",
     description:
-      "Want to improve your home's energy efficiency? Find insulation specialists who can install loft, cavity wall, and other insulation types. Reduce energy bills and stay comfortable.",
+      "Improve thermal comfort with professionals offering insulation options for suitable walls, roofs and other areas of the home.",
     details: [
       {
         sectionTitle: "Insulation services available",
@@ -1490,7 +1490,7 @@ export const trades: Trade[] = [
     serviceSlug: "fencing",
     title: "Professional fencing services near you",
     description:
-      "Need a new fence or repairs? Find experienced fencers who can install panel fencing, close board, picket fencing, and gates. Get secure, attractive fencing professionally installed.",
+      "Improve the security, privacy and appearance of your garden with professional fencing installation and repairs.",
     details: [
       {
         sectionTitle: "Fencing services available",
@@ -1516,7 +1516,7 @@ export const trades: Trade[] = [
       },
     ],
     imageUrl:
-      "https://images.unsplash.com/photo-1533042789716-e9a34b797399?w=800&h=600&fit=crop",
+      "/images/new-images/collage-builders.webp",
   },
   {
     slug: "waste-rubbish-clearance",
@@ -1524,7 +1524,7 @@ export const trades: Trade[] = [
     serviceSlug: "demolition-clearance",
     title: "Find waste and rubbish removal near you for hassle-free clearance",
     description:
-      "From clearing out your home to managing a construction project, hiring the right waste and rubbish removals company ensures a hassle-free clean up. Find local rubbish removal services on The Builder Network who are interested and available to help. Read reviews, post your job for free and get matched with waste clearance specialists near you!",
+      "Clear unwanted household items, renovation waste and general rubbish with removal businesses offering appropriate disposal services.",
     details: [
       {
         sectionTitle:
@@ -1565,7 +1565,7 @@ export const trades: Trade[] = [
     serviceSlug: "demolition-clearance",
     title: "Professional demolition services near you",
     description:
-      "Need demolition work? Find experienced demolition companies who can safely demolish buildings, structures, or remove internal walls. Licensed, insured professionals for all demolition needs.",
+      "For structural removal, site clearance or redevelopment preparation, find demolition contractors equipped to assess and manage the work appropriately.",
     details: [
       {
         sectionTitle: "Demolition services available",
@@ -1591,7 +1591,7 @@ export const trades: Trade[] = [
       },
     ],
     imageUrl:
-      "https://images.unsplash.com/photo-1590237294019-ca0dea0e1265?w=800&h=600&fit=crop",
+      "/images/new-images/Builders.png",
   },
   {
     slug: "decking-installer",
@@ -1599,7 +1599,7 @@ export const trades: Trade[] = [
     serviceSlug: "carpentry-joinery",
     title: "Professional decking installation services near you",
     description:
-      "Want a new deck? Find experienced decking installers who can design and build beautiful, durable decking for your garden. Transform your outdoor space with quality decking.",
+      "Create an inviting outdoor seating area with specialists installing timber or composite decking.",
     details: [
       {
         sectionTitle: "Decking installation services",
@@ -1633,7 +1633,7 @@ export const trades: Trade[] = [
     serviceSlug: "extensions",
     title: "Professional house extension services near you",
     description:
-      "Planning a house extension? Find experienced extension builders who can manage your entire project from design to completion. Add valuable space to your home.",
+      "Create more room without moving home. Explore contractors experienced in developing additional living areas that complement existing properties.",
     details: [
       {
         sectionTitle: "Extension building services",
@@ -1667,7 +1667,7 @@ export const trades: Trade[] = [
     serviceSlug: "security-systems",
     title: "Professional security system installation near you",
     description:
-      "Protect your property with professional security system installation. Find experienced installers who can fit alarms, CCTV, and access control systems.",
+      "Find professionals offering burglar alarms, access control and connected security solutions for residential properties.",
     details: [
       {
         sectionTitle: "Security system services",
@@ -1701,7 +1701,7 @@ export const trades: Trade[] = [
     serviceSlug: "conservatories",
     title: "Professional conservatory installation services near you",
     description:
-      "Want to add a conservatory? Find experienced installers who can design and build beautiful conservatories to extend your living space. Quality construction, professional installation.",
+      "Expand your home's usable space with professionals who design and install conservatories to suit different properties and requirements.",
     details: [
       {
         sectionTitle: "Conservatory installation services",
@@ -1735,7 +1735,7 @@ export const trades: Trade[] = [
     serviceSlug: "driveways-paving",
     title: "Professional driveway installation near you",
     description:
-      "Need a new driveway? Find experienced installers who can create block paving, tarmac, resin, or gravel driveways. Quality driveways built to last.",
+      "Enhance your property's entrance with contractors experienced in designing and constructing residential driveways.",
     details: [
       {
         sectionTitle: "Driveway installation services",
@@ -1761,7 +1761,7 @@ export const trades: Trade[] = [
       },
     ],
     imageUrl:
-      "https://images.unsplash.com/photo-1588595130265-f2e972d0f0e4?w=800&h=600&fit=crop",
+      "/images/new-images/collage-builders.webp",
   },
   {
     slug: "flooring-fitter",
@@ -1769,7 +1769,7 @@ export const trades: Trade[] = [
     serviceSlug: "carpets-lino-flooring",
     title: "Professional flooring installation services near you",
     description:
-      "Need new flooring? Find experienced fitters who can install laminate, engineered wood, solid wood, and luxury vinyl flooring professionally. Beautiful floors, expertly fitted.",
+      "Explore installation services for timber, laminate and other flooring systems suited to residential interiors.",
     details: [
       {
         sectionTitle: "Flooring installation services",
@@ -1803,7 +1803,7 @@ export const trades: Trade[] = [
     serviceSlug: "fascias-soffits-guttering",
     title: "Professional guttering installation services near you",
     description:
-      "Need new guttering? Find experienced installers who can fit uPVC, cast iron, or aluminum guttering systems. Protect your property with quality guttering installation.",
+      "Explore new guttering and replacement rainwater systems installed to suit your property's roofline.",
     details: [
       {
         sectionTitle: "Guttering installation services",
@@ -1837,7 +1837,7 @@ export const trades: Trade[] = [
     serviceSlug: "carpets-lino-flooring",
     title: "Professional vinyl flooring installation near you",
     description:
-      "Want vinyl flooring installed? Find experienced fitters who can install sheet vinyl and luxury vinyl tiles professionally. Durable, waterproof flooring expertly fitted.",
+      "Choose practical flooring solutions with professionals experienced in sheet vinyl and luxury vinyl tile installation.",
     details: [
       {
         sectionTitle: "Vinyl flooring installation",
@@ -1867,11 +1867,11 @@ export const trades: Trade[] = [
   },
   {
     slug: "fireplace-installer",
-    name: "Fireplace installer",
+    name: "Fireplace Installer",
     serviceSlug: "chimney-fireplace",
     title: "Professional fireplace installation services near you",
     description:
-      "Want a new fireplace installed? Find experienced installers who can fit gas, electric, or solid fuel fireplaces. Transform your room with a beautiful, safely installed fireplace.",
+      "Explore specialist installation services for decorative and functional fireplaces, including suitable gas, electric and solid-fuel options.",
     details: [
       {
         sectionTitle: "Fireplace installation services",
@@ -1905,7 +1905,7 @@ export const trades: Trade[] = [
     serviceSlug: "architectural-services",
     title: "Professional architectural technician services near you",
     description:
-      "Need technical drawings or building plans? Find experienced architectural technicians who can create detailed plans, handle building regulations, and support your construction project.",
+      "Get support with the technical side of building projects, including detailed drawings, construction information and regulatory documentation.",
     details: [
       {
         sectionTitle: "Architectural technician services",
@@ -1940,7 +1940,7 @@ export const trades: Trade[] = [
     serviceSlug: "chimney-fireplace",
     title: "Expert chimney repair services near you",
     description:
-      "Problems with your chimney? Find specialists who can repair leaning chimneys, damaged stacks, flashing issues, and more. Professional chimney repairs to prevent costly damage.",
+      "Find professionals experienced in repairing chimney masonry, weatherproofing, flashing and deteriorating structural components.",
     details: [
       {
         sectionTitle: "Chimney repair services",
@@ -1974,7 +1974,7 @@ export const trades: Trade[] = [
     serviceSlug: "gardening-landscaping",
     title: "Professional garden maintenance services near you",
     description:
-      "Keep your garden in top condition year-round with professional maintenance services. Find companies offering regular garden care, seasonal maintenance, and landscaping upkeep.",
+      "Find a regular garden care provider for planting maintenance, pruning, tidying and broader grounds upkeep.",
     details: [
       {
         sectionTitle: "Garden maintenance services",
@@ -2008,7 +2008,7 @@ export const trades: Trade[] = [
     serviceSlug: "loft-conversion",
     title: "Professional loft conversion services near you",
     description:
-      "Want to convert your loft? Find experienced companies who can transform your loft space into usable rooms. Add valuable space and increase your property value.",
+      "Turn unused roof space into something more functional with specialists experienced in residential loft transformation projects.",
     details: [
       {
         sectionTitle: "Loft conversion services",
@@ -2042,7 +2042,7 @@ export const trades: Trade[] = [
     serviceSlug: "damp-proofing",
     title: "Professional damp proofing services near you",
     description:
-      "Damp problems in your property? Find specialists who can diagnose and treat rising damp, penetrating damp, and condensation issues. Protect your property from moisture damage.",
+      "Investigate moisture-related problems with specialists who assess likely causes and recommend appropriate remedial work.",
     details: [
       {
         sectionTitle: "Damp proofing services",
@@ -2076,7 +2076,7 @@ export const trades: Trade[] = [
     serviceSlug: "conversions",
     title: "Professional property conversion services near you",
     description:
-      "Want to convert part of your property? Find specialists who handle all types of conversions including garage, basement, and outbuilding conversions. Add valuable living space.",
+      "Looking to repurpose an existing part of your property? Find specialists who can help adapt spaces for new residential uses.",
     details: [
       {
         sectionTitle: "Property conversion services",
@@ -2110,7 +2110,7 @@ export const trades: Trade[] = [
     serviceSlug: "conversions",
     title: "Professional garage conversion services near you",
     description:
-      "Convert your garage into usable living space? Find experienced specialists who can transform your garage into an extra bedroom, office, or living area. Quality conversions, professionally completed.",
+      "Make more of your garage space with conversion professionals who can help transform it into a practical room suited to your lifestyle.",
     details: [
       {
         sectionTitle: "Garage conversion services",
@@ -2144,7 +2144,7 @@ export const trades: Trade[] = [
     serviceSlug: "new-build",
     title: "Professional new build home construction services",
     description:
-      "Building a new home? Find experienced builders who can manage your entire self-build project from groundworks to completion. Make your dream home a reality.",
+      "Starting a new residential build? Connect with construction professionals who work on building projects from early site preparation through to completion.",
     details: [
       {
         sectionTitle: "New home building services",
@@ -2178,7 +2178,7 @@ export const trades: Trade[] = [
     serviceSlug: "bricklaying-repointing",
     title: "Professional brick repointing services near you",
     description:
-      "Deteriorating mortar joints? Find repointing specialists who can restore your brickwork with expert repointing. Protect your property and restore its appearance.",
+      "Protect ageing brickwork with professional mortar joint repairs that improve appearance and help maintain the condition of masonry.",
     details: [
       {
         sectionTitle: "Repointing services",
@@ -2204,7 +2204,7 @@ export const trades: Trade[] = [
       },
     ],
     imageUrl:
-      "https://images.unsplash.com/photo-1590237294019-ca0dea0e1265?w=800&h=600&fit=crop",
+      "/images/new-images/Builders.png",
   },
   {
     slug: "fascias-soffits-installer",
@@ -2212,7 +2212,7 @@ export const trades: Trade[] = [
     serviceSlug: "fascias-soffits-guttering",
     title: "Professional fascias and soffits installation near you",
     description:
-      "Need fascias and soffits replaced? Find experienced installers who can fit uPVC, aluminum, or timber fascias and soffits. Protect your roofline and enhance your property's appearance.",
+      "Update and maintain your roofline with professionals working on fascia boards, soffits and related fittings.",
     details: [
       {
         sectionTitle: "Fascias and soffits installation",
@@ -2238,7 +2238,7 @@ export const trades: Trade[] = [
       },
     ],
     imageUrl:
-      "https://images.unsplash.com/photo-1632778841148-afb6bffdee87?w=800&h=600&fit=crop",
+      "/images/new-images/Roofers.png",
   },
   {
     slug: "tarmac-driveway-company",
@@ -2246,7 +2246,7 @@ export const trades: Trade[] = [
     serviceSlug: "driveways-paving",
     title: "Professional tarmac driveway installation near you",
     description:
-      "Want a tarmac driveway? Find experienced companies who can install durable, attractive tarmac driveways. Quality installation for long-lasting results.",
+      "Find driveway specialists offering tarmac surfacing, resurfacing and related preparation work.",
     details: [
       {
         sectionTitle: "Tarmac driveway installation",
@@ -2272,7 +2272,7 @@ export const trades: Trade[] = [
       },
     ],
     imageUrl:
-      "https://images.unsplash.com/photo-1588595130265-f2e972d0f0e4?w=800&h=600&fit=crop",
+      "/images/new-images/collage-builders.webp",
   },
   {
     slug: "building-restoration-refurbishment-company",
@@ -2280,7 +2280,7 @@ export const trades: Trade[] = [
     serviceSlug: "restoration-refurbishment",
     title: "Professional building restoration and refurbishment services",
     description:
-      "Restoring a period property or refurbishing a building? Find specialists who understand traditional building methods and materials. Expert restoration for lasting results.",
+      "Give an existing property renewed purpose with contractors offering renovation, restoration and improvement services.",
     details: [
       {
         sectionTitle: "Restoration and refurbishment services",
