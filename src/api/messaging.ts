@@ -1,7 +1,11 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import {
+  useInfiniteQuery,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from "@tanstack/react-query";
 import { api } from "./client";
 import type {
-  PaginatedResponse,
   ConversationSummary,
   MessageItem,
 } from "./types";
@@ -15,17 +19,26 @@ export async function getConversations(): Promise<{
   return res.data;
 }
 
+export interface MessagesPage {
+  data: MessageItem[];
+  hasMore: boolean;
+  nextBefore: string | null;
+}
+
+/** Newest page first; pass `before` (a message id/cursor) to load older messages. */
 export async function getMessages(
   conversationId: string,
-  page = 1,
-): Promise<PaginatedResponse<MessageItem>> {
-  const res = await api.get<PaginatedResponse<MessageItem>>(
+  before?: string,
+): Promise<MessagesPage> {
+  const res = await api.get<MessagesPage>(
     `/conversations/${conversationId}/messages`,
-    {
-      params: { page, perPage: 50 },
-    },
+    { params: { before, limit: 50 } },
   );
   return res.data;
+}
+
+export async function markConversationRead(conversationId: string) {
+  await api.post(`/conversations/${conversationId}/read`);
 }
 
 export async function sendMessage(
@@ -52,9 +65,13 @@ export function useConversations() {
 }
 
 export function useMessages(conversationId: string) {
-  return useQuery({
+  return useInfiniteQuery({
     queryKey: messagingKeys.messages(conversationId),
-    queryFn: () => getMessages(conversationId),
+    queryFn: ({ pageParam }) => getMessages(conversationId, pageParam),
+    initialPageParam: undefined as string | undefined,
+    getNextPageParam: (last) => (last.hasMore ? (last.nextBefore ?? undefined) : undefined),
+    // Oldest page first so messages read top-to-bottom.
+    select: (d) => d.pages.slice().reverse().flatMap((p) => p.data),
     enabled: !!conversationId,
     refetchInterval: 60_000, // fallback poll — real-time handled by Socket.IO
   });

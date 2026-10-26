@@ -35,8 +35,10 @@ const MyJobs = () => {
   const [showExploreModal, setShowExploreModal] = useState(false);
   const [showAskModal, setShowAskModal] = useState(false);
   const navigate = useNavigate();
+  const [view, setView] = useState<"open" | "closed">("open");
 
   const { data, isLoading, error, refetch } = useJobs({
+    view,
     sort: "createdAt",
     order: "desc",
   });
@@ -60,6 +62,21 @@ const MyJobs = () => {
           </Button>
         </div>
 
+        <div role="tablist" aria-label="Job filter" className="flex gap-2">
+          {(["open", "closed"] as const).map((v) => (
+            <Button
+              key={v}
+              role="tab"
+              aria-selected={view === v}
+              variant={view === v ? "default" : "outline"}
+              size="sm"
+              onClick={() => setView(v)}
+            >
+              {v === "open" ? "Open jobs" : "Past jobs"}
+            </Button>
+          ))}
+        </div>
+
         <Skeleton name="my-jobs-list" loading={isLoading}>
           {error && (
             <div className="text-center py-12 border rounded-lg">
@@ -77,7 +94,9 @@ const MyJobs = () => {
           {!error && jobs.length === 0 && (
             <div className="text-center py-16 border rounded-lg">
               <Briefcase className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
-              <h3 className="text-lg font-semibold mb-2">No jobs posted yet</h3>
+              <h3 className="text-lg font-semibold mb-2">
+                {view === "open" ? "No open jobs" : "No past jobs"}
+              </h3>
               <p className="text-muted-foreground mb-6">
                 Post your first job and get matched with verified tradespeople
                 near you.
@@ -101,7 +120,7 @@ const MyJobs = () => {
                       <h4 className="font-semibold text-muted-foreground text-md">
                         #{job.jobNumber}
                       </h4>
-                      <JobsStatusBadge status={job.status.toLowerCase()} />
+                      <JobsStatusBadge status={job.status} />
                     </div>
                     <h3 className="font-semibold text-xl">{job.title}</h3>
                     <p className="text-muted-foreground text-sm my-2">
@@ -117,36 +136,31 @@ const MyJobs = () => {
                       {job.placeName ? ` · ${job.placeName}` : ""}
                     </p>
 
-                    {job.status === "CLOSED" || job.status === "CANCELLED" ? (
-                      <p className="text-muted-foreground">
-                        Job {job.status.toLowerCase()}
-                      </p>
-                    ) : (
-                      <>
-                        {job.interestedCount > 0 && (
-                          <div className="flex gap-6 my-4">
-                            <div className="border rounded-lg px-6 py-3 flex-1">
-                              <p className="text-2xl font-bold">
-                                {job.interestedCount}
-                              </p>
-                              <p className="text-sm text-muted-foreground">
-                                Interested
-                              </p>
-                              <p className="text-sm text-muted-foreground">
-                                Waiting for your decision
-                              </p>
-                            </div>
+                    {job.status === "ACTIVE" &&
+                      (job.interestedCount + job.shortlistedCount > 0 ? (
+                        <div className="flex gap-3 my-4">
+                          <div className="border rounded-lg px-4 py-3 flex-1">
+                            <p className="text-2xl font-bold">{job.interestedCount}</p>
+                            <p className="text-sm text-muted-foreground">
+                              Interested — waiting for your decision
+                            </p>
                           </div>
-                        )}
-
-                        {job.interestedCount === 0 && (
-                          <p className="text-muted-foreground text-sm">
-                            Suitable local tradespeople have been alerted about
-                            your job. As soon as one is interested we will let
-                            you know.
-                          </p>
-                        )}
-                      </>
+                          <div className="border rounded-lg px-4 py-3 flex-1">
+                            <p className="text-2xl font-bold">{job.shortlistedCount}</p>
+                            <p className="text-sm text-muted-foreground">Shortlisted</p>
+                          </div>
+                        </div>
+                      ) : (
+                        <p className="text-muted-foreground text-sm">
+                          Suitable local tradespeople have been alerted about
+                          your job. As soon as one is interested we will let
+                          you know.
+                        </p>
+                      ))}
+                    {job.status === "HIRED" && (
+                      <p className="text-muted-foreground text-sm">
+                        Tradesperson hired — mark the job complete when the work is done.
+                      </p>
                     )}
                   </div>
                   <ChevronRight className="w-5 h-5 text-muted-foreground ml-4 mt-1 flex-shrink-0" />

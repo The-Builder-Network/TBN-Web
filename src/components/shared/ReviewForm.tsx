@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { StarRating } from "./StarRating";
 import { useCreateReview } from "@/api/reviews";
 import { useToast } from "@/hooks/use-toast";
+import { extractError } from "@/api/client";
 
 interface ReviewFormProps {
   jobId: string;
@@ -24,7 +25,7 @@ export function ReviewForm({
   const { mutate: createReview, isPending } = useCreateReview();
   const { toast } = useToast();
 
-  const isValid = rating > 0 && comment.trim().length >= 10;
+  const isValid = rating > 0 && comment.trim().length >= 20;
 
   function handleSubmit() {
     if (!isValid) return;
@@ -35,8 +36,12 @@ export function ReviewForm({
           toast({ title: "Review submitted. Thank you!" });
           onSuccess();
         },
-        onError: () => {
-          toast({ title: "Failed to submit review", variant: "destructive" });
+        onError: (err) => {
+          toast({
+            title: "Failed to submit review",
+            description: extractError(err),
+            variant: "destructive",
+          });
         },
       },
     );
@@ -64,12 +69,12 @@ export function ReviewForm({
           <Textarea
             value={comment}
             onChange={(e) => setComment(e.target.value)}
-            placeholder="Describe your experience (at least 10 characters)…"
+            placeholder="Describe your experience (at least 20 characters)…"
             rows={4}
-            maxLength={1000}
+            maxLength={2000}
           />
           <p className="text-xs text-muted-foreground mt-1 text-right">
-            {comment.length}/1000
+            {comment.length}/2000
           </p>
         </div>
 

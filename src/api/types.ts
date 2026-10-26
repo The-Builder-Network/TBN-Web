@@ -14,38 +14,60 @@ export type SortOrder = "asc" | "desc";
 
 export type UserRole = "HOMEOWNER" | "TRADESPERSON" | "ADMIN";
 
-export type JobStatus =
-  | "DRAFT"
-  | "ACTIVE"
-  | "SHORTLISTING"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "CANCELLED"
-  | "CLOSED";
+export type JobStatus = "ACTIVE" | "HIRED" | "COMPLETED" | "CLOSED" | "EXPIRED";
 
 export type LeadStatus =
   | "AVAILABLE"
   | "INTERESTED"
   | "SHORTLISTED"
-  | "CONTACTED"
   | "HIRED"
-  | "REJECTED"
+  | "DECLINED"
+  | "WITHDRAWN"
+  | "NOT_SELECTED"
   | "EXPIRED";
+
+export type LeadTab = "new" | "interested" | "shortlisted" | "hired" | "archived";
+
+export type VerificationStatus =
+  | "NOT_SUBMITTED"
+  | "PENDING"
+  | "APPROVED"
+  | "REJECTED"
+  | "INFO_REQUESTED"
+  | "SUSPENDED";
+
+export type CreditRequestReason =
+  | "CUSTOMER_UNREACHABLE"
+  | "WRONG_WORK_TYPE"
+  | "DUPLICATE_SHORTLIST"
+  | "NOT_A_REAL_JOB"
+  | "OTHER";
 
 export type QuoteStatus = "PENDING" | "ACCEPTED" | "DECLINED" | "WITHDRAWN";
 
 export type NotificationType =
   | "NEW_LEAD"
+  | "JOB_INVITE"
   | "NEW_INTEREST"
+  | "INTEREST_DECLINED"
+  | "SHORTLISTED"
+  | "NOT_SELECTED"
+  | "HIRED"
   | "NEW_QUOTE"
+  | "QUOTE_ACCEPTED"
   | "NEW_MESSAGE"
   | "NEW_REVIEW"
+  | "REVIEW_REQUESTED"
   | "JOB_COMPLETED"
   | "JOB_CANCELLED"
+  | "JOB_CLOSED"
   | "LEAD_EXPIRED"
   | "CREDIT_LOW"
   | "CREDIT_TOPUP"
+  | "CREDIT_REQUEST_RESOLVED"
   | "ACCOUNT_VERIFIED"
+  | "VERIFICATION_REJECTED"
+  | "VERIFICATION_INFO_REQUESTED"
   | "NEW_ANSWER"
   | "ANSWER_LIKED";
 
@@ -62,6 +84,18 @@ export interface AuthUser {
 }
 
 // ── Job ───────────────────────────────────────────────────────
+export interface JobAnswer {
+  question: string;
+  answer: string;
+}
+
+export interface JobAttachment {
+  id: string;
+  fileUrl: string;
+  fileName: string;
+  mimeType: string;
+}
+
 export interface JobSummary {
   id: string;
   jobNumber: number;
@@ -69,8 +103,9 @@ export interface JobSummary {
   status: JobStatus;
   serviceSlug: string;
   postcode: string;
-  placeName?: string;
+  placeName?: string | null;
   interestedCount: number;
+  shortlistedCount: number;
   createdAt: string;
 }
 
@@ -81,74 +116,130 @@ export interface JobDetail {
   description: string;
   status: JobStatus;
   serviceSlug: string;
-  tradeSlug?: string;
+  tradeSlug?: string | null;
   postcode: string;
-  placeName?: string;
-  answersJson: Record<string, unknown>;
-  attachments: Array<{
-    id: string;
-    fileUrl: string;
-    fileName: string;
-    mimeType: string;
-  }>;
+  placeName?: string | null;
+  answers: JobAnswer[];
+  attachments: JobAttachment[];
   createdAt: string;
-  responses?: JobResponse[];
+  expiresAt?: string | null;
+  hiredAt?: string | null;
+  completedAt?: string | null;
+  closedAt?: string | null;
+  closeReason?: string | null;
+  hiredTradespersonId?: string | null;
+  shortlistCap: number;
+  inviteCap: number;
+  review: {
+    id: string;
+    rating: number;
+    comment: string;
+    subjectId: string;
+    createdAt: string;
+    updatedAt: string;
+    reply: { body: string; createdAt: string } | null;
+  } | null;
+  responses: JobResponse[];
 }
 
 export interface JobResponse {
   leadId: string;
   leadStatus: LeadStatus;
+  invited: boolean;
+  interestMessage: string | null;
+  interestedAt: string | null;
+  shortlistedAt: string | null;
+  hiredAt: string | null;
+  conversationId: string | null;
   tradesperson: {
     id: string;
     username?: string;
     name: string;
-    companyName?: string;
-    avatarUrl?: string;
+    companyName?: string | null;
+    avatarUrl?: string | null;
     avgRating: number;
     reviewCount: number;
     verified: boolean;
+    /** Only once shortlisted. */
+    phone: string | null;
+    email: string | null;
   };
-  quote?: {
+  quote: {
     id: string;
     message: string;
-    amountPence?: number;
-    estimateRange?: string;
+    amountPence?: number | null;
+    estimateRange?: string | null;
     status: QuoteStatus;
-  };
+    updatedAt: string;
+  } | null;
 }
 
 // ── Lead ──────────────────────────────────────────────────────
 export interface LeadSummary {
   id: string;
-  job: {
-    id: string;
-    title: string;
-    serviceSlug: string;
-    postcode: string;
-    placeName?: string;
-    description: string;
-    createdAt: string;
-  };
   status: LeadStatus;
   creditCost: number;
-  distanceMiles?: number;
+  creditsReserved: number;
+  creditsCharged: number;
+  distanceMiles?: number | null;
+  invited: boolean;
+  dismissed: boolean;
+  interestMessage: string | null;
   createdAt: string;
-  expiresAt?: string;
+  expiresAt?: string | null;
+  interestedAt: string | null;
+  shortlistedAt: string | null;
+  hiredAt: string | null;
+  declinedAt: string | null;
+  notSelectedAt: string | null;
+  reviewRequestedAt: string | null;
+  canExpressInterest: boolean;
+  job: {
+    id: string;
+    jobNumber: number;
+    title: string;
+    description: string;
+    serviceSlug: string;
+    tradeSlug?: string | null;
+    status: JobStatus;
+    placeName?: string | null;
+    postcodeDistrict?: string | null;
+    /** Full postcode only once shortlisted. */
+    postcode: string | null;
+    createdAt: string;
+    attachmentCount?: number;
+  };
+  homeowner: {
+    firstName: string;
+    name: string | null;
+    phone: string | null;
+    email: string | null;
+  };
+  creditRequest: {
+    id: string;
+    reason: CreditRequestReason;
+    status: "PENDING" | "APPROVED" | "REJECTED";
+    adminNote: string | null;
+    createdAt: string;
+  } | null;
 }
 
 export interface LeadDetail extends LeadSummary {
   job: LeadSummary["job"] & {
-    tradeSlug?: string;
-    answersJson: Record<string, unknown>;
-    attachments: Array<{ fileUrl: string; fileName: string }>;
+    answers: JobAnswer[];
+    attachments: JobAttachment[];
   };
-  homeowner?: { name: string; avatarUrl?: string };
-  quote?: {
+  verificationRequired: boolean;
+  quote: {
     id: string;
     message: string;
-    amountPence?: number;
+    amountPence?: number | null;
+    estimateRange?: string | null;
     status: QuoteStatus;
-  };
+    updatedAt: string;
+  } | null;
+  conversationId: string | null;
+  review: { id: string; rating: number; comment: string; createdAt: string } | null;
 }
 
 // ── Quote ─────────────────────────────────────────────────────
@@ -173,7 +264,8 @@ export interface QuoteSummary {
 // ── Conversation & Message ─────────────────────────────────────
 export interface ConversationSummary {
   id: string;
-  job: { id: string; title: string };
+  job: { id: string; title: string; status?: JobStatus };
+  leadId?: string | null;
   otherParty: {
     id: string;
     name: string;
@@ -181,7 +273,7 @@ export interface ConversationSummary {
     avatarUrl?: string;
     username?: string;
   };
-  lastMessage?: { body: string; senderId: string; createdAt: string };
+  lastMessage?: { body: string; senderId: string; createdAt: string } | null;
   unreadCount: number;
   createdAt: string;
 }
@@ -260,6 +352,8 @@ export interface NotificationItem {
 // ── Payments ──────────────────────────────────────────────────
 export interface BalanceInfo {
   balance: number;
+  /** Held for open expressions of interest; charged if shortlisted. */
+  reserved: number;
   autoTopup: boolean;
   topupAmount?: number;
   topupThreshold?: number;
@@ -324,7 +418,22 @@ export interface OwnTradespersonProfile {
   trade?: string;
   postcode?: string;
   workRadiusMiles: number;
-  verificationStatus: "PENDING" | "APPROVED" | "REJECTED";
+  verificationStatus: VerificationStatus;
+  verification: {
+    status: VerificationStatus;
+    note: string | null;
+    submittedAt: string | null;
+    verifiedAt: string | null;
+    idDocumentName: string | null;
+    idDocumentUploadedAt: string | null;
+    checklist: {
+      idDocument: boolean;
+      services: boolean;
+      workArea: boolean;
+      phone: boolean;
+    };
+    canSubmit: boolean;
+  };
   guarantee: boolean;
   avgRating: number;
   reviewCount: number;

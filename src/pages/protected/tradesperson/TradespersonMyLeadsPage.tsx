@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
   Select,
   SelectContent,
@@ -19,10 +20,29 @@ import {
   AlertCircle,
   RefreshCw,
 } from "lucide-react";
-import { useLeads } from "@/api/leads";
-import { useRefreshLeads } from "@/api/users";
+import { useLeads, useLeadSummary } from "@/api/leads";
+import { useMyProfile, useRefreshLeads } from "@/api/users";
 import { services } from "@/constants/services";
-import type { LeadSummary } from "@/api/types";
+import type { LeadStatus, LeadSummary, LeadTab } from "@/api/types";
+
+const TABS: { id: LeadTab; label: string }[] = [
+  { id: "new", label: "New" },
+  { id: "interested", label: "Interested" },
+  { id: "shortlisted", label: "Shortlisted" },
+  { id: "hired", label: "Hired" },
+  { id: "archived", label: "Archived" },
+];
+
+const STATUS_LABEL: Record<LeadStatus, string> = {
+  AVAILABLE: "New",
+  INTERESTED: "Waiting for customer",
+  SHORTLISTED: "Shortlisted",
+  HIRED: "Hired",
+  DECLINED: "Declined",
+  WITHDRAWN: "Withdrawn",
+  NOT_SELECTED: "Not selected",
+  EXPIRED: "Expired",
+};
 
 function formatTimeAgo(iso: string): string {
   const diff = Date.now() - new Date(iso).getTime();
@@ -34,20 +54,45 @@ function formatTimeAgo(iso: string): string {
   return `${days} day${days !== 1 ? "s" : ""} ago`;
 }
 
-const NewLeads = () => {
+function VerificationBanner({ status }: { status?: string }) {
+  if (!status || status === "APPROVED") return null;
+  const message =
+    status === "PENDING"
+      ? "Your profile is being reviewed. You can preview leads now and respond once you're verified — usually within 2 working days."
+      : status === "SUSPENDED"
+        ? "Your account is suspended. Please contact support@thebuildernetwork.com."
+        : "You can preview leads, but you need to get verified before you can respond to customers.";
+  return (
+    <div className="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+      {message}{" "}
+      {status !== "PENDING" && status !== "SUSPENDED" && (
+        <Link to="/tradesperson/profile?tab=verification" className="font-semibold underline">
+          Get verified
+        </Link>
+      )}
+    </div>
+  );
+}
+
+const MyLeads = () => {
   const navigate = useNavigate();
+  const [params, setParams] = useSearchParams();
+  const tab = TABS.find((t) => t.id === params.get("tab"))?.id ?? "new";
+  const [page, setPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
   const [serviceFilter, setServiceFilter] = useState<string | undefined>();
   const [maxDistance, setMaxDistance] = useState<number | undefined>();
 
   const { data, isLoading, error, refetch } = useLeads({
-    status: "AVAILABLE",
+    tab,
     serviceSlug: serviceFilter,
     maxDistanceMiles: maxDistance,
     sort: "createdAt",
     order: "desc",
+    page,
   });
-
+  const { data: counts } = useLeadSummary();
+  const { data: profile } = useMyProfile();
   const { mutate: refreshLeads, isPending: isRefreshing } = useRefreshLeads();
 
   // On first mount, backfill any existing jobs that match this tradesperson's profile
@@ -57,15 +102,16 @@ const NewLeads = () => {
   }, []);
 
   const allLeads = data?.data ?? [];
-
+  const q = searchQuery.trim().toLowerCase();
   // Client-side keyword filter on top of server results
-  const leads = searchQuery.trim()
+  const leads = q
     ? allLeads.filter(
         (l) =>
-          l.job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          l.job.placeName?.toLowerCase().includes(searchQuery.toLowerCase()),
+          l.job.title.toLowerCase().includes(q) ||
+          (l.job.placeName ?? l.job.postcodeDistrict ?? "").toLowerCase().includes(q),
       )
     : allLeads;
+  const filtered = !!(serviceFilter || maxDistance);
 
   return (
     <div className="min-h-screen bg-background">
@@ -79,7 +125,7 @@ const NewLeads = () => {
 
       <div className="container py-10">
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-3xl font-bold">New leads</h1>
+          <h1 className="text-3xl font-bold">My leads</h1>
           <Button
             variant="outline"
             size="sm"
@@ -93,27 +139,54 @@ const NewLeads = () => {
           </Button>
         </div>
 
+        <VerificationBanner status={profile?.verificationStatus} />
+
+        <div role="tablist" aria-label="Lead status" className="flex gap-2 overflow-x-auto pb-2 mb-4">
+          {TABS.map((t) => (
+            <Button
+              key={t.id}
+              role="tab"
+              aria-selected={tab === t.id}
+              variant={tab === t.id ? "default" : "outline"}
+              size="sm"
+              className="shrink-0"
+              onClick={() => {
+                setPage(1);
+                setParams(t.id === "new" ? {} : { tab: t.id });
+              }}
+            >
+              {t.label}
+              {!!counts?.[t.id] && (
+                <span className="ml-1.5 rounded-full bg-background/20 px-1.5 text-xs">
+                  {counts[t.id]}
+                </span>
+              )}
+            </Button>
+          ))}
+        </div>
+
         {/* Search */}
-        <div className="flex gap-3 mb-4">
-          <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-            <Input
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by keyword or location"
-              className="pl-10 h-12 text-base"
-            />
-          </div>
-          <Button className="h-12 px-6 text-base">Search</Button>
+        <div className="relative mb-4">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+          <Input
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Filter by keyword or location"
+            aria-label="Filter leads by keyword or location"
+            className="pl-10 h-12 text-base"
+          />
         </div>
 
         {/* Filters */}
-        <div className="flex gap-3 mb-6">
+        <div className="flex flex-wrap gap-3 mb-6">
           <Select
             value={serviceFilter ?? "all"}
-            onValueChange={(v) => setServiceFilter(v === "all" ? undefined : v)}
+            onValueChange={(v) => {
+              setPage(1);
+              setServiceFilter(v === "all" ? undefined : v);
+            }}
           >
-            <SelectTrigger className="w-56">
+            <SelectTrigger className="w-56" aria-label="Service">
               <SelectValue placeholder="All services" />
             </SelectTrigger>
             <SelectContent>
@@ -128,11 +201,12 @@ const NewLeads = () => {
 
           <Select
             value={maxDistance !== undefined ? String(maxDistance) : "any"}
-            onValueChange={(v) =>
-              setMaxDistance(v === "any" ? undefined : Number(v))
-            }
+            onValueChange={(v) => {
+              setPage(1);
+              setMaxDistance(v === "any" ? undefined : Number(v));
+            }}
           >
-            <SelectTrigger className="w-44">
+            <SelectTrigger className="w-44" aria-label="Distance">
               <SelectValue placeholder="Any distance" />
             </SelectTrigger>
             <SelectContent>
@@ -145,9 +219,7 @@ const NewLeads = () => {
           </Select>
         </div>
 
-        {/* Loading */}
         <Skeleton name="leads-list" loading={isLoading}>
-          {/* Error */}
           {!isLoading && error && (
             <div className="border rounded-lg p-12 text-center">
               <AlertCircle className="mx-auto h-10 w-10 text-destructive mb-3" />
@@ -158,35 +230,28 @@ const NewLeads = () => {
             </div>
           )}
 
-          {/* Empty */}
           {!isLoading && !error && leads.length === 0 && (
             <div className="border rounded-lg p-12 text-center">
               <Search className="mx-auto h-12 w-12 text-muted-foreground mb-3" />
               <p className="font-semibold mb-1">No leads found</p>
               <p className="text-sm text-muted-foreground mb-4">
-                {serviceFilter || maxDistance
+                {filtered
                   ? "Try adjusting your filters."
-                  : "Make sure you've added your services and saved your work area on your profile, then click Refresh."}
+                  : tab !== "new"
+                    ? "Nothing here yet."
+                    : "Make sure you've added your services and saved your work area on your profile, then click Refresh."}
               </p>
-              {!serviceFilter && !maxDistance && (
+              {!filtered && tab === "new" && (
                 <div className="flex gap-3 justify-center">
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() =>
-                      navigate("/tradesperson/profile?tab=services")
-                    }
+                    onClick={() => navigate("/tradesperson/profile?tab=services")}
                   >
                     Add services
                   </Button>
-                  <Button
-                    size="sm"
-                    onClick={() => refreshLeads()}
-                    disabled={isRefreshing}
-                  >
-                    <RefreshCw
-                      className={`h-4 w-4 mr-2 ${isRefreshing ? "animate-spin" : ""}`}
-                    />
+                  <Button size="sm" onClick={() => refreshLeads()} disabled={isRefreshing}>
+                    <RefreshCw className={`h-4 w-4 mr-2 ${isRefreshing ? "animate-spin" : ""}`} />
                     Refresh leads
                   </Button>
                 </div>
@@ -194,7 +259,6 @@ const NewLeads = () => {
             </div>
           )}
 
-          {/* Leads list */}
           {!isLoading && !error && leads.length > 0 && (
             <div className="space-y-3">
               {leads.map((lead: LeadSummary) => (
@@ -209,18 +273,16 @@ const NewLeads = () => {
                         {lead.job.title}
                       </h3>
                       <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-                        <span className="flex items-center gap-1">
+                        <span className="flex items-center gap-1 capitalize">
                           <Wrench className="h-4 w-4" />
                           {lead.job.serviceSlug.replace(/-/g, " ")}
                         </span>
-                        {lead.job.placeName && (
+                        {(lead.job.placeName || lead.job.postcodeDistrict) && (
                           <span className="flex items-center gap-1">
                             <MapPin className="h-4 w-4" />
-                            {lead.job.placeName}
-                            {lead.distanceMiles !== undefined && (
-                              <span className="ml-0.5">
-                                ({Math.round(lead.distanceMiles)} mi)
-                              </span>
+                            {lead.job.placeName ?? lead.job.postcodeDistrict}
+                            {lead.distanceMiles != null && (
+                              <span className="ml-0.5">({Math.round(lead.distanceMiles)} mi)</span>
                             )}
                           </span>
                         )}
@@ -230,14 +292,35 @@ const NewLeads = () => {
                         </span>
                       </div>
                     </div>
-                    <div className="text-right flex-shrink-0">
+                    <div className="text-right flex-shrink-0 flex flex-col items-end gap-1">
+                      {lead.invited && <Badge className="bg-highlight text-white">Invited</Badge>}
+                      {tab !== "new" && <Badge variant="outline">{STATUS_LABEL[lead.status]}</Badge>}
                       <span className="text-sm font-medium text-foreground">
-                        {lead.creditCost} credits
+                        {lead.creditsCharged || lead.creditCost} credits
                       </span>
                     </div>
                   </div>
                 </button>
               ))}
+            </div>
+          )}
+
+          {data && data.meta.totalPages > 1 && (
+            <div className="flex items-center justify-center gap-3 mt-6">
+              <Button variant="outline" size="sm" disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>
+                Previous
+              </Button>
+              <span className="text-sm text-muted-foreground">
+                Page {page} of {data.meta.totalPages}
+              </span>
+              <Button
+                variant="outline"
+                size="sm"
+                disabled={page >= data.meta.totalPages}
+                onClick={() => setPage((p) => p + 1)}
+              >
+                Next
+              </Button>
             </div>
           )}
         </Skeleton>
@@ -246,4 +329,4 @@ const NewLeads = () => {
   );
 };
 
-export default NewLeads;
+export default MyLeads;

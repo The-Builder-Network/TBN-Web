@@ -7,33 +7,43 @@ const features = [
   { icon: Heart, label: "Save your favourite professionals" },
 ];
 
-// TODO: Replace with real app store URLs when app launches
+// Placeholder store links until the app is published: set VITE_GOOGLE_PLAY_URL /
+// VITE_APP_STORE_URL to the real listings at launch.
 const storeBadges = [
-  // google-play.svg's width/height attrs don't match its viewBox, so pin the ratio
-  { src: "/images/google-play.svg", label: "Get it on Google Play", ratio: "aspect-[27/8]" },
-  { src: "/images/app-store.svg", label: "Download on the App Store", ratio: "" },
+  {
+    src: "/images/google-play.svg",
+    label: "Get it on Google Play",
+    // google-play.svg's width/height attrs don't match its viewBox, so pin the ratio
+    ratio: "aspect-[27/8]",
+    href:
+      import.meta.env.VITE_GOOGLE_PLAY_URL ||
+      "https://play.google.com/store/apps/details?id=com.google.android.gm",
+  },
+  {
+    src: "/images/app-store.svg",
+    label: "Download on the App Store",
+    ratio: "",
+    href:
+      import.meta.env.VITE_APP_STORE_URL ||
+      "https://apps.apple.com/app/gmail-email-by-google/id422689480",
+  },
 ];
 
-/** "Coming soon" store badges, shared with the tradesperson app section. */
+/** App store badges, shared with the tradesperson app section. */
 export const StoreBadges = ({ className = "" }: { className?: string }) => (
-  <div className={className}>
-    <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-      Coming soon
-    </p>
-    <div className="mt-3 flex flex-wrap items-center gap-3">
-      {storeBadges.map(({ src, label, ratio }) => (
-        <a
-          key={label}
-          href="#"
-          aria-disabled="true"
-          onClick={(e) => e.preventDefault()}
-          className="cursor-not-allowed opacity-75"
-          aria-label={`${label} (coming soon)`}
-        >
-          <img src={src} alt={label} className={`h-11 w-auto ${ratio}`} />
-        </a>
-      ))}
-    </div>
+  <div className={`flex flex-wrap items-center gap-3 ${className}`}>
+    {storeBadges.map(({ src, label, ratio, href }) => (
+      <a
+        key={label}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={label}
+        className="transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
+      >
+        <img src={src} alt="" className={`h-11 w-auto ${ratio}`} />
+      </a>
+    ))}
   </div>
 );
 

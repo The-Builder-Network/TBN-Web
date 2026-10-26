@@ -83,9 +83,6 @@ const FunnelAccountStep = ({
     if (password.length < 8) {
       e.password = "Password must be at least 8 characters";
     }
-    if (!marketing) {
-      e.marketing = "Please accept marketing communications to continue.";
-    }
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -94,7 +91,6 @@ const FunnelAccountStep = ({
     name.trim().length > 0 &&
     phone.replace(/\s/g, "").length >= 10 &&
     password.length >= 8 &&
-    marketing &&
     !phoneExists &&
     !isCheckingPhone;
 
@@ -109,6 +105,7 @@ const FunnelAccountStep = ({
         name: name.trim(),
         role: "HOMEOWNER",
         phone: "+44" + phone.replace(/\s/g, ""),
+        marketingOptIn: marketing,
       },
       {
         onSuccess: () => onSuccess(),
@@ -217,7 +214,7 @@ const FunnelAccountStep = ({
           <span className="text-sm leading-relaxed text-muted-foreground">
             I would like to receive marketing communications about The Builder
             Network's services by email, SMS and/or phone and understand that I
-            can unsubscribe at any time.
+            can unsubscribe at any time. (Optional)
           </span>
         </label>
 

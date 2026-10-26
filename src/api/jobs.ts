@@ -4,19 +4,22 @@ import type {
   PaginatedResponse,
   JobSummary,
   JobDetail,
+  JobAnswer,
   SortOrder,
 } from "./types";
 
 // ── API functions ─────────────────────────────────────────────
 
-interface CreateJobData {
+export interface CreateJobData {
   title: string;
-  description?: string;
+  description: string;
   serviceSlug: string;
   tradeSlug?: string;
   postcode: string;
-  answersJson?: Record<string, unknown>;
+  answers?: JobAnswer[];
   attachments?: File[];
+  /** Tradesperson username to invite straight away ("Request a quote"). */
+  inviteUsername?: string;
 }
 
 interface CreateJobResponse {
@@ -32,16 +35,15 @@ export async function createJob(
 ): Promise<CreateJobResponse> {
   const formData = new FormData();
   formData.append("title", data.title);
-  formData.append("description", data.description || data.title);
+  formData.append("description", data.description);
   formData.append("serviceSlug", data.serviceSlug);
   if (data.tradeSlug) formData.append("tradeSlug", data.tradeSlug);
   formData.append("postcode", data.postcode);
-  if (data.answersJson) {
-    formData.append("answersJson", JSON.stringify(data.answersJson));
+  if (data.answers?.length) {
+    formData.append("answers", JSON.stringify(data.answers));
   }
-  if (data.attachments) {
-    data.attachments.forEach((file) => formData.append("attachments", file));
-  }
+  if (data.inviteUsername) formData.append("inviteUsername", data.inviteUsername);
+  data.attachments?.forEach((file) => formData.append("attachments", file));
 
   const res = await api.post<CreateJobResponse>("/jobs", formData, {
     headers: { "Content-Type": "multipart/form-data" },
@@ -49,9 +51,10 @@ export async function createJob(
   return res.data;
 }
 
-interface GetJobsParams {
-  status?: string;
-  sort?: string;
+export interface GetJobsParams {
+  /** open = ACTIVE + HIRED, closed = COMPLETED + CLOSED + EXPIRED */
+  view?: "open" | "closed";
+  sort?: "createdAt" | "updatedAt";
   order?: SortOrder;
   page?: number;
   perPage?: number;
@@ -69,20 +72,6 @@ export async function getJob(id: string): Promise<JobDetail> {
   return res.data;
 }
 
-export async function updateJobStatus(
-  id: string,
-  status: "CANCELLED" | "CLOSED",
-): Promise<void> {
-  await api.patch(`/jobs/${id}`, { status });
-}
-
-export async function completeJob(
-  id: string,
-  tradespersonId: string,
-): Promise<void> {
-  await api.post(`/jobs/${id}/complete`, { tradespersonId });
-}
-
 // ── Query keys ────────────────────────────────────────────────
 
 export const jobKeys = {
@@ -93,10 +82,11 @@ export const jobKeys = {
 
 // ── Hooks ─────────────────────────────────────────────────────
 
-export function useJobs(params: GetJobsParams = {}) {
+export function useJobs(params: GetJobsParams = {}, enabled = true) {
   return useQuery({
     queryKey: jobKeys.list(params),
     queryFn: () => getJobs(params),
+    enabled,
   });
 }
 
@@ -118,36 +108,69 @@ export function useCreateJob() {
   });
 }
 
-export function useUpdateJobStatus() {
+/** Any homeowner action on a job: refreshes the job, the lists and conversations. */
+function useJobAction<V>(jobId: string, fn: (vars: V) => Promise<unknown>) {
   const qc = useQueryClient();
   return useMutation({
-    mutationFn: ({
-      id,
-      status,
-    }: {
-      id: string;
-      status: "CANCELLED" | "CLOSED";
-    }) => updateJobStatus(id, status),
-    onSuccess: (_data, { id }) => {
-      void qc.invalidateQueries({ queryKey: jobKeys.detail(id) });
+    mutationFn: fn,
+    onSuccess: () => {
       void qc.invalidateQueries({ queryKey: jobKeys.all });
+      void qc.invalidateQueries({ queryKey: ["conversations"] });
     },
+    onSettled: () => void qc.invalidateQueries({ queryKey: jobKeys.detail(jobId) }),
   });
 }
 
-export function useCompleteJob() {
-  const qc = useQueryClient();
-  return useMutation({
-    mutationFn: ({
-      id,
-      tradespersonId,
-    }: {
-      id: string;
-      tradespersonId: string;
-    }) => completeJob(id, tradespersonId),
-    onSuccess: (_data, { id }) => {
-      void qc.invalidateQueries({ queryKey: jobKeys.detail(id) });
-      void qc.invalidateQueries({ queryKey: jobKeys.all });
-    },
+export const useShortlist = (jobId: string) =>
+  useJobAction(jobId, (leadId: string) =>
+    api.post(`/jobs/${jobId}/leads/${leadId}/shortlist`),
+  );
+
+export const useDeclineInterest = (jobId: string) =>
+  useJobAction(jobId, ({ leadId, reason }: { leadId: string; reason?: string }) =>
+    api.post(`/jobs/${jobId}/leads/${leadId}/decline`, { reason }),
+  );
+
+export const useHire = (jobId: string) =>
+  useJobAction(jobId, (leadId: string) =>
+    api.post(`/jobs/${jobId}/leads/${leadId}/hire`),
+  );
+
+export const useCompleteJob = (jobId: string) =>
+  useJobAction(jobId, () => api.post(`/jobs/${jobId}/complete`));
+
+export const useCloseJob = (jobId: string) =>
+  useJobAction(jobId, (reason?: string) =>
+    api.post(`/jobs/${jobId}/close`, { reason }),
+  );
+
+export const useUpdateJobDescription = (jobId: string) =>
+  useJobAction(jobId, (description: string) =>
+    api.patch(`/jobs/${jobId}`, { description }),
+  );
+
+export const useAddJobAttachments = (jobId: string) =>
+  useJobAction(jobId, (files: File[]) => {
+    const fd = new FormData();
+    files.forEach((f) => fd.append("attachments", f));
+    return api.post(`/jobs/${jobId}/attachments`, fd, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
   });
+
+export const useRemoveJobAttachment = (jobId: string) =>
+  useJobAction(jobId, (attachmentId: string) =>
+    api.delete(`/jobs/${jobId}/attachments/${attachmentId}`),
+  );
+
+/** Invite a tradesperson to an existing open job. */
+export async function inviteToJob(jobId: string, username: string) {
+  const res = await api.post<{ leadId: string; alreadyInvited: boolean; alreadyResponded?: boolean }>(
+    `/jobs/${jobId}/invites`,
+    { username },
+  );
+  return res.data;
 }
+
+export const useInviteToJob = (jobId: string) =>
+  useJobAction(jobId, (username: string) => inviteToJob(jobId, username));

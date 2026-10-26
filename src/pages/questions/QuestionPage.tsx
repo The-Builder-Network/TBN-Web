@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import { extractError } from "@/api/client";
 import {
   Star,
   ThumbsUp,
@@ -128,8 +129,12 @@ const QuestionDetail = () => {
           setShowAnswerForm(false);
           toast({ title: "Answer posted!" });
         },
-        onError: () =>
-          toast({ title: "Failed to post answer", variant: "destructive" }),
+        onError: (err) =>
+          toast({
+            title: "Failed to post answer",
+            description: extractError(err),
+            variant: "destructive",
+          }),
       },
     );
   };

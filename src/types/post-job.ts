@@ -63,3 +63,6 @@ export interface HistoryEntry {
   node: QuestionNode;
   answer: AnswerValue;
 }
+
+/** Separates an option id from the free text typed for an "Other"-style option. */
+export const OTHER_SEP = "::";

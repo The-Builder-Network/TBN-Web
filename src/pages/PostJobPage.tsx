@@ -17,6 +17,8 @@ const PostJob = () => {
   const [initialPostcode, setInitialPostcode] = useState("");
   const navigate = useNavigate();
   const { isTradesperson } = useAuth();
+  // ?invite=<username>: "Request a quote" from a tradesperson's profile.
+  const invite = searchParams.get("invite") ?? undefined;
 
   // Block tradesperson from accessing this page
   useEffect(() => {
@@ -30,9 +32,6 @@ const PostJob = () => {
       navigate("/", { replace: true });
     }
   }, [isTradesperson, navigate]);
-
-  // Don't render the page content for tradespersons — prevents flash before redirect
-  if (isTradesperson) return null;
 
   // Handle URL ?service=slug and ?postcode= params on mount
   useEffect(() => {
@@ -88,8 +87,12 @@ const PostJob = () => {
     setSelectedSlug(null);
     setRootNode(null);
     setServiceName("");
-    setSearchParams({});
-  }, [setSearchParams]);
+    // Keep the invited tradesperson (if any) when changing service.
+    setSearchParams(invite ? { invite } : {});
+  }, [setSearchParams, invite]);
+
+  // Don't render the page content for tradespersons — prevents flash before redirect
+  if (isTradesperson) return null;
 
   return (
     <main className="flex-1 container py-10">
@@ -101,6 +104,12 @@ const PostJob = () => {
         />
       </Helmet>
       <div className="w-full max-w-2xl mx-auto px-4">
+        {invite && (
+          <p className="mb-6 rounded-md border bg-muted/40 p-3 text-sm">
+            We'll send this job to the tradesperson you're requesting a quote from, as well as other
+            trusted tradespeople nearby.
+          </p>
+        )}
         {rootNode && selectedSlug ? (
           <JobFunnel
             key={selectedSlug}
@@ -108,6 +117,7 @@ const PostJob = () => {
             serviceName={serviceName}
             serviceSlug={selectedSlug}
             initialPostcode={initialPostcode}
+            inviteUsername={invite}
             onBackToServices={handleBackToServices}
           />
         ) : (

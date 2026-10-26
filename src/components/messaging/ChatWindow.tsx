@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Send } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -8,35 +9,55 @@ import { MessageBubble } from "./MessageBubble";
 import { useMessages, useSendMessage } from "@/api/messaging";
 import { useAuth } from "@/hooks/useAuth";
 import { useChatSocket } from "@/hooks/useChatSocket";
+import { toast } from "@/hooks/use-toast";
+import { extractError } from "@/api/client";
 
 interface ChatWindowProps {
   conversationId: string;
   otherPartyName: string;
+  /** Link back to the job / lead this conversation is about. */
+  contextLink?: { to: string; label: string };
 }
 
 export function ChatWindow({
   conversationId,
   otherPartyName,
+  contextLink,
 }: ChatWindowProps) {
   const { user } = useAuth();
   const [input, setInput] = useState("");
   const bottomRef = useRef<HTMLDivElement>(null);
   const typingTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const { data, isLoading } = useMessages(conversationId);
+  const {
+    data: messages = [],
+    isLoading,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+  } = useMessages(conversationId);
   const sendMessage = useSendMessage();
   const { peerTyping, emitTyping } = useChatSocket(conversationId);
 
-  // Auto-scroll to bottom when new messages arrive
+  // Auto-scroll to bottom when a new latest message arrives (not when loading older ones)
+  const lastId = messages[messages.length - 1]?.id;
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [data?.data]);
+  }, [lastId]);
 
   const handleSend = () => {
     const body = input.trim();
     if (!body || sendMessage.isPending) return;
     setInput("");
-    sendMessage.mutate({ conversationId, body });
+    sendMessage.mutate(
+      { conversationId, body },
+      {
+        onError: (err) => {
+          setInput(body);
+          toast({ title: "Message not sent", description: extractError(err), variant: "destructive" });
+        },
+      },
+    );
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -48,9 +69,12 @@ export function ChatWindow({
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInput(e.target.value);
+    // Throttle typing events to one every 1.5s.
+    if (typingTimeoutRef.current) return;
     emitTyping(conversationId);
-    if (typingTimeoutRef.current) clearTimeout(typingTimeoutRef.current);
-    typingTimeoutRef.current = setTimeout(() => {}, 1500);
+    typingTimeoutRef.current = setTimeout(() => {
+      typingTimeoutRef.current = null;
+    }, 1500);
   };
 
   return (
@@ -60,18 +84,35 @@ export function ChatWindow({
         <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center text-sm font-semibold text-primary">
           {otherPartyName.charAt(0).toUpperCase()}
         </div>
-        <span className="font-semibold text-sm">{otherPartyName}</span>
+        <span className="font-semibold text-sm flex-1">{otherPartyName}</span>
+        {contextLink && (
+          <Link to={contextLink.to} className="text-sm text-primary hover:underline">
+            {contextLink.label}
+          </Link>
+        )}
       </div>
 
       {/* Messages */}
       <ScrollArea className="flex-1 px-4 py-3">
         <Skeleton name="chat-messages" loading={isLoading}>
-          {(data?.data ?? []).length === 0 ? (
+          {hasNextPage && (
+            <div className="flex justify-center mb-3">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => void fetchNextPage()}
+                disabled={isFetchingNextPage}
+              >
+                {isFetchingNextPage ? "Loading…" : "Load earlier messages"}
+              </Button>
+            </div>
+          )}
+          {messages.length === 0 ? (
             <p className="text-center text-muted-foreground text-sm mt-8">
               No messages yet. Say hello!
             </p>
           ) : (
-            (data?.data ?? []).map((msg) => (
+            messages.map((msg) => (
               <MessageBubble
                 key={msg.id}
                 body={msg.body}

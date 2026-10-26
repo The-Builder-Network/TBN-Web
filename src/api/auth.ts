@@ -8,9 +8,13 @@ export interface ApiUser {
   email: string;
   role: "HOMEOWNER" | "TRADESPERSON";
   name: string;
+  username?: string | null;
   phone: string | null;
   avatarUrl: string | null;
   emailVerified: boolean;
+  marketingOptIn?: boolean;
+  notificationsPaused?: boolean;
+  verificationStatus?: string | null;
   createdAt: string;
 }
 
@@ -30,6 +34,7 @@ export interface RegisterPayload {
   name: string;
   role: "HOMEOWNER" | "TRADESPERSON";
   phone?: string;
+  marketingOptIn?: boolean;
 }
 
 // ── Map API user (uppercase role) → frontend User (lowercase role) ────
@@ -39,7 +44,12 @@ export function mapApiUser(apiUser: ApiUser): User {
     email: apiUser.email,
     role: apiUser.role.toLowerCase() as User["role"],
     name: apiUser.name,
+    username: apiUser.username ?? undefined,
     avatarUrl: apiUser.avatarUrl,
+    phone: apiUser.phone,
+    emailVerified: apiUser.emailVerified,
+    notificationsPaused: apiUser.notificationsPaused ?? false,
+    marketingOptIn: apiUser.marketingOptIn ?? false,
   };
 }
 
@@ -83,6 +93,19 @@ export async function checkPhoneApi(
     phone,
   });
   return res.data;
+}
+
+/** Revokes every other session; the server returns fresh tokens for this one. */
+export async function changePasswordApi(data: {
+  currentPassword: string;
+  newPassword: string;
+}): Promise<void> {
+  const res = await api.post<AuthTokens>("/auth/change-password", data);
+  setTokens(res.data.accessToken, res.data.refreshToken);
+}
+
+export async function resendVerificationApi(): Promise<void> {
+  await api.post("/auth/resend-verification");
 }
 
 export async function forgotPasswordApi(email: string): Promise<void> {
@@ -146,6 +169,14 @@ export function useLogout() {
       qc.clear();
     },
   });
+}
+
+export function useChangePassword() {
+  return useMutation({ mutationFn: changePasswordApi });
+}
+
+export function useResendVerification() {
+  return useMutation({ mutationFn: resendVerificationApi });
 }
 
 export function useForgotPassword() {

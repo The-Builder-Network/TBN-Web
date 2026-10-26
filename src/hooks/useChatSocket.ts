@@ -2,13 +2,11 @@ import { useEffect, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { getChatSocket } from "@/lib/socket";
 import { messagingKeys } from "@/api/messaging";
-import type { MessageItem } from "@/api/types";
 
 /**
- * Hook for real-time chat events on a specific conversation.
- * - Joins the conversation room on mount
- * - Listens for `new_message` → appends to React Query cache
- * - Listens for `typing` → exposes `peerTyping` state
+ * Real-time events for one conversation: joins its room (and re-joins after a
+ * reconnect), refreshes messages on `new_message` / `messages_read`, and
+ * exposes the other party's typing state.
  */
 export function useChatSocket(conversationId: string | undefined) {
   const qc = useQueryClient();
@@ -16,37 +14,38 @@ export function useChatSocket(conversationId: string | undefined) {
 
   useEffect(() => {
     if (!conversationId) return;
-
     const socket = getChatSocket();
+    let typingTimer: ReturnType<typeof setTimeout> | undefined;
 
-    const onNewMessage = (_msg: MessageItem) => {
-      void qc.invalidateQueries({
-        queryKey: messagingKeys.messages(conversationId),
-      });
+    const join = () => socket.emit("join_conversation", { conversationId });
+    const refresh = (e: { conversationId?: string }) => {
+      if (e?.conversationId && e.conversationId !== conversationId) return;
+      void qc.invalidateQueries({ queryKey: messagingKeys.messages(conversationId) });
       void qc.invalidateQueries({ queryKey: messagingKeys.conversations });
     };
-
-    const onTyping = (_data: { userId: string }) => {
+    const onNewMessage = (e: { conversationId?: string }) => {
+      setPeerTyping(false);
+      refresh(e);
+    };
+    const onTyping = (e: { conversationId?: string }) => {
+      if (e?.conversationId && e.conversationId !== conversationId) return;
       setPeerTyping(true);
-      const id = setTimeout(() => setPeerTyping(false), 2000);
-      return () => clearTimeout(id);
+      clearTimeout(typingTimer);
+      typingTimer = setTimeout(() => setPeerTyping(false), 2000);
     };
 
-    const setup = () => {
-      socket.emit("join_conversation", { conversationId });
-      socket.on("new_message", onNewMessage);
-      socket.on("typing", onTyping);
-    };
-
-    if (socket.connected) {
-      setup();
-    } else {
-      socket.once("connect", setup);
-    }
+    socket.on("connect", join);
+    socket.on("new_message", onNewMessage);
+    socket.on("messages_read", refresh);
+    socket.on("typing", onTyping);
+    if (socket.connected) join();
 
     return () => {
-      socket.off("connect", setup);
+      clearTimeout(typingTimer);
+      if (socket.connected) socket.emit("leave_conversation", { conversationId });
+      socket.off("connect", join);
       socket.off("new_message", onNewMessage);
+      socket.off("messages_read", refresh);
       socket.off("typing", onTyping);
     };
   }, [conversationId, qc]);
@@ -54,9 +53,7 @@ export function useChatSocket(conversationId: string | undefined) {
   /** Emit typing indicator to the server */
   const emitTyping = (convId: string) => {
     const socket = getChatSocket();
-    if (socket.connected) {
-      socket.emit("typing", { conversationId: convId });
-    }
+    if (socket.connected) socket.emit("typing", { conversationId: convId });
   };
 
   return { peerTyping, emitTyping };

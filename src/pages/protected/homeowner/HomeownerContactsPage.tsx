@@ -1,8 +1,7 @@
-import { useState } from "react";
 import { MessageCircle, FolderOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "boneyard-js/react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { ConversationListItem } from "@/components/messaging/ConversationListItem";
 import { ChatWindow } from "@/components/messaging/ChatWindow";
 import { useConversations } from "@/api/messaging";
@@ -10,9 +9,11 @@ import { Helmet } from "react-helmet-async";
 
 const HomeownerContactsPage = () => {
   const navigate = useNavigate();
-  const [selectedConversationId, setSelectedConversationId] = useState<
-    string | null
-  >(null);
+  // The open conversation lives in the URL so notifications and job pages can deep-link to it.
+  const [params, setParams] = useSearchParams();
+  const selectedConversationId = params.get("conversationId");
+  const setSelectedConversationId = (id: string | null) =>
+    setParams(id ? { conversationId: id } : {});
 
   const { data, isLoading, isError } = useConversations();
   const conversations = data?.conversations ?? [];
@@ -21,6 +22,7 @@ const HomeownerContactsPage = () => {
     (c) => c.id === selectedConversationId,
   );
   const otherPartyName = selectedConversation?.otherParty.name ?? "";
+  const contextLink = selectedConversation?.job ? { to: `/homeowner/my-jobs/${selectedConversation.job.id}`, label: "View job" } : undefined;
 
   return (
     <div className="min-h-screen bg-background">
@@ -84,6 +86,7 @@ const HomeownerContactsPage = () => {
               <ChatWindow
                 conversationId={selectedConversationId}
                 otherPartyName={otherPartyName}
+                contextLink={contextLink}
               />
             ) : (
               <div className="flex flex-col items-center justify-center h-full text-center p-8 text-muted-foreground">
@@ -112,6 +115,7 @@ const HomeownerContactsPage = () => {
               <ChatWindow
                 conversationId={selectedConversationId}
                 otherPartyName={otherPartyName}
+                contextLink={contextLink}
               />
             </div>
           </div>

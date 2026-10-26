@@ -31,7 +31,7 @@ import {
   Image,
   FileText,
   Settings,
-  BookmarkIcon,
+  ShieldCheck,
   MapPin,
   Wrench,
   MessageSquare,
@@ -43,7 +43,6 @@ import {
   Upload,
   Edit,
   Search,
-  FolderOpen,
   Trash2,
   Plus,
   CheckCircle,
@@ -71,12 +70,17 @@ import {
   useUploadDocument,
   useDeleteDocument,
   useUpdateUser,
+  useUploadIdDocument,
+  useSubmitVerification,
 } from "@/api/users";
+import { AccountSecurity } from "@/components/account/AccountSecurity";
+import { extractError } from "@/api/client";
 import { useReviews } from "@/api/reviews";
 import {
   useBalance,
+  useLedger,
   usePaymentHistory,
-  useUpdateAutoTopup,
+  type LedgerItem,
 } from "@/api/payments";
 import { Skeleton } from "boneyard-js/react";
 import { useLeadsCount } from "@/api/leads";
@@ -128,9 +132,9 @@ const TABS = [
     completionId: [] as string[],
   },
   {
-    id: "saved-leads",
-    label: "Saved leads",
-    icon: BookmarkIcon,
+    id: "verification",
+    label: "Verification",
+    icon: ShieldCheck,
     section: "account",
     completionId: [] as string[],
   },
@@ -760,49 +764,148 @@ const ManageAccountTab = () => {
         </div>
       </div>
 
-      <div className="space-y-4">
-        <div className="border rounded-lg p-6">
-          <h3 className="font-semibold mb-1">Change password</h3>
-          <p className="text-sm text-muted-foreground mb-4">
-            Update your password to keep your account secure.
-          </p>
-          <Button variant="outline" size="sm">
-            Change password
-          </Button>
-        </div>
-        <div className="border rounded-lg p-6">
-          <h3 className="font-semibold mb-1">Delete account</h3>
-          <p className="text-sm text-muted-foreground mb-4">
-            Permanently delete your account and all associated data.
-          </p>
-          <Button variant="destructive" size="sm">
-            Delete account
-          </Button>
-        </div>
-      </div>
+      <AccountSecurity />
     </div>
   );
 };
 
-// ── SavedLeadsTab ──────────────────────────────────────────────
+// ── VerificationTab ────────────────────────────────────────────
 
-const SavedLeadsTab = () => {
-  const navigate = useNavigate();
+const VERIFICATION_COPY: Record<string, { title: string; body: string; tone: string }> = {
+  NOT_SUBMITTED: {
+    title: "Get verified to start winning work",
+    body: "We check every tradesperson before they can contact customers. Complete the steps below and submit your profile for review.",
+    tone: "border-amber-200 bg-amber-50 text-amber-900",
+  },
+  PENDING: {
+    title: "Your profile is being reviewed",
+    body: "We usually review profiles within 2 working days and will email you as soon as we're done. You can preview leads in the meantime.",
+    tone: "border-blue-200 bg-blue-50 text-blue-900",
+  },
+  APPROVED: {
+    title: "You're verified",
+    body: "Your profile appears in search and you can respond to leads.",
+    tone: "border-green-200 bg-green-50 text-green-900",
+  },
+  REJECTED: {
+    title: "We couldn't verify your profile",
+    body: "Please fix the issue below and submit again.",
+    tone: "border-red-200 bg-red-50 text-red-900",
+  },
+  INFO_REQUESTED: {
+    title: "We need a bit more information",
+    body: "Please update your profile as described below and submit again.",
+    tone: "border-amber-200 bg-amber-50 text-amber-900",
+  },
+  SUSPENDED: {
+    title: "Your account is suspended",
+    body: "Please contact support@thebuildernetwork.com.",
+    tone: "border-red-200 bg-red-50 text-red-900",
+  },
+};
+
+const VerificationTab = ({ goTo }: { goTo: (tab: string) => void }) => {
+  const { data: profile } = useMyProfile();
+  const upload = useUploadIdDocument();
+  const submit = useSubmitVerification();
+  const { toast } = useToast();
+  const fileRef = useRef<HTMLInputElement>(null);
+
+  const v = profile?.verification;
+  if (!v) return null;
+  const copy = VERIFICATION_COPY[v.status] ?? VERIFICATION_COPY.NOT_SUBMITTED;
+  const locked = v.status === "PENDING" || v.status === "SUSPENDED";
+
+  const steps = [
+    { done: v.checklist.idDocument, label: "Upload photo ID (passport or driving licence)", action: null },
+    { done: v.checklist.services, label: "Add the services you offer", action: "services" },
+    { done: v.checklist.workArea, label: "Set your work area", action: "work-area" },
+    { done: v.checklist.phone, label: "Add a phone number", action: "contact-details" },
+  ];
+
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-6">Saved leads</h2>
-      <div className="text-center py-12">
-        <FolderOpen className="h-16 w-16 text-muted-foreground/30 mx-auto mb-4" />
-        <h3 className="text-xl font-bold mb-2">
-          You don&apos;t have any saved leads
-        </h3>
-        <p className="text-muted-foreground mb-6">
-          Save a lead to access it later
-        </p>
-        <Button onClick={() => navigate("/tradesperson/my-leads")}>
-          Your next lead is just around the corner
-        </Button>
+      <h2 className="text-2xl font-bold mb-6">Verification</h2>
+
+      <div className={`border rounded-xl p-5 mb-6 ${copy.tone}`}>
+        <p className="font-semibold">{copy.title}</p>
+        <p className="text-sm mt-1">{copy.body}</p>
+        {v.note && (v.status === "REJECTED" || v.status === "INFO_REQUESTED") && (
+          <p className="text-sm mt-3 rounded-md bg-background/70 p-3 whitespace-pre-line">{v.note}</p>
+        )}
       </div>
+
+      {v.status !== "APPROVED" && (
+        <>
+          <ol className="space-y-3 mb-6">
+            {steps.map((step) => (
+              <li key={step.label} className="flex items-center gap-3 border rounded-lg p-4">
+                <CheckCircle className={`h-5 w-5 shrink-0 ${step.done ? "text-green-600" : "text-muted-foreground/40"}`} />
+                <span className="flex-1 text-sm">{step.label}</span>
+                {step.action && !step.done && (
+                  <Button variant="outline" size="sm" onClick={() => goTo(step.action)}>
+                    Add
+                  </Button>
+                )}
+              </li>
+            ))}
+          </ol>
+
+          <div className="border rounded-lg p-5 mb-6">
+            <p className="font-semibold mb-1">Photo ID</p>
+            <p className="text-sm text-muted-foreground mb-3">
+              Only our verification team can see this. JPG, PNG or PDF, up to 10MB.
+            </p>
+            {v.idDocumentName && (
+              <p className="text-sm mb-3">
+                Uploaded: <span className="font-medium">{v.idDocumentName}</span>
+              </p>
+            )}
+            <input
+              ref={fileRef}
+              type="file"
+              accept="image/jpeg,image/png,image/webp,application/pdf"
+              className="hidden"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                e.target.value = "";
+                if (!file) return;
+                upload.mutate(file, {
+                  onSuccess: () => toast({ title: "ID uploaded" }),
+                  onError: (err) =>
+                    toast({ title: "Upload failed", description: extractError(err), variant: "destructive" }),
+                });
+              }}
+            />
+            <Button
+              variant="outline"
+              size="sm"
+              className="gap-2"
+              disabled={locked || upload.isPending}
+              onClick={() => fileRef.current?.click()}
+            >
+              <Upload className="h-4 w-4" />
+              {upload.isPending ? "Uploading…" : v.idDocumentName ? "Replace ID" : "Upload ID"}
+            </Button>
+          </div>
+
+          {!locked && (
+            <Button
+              disabled={!v.canSubmit || submit.isPending}
+              onClick={() =>
+                submit.mutate(undefined, {
+                  onSuccess: () =>
+                    toast({ title: "Submitted for review", description: "We'll email you when we're done." }),
+                  onError: (err) =>
+                    toast({ title: "Could not submit", description: extractError(err), variant: "destructive" }),
+                })
+              }
+            >
+              {submit.isPending ? "Submitting…" : "Submit for verification"}
+            </Button>
+          )}
+        </>
+      )}
     </div>
   );
 };
@@ -1362,125 +1465,122 @@ const MessageTemplatesTab = () => {
 
 // ── BalanceTab ────────────────────────────────────────────────
 
+const LEDGER_LABEL: Record<LedgerItem["type"], string> = {
+  WELCOME_BONUS: "Welcome credits",
+  PURCHASE: "Credits bought",
+  PURCHASE_REVERSAL: "Refund — credits removed",
+  RESERVE: "Held for interest",
+  RELEASE: "Held credits returned",
+  LEAD_FEE: "Lead fee (shortlisted)",
+  ADMIN_CREDIT: "Credits added by The Builder Network",
+  ADMIN_DEBIT: "Credits removed by The Builder Network",
+};
+
 const BalanceTab = () => {
   const [showPurchaseModal, setShowPurchaseModal] = useState(false);
+  const [page, setPage] = useState(1);
   const { data: balanceInfo, isLoading } = useBalance();
-  const { mutate: updateAutoTopup, isPending: savingAutoTopup } =
-    useUpdateAutoTopup();
-  const { toast } = useToast();
+  const { data: ledger, isLoading: ledgerLoading } = useLedger(page);
+  const navigate = useNavigate();
 
   const balance = balanceInfo?.balance ?? 0;
-  const autoTopupEnabled = balanceInfo?.autoTopup ?? false;
-
-  function handleAutoTopupToggle(enabled: boolean) {
-    updateAutoTopup(
-      { enabled },
-      {
-        onSuccess: () =>
-          toast({
-            title: enabled ? "Auto top-up enabled" : "Auto top-up disabled",
-          }),
-        onError: () =>
-          toast({
-            title: "Failed to update auto top-up",
-            variant: "destructive",
-          }),
-      },
-    );
-  }
+  const reserved = balanceInfo?.reserved ?? 0;
+  const rows = ledger?.data ?? [];
+  const totalPages = ledger?.meta.totalPages ?? 1;
 
   return (
     <div>
       <h2 className="text-2xl font-bold mb-6">Balance</h2>
 
-      {/* Current balance card */}
       <div className="border rounded-xl p-6 mb-6 bg-gradient-to-br from-primary/5 to-transparent">
-        <div className="flex items-center gap-3 mb-1">
-          <Wallet className="h-5 w-5 text-muted-foreground" />
-          <p className="text-sm text-muted-foreground font-medium">
-            Available credits
-          </p>
+        <div className="grid gap-6 sm:grid-cols-2">
+          <div>
+            <p className="text-sm text-muted-foreground font-medium flex items-center gap-2 mb-1">
+              <Wallet className="h-4 w-4" /> Available credits
+            </p>
+            <Skeleton name="balance-display" loading={isLoading}>
+              <p className="text-4xl font-bold flex items-baseline gap-2">
+                <Coins className="h-7 w-7 text-amber-500" />
+                {balance}
+              </p>
+            </Skeleton>
+          </div>
+          <div>
+            <p className="text-sm text-muted-foreground font-medium mb-1">On hold</p>
+            <p className="text-4xl font-bold text-muted-foreground">{reserved}</p>
+            <p className="text-xs text-muted-foreground mt-1">
+              Held for jobs you're interested in. Charged only if you're shortlisted.
+            </p>
+          </div>
         </div>
-        <Skeleton name="balance-display" loading={isLoading}>
-          <p className="text-4xl font-bold flex items-baseline gap-2">
-            <Coins className="h-7 w-7 text-amber-500" />
-            {balance}
-            <span className="text-base font-normal text-muted-foreground">
-              credits
-            </span>
-          </p>
-        </Skeleton>
-        <Button
-          className="mt-4 gap-2"
-          onClick={() => setShowPurchaseModal(true)}
-        >
+        <Button className="mt-5 gap-2" onClick={() => setShowPurchaseModal(true)}>
           <Coins className="h-4 w-4" />
           Buy credits
         </Button>
       </div>
 
-      {/* Auto top-up */}
-      <div className="border rounded-xl p-5 mb-6">
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="font-semibold">Auto top-up</p>
-            <p className="text-sm text-muted-foreground">
-              Automatically buy more credits when your balance runs low.
-            </p>
+      <div className="border rounded-xl p-5 mb-6 text-sm text-muted-foreground space-y-1">
+        <p className="font-semibold text-foreground">How credits work</p>
+        <p>Expressing interest in a job is free — we hold the lead fee while the customer decides.</p>
+        <p>If they shortlist you, you swap contact details and the fee is charged. If not, it comes back.</p>
+        <p>Something wrong with a lead? You can request your credits back from the lead page.</p>
+      </div>
+
+      <h3 className="font-semibold mb-3">Credit history</h3>
+      <Skeleton name="credit-ledger" loading={ledgerLoading}>
+        {rows.length === 0 ? (
+          <p className="text-sm text-muted-foreground">No credit activity yet.</p>
+        ) : (
+          <div className="divide-y border rounded-lg">
+            {rows.map((r) => {
+              const change = r.amount !== 0 ? r.amount : -r.reservedChange;
+              return (
+                <div key={r.id} className="flex items-center gap-3 p-3 text-sm">
+                  <div className="flex-1 min-w-0">
+                    <p className="font-medium">{LEDGER_LABEL[r.type]}</p>
+                    <p className="text-xs text-muted-foreground">
+                      {new Date(r.createdAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
+                      {r.note ? ` · ${r.note}` : ""}
+                    </p>
+                  </div>
+                  {r.leadId && (
+                    <button
+                      type="button"
+                      className="text-xs text-primary hover:underline shrink-0"
+                      onClick={() => navigate(`/tradesperson/my-leads/${r.leadId}`)}
+                    >
+                      View lead
+                    </button>
+                  )}
+                  <span
+                    className={`font-semibold shrink-0 w-16 text-right ${
+                      r.type === "LEAD_FEE" ? "text-foreground" : change > 0 ? "text-green-600" : "text-muted-foreground"
+                    }`}
+                  >
+                    {r.type === "LEAD_FEE" ? `−${-r.reservedChange}` : `${change > 0 ? "+" : ""}${change}`}
+                  </span>
+                  <span className="text-xs text-muted-foreground shrink-0 w-20 text-right">bal {r.balanceAfter}</span>
+                </div>
+              );
+            })}
           </div>
-          <span className="text-xs font-medium bg-muted text-muted-foreground px-2 py-1 rounded-full">
-            Coming soon
-          </span>
-        </div>
-      </div>
+        )}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-center gap-3 mt-4">
+            <Button variant="outline" size="sm" disabled={page === 1} onClick={() => setPage((p) => p - 1)}>
+              Previous
+            </Button>
+            <span className="text-sm text-muted-foreground">
+              Page {page} of {totalPages}
+            </span>
+            <Button variant="outline" size="sm" disabled={page >= totalPages} onClick={() => setPage((p) => p + 1)}>
+              Next
+            </Button>
+          </div>
+        )}
+      </Skeleton>
 
-      {/* Credit pack info */}
-      <div className="border rounded-xl p-5">
-        <p className="font-semibold mb-3">Credit pack pricing</p>
-        <div className="space-y-2 text-sm">
-          {[
-            {
-              credits: 25,
-              price: "£25",
-              per: "£1.00/credit",
-              label: "Starter",
-            },
-            {
-              credits: 60,
-              price: "£50",
-              per: "£0.83/credit",
-              label: "Standard",
-            },
-            { credits: 150, price: "£100", per: "£0.67/credit", label: "Pro" },
-            {
-              credits: 400,
-              price: "£200",
-              per: "£0.50/credit",
-              label: "Enterprise",
-            },
-          ].map((pack) => (
-            <div
-              key={pack.credits}
-              className="flex items-center justify-between py-1"
-            >
-              <span className="text-muted-foreground">
-                {pack.label} — {pack.credits} credits
-              </span>
-              <span className="font-medium">
-                {pack.price}{" "}
-                <span className="text-muted-foreground font-normal">
-                  ({pack.per})
-                </span>
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <PurchaseCreditsModal
-        open={showPurchaseModal}
-        onClose={() => setShowPurchaseModal(false)}
-      />
+      <PurchaseCreditsModal open={showPurchaseModal} onClose={() => setShowPurchaseModal(false)} />
     </div>
   );
 };
@@ -1658,8 +1758,8 @@ const TradesProfile = () => {
         return <ContactDetailsTab />;
       case "manage-account":
         return <ManageAccountTab />;
-      case "saved-leads":
-        return <SavedLeadsTab />;
+      case "verification":
+        return <VerificationTab goTo={setTab} />;
       case "work-area":
         return <WorkAreaTab initialPostcode={initialPostcode} />;
       case "services":
@@ -1758,14 +1858,17 @@ const TradesProfile = () => {
               )}
             </div>
 
-            {/* Unverified badge */}
+            {/* Verification status */}
             {!isVerified && (
-              <Badge
-                variant="outline"
-                className="text-amber-600 border-amber-300 bg-amber-50 text-xs"
-              >
-                <ShieldAlert className="h-3 w-3 mr-1" /> Unverified
-              </Badge>
+              <button type="button" onClick={() => setTab("verification")}>
+                <Badge
+                  variant="outline"
+                  className="text-amber-600 border-amber-300 bg-amber-50 text-xs"
+                >
+                  <ShieldAlert className="h-3 w-3 mr-1" />
+                  {profile?.verificationStatus === "PENDING" ? "Verification pending" : "Get verified"}
+                </Badge>
+              </button>
             )}
 
             {/* Profile completion bar */}

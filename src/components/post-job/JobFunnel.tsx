@@ -2,12 +2,15 @@ import { useState, useEffect, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
-import type {
-  QuestionNode,
-  AnswerValue,
-  Answers,
-  HistoryEntry,
+import {
+  OTHER_SEP,
+  type QuestionNode,
+  type AnswerValue,
+  type Answers,
+  type HistoryEntry,
 } from "@/types/post-job";
+import type { CreateJobData } from "@/api/jobs";
+import { extractError } from "@/api/client";
 import QuestionRenderer from "./QuestionRenderer";
 import FunnelEmailStep from "./FunnelEmailStep";
 import FunnelAccountStep from "./FunnelAccountStep";
@@ -29,6 +32,8 @@ interface JobFunnelProps {
   onBackToServices: () => void;
   /** Pre-filled postcode from URL query param */
   initialPostcode?: string;
+  /** Tradesperson username to invite ("Request a quote" from a profile) */
+  inviteUsername?: string;
 }
 
 /**
@@ -44,6 +49,7 @@ const JobFunnel = ({
   serviceSlug,
   onBackToServices,
   initialPostcode = "",
+  inviteUsername,
 }: JobFunnelProps) => {
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
@@ -94,7 +100,8 @@ const JobFunnel = ({
         node.options &&
         typeof answer === "string"
       ) {
-        const selectedOption = node.options.find((o) => o.id === answer);
+        const id = answer.split(OTHER_SEP)[0];
+        const selectedOption = node.options.find((o) => o.id === id);
         if (selectedOption?.next) return selectedOption.next;
       }
       if (node.next) return node.next;
@@ -106,29 +113,17 @@ const JobFunnel = ({
   // ── Submit job to API ──
   const submitJob = useCallback(
     (collectedAnswers: Answers) => {
-      const postcode =
-        (Object.values(collectedAnswers).find(
-          (v) => typeof v === "string" && /^[A-Z]{1,2}\d/.test(v as string),
-        ) as string) ?? "";
-
+      const job = buildJob(rootNode, collectedAnswers, resolveNext, serviceName);
       createJobMutation.mutate(
+        { ...job, serviceSlug, inviteUsername },
         {
-          serviceSlug,
-          postcode,
-          answersJson: collectedAnswers,
-          title: serviceName,
-        },
-        {
-          onSuccess: (job) => {
-            navigate(`/homeowner/my-jobs/${job.id}`);
+          onSuccess: (created) => {
+            navigate(`/homeowner/my-jobs/${created.jobNumber}`);
           },
           onError: (err: unknown) => {
-            const message =
-              (err as { response?: { data?: { message?: string } } })?.response
-                ?.data?.message ?? "Could not post job. Please try again.";
             toast({
               title: "Job post failed",
-              description: message,
+              description: extractError(err) || "Could not post job. Please try again.",
               variant: "destructive",
             });
             setAuthStep("questions");
@@ -136,7 +131,7 @@ const JobFunnel = ({
         },
       );
     },
-    [serviceSlug, serviceName, createJobMutation, navigate, toast],
+    [rootNode, resolveNext, serviceSlug, serviceName, inviteUsername, createJobMutation, navigate, toast],
   );
 
   // ── Question tree advance ──
@@ -286,4 +281,72 @@ function countMaxDepth(
   }
 
   return 1 + maxChild;
+}
+
+/** Human-readable label(s) for a select/checkbox answer, including any "Other" text. */
+function optionLabels(node: QuestionNode, answer: AnswerValue): string {
+  const values = Array.isArray(answer) ? (answer as string[]) : [answer as string];
+  return values
+    .map((v) => {
+      const [id, other] = v.split(OTHER_SEP);
+      const label = node.options?.find((o) => o.id === id)?.formLabel ?? id;
+      return other?.trim() ? `${label}: ${other.trim()}` : label;
+    })
+    .join(", ");
+}
+
+/**
+ * Walk the path the homeowner actually took (answers to abandoned branches are
+ * ignored) and turn it into the create-job payload.
+ */
+function buildJob(
+  root: QuestionNode,
+  answers: Answers,
+  next: (node: QuestionNode, answer: AnswerValue) => QuestionNode | null,
+  serviceName: string,
+): Omit<CreateJobData, "serviceSlug"> {
+  let title = "";
+  let postcode = "";
+  const descriptions: string[] = [];
+  const attachments: File[] = [];
+  const qa: { question: string; answer: string }[] = [];
+
+  const seen = new Set<string>();
+  let node: QuestionNode | null = root;
+  while (node && !seen.has(node.id)) {
+    seen.add(node.id);
+    const answer = answers[node.id];
+    if (answer === undefined) break;
+    switch (node.type) {
+      case "TitleQuestion":
+        title = String(answer).trim();
+        break;
+      case "TextareaQuestion":
+        if (String(answer).trim()) descriptions.push(String(answer).trim());
+        break;
+      case "PostalCodeQuestion":
+        postcode = String(answer).trim().toUpperCase();
+        break;
+      case "AttachmentQuestion":
+        attachments.push(...(answer as File[]));
+        break;
+      case "IntegerQuestion":
+        if (String(answer)) qa.push({ question: node.formLabel, answer: String(answer) });
+        break;
+      default: {
+        const label = optionLabels(node, answer);
+        if (label) qa.push({ question: node.formLabel, answer: label });
+      }
+    }
+    node = next(node, answer);
+  }
+
+  title = (title || `${serviceName} job`).slice(0, 100);
+  return {
+    title,
+    description: (descriptions.join("\n\n") || title).slice(0, 5000),
+    postcode,
+    answers: qa,
+    attachments: attachments.slice(0, 10),
+  };
 }

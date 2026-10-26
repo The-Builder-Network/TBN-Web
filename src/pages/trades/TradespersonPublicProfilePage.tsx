@@ -20,6 +20,8 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
 import { usePublicProfile } from "@/api/users";
+import { RequestQuoteButton } from "@/components/shared/RequestQuoteButton";
+import { useToast } from "@/hooks/use-toast";
 
 // ── Helpers ───────────────────────────────────────────────────
 
@@ -67,6 +69,20 @@ const TradespersonPublicProfile = () => {
   const { username: rawUsername } = useParams<{ username: string }>();
   const username = rawUsername?.replace(/^@/, "") ?? "";
   const { data: tp, isLoading, error } = usePublicProfile(username);
+  const { toast } = useToast();
+
+  async function share() {
+    const url = window.location.href;
+    try {
+      if (navigator.share) await navigator.share({ title: document.title, url });
+      else {
+        await navigator.clipboard.writeText(url);
+        toast({ title: "Link copied" });
+      }
+    } catch {
+      // user cancelled the share sheet
+    }
+  }
   const [, setSelectedPortfolioIndex] = useState(0);
 
   if (isLoading) return <ProfileSkeleton />;
@@ -216,12 +232,16 @@ const TradespersonPublicProfile = () => {
 
             {/* Actions */}
             <div className="flex flex-col gap-3 md:items-end shrink-0">
-              <Button size="lg" className="w-full md:w-auto">
-                <MessageSquare className="h-5 w-5 mr-2" />
-                Get a Quote
-              </Button>
+              <RequestQuoteButton
+                size="lg"
+                className="w-full md:w-auto"
+                label="Get a quote"
+                username={tp.username}
+                name={tp.companyName || tp.name}
+                serviceSlug={tp.services[0]}
+              />
               <div className="flex gap-2 justify-center">
-                <Button variant="outline" size="icon">
+                <Button variant="outline" size="icon" aria-label="Share this profile" onClick={() => void share()}>
                   <Share2 className="h-4 w-4" />
                 </Button>
               </div>
@@ -478,10 +498,12 @@ const TradespersonPublicProfile = () => {
           <div className="space-y-6">
             <div className="bg-card rounded-xl border p-6 sticky top-24">
               <h3 className="font-semibold text-lg mb-4">Get in Touch</h3>
-              <Button className="w-full mb-4">
-                <MessageSquare className="h-5 w-5 mr-2" />
-                Request a Quote
-              </Button>
+              <RequestQuoteButton
+                className="w-full mb-4"
+                username={tp.username}
+                name={tp.companyName || tp.name}
+                serviceSlug={tp.services[0]}
+              />
               <p className="text-sm text-muted-foreground text-center mb-6">
                 Free, no obligation quote
               </p>

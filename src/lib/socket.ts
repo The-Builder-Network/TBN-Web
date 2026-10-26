@@ -9,60 +9,54 @@ let chatSocket: Socket | null = null;
 let notifSocket: Socket | null = null;
 
 function createSocket(namespace: string): Socket {
-  const token = getAccessToken();
-  return io(`${SERVER_ORIGIN}${namespace}`, {
-    auth: { token },
+  const socket = io(`${SERVER_ORIGIN}${namespace}`, {
+    // Read the token on every (re)connect so a refreshed token is picked up.
+    auth: (cb) => cb({ token: getAccessToken() }),
     transports: ["websocket", "polling"],
     autoConnect: false,
     reconnection: true,
-    reconnectionAttempts: 10,
     reconnectionDelay: 2000,
   });
+  // A rejected handshake (e.g. expired access token) is not retried by
+  // socket.io itself; try again once the HTTP client has refreshed the token.
+  socket.on("connect_error", () => {
+    setTimeout(() => {
+      if (getAccessToken() && !socket.connected && socket === (namespace === "/ws/chat" ? chatSocket : notifSocket)) {
+        socket.connect();
+      }
+    }, 5000);
+  });
+  return socket;
 }
 
-/** Get (or create) the chat socket — `/ws/chat` namespace */
+/**
+ * Singleton sockets: listeners can be attached before the connection is up —
+ * socket.io keeps them across reconnects.
+ */
 export function getChatSocket(): Socket {
-  if (!chatSocket || chatSocket.disconnected) {
-    chatSocket?.removeAllListeners();
-    chatSocket = createSocket("/ws/chat");
-  }
+  chatSocket ??= createSocket("/ws/chat");
   return chatSocket;
 }
 
-/** Get (or create) the notifications socket — `/ws/notifications` namespace */
 export function getNotifSocket(): Socket {
-  if (!notifSocket || notifSocket.disconnected) {
-    notifSocket?.removeAllListeners();
-    notifSocket = createSocket("/ws/notifications");
-  }
+  notifSocket ??= createSocket("/ws/notifications");
   return notifSocket;
 }
 
 /** Connect both sockets (call after login / on mount when token exists) */
 export function connectSockets() {
-  const token = getAccessToken();
-  if (!token) return;
-
-  const chat = getChatSocket();
-  if (!chat.connected) {
-    chat.auth = { token };
-    chat.connect();
-  }
-
-  const notif = getNotifSocket();
-  if (!notif.connected) {
-    notif.auth = { token };
-    notif.connect();
+  if (!getAccessToken()) return;
+  for (const s of [getChatSocket(), getNotifSocket()]) {
+    if (!s.connected) s.connect();
   }
 }
 
 /** Disconnect both sockets (call on logout) */
 export function disconnectSockets() {
-  chatSocket?.disconnect();
-  chatSocket?.removeAllListeners();
+  for (const s of [chatSocket, notifSocket]) {
+    s?.removeAllListeners();
+    s?.disconnect();
+  }
   chatSocket = null;
-
-  notifSocket?.disconnect();
-  notifSocket?.removeAllListeners();
   notifSocket = null;
 }

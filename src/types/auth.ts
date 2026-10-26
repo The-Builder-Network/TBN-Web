@@ -10,6 +10,10 @@ export interface User {
   username?: string;
   /** CloudFront CDN URL of the user's avatar, or null if not set */
   avatarUrl?: string | null;
+  phone?: string | null;
+  emailVerified?: boolean;
+  notificationsPaused?: boolean;
+  marketingOptIn?: boolean;
 }
 
 export interface AuthContextValue {

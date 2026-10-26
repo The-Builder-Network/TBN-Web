@@ -39,6 +39,7 @@ export async function updateMyProfile(
 export async function updateUser(data: {
   name?: string;
   phone?: string;
+  marketingOptIn?: boolean;
 }): Promise<void> {
   await api.patch("/users/me", data);
 }
@@ -315,14 +316,39 @@ export function useDeleteDocument() {
   });
 }
 
-// ── Update user phone ────────────────────────────────────────
+// ── Account ──────────────────────────────────────────────────
 
 export function useUpdateUser() {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: updateUser,
-    onSuccess: () =>
-      void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
+    onSuccess: () => {
+      void qc.invalidateQueries({ queryKey: userKeys.myProfile });
+      void qc.invalidateQueries({ queryKey: ["auth", "me"] });
+    },
+  });
+}
+
+export function useSetNotificationsPaused() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (paused: boolean) => api.patch("/users/me/notifications", { paused }),
+    onSuccess: () => void qc.invalidateQueries({ queryKey: ["auth", "me"] }),
+  });
+}
+
+/** Closes the account (anonymised, open jobs closed, credits forfeited). Caller logs out. */
+export function useDeleteAccount() {
+  return useMutation({
+    mutationFn: (password: string) => api.post("/users/me/delete", { password }),
+  });
+}
+
+export function useSubmitVerification() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: () => api.post<OwnTradespersonProfile>("/users/me/verification/submit"),
+    onSuccess: () => void qc.invalidateQueries({ queryKey: userKeys.myProfile }),
   });
 }
 

@@ -11,12 +11,27 @@ import {
   HelpCircle,
   ThumbsUp,
   ShieldCheck,
+  ShieldAlert,
+  Mail,
+  ListChecks,
+  Hammer,
 } from "lucide-react";
 import type { NotificationItem } from "@/api/types";
 
-const ICON_MAP: Record<string, React.ElementType> = {
+const ICON_MAP: Record<NotificationItem["type"], React.ElementType> = {
   NEW_LEAD: Briefcase,
+  JOB_INVITE: Mail,
   NEW_INTEREST: Bell,
+  INTEREST_DECLINED: XCircle,
+  SHORTLISTED: ListChecks,
+  NOT_SELECTED: XCircle,
+  HIRED: Hammer,
+  QUOTE_ACCEPTED: CheckCircle,
+  REVIEW_REQUESTED: Star,
+  JOB_CLOSED: XCircle,
+  CREDIT_REQUEST_RESOLVED: CreditCard,
+  VERIFICATION_REJECTED: ShieldAlert,
+  VERIFICATION_INFO_REQUESTED: ShieldAlert,
   NEW_QUOTE: CreditCard,
   NEW_MESSAGE: MessageSquare,
   NEW_REVIEW: Star,

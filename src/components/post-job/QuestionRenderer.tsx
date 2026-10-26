@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { validateUKPostcode } from "@/helpers/postcodeHelper";
-import type { QuestionNode, AnswerValue } from "@/types/post-job";
+import { OTHER_SEP, type QuestionNode, type AnswerValue } from "@/types/post-job";
 
 interface QuestionRendererProps {
   node: QuestionNode;
@@ -72,13 +72,6 @@ const QuestionRenderer = ({
       {node.type === "SelectQuestion" && (
         <SelectBody node={node} value={draft as string} onChange={setDraft} />
       )}
-      {node.type === "CheckboxQuestion" && (
-        <CheckboxBody
-          node={node}
-          value={draft as string[]}
-          onChange={setDraft}
-        />
-      )}
       {node.type === "TextareaQuestion" && (
         <TextareaBody node={node} value={draft as string} onChange={setDraft} />
       )}
@@ -130,11 +123,11 @@ function SelectBody({
   value: string;
   onChange: (v: string) => void;
 }) {
-  // Track "Other" text for TextChoiceOption items
-  const [otherTexts, setOtherTexts] = useState<Record<string, string>>({});
+  // "Other"-style options keep their free text in the answer: "<optionId>::<text>"
+  const [selectedId, otherText = ""] = value.split(OTHER_SEP);
 
   return (
-    <RadioGroup value={value} onValueChange={onChange} className="space-y-2">
+    <RadioGroup value={selectedId} onValueChange={onChange} className="space-y-2">
       {node.options?.map((opt) => (
         <div key={opt.id}>
           <div
@@ -156,14 +149,14 @@ function SelectBody({
           </div>
 
           {/* TextChoiceOption: show text input when selected */}
-          {opt.type === "TextChoiceOption" && value === opt.id && (
+          {opt.type === "TextChoiceOption" && selectedId === opt.id && (
             <Input
               className="mt-2 ml-8 h-10 w-[calc(100%-2rem)]"
               placeholder={opt.placeholder ?? "Please specify..."}
-              value={otherTexts[opt.id] ?? ""}
-              onChange={(e) =>
-                setOtherTexts((prev) => ({ ...prev, [opt.id]: e.target.value }))
-              }
+              aria-label={`${opt.formLabel} details`}
+              maxLength={300}
+              value={otherText}
+              onChange={(e) => onChange(`${opt.id}${OTHER_SEP}${e.target.value}`)}
             />
           )}
         </div>
@@ -210,13 +203,15 @@ function CheckboxBody({
   value: string[];
   onChange: (v: string[]) => void;
 }) {
-  const [otherTexts, setOtherTexts] = useState<Record<string, string>>({});
-
+  const idOf = (v: string) => v.split(OTHER_SEP)[0];
+  const ids = value.map(idOf);
   const toggle = (id: string) => {
     onChange(
-      value.includes(id) ? value.filter((v) => v !== id) : [...value, id],
+      ids.includes(id) ? value.filter((v) => idOf(v) !== id) : [...value, id],
     );
   };
+  const setOther = (id: string, text: string) =>
+    onChange(value.map((v) => (idOf(v) === id ? `${id}${OTHER_SEP}${text}` : v)));
 
   return (
     <div className="space-y-2">
@@ -228,7 +223,7 @@ function CheckboxBody({
           >
             <Checkbox
               id={`chk-${opt.id}`}
-              checked={value.includes(opt.id)}
+              checked={ids.includes(opt.id)}
               onCheckedChange={() => toggle(opt.id)}
             />
             <Label
@@ -244,14 +239,14 @@ function CheckboxBody({
             </Label>
           </div>
 
-          {opt.type === "TextChoiceOption" && value.includes(opt.id) && (
+          {opt.type === "TextChoiceOption" && ids.includes(opt.id) && (
             <Input
               className="mt-2 ml-8 h-10 w-[calc(100%-2rem)]"
               placeholder={opt.placeholder ?? "Please specify..."}
-              value={otherTexts[opt.id] ?? ""}
-              onChange={(e) =>
-                setOtherTexts((prev) => ({ ...prev, [opt.id]: e.target.value }))
-              }
+              aria-label={`${opt.formLabel} details`}
+              maxLength={300}
+              value={value.find((v) => idOf(v) === opt.id)?.split(OTHER_SEP)[1] ?? ""}
+              onChange={(e) => setOther(opt.id, e.target.value)}
             />
           )}
         </div>
