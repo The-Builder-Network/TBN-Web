@@ -8,6 +8,7 @@ import {
   User,
   Briefcase,
   MessageSquare,
+  Eye,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -147,6 +148,15 @@ const Header = () => {
                   onLogout={handleLogout}
                   onProfile={() => navigate("/tradesperson/profile")}
                   extraItems={[
+                    ...(user?.username
+                      ? [
+                          {
+                            label: "View public profile",
+                            icon: Eye,
+                            onClick: () => navigate(`/tradesperson/${user.username}`),
+                          },
+                        ]
+                      : []),
                     {
                       label: "My leads",
                       icon: Briefcase,
@@ -281,6 +291,15 @@ const Header = () => {
                   >
                     Profile
                   </Link>
+                  {user?.username && (
+                    <Link
+                      to={`/tradesperson/${user.username}`}
+                      className="block px-4 py-3 text-sm font-medium hover:bg-muted rounded-md"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      View public profile
+                    </Link>
+                  )}
                   <button
                     onClick={() => {
                       setMobileMenuOpen(false);
